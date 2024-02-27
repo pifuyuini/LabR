@@ -15,7 +15,7 @@
 \contentsline {subsubsection}{\numberline {3.1.2}}{6}{subsubsection.3.1.2}%
 \contentsline {subsubsection}{\numberline {3.1.3}}{6}{subsubsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.2}实验后思考题}{6}{subsection.3.2}%
-\contentsline {section}{\numberline {4}BD1 复摆与混沌 \hskip 1em\relax \heiti 结语}{7}{section.4}%
+\contentsline {section}{\numberline {4}XXX 某某某 \hskip 1em\relax \heiti 结语}{7}{section.4}%
 \contentsline {subsection}{\numberline {4.1}总结、杂谈与致谢}{7}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}参考文献}{7}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}附件}{7}{subsection.4.3}%
