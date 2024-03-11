@@ -8,17 +8,18 @@
 \contentsline {section}{\numberline {2}Lab2-1 原子的发射和吸收光谱观测分析实验 \hskip 1em\relax \heiti 实验记录}{8}{section.2}%
 \contentsline {subsection}{\numberline {2.1}实验内容、步骤与结果}{8}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}操作步骤记录}{8}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}}{8}{subsubsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.2}原始数据记录}{9}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}实验过程中遇到的问题记录}{9}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Lab2-1 原子的发射和吸收光谱观测分析实验 \hskip 1em\relax \heiti 分析与讨论}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}实验数据分析}{10}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}}{10}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}}{10}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}}{10}{subsubsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.2}实验后思考题}{10}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Lab2-1 原子的发射和吸收光谱观测分析实验 \hskip 1em\relax \heiti 结语}{11}{section.4}%
-\contentsline {subsection}{\numberline {4.1}总结、杂谈与致谢}{11}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}参考文献}{11}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}附件}{11}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {2.1.2}实验数据记录}{9}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}原始数据记录}{10}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}实验过程中遇到的问题记录}{10}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Lab2-1 原子的发射和吸收光谱观测分析实验 \hskip 1em\relax \heiti 分析与讨论}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}实验数据分析}{11}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}钠灯光谱、汞灯光谱的谱线分析}{11}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}电灯（手机闪光灯）、手机屏幕光谱分析}{11}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Beer定律验证}{11}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Lambert定律验证}{11}{subsubsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.2}实验后思考题}{11}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Lab2-1 原子的发射和吸收光谱观测分析实验 \hskip 1em\relax \heiti 结语}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}总结、杂谈与致谢}{12}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}参考文献}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}附件}{12}{subsection.4.3}%
 \contentsfinish 
