@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.15)  11 MAR 2024 10:24
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.15)  11 MAR 2024 11:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**UniversalTemplate.tex
-(./UniversalTemplate.tex
+**Lab2_2Report.tex
+(./Lab2_2Report.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22>
 (/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
@@ -1121,8 +1121,8 @@ File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
 \c@checkoddpage=\count380
 ))
-(./UniversalTemplate.aux)
-\openout1 = `UniversalTemplate.aux'.
+(./Lab2_2Report.aux)
+\openout1 = `Lab2_2Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -1236,9 +1236,9 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 12.
-(./UniversalTemplate.out) (./UniversalTemplate.out)
+(./Lab2_2Report.out) (./Lab2_2Report.out)
 \@outlinefile=\write4
-\openout4 = `UniversalTemplate.out'.
+\openout4 = `Lab2_2Report.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
@@ -1320,7 +1320,7 @@ Package fontspec Info: Font family 'SongtiSCLight(1)' created for font 'Songti
 (fontspec)             Light/BI/OT:language=dflt;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
-(./UniversalTemplate.toc
+(./Lab2_2Report.toc
 
 Package fontspec Warning: Font "Heiti SC Light" does not contain requested
 (fontspec)                Script "CJK".
@@ -1353,7 +1353,7 @@ Package fontspec Info: Font family 'HeitiSCLight(0)' created for font 'Heiti
 
 )
 \tf@toc=\write5
-\openout5 = `UniversalTemplate.toc'.
+\openout5 = `Lab2_2Report.toc'.
 
 
 
@@ -1370,11 +1370,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 97.
+(hyperref)                replaced by space on input line 101.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 97.
+(hyperref)                removing `\heiti' on input line 101.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1388,15 +1388,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 178.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 178.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -1404,9 +1395,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4
+[4]
 
-]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 211.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\heiti' on input line 211.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1418,15 +1416,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [5
 
 ]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 255.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 255.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1441,11 +1430,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 303.
+(hyperref)                replaced by space on input line 288.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 303.
+(hyperref)                removing `\heiti' on input line 288.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[7
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \hskip 10.95pt
+(hyperref)                replaced by space on input line 336.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\heiti' on input line 336.
 
 File: ./images//name.png Graphic file (type bmp)
 <./images//name.png>
@@ -1457,19 +1466,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[7
+[8
 
-] (./UniversalTemplate.aux)
-Package rerunfilecheck Info: File `UniversalTemplate.out' has not changed.
-(rerunfilecheck)             Checksum: 3DD8BF60D6320E7166789DA394401A2E;2167.
+] (./Lab2_2Report.aux)
+Package rerunfilecheck Info: File `Lab2_2Report.out' has not changed.
+(rerunfilecheck)             Checksum: 933C445E9231EC3ADF5E5165EA6F6DB9;2973.
  ) 
 Here is how much of TeX's memory you used:
- 38062 strings out of 476683
- 828743 string characters out of 5804046
- 1877018 words of memory out of 5000000
- 57674 multiletter control sequences out of 15000+600000
+ 38124 strings out of 476683
+ 832908 string characters out of 5804046
+ 1882018 words of memory out of 5000000
+ 57736 multiletter control sequences out of 15000+600000
  519257 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 105i,12n,107p,448b,966s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 105i,12n,107p,443b,966s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on UniversalTemplate.pdf (7 pages).
+Output written on Lab2_2Report.pdf (8 pages).
