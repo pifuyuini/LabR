@@ -349,7 +349,7 @@
 	\begin{enumerate}
 		\item 钠灯光谱
 		
-		对钠灯谱线进行了多次测量，并标注出了其特征谱线，如图所示，更进一步的解读与分析见\textbf{数据分析}部分。
+		对钠灯谱线进行了多次测量，并标注出了其特征谱线，如\cref{fig:figA1}和\cref{fig:figA2}所示，更进一步的解读与分析见\textbf{数据分析}部分。
 		
 		\begin{figure}[htbp]
 			\centering
@@ -384,7 +384,7 @@
 		
 		\item 汞灯光谱
 		
-		对汞灯谱线进行了多次测量，并标注出了其特征谱线，如图所示，更进一步的解读与分析见\textbf{数据分析}部分。
+		对汞灯谱线进行了多次测量，并标注出了其特征谱线，如\cref{fig:figA4}和\cref{fig:figA5}所示，更进一步的解读与分析见\textbf{数据分析}部分。
 		
 		\begin{figure}[htbp]
 			\centering
@@ -412,7 +412,7 @@
 		
 		\item 手机屏光谱
 		
-		测量了手机iPhone 13 mini的屏幕光谱，如图所示，更进一步的解读与分析见\textbf{数据分析}部分。
+		测量了手机iPhone 13 mini的屏幕光谱，如\cref{fig:figA6}所示，更进一步的解读与分析见\textbf{数据分析}部分。
 		
 		\begin{figure}[htbp]
 			\centering
@@ -424,7 +424,7 @@
 		\clearpage
 		\item 电灯和手机闪光灯光谱
 		
-		首先，我测量了实验室电灯的发光光谱，发现效果并不太好，如图所示；
+		首先，我测量了实验室电灯的发光光谱，发现效果并不太好，如\cref{fig:figA7}所示；
 		
 		\begin{figure}[htbp]
 			\centering
@@ -433,7 +433,7 @@
 			\label{fig:figA7}
 		\end{figure}
 		
-		接着，出于兴趣和探究精神，我测量了手机闪光灯的发光光谱，如图所示，更进一步的解读与分析见\textbf{数据分析}部分。
+		接着，出于兴趣和探究精神，我测量了手机闪光灯的发光光谱，如\cref{fig:figA8}所示，更进一步的解读与分析见\textbf{数据分析}部分。
 		
 		\begin{figure}[htbp]
 			\centering
@@ -445,7 +445,7 @@
 		\clearpage
 		\item Beer定律验证
 		
-		验证Beer定律，我测量了一系列浓度的高锰酸钾溶液的光吸收曲线，最终结果如图所示，更进一步的解读与分析见\textbf{数据分析}部分。
+		验证Beer定律，我测量了一系列浓度的高锰酸钾溶液的光吸收曲线，最终结果如\cref{fig:figA9}所示，更进一步的解读与分析见\textbf{数据分析}部分。
 		
 		\begin{figure}[htbp]
 			\centering
@@ -461,7 +461,7 @@
 		
 		\item Lambert定律验证
 		
-		验证Lambert定律，我测量了厚度增加薄片的光透射曲线，最终结果如图所示，更进一步的解读与分析见\textbf{数据分析}部分。
+		验证Lambert定律，我测量了厚度增加薄片的光透射曲线，最终结果如\cref{fig:figA10}所示，更进一步的解读与分析见\textbf{数据分析}部分。
 		
 		\begin{figure}[htbp]
 			\centering
@@ -488,6 +488,7 @@
 	\subsection{实验过程中遇到的问题记录}
 	\begin{enumerate}
 		\item 可能是实验设备的原因，实验所测得数据有着不小的噪声；因此，我用Python语言编写了滤波器代码来降低噪声的影响，详见\textbf{数据分析}部分。
+		\item 钠灯光谱测量效果不好。
 	\end{enumerate}
 	% ---
 	
@@ -524,7 +525,7 @@
 		\item 测量结果与光谱图基本信息解读
 		回顾\textbf{原理概述}部分所述钠原子光谱特点，
 		钠原子光谱分四个线系：主线系np~3s(n=3,4,5,…)，锐线系ns~3p(n=4,5,6,…)，漫线系nd~3p(n=3,4,5,…)，基线系nf~3d(n=4,5,6,…)。
-		然后利用实验测得的数据分别得到钠黄双线图与300~550nm图（图）。（杂峰的存在严重影响的钠谱线的定位，所以除了那些很强的钠谱线外，在不知道理论波长时是无法从图中确定哪些是钠的谱线，所以本人通过钠谱线的双线结构并参考了理论值在图中已经定出了钠的谱线。）
+		然后利用实验测得的数据分别得到钠黄双线图与300~550nm图（\cref{fig:fig7}和\cref{fig:fig8}）。（杂峰的存在严重影响的钠谱线的定位，所以除了那些很强的钠谱线外，在不知道理论波长时是无法从图中确定哪些是钠的谱线，所以本人通过钠谱线的双线结构并参考了理论值在图中已经定出了钠的谱线。）
 		
 		\begin{figure}[htbp]
 			\centering
@@ -542,7 +543,7 @@
 		
 		\item 谱线数据处理与计算
 		
-		利用所得到的谱线数据（表），我们可以结合\textbf{原理概述}部分所提到的量子亏损做一些计算。
+		利用所得到的谱线数据（\cref{tab:tab1}），我们可以结合\textbf{原理概述}部分所提到的量子亏损做一些计算。
 		
 		\begin{table}[ht]
 			\centering
@@ -575,7 +576,7 @@
 			\label{fig:fig9}			
 		\end{figure}
 		
-		事实上，对比两图可知，上述猜想在一定程度上符合。
+		事实上，对比两\cref{fig:fig9}可知，上述猜想在一定程度上符合。
 		
 	\end{enumerate}
 	
@@ -611,7 +612,7 @@
 	
 	黄色取各级结果平均值$\bar{\lambda}(yellow)=578.6nm$，相对误差0.06\%。
 	
-	\textbf{本实验中，我么得到如图所示数据：}
+	\textbf{本实验中，我们得到如\cref{fig:fig11}所示数据：}
 	
 	\begin{figure}[htbp]
 		\centering
@@ -627,7 +628,7 @@
 	\begin{enumerate}
 		\item 电灯的光谱分析
 		
-		从原图中可以看出，有几个明显的峰值：
+		从原图（\cref{fig:figA7}）中可以看出，有几个明显的峰值：
 		
 		\begin{enumerate}
 			\item 紫色区域（约400nm左右）有一个峰值，这表明光源在紫色频段的辐射强度较高。
@@ -637,7 +638,7 @@
 			\item 在红色到近红外线区域（650nm以上），光强逐渐下降。
 		\end{enumerate}
 		
-		将测定的数据处理过后，得到如图所示结果。
+		将测定的数据处理过后，得到如\cref{fig:fig12}所示结果。
 		
 		\begin{figure}[htbp]
 			\centering
@@ -657,7 +658,7 @@
 		
 		\item 手机闪光灯的光谱分析
 		
-		同样对测得的数据处理过后，得到如图所示结果，再结合原图分析，可以发现：
+		同样对测得的数据处理过后，得到如\cref{fig:fig13}所示结果，再结合原图（\cref{fig:figA8}）分析，可以发现：
 		
 		\begin{figure}[htbp]
 			\centering
@@ -691,7 +692,7 @@
 			\label{fig:fig14}
 		\end{figure}
 		
-		从这张处理过的光谱图中，我们可以观察到三个明显的发射峰，分别在大约464.10纳米（蓝色光区域）、530.21纳米（绿色光区域）和623.78纳米（红色光区域）。这些峰值反映了手机屏幕在这些特定波长的光发射的强度。
+		从这张处理过的光谱图（\cref{fig:fig14}）中，我们可以观察到三个明显的发射峰，分别在大约464.10纳米（蓝色光区域）、530.21纳米（绿色光区域）和623.78纳米（红色光区域）。这些峰值反映了手机屏幕在这些特定波长的光发射的强度。
 		
 		智能手机屏幕，包括iPhone 13 mini，通常使用LED或OLED技术来生成不同颜色的光。对于LED屏幕，这通常涉及到蓝色LED发光体和不同荧光材料的组合，以产生红色和绿色的光，从而混合形成白色背光。对于OLED屏幕，不同颜色的有机材料会直接发光。
 		
@@ -703,66 +704,92 @@
 	
 	%
 	\subsubsection{Beer定律验证}
-	利用测量得到的数据，出于噪声太大的原因，我分别通过编写Python脚本和手动的方式，选出了各浓度三个峰值，如图所示。
+	利用测量得到的数据，出于噪声太大的原因，我分别通过编写Python脚本和手动的方式，选出了各浓度三个峰值，如\cref{fig:fig15}和\cref{fig:fig16}所示。
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=0.7\textwidth]{Lab2_1Gra15.jpg}
+		\includegraphics[width=0.5\textwidth]{Lab2_1Gra15.jpg}
 		\caption{用Origin进行手动寻峰结果}
 		\label{fig:fig15}
 	\end{figure}
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=0.7\textwidth]{Lab2_1Gra16.png}
+		\includegraphics[width=0.6\textwidth]{Lab2_1Gra16.png}
 		\caption{脚本寻峰结果}
 		\label{fig:fig16}
 	\end{figure}
 	
-	接下来我选取了其中一些数据来验证Beer定律，结果如下。
+	接下来我选取了其中一些数据来验证Beer定律，结果如下（表）。
 	
-	如图所示，
+	表
 	
-	如图所示，
-	
-	如图所示，
-	
-	但是，值得注意的是，在紫外段出现了很明显不符合Beer定律的情况。
-	
-	%
-	\subsubsection{Lambert定律验证}
-	如\textbf{问题记录}部分所述，测量时有着较大的噪声，因此我用Python语言编写了脚本进行滤波并进一步处理数据。相关代码中的核心部分我放在了\textbf{附件}部分，完整代码及运行结果详见Github（如果有需要的话老师可以联系我）。
-	
-	下面展示一次滤波结果和所有滤波结束后结果，如图所示。
+	如\cref{fig:fig17}所示，对应于从左起选取的第一个峰，从图中可以看出，斜率为12.227，相关系数达到0.991，说明数据点有着较好的线性关系。
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=0.7\textwidth]{Lab2_1Gra20.png}
+		\includegraphics[width=0.58\textwidth]{Lab2_1Gra17.jpg}
+		\caption{Beer定律验证1}
+		\label{fig:fig17}
+	\end{figure}
+	
+	如\cref{fig:fig18}所示，对应于从左起选取的第二个峰，从图中可以看出，斜率为15.856，相关系数达到0.988，说明数据点有着较好的线性关系。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.58\textwidth]{Lab2_1Gra18.jpg}
+		\caption{Beer定律验证2}
+		\label{fig:fig18}
+	\end{figure}
+	
+	\clearpage
+	如\cref{fig:fig19}所示，对应于从左起选取的第三个峰，从图中可以看出，斜率为15.627，相关系数达到0.993，说明数据点有着较好的线性关系。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.55\textwidth]{Lab2_1Gra19.jpg}
+		\caption{Beer定律验证3}
+		\label{fig:fig19}
+	\end{figure}
+	
+	上述分析当中良好的线性关系验证了Beer定律的成立。
+	
+	但是，值得注意的是，在紫外段出现了很明显不符合Beer定律的情况，即0.08g/L对应的吸收峰峰值高于0.1g/L的吸收峰峰值。
+	
+	%
+	\subsubsection{Lambert定律验证}
+	如\textbf{问题记录}部分所述，测量时有着较大的噪声，因此我用Python语言编写了脚本进行滤波并进一步处理数据，完整代码及运行结果详见Github（如果有需要的话老师可以联系我）。
+	
+	下面展示一次滤波结果和所有滤波结束后结果，如\cref{fig:fig20}和\cref{fig:fig21}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_1Gra20.png}
 		\caption{三层薄片一次滤波结果对比图}
 		\label{fig:fig20}
 	\end{figure}
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=0.7\textwidth]{Lab2_1Gra21.png}
+		\includegraphics[width=0.6\textwidth]{Lab2_1Gra21.png}
 		\caption{滤波后的完整数据图}
 		\label{fig:fig21}
 	\end{figure}
 	
-	利用滤波后数据，我取以平整阶段求平均透射率，结果如图所示。
+	利用滤波后数据，我取以平整阶段求平均透射率，结果如\cref{fig:fig22}所示。
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=0.7\textwidth]{Lab2_1Gra22.png}
+		\includegraphics[width=0.4\textwidth]{Lab2_1Gra22.png}
 		\caption{平均透射率}
 		\label{fig:fig22}
 	\end{figure}
 	
-	\textbf{取对数}后利用Origin进行拟合，得到如图所示结果。
+	\textbf{取对数}后利用Origin进行拟合，得到如\cref{fig:fig23}所示结果。
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=0.7\textwidth]{Lab2_1Gra23.png}
+		\includegraphics[width=0.55\textwidth]{Lab2_1Gra23.jpg}
 		\caption{Lambert定律验证}
 		\label{fig:fig23}
 	\end{figure}
@@ -802,7 +829,9 @@
 	% 总结、杂谈与致谢
 	\subsection{总结、杂谈与致谢}
 	\begin{enumerate}
-		\item 
+		\item 这个实验的实验过程比较简单，但实验报告非常难写。
+		\item 在写实验报告过程中，我提升了自己的数据处理能力（这是我首次用滤波器处理数据）。
+		\item 感谢老师能阅读这篇还有很多不足的实验报告，希望老师能指出做得不好的地方；祝老师身体健康、生活幸福、工作顺利！
 	\end{enumerate}
 	% ---
 	
@@ -812,13 +841,17 @@
 	
 	[2] 沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4
 	
+	[3] 相关实验报告
+	
+	[4] 英文文献（见思考题）
+	
 	% ---
 	
 	% 附件
 	\subsection{附件}
-	试验台桌面整理如%\cref{}所示。
+%	试验台桌面整理如%\cref{}所示。
 	
-	实验报告个人签名如\cref{fig:name}。
+	实验报告\textbf{个人签名}如\cref{fig:name}。
 	
 	\begin{figure}[htbp]
 		\centering
