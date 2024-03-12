@@ -16,11 +16,11 @@
 \contentsline {subsubsection}{\numberline {3.1.1}钠灯光谱的谱线分析}{14}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}汞灯光谱的谱线分析}{16}{subsubsection.3.1.2}%
 \contentsline {subsubsection}{\numberline {3.1.3}电灯（手机闪光灯）、手机屏幕光谱分析}{17}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Beer定律验证}{20}{subsubsection.3.1.4}%
-\contentsline {subsubsection}{\numberline {3.1.5}Lambert定律验证}{22}{subsubsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.2}实验后思考题}{24}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Lab2-1 原子的发射和吸收光谱观测分析实验 \hskip 1em\relax \heiti 结语}{25}{section.4}%
-\contentsline {subsection}{\numberline {4.1}总结、杂谈与致谢}{25}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}参考文献}{25}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}附件}{25}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Beer定律验证}{21}{subsubsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Lambert定律验证}{24}{subsubsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.2}实验后思考题}{25}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Lab2-1 原子的发射和吸收光谱观测分析实验 \hskip 1em\relax \heiti 结语}{28}{section.4}%
+\contentsline {subsection}{\numberline {4.1}总结、杂谈与致谢}{28}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}参考文献}{28}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}附件}{28}{subsection.4.3}%
 \contentsfinish 
