@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.27)  20 MAR 2024 02:45
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.27)  26 MAR 2024 01:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1576,6 +1576,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\heiti' on input line 335.
 
+File: ./images//Lab2_3Gra7.jpg Graphic file (type bmp)
+<./images//Lab2_3Gra7.jpg>
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1587,6 +1589,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [11
 
 ]
+File: ./images//Lab2_3Gra8.jpg Graphic file (type bmp)
+<./images//Lab2_3Gra8.jpg>
+File: ./images//Lab2_3Gra9.jpg Graphic file (type bmp)
+<./images//Lab2_3Gra9.jpg>
+File: ./images//Lab2_3Gra10.jpg Graphic file (type bmp)
+<./images//Lab2_3Gra10.jpg>
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1595,9 +1604,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[12
-
-]
+[12]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1610,61 +1617,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 391.
+(hyperref)                replaced by space on input line 389.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 391.
+(hyperref)                removing `\heiti' on input line 389.
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[14]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[15
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 468.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 468.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[16
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 10.95pt
-(hyperref)                replaced by space on input line 516.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\heiti' on input line 516.
-
+File: ./images//Lab2_3Gra11.jpg Graphic file (type bmp)
+<./images//Lab2_3Gra11.jpg>
 File: ./images//name.png Graphic file (type bmp)
 <./images//name.png>
 
@@ -1675,22 +1635,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[17
+[14
 
 ] (./Lab2_3Report.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Lab2_3Report.out' has not changed.
-(rerunfilecheck)             Checksum: 0294493DFB2624585B754ED3775AEA3F;2817.
+(rerunfilecheck)             Checksum: 5346D939EC49DB4BEC8703BA490F3045;1549.
  ) 
 Here is how much of TeX's memory you used:
- 40638 strings out of 476683
- 889649 string characters out of 5803165
+ 40693 strings out of 476683
+ 891565 string characters out of 5803165
  1882012 words of memory out of 5000000
- 60244 multiletter control sequences out of 15000+600000
+ 60294 multiletter control sequences out of 15000+600000
  519201 words of font info for 86 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  105i,12n,107p,443b,966s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lab2_3Report.pdf (17 pages).
+Output written on Lab2_3Report.pdf (14 pages).
