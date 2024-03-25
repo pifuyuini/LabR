@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.27)  21 MAR 2024 00:06
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.27)  21 MAR 2024 01:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1600,9 +1600,6 @@ File: ./images//Lab2_2GraA5.jpg Graphic file (type bmp)
 <./images//Lab2_2GraA5.jpg>
 
 
-LaTeX Warning: Reference `fig:figA4' on page 1 undefined on input line 645.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -1743,16 +1740,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `Lab2_2Report.out' has not changed.
 (rerunfilecheck)             Checksum: 72DCF026398623EFA6769BDD229A2A6B;3759.
  ) 
 Here is how much of TeX's memory you used:
- 38801 strings out of 476683
- 849713 string characters out of 5803165
+ 38800 strings out of 476683
+ 849697 string characters out of 5803165
  1882012 words of memory out of 5000000
- 58392 multiletter control sequences out of 15000+600000
+ 58391 multiletter control sequences out of 15000+600000
  519201 words of font info for 86 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  105i,17n,107p,443b,980s stack positions out of 10000i,1000n,20000p,200000b,200000s
