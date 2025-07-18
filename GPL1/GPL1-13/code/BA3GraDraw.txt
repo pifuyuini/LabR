@@ -1,0 +1,150 @@
+BA3GraDraw.py
+
+# 导入必要的库
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+import pandas as pd
+from mpl_toolkits.mplot3d import Axes3D
+
+### 注意！！！
+'''
+注意：以下以##分化的各模块要分开运行，每次只能跑一个，除非你用的是jupyter notebook。
+'''
+
+## AMR磁电转换特性
+# 定义数据（在这里改数据，具体是什么看末尾的注释，注意要保持格式。）
+x = np.array([6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5, -6]) # 磁感应强度
+y = np.array([1.501, 1.270, 1.027, 0.775, 0.518, 0.258, 0.000, -0.264, -0.525, -0.777, -1.025, -1.260, -1.487]) # 输出电压
+
+# 定义线性函数
+def linear(x, a, b):
+    return a * x + b
+
+# 对数据进行拟合，得到最优参数a和b
+popt, pcov = curve_fit(linear, x, y)
+a = popt[0]
+b = popt[1]
+
+# 计算拟合曲线的y值
+y_fit = linear(x, a, b)
+
+# 绘制散点图
+plt.scatter(x, y, label='data', color='blue', marker='o')
+
+# 绘制折线图
+#plt.plot(x, y, label='line', color='red', linestyle='-')
+
+# 绘制样条连接图
+#plt.plot(x, y, label='spline', color='green', linestyle='--')
+
+# 绘制拟合曲线
+plt.plot(x, y_fit, label='fit', color='black', linestyle='-.')
+
+# 设置图例
+plt.legend()
+
+# 设置标题
+plt.title('Output voltage vs. magnetic induction intensity')
+
+# 设置坐标轴标签
+plt.xlabel('Magnetic induction intensity/Gauss')
+plt.ylabel('Output voltage/V')
+
+# 显示图像
+plt.show()
+
+## AMR各向异性
+# 数据转换成DataFrame对象（在这里改数据，第一个夹角不用改，第二个就是你测的电压。注意要保持格式，只改[]里面的数据。）
+data = pd.DataFrame({"alpha": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90], "V": [1.027, 1.013, 0.970, 0.899, 0.799, 0.675, 0.524, 0.364, 0.177, -0.006]})
+
+# 绘制散点图
+plt.scatter(data["alpha"], data["V"], label="data")
+plt.xlabel("alpha/degree")
+plt.ylabel("U/V")
+plt.title("AMR directional characteristics")
+
+# 定义拟合函数，关于夹角余弦的二次函数
+def fit_func(x, a, b, c):
+    return a * np.cos(x * np.pi / 180) ** 2 + b * np.cos(x * np.pi / 180) + c
+
+# 对数据进行拟合，得到拟合参数
+popt, pcov = curve_fit(fit_func, data["alpha"], data["V"])
+a, b, c = popt
+print(f"The fitting function is: V = {a:.3f} * cos(alpha) ** 2 + {b:.3f} * cos(alpha) + {c:.3f}")
+
+# 绘制拟合曲线
+x = np.linspace(0, 90, 100)
+y = fit_func(x, a, b, c)
+plt.plot(x, y, label="fit", color='black')
+plt.legend()
+plt.show()
+
+## 亥姆霍兹轴向分布
+# 定义横纵坐标数据（在这里改数据，具体是什么看末尾的注释，注意要保持格式。）
+x = [-0.5, -0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5] # 位置x
+y1 = [0.946, 0.975, 0.992, 0.998, 1.000, 1.000, 1.000, 0.998, 0.992, 0.975, 0.946] # 计算值B(x)/B0
+y2 = [5.68, 5.852, 5.94, 5.984, 5.988, 6, 5.992, 5.988, 5.96, 5.872, 5.728] # 测量值B(x)/Gauss
+
+# 创建一个新的图形
+plt.figure()
+
+# 在第一幅子图中绘制计算值B(x)/B0与位置x的关系
+plt.subplot(2, 1, 1) # 两行一列的第一幅
+plt.plot(x, y1, 'r-') # 红色实线
+plt.xlabel('x') # 横坐标标签
+plt.ylabel('B(x)/B0') # 纵坐标标签
+plt.title('Calculated value') # 子图标题
+
+# 在第二幅子图中绘制测量值B(x)/Gauss与位置x的关系
+plt.subplot(2, 1, 2) # 两行一列的第二幅
+plt.plot(x, y2, 'b-') # 蓝色虚线
+plt.xlabel('x') # 横坐标标签
+plt.ylabel('B(x)/Gauss') # 纵坐标标签
+plt.title('Measured value') # 子图标题
+
+# 调整子图之间的间距
+plt.tight_layout()
+
+# 显示图形
+plt.show()
+
+## 亥姆霍兹空间分布
+# 创建数据
+x = np.array([0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3])
+y = np.array([0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3])
+# 上面两个不用改（在这里改数据，这是用的二维列表生成的数组，结构是[[]]，内层括号每一个是一行，注意和自己数据对应，注意要保持格式。）
+z = np.array([[1.027, 1.027, 1.029, 1.027, 1.028, 1.027, 1.024],
+              [1.030, 1.020, 1.031, 1.030, 1.030, 1.029, 1.025],
+              [1.028, 1.028, 1.029, 1.029, 1.020, 1.029, 1.025],
+              [1.027, 1.027, 1.028, 1.028, 1.030, 1.029, 1.028],
+              [1.026, 1.028, 1.029, 1.031, 1.032, 1.033, 1.033],
+              [1.027, 1.028, 1.028, 1.030, 1.033, 1.035, 1.037],
+              [1.025, 1.025, 1.027, 1.029, 1.034, 1.041, 1.045]])
+
+# 创建网格
+X, Y = np.meshgrid(x, y)
+
+# 创建图形
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# 绘制曲面
+#surf = ax.plot_surface(X, Y, z, cmap='coolwarm', edgecolor='black', linewidth=0.5)
+surf = ax.plot_surface(X, Y, z, cmap='plasma', edgecolor='white', linewidth=0.5)
+
+# 添加标题和图例
+#ax.set_title('三维分布图')
+#fig.colorbar(surf, shrink=0.5, aspect=5, label='$U_x/V$')
+
+# 设置坐标轴标签
+ax.set_xlabel('X/R')
+ax.set_ylabel('Y/R')
+ax.set_zlabel('$U_x/V$')
+
+# 调整视角和比例
+ax.view_init(30, -45)
+ax.set_zlim(1.02, 1.05)
+
+# 显示图形
+plt.show()

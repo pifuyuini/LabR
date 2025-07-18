@@ -1,0 +1,294 @@
+% !TEX root = ../main.tex
+
+% 实验记录	
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\centering
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+		\hline
+		Major： & Physics & Grade： & 2022 \\
+		\hline
+		Name： & 杨舒云 & Student number： & 22344020\\
+		\hline
+		Room temperature： & 28\degree C & Experimental location： & 实验室A101 \\
+		\hline
+		Student Signature：& \textbf{In Attachment} & Score： &\\
+		\hline
+		Experiment time：& 2024/9/27 & Teacher's Signature：&\\
+		\hline
+	\end{tabularx}
+\end{table}
+\section{APL1-3 Quantum Key Distribution \\ Experimental Record}
+
+
+%---------------------------------------------------------------------
+% 实验过程记录
+\subsection{Content, Procedures \& Results}
+
+% 操作步骤
+\subsubsection{Operations}
+具体的操作步骤在实验讲义上已经有详细且完备的记录了，因此此处仅做一个简要的回顾。
+\begin{enumerate}
+	\item 实验 1：光的偏振的测量和控制
+	
+	安装光学元件；在激光器后放置PBS1，PBS1要与激光光束相垂直，之后测量激光通过PBS1后的反射和透射功率；在激光器和 PBS1之间放置半波片 1（HWP1），转动半波片1的角度找到透过PBS1的光功率的最大值和最小值并记录下来；在激光器后依次放置 PBS1，HWP1 和 PBS2。转动半波片 1 的角度 360 度，记下转动不同角度时，PBS2 出射端的功率变化，确定出光功率最大或最小时刻的镜架的刻度；将 HWP1 的角度调至光轴位置来制备偏振态 D（或与态
+	D 垂直的态）。
+	
+	该实验在实验台上搭建光路，缺乏一定的准确性，激光波长为404nm，为激光器供电的电源的电流为0.057A，电压为4.018V，记录的数据展示于\cref{tab:tab1}。该实验主要是对偏振相关光学实验的回顾，据操作人员所说，偏振片的角度调节有难度，并且角度示值不清晰。这导致在激光对人眼会产生极大危害的情况下必须靠近才能较好地调节，特此记录。
+	
+	\item 实验 2：单光子的探测及相应探测器效率的测量
+	
+	利用 M 的光路进行单光子的探测和探测器探测效率的测量；点击 QKD 软件中的触发 M 路激光器发光，使用可见光光功率计测量 M 路激光器输出功率；理论计算当到达单光子探测器的平均光子数为 0.1 光子/脉冲时，需要多少衰减，推导当到达单光子探测器的平均光子数为 0.1 光子/脉冲时，可调衰减元件需增加多少衰减；转动可调衰减片，使用功率计测量衰减，使得其衰减和上部分推导值一致停止转动；接收端电路模块上点，点击 M 路扫描，得到 M 路计数值并记录；使用 M 路探测计数值计算出单光子探测器的探测效率。
+	
+	该实验主要工作在于理论计算。衰减固定值可以在搭好的QKD实验装置的标注当中直接读出，而理论值则采用前面\textbf{原理概述（Principle）}部分展示的相关公式进行计算，具体计算见\textbf{数据分析（Analysis）}部分；而对于实验装置的控制，主要在电脑上进行，操作不是很复杂，比较容易上手；记录的数据展示于\cref{tab:tab2-1}。
+	
+	\item 实验 3：单光子的标定
+	
+	以 M 路光路为例计算理论计算当公共信道平均光子数为 0.2 光子/脉冲时，经过接收端光路衰减到达单光子探测器的探测计数 N；启动 QKD 软件 Alice-Bob 链路，选择 M 路扫描，调节可调衰减片，使得扫描计数接近 N；依次分别选择 H、V、P 路扫描，也使得对应的探测器扫描计数接近 N。
+	
+	该实验基于实验2进一步做理论分析和实验上的调整，总得来说实验操作步骤简单（只需要调整各路的可调衰减的衰减值以及在电脑上控制各路的发送），理论计算见\textbf{数据分析（Analysis）}部分；记录的数据展示于\cref{tab:tab3}。值得注意的是虽然并不需要我们搭建实验装置，但是\textbf{关于实验装置的理解}非常有必要，能帮我们很好的理解这个实验的原理（BB84协议、密钥分发和对基等）。
+	
+	\item 实验 4：密钥分发过程数据处理
+	
+	启动 QKD 软件， QKD 的接收端控制界面（Bob-Alice），选择误码平均采样率后点保存；点击 QKD 的发送端控制界面（Alice-Bob），勾选中间密钥输出功能，点击保存；选中工具栏中的蓝色 R（密钥随机分发），点击右侧的运行按钮；待系统运行 5-10 秒后，点击停止按钮。此时，记录下系统的平均误码率；在桌面的自由空间偏振文件夹中查看中间密钥输出的数据，输出的数据主要包括原始数据（raw），对基后数据（sift），纠错后数据（reconcile），最终安全密钥数据（key），对应的发送端分别为：transmitter-raw、transmitter-sift、transmitterreconcile、transmitter-key，接收端分别为：receiver-raw、receiver -sift、receiver -reconcile、receiver -key；打开桌面上的软件 Beyond Compare，选择文本比较，进入界面，点击最上方的会话选项，比较文件用，选择十六进制文件。分别打开 transmitter-sift和 receiver -sift，然后通过会话中 16 进制比较信息进行误码估计，由于 QKD软件保存的数据格式均为十六进制，所以实际误码估计时需要将十六进制转为二进制文件进行比对。
+	
+	该实验在操作上非常简单，这主要是基于实验3的调整要做好，这样该实验就只需要在电脑上进行简单的操作就行了。难点在于后续的数据处理，如何手动计算误码率需要对二进制和十六进制之间的转换有了解，并仔细思考误码的机制，相关计算见\textbf{数据分析（Analysis）}部分；记录的数据展示于\cref{tab:tab4}。
+\end{enumerate}	
+
+% 实验结果
+\subsubsection{Display}
+这一部分将展示附录中的数据表所要求的实验数据。
+
+\begin{enumerate}
+	\item 实验 1：光的偏振的测量和控制
+	
+	相关数据如\cref{tab:tab1}所示（有些小，但是放大后是能看清的）。
+	
+	其中，第一组数据表对应“Laser-PBS1-光功率计”的光路，第二组数据（1-4）对应“Laser-HWP1-PBS1-光功率计”的光路，第三组数据（1-17）对应于“Laser - PBS1 - HWP1 - PBS2 - 光功率计”的光路，最后一组数据（1-17）对应于“Laser - PBS1 - HWP1 - HWP2 - PBS2 - 光功率计”的光路。
+	
+	\begin{table}[htbp]
+		\centering
+		\resizebox{\textwidth}{!}{
+		\begin{tabular}{|c|l|c|c|}
+			\hline
+			序号 & 名称 & 数据 & 单位 \\
+			\hline
+			1 & Laser+PBS1 反射功率 & 9.12 & dBm \\
+			2 & Laser+PBS1 透射功率 & 15.05 & dBm \\
+			1 & Laser + HWP1+PBS1 最大反射功率 & 15.88 & dBm \\
+			2 & Laser + HWP1+PBS1 最大透射功率 & 15.8 & dBm \\
+			3 & Laser + HWP1+PBS1 最小反射功率 & -1.66 & dBm \\
+			4 & Laser + HWP1+PBS1 最小透射功率 & -8.42 & dBm \\
+			\hline
+		\end{tabular}
+		\begin{tabular}{|c|l|l|c|c|}
+			\hline
+			序号 & 名称 & 动作 & 数据 & 单位 \\
+			\hline
+			1 & 半波片 1 转动 0° & PBS2 透射功率 & -28.79 & dBm \\
+			2 & 半波片 1 转动 22.5° & PBS2 透射功率 & -5.44 & dBm \\
+			3 & 半波片 1 转动 45° & PBS2 透射功率 & -2.36 & dBm \\
+			4 & 半波片 1 转动 67.5° & PBS2 透射功率 & -5.72 & dBm \\
+			5 & 半波片 1 转动 90° & PBS2 透射功率 & -24.06 & dBm \\
+			6 & 半波片 1 转动 112.5° & PBS2 透射功率 & -5.65 & dBm \\
+			7 & 半波片 1 转动 135° & PBS2 透射功率 & -2.55 & dBm \\
+			8 & 半波片 1 转动 157.5° & PBS2 透射功率 & -4.88 & dBm \\
+			9 & 半波片 1 转动 180° & PBS2 透射功率 & -24.6 & dBm \\
+			10 & 半波片 1 转动 202.5° & PBS2 透射功率 & -5.02 & dBm \\
+			11 & 半波片 1 转动 225° & PBS2 透射功率 & -2.35 & dBm \\
+			12 & 半波片 1 转动 247.5° & PBS2 透射功率 & -6.53 & dBm \\
+			13 & 半波片 1 转动 270° & PBS2 透射功率 & -21.65 & dBm \\
+			14 & 半波片 1 转动 292.5° & PBS2 透射功率 & -5.68 & dBm \\
+			15 & 半波片 1 转动 315° & PBS2 透射功率 & -2.03 & dBm \\
+			16 & 半波片 1 转动 337.5° & PBS2 透射功率 & -5.13 & dBm \\
+			17 & 半波片 1 转动 360° & PBS2 透射功率 & -27.92 & dBm \\
+			\hline
+		\end{tabular}
+	\quad
+		\begin{tabular}{|c|l|l|c|c|}
+			\hline
+			序号 & 名称 & 动作 & 数据 & 单位 \\
+			\hline
+			1 & 半波片 2 转动 0° & PBS2 透射功率 & -25.32 & dBm \\
+			2 & 半波片 2 转动 22.5° & PBS2 透射功率 & 10.56 & dBm \\
+			3 & 半波片 2 转动 45° & PBS2 透射功率 & 13.65 & dBm \\
+			4 & 半波片 2 转动 67.5° & PBS2 透射功率 & 11.68 & dBm \\
+			5 & 半波片 2 转动 90° & PBS2 透射功率 & -11.2 & dBm \\
+			6 & 半波片 2 转动 112.5° & PBS2 透射功率 & 10.74 & dBm \\
+			7 & 半波片 2 转动 135° & PBS2 透射功率 & 14.07 & dBm \\
+			8 & 半波片 2 转动 157.5° & PBS2 透射功率 & 9.49 & dBm \\
+			9 & 半波片 2 转动 180° & PBS2 透射功率 & -24.2 & dBm \\
+			10 & 半波片 2 转动 202.5° & PBS2 透射功率 & 11.16 & dBm \\
+			11 & 半波片 2 转动 225° & PBS2 透射功率 & 14.03 & dBm \\
+			12 & 半波片 2 转动 247.5° & PBS2 透射功率 & 11.02 & dBm \\
+			13 & 半波片 2 转动 270° & PBS2 透射功率 & -12.71 & dBm \\
+			14 & 半波片 2 转动 292.5° & PBS2 透射功率 & 11.06 & dBm \\
+			15 & 半波片 2 转动 315° & PBS2 透射功率 & 14.13 & dBm \\
+			16 & 半波片 2 转动 337.5° & PBS2 透射功率 & 10.77 & dBm \\
+			17 & 半波片 2 转动 360° & PBS2 透射功率 & -18.45 & dBm \\
+			\hline
+		\end{tabular}
+	}
+	\caption{偏振控制和测量记录表格}
+		\label{tab:tab1}
+	\end{table}
+	
+	
+	\item 实验 2：单光子的探测及相应探测器效率的测量
+	
+	相关数据如\cref{tab:tab2-1}所示，其中理论值的相关计算见\textbf{数据分析（Analysis）}部分，而固定衰减值的相关数据由\cref{tab:tab2-2}提供。
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			序号 & 名称 & 数据 & 单位 \\
+			\hline
+			1 & LD\_M 激光器功率 & 10.7 & dbm \\
+			2 & 总需要衰减值 & 103.78 & db \\
+			3 & VOA\_M 可调衰减片理论需调节衰减值 & 6.89 & db \\
+			4 & VOA\_M 可调衰减片实际调节衰减值 & 6.79 & db \\
+			5 & QKD 扫描 M 路 SPD\_M 探测计数值 & 353000 & Hz \\
+			6 & SPD\_M 探测器探测效率 & 35.3 & \% \\
+			\hline
+		\end{tabular}
+		\caption{单光子的探测及相应探测器效率的数据记录表}
+		\label{tab:tab2-1}
+	\end{table}
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			元件 & 衰减/dB \\
+			\hline
+			PBS1 & 24.6 \\
+			BS2  & 3.7  \\
+			HWP1 & 0.1  \\
+			BS3  & 3.3  \\
+			OA3  & 29.2 \\
+			OA4  & 29.4 \\
+			BS4  & 3.2  \\
+			HWP2 & 0.1  \\
+			PBS2 & 0.1  \\
+			\hline
+		\end{tabular}
+		\caption{各固定衰减元件衰减数据}
+		\label{tab:tab2-2}
+	\end{table}
+	
+	\item 实验 3：单光子的标定
+	
+	相关数据如\cref{tab:tab3}所示，其中理论值的相关计算（根据讲义要求，以 M 路为例）见\textbf{数据分析（Analysis）}部分。
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			序号 & 名称 & 数据 & 单位 \\
+			\hline
+			1 & M 路到达公共信道时为单光子，探测器计数值 & 151300 & Hz \\
+			2 & M 路扫描，SPD\_M 计数值 & 151450 & Hz \\
+			3 & H 路扫描，SPD\_H 计数值 & 151350 & Hz \\
+			4 & V 路扫描，SPD\_V 计数值 & 150900 & Hz \\
+			5 & P 路扫描，SPD\_P 计数值 & 151425 & Hz \\
+			\hline
+		\end{tabular}
+		\caption{单光子的标定实验数据记录表}
+		\label{tab:tab3}
+	\end{table}
+	
+	\item 实验 4：密钥分发过程数据处理
+	
+	相关数据如\cref{tab:tab4}所示，其中利用概率的想法近似手动计算值见\textbf{数据分析（Analysis）}部分，利用十六进制转二进制然后通过Python脚本处理见\textbf{数据分析（Discussion）}部分。
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			序号 & 名称 & 数据 & 单位 \\
+			\hline
+			1 & QKD 系统软件统计密钥率 & 37449.14 & bits/s \\
+			2 & QKD 系统软件统计误码率 & 1.2 & \% \\
+			3 & QKD 系统误码估计采样率 & 10 & \% \\
+			4 & 手动误码率计算时所得数据误码率 & 1.29 & \% \\
+			\hline
+		\end{tabular}
+		\caption{密钥分发过程数据处理实验数据记录表}
+		\label{tab:tab4}
+	\end{table}
+	
+	此外，16进制误码率“手动”统计如\cref{tab:tab4_hex}所示。
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|l|c|}
+			\hline
+			项目 & 数据 \\
+			\hline
+			相同字节 & 59365 \\
+			独有字节 & 27 \\
+			差异字节 & 6456 \\
+			16进制误码率 & 9.85\% \\
+			\hline
+		\end{tabular}
+		\caption{16进制误码率“手动”统计}
+		\label{tab:tab4_hex}
+	\end{table}
+		
+\end{enumerate}	
+
+
+%---------------------------------------------------------------------
+% 原始数据
+\clearpage
+\subsection{Original Data}
+The original data in the experimental notebook is shown in \cref{fig:original_data1}, \cref{fig:original_data2}, \cref{fig:original_data3}, \cref{fig:original_data4} and \cref{fig:original_data5} (signed).
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.67\textwidth]{D3-OriginalData-1.jpg}
+	\caption{原始数据1}
+	\label{fig:original_data1}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{D3-OriginalData-2.jpg}
+	\caption{原始数据2}
+	\label{fig:original_data2}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.75\textwidth]{D3-OriginalData-3.jpg}
+	\caption{原始数据3}
+	\label{fig:original_data3}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.75\textwidth]{D3-OriginalData-4.jpg}
+	\caption{原始数据4}
+	\label{fig:original_data4}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.75\textwidth]{D3-OriginalData-5.jpg}
+	\caption{原始数据5}
+	\label{fig:original_data5}
+\end{figure}
+
+%See the \textbf{Attachment} section for the clean of the experimental bench desktop (%\cref{}).
+
+%Other raw data are shown in %\cref{}.
+
+
+%---------------------------------------------------------------------
+%% 问题记录
+%\subsection{Difficulties}
+%\begin{enumerate}
+%	\item 
+%\end{enumerate}
+%% ---

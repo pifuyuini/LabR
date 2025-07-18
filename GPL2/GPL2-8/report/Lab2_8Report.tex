@@ -1,0 +1,1133 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{en_YsySettings} 
+\usepackage{lipsum}
+\usepackage{adjustbox}
+%\usepackage{mathrsfs} % 字体
+\captionsetup[figure]{name=Figure} % 图片形式
+\captionsetup[table]{name=Table} % 表格形式
+
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{xcolor} %添加更多文本颜色
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+
+
+\begin{document}
+	
+	
+	
+	% 实验报告封面	
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE20 & & \LARGE30 & & \LARGE30 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 信息栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 实验班2\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2024/5/9 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 大标题
+	\begin{center}
+		\LARGE Lab2-8 \quad 原子定态能级的观测\\The Franck–Hertz Experiment
+	\end{center}
+	% ---
+	
+	% 注意事项
+	
+	% 基本
+	\textbf{【实验报告注意事项（Precautions）】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（20分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。\textcolor{red}{\textbf{（30分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\end{enumerate}
+	
+	% 安全
+	\textbf{【实验安全注意事项（Safety）】}	
+	\begin{enumerate}
+		\item 连线时务必注意，接错线路容易毁坏 F-H 管。
+		\item 连线时，$V_{G2K}$加速电压端接高压，使用过程中请勿触碰接线端。
+	\end{enumerate}
+	
+	% ---
+	
+	% 特别鸣谢
+	\textbf{【特别鸣谢及模板说明（Special Thanks）】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号Lab2-8。}}除此以外，本实验报告正在向全文用英文表达的方向改进，在此期间可能会出现中英夹杂的情况，望老师海涵！
+	% ---
+	
+	
+	
+	% 目录
+	\clearpage
+	\tableofcontents
+	\clearpage
+	% ---
+	
+	
+	
+	% 预习报告	
+	
+	% 小标题
+	\setcounter{section}{0}
+	\section{Lab2-8 原子定态能级的观测（The Franck–Hertz Experiment）\\ \quad\heiti 预习报告（Pre-Report）}
+	% ---
+	
+	% 实验目的
+	\subsection{实验目的（Purpose）}
+	\begin{enumerate}
+		\item 从实验了解原子定态能级（量子化），更好掌握量子力学的基础知识。
+		\item 训练建立微观物理过程与宏观物理量之间关系的能力。
+		\item （选）学习分解多因素，研究独立因素影响实验现象的规律。
+		
+	\end{enumerate}
+	% ---
+	
+	%
+	\subsection{实验内容}
+	\begin{enumerate}
+		\item 用分立仪器和Franck–Hertz实验（氩）管搭建实验系统。（基础必做）
+		\item 测量氩原子的板极电流与第二栅极加速电压关系曲线，计算第一激发电位。（基础必做）
+		\item 研究第一栅极电压怎样影响板极电流、以及第一激发电位。（选，深入、研究型）
+		\item 理解Franck–Hertz实验管参数（灯丝材料、气压、G1-K间距、G1-G2间距、G2-A间距）的设计依据。汞管。（选，提升、设计型）
+		\item Franck–Hertz实验得到的氩原子第一激发电势能被发光光谱验证吗？汞原子呢？要选哪个频段的光谱仪？（选，拓展）		
+	\end{enumerate}
+	% ---
+	
+	% 仪器用具
+	\subsection{仪器用具（Instruments）}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1	&	FH-Ar 实验管 	&1 	& 具体见实验管上说明\\
+			
+			2	&	可编程直流稳压电源 	&1 	& GWINSTEK GPP-4323 \newline 4 通道独立输出： CH1、 CH2: 0~32V/0~3A； CH3: 0~5V/0~1A\newline CH4: 0~15V/ 0~1A 串联同步电压 0~64V\newline 并联同步电流 0~6A； \\
+			
+			3	&	多量程直流电源 & 1 &	GWINSTEK PFR-100M\newline 电压 0-250V，电流 0-2A，额定输出功率 100W； \\
+			
+			4	&	微电流放大器	&1 & BroLight BEM-5710\newline 电流测量范围： 10-8~10-13A，共分 6 档\\
+			
+			5	&	NI myDAQ 数据采集器	&	1 & 提供模拟输入 (AI)、模拟输出 (AO)、数字输入和输出(DIO)、音频、电源和数字万用表 (DMM) 功能\\
+			\hline
+		\end{tabular}
+	\end{table}
+	% ---
+	
+	% 原理概述
+	\subsection{原理概述（Principle）}
+	\begin{enumerate}
+		\item 原理概述：Franck–Hertz实验是一个经典的物理实验，它通过观测原子的定态能级来证明量子化的概念。这个实验利用低能电子碰撞原子核，从而直观地证明原子能级的存在。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{Lab2_8Gra1.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.2\textwidth]{Lab2_8Gra2.jpg}
+			}
+			\caption{Franck–Hertz实验实验原理图与教学实验室中用于法兰克-赫兹实验的真空管的照片。C为阴极，阴极本身很热，呈现出橙色。它发射通过电子通过G，并被阳极（A）吸收，成为电流。（参考文献[1]）}
+			\label{fig:fig1}			
+		\end{figure}
+		
+		\begin{enumerate}
+			\item \textbf{光电效应与原子量子化：}
+			\begin{itemize}
+				\item 通过光电效应实验，我们已经知道光是量子化的。这个实验进一步探讨原子的能量是否也是量子化的。通过实验，可以观察到原子能级的量子化现象。
+			\end{itemize}
+			
+			\item \textbf{原子能级跃迁：}
+			\begin{itemize}
+				\item 当原子吸收一定频率的光子后，它的能量状态会从一个定态跃迁到另一个定态。这种跃迁必须满足能量守恒，即 \( h\nu = E_n - E_m \)，其中 \( h \) 是普朗克常数，\( \nu \) 是辐射频率，\( E_n \) 和 \( E_m \) 分别是原子的高能级和低能级。
+			\end{itemize}
+			
+			\item \textbf{电子与原子的碰撞：}
+			\begin{itemize}
+				\item Franck–Hertz实验利用电子与原子的碰撞来改变原子的能级状态。在实验中，电子在电场中加速，与原子碰撞，将能量传递给原子。如果这个能量足够，原子将从基态跃迁到激发态。这个过程中，电子损失的能量等于原子能级跃迁所需的能量。
+			\end{itemize}
+			
+			\item \textbf{实验装置与测量：}
+			\begin{itemize}
+				\item 实验使用Franck–Hertz管，通常充满氩气或汞蒸气。电子从热阴极发射，通过一系列的电极加速，然后与气体原子碰撞。碰撞结果通过测量板极电流来观察，电流的变化反映了电子与原子的非弹性碰撞情况。
+				\item 当电子具有足够的能量与原子发生非弹性碰撞后，它们将失去部分能量，使得它们无法到达对面的板极，从而导致电流的减少。通过观察这种电流的变化，可以测量出原子的第一激发电位。
+			\end{itemize}
+			
+			\item \textbf{实验结果与波谱验证：}
+			\begin{itemize}
+				\item 实验得到的第一激发电势能可通过发光光谱进一步验证。这个验证过程包括选择适当的光谱仪频段来观测由原子退激发时发出的光。
+			\end{itemize}
+		\end{enumerate}
+		
+		\item 描述电子从阴极发射到抵达板极整个过程所经历的事件，包括影响事件的物理因素（参量）。
+		\begin{enumerate}
+			\item \textbf{电子发射：}
+			\begin{itemize}
+				\item \textbf{阴极发射电子：} 实验开始时，电子通过热发射从阴极释放。阴极通常由加热的金属丝构成，电子在高温下获得足够能量逃离金属表面。
+				\item \textbf{影响因素：}
+				\begin{itemize}
+					\item 灯丝电压：决定灯丝的温度，进而影响电子发射的效率。
+					\item 阴极和第一栅极之间的电势差：这个电压（\( V_{G1K} \)）帮助电子从阴极表面逃逸并开始它们的运动。
+				\end{itemize}
+			\end{itemize}
+			
+			\item \textbf{电子加速：}
+			\begin{itemize}
+				\item \textbf{通过第一栅极的加速：} 电子在阴极和第一栅极间的电场中加速。第一栅极的电压调节，使电子获得足够的初速度，通过第一栅极。
+				\item \textbf{影响因素：}
+				\begin{itemize}
+					\item 第一栅极电压 \( V_{G1K} \)：直接影响电子加速的程度和速度。
+				\end{itemize}
+			\end{itemize}
+			
+			\item \textbf{电子与原子的非弹性碰撞：}
+			\begin{itemize}
+				\item \textbf{在两栅极间的区域：} 电子继续在第二栅极的加速电压（\( V_{G2K} \)）作用下加速。当电子的能量足够时，它们与氩原子碰撞，可能会将氩原子激发到更高的能级。
+				\item \textbf{影响因素：}
+				\begin{itemize}
+					\item 第二栅极加速电压 \( V_{G2K} \)：决定电子碰撞前的能量，从而影响电子能否激发原子。
+					
+					\begin{figure}[htbp]
+						\centering
+						\includegraphics[width=0.5\textwidth]{Lab2_8Gra3.png}
+						\caption{抵达阳极的电流与加速电压的关系线形图（参考文献[1]）}
+						\label{fig:fig3}
+					\end{figure}
+					
+					\item 阴极与第二栅极间的电压差 \( V_{G2K} - V_{G1K} \)：这个电压差也是电子能否抵达板极和产生有效碰撞的关键参数。
+				\end{itemize}
+			\end{itemize}
+			
+			\item \textbf{电子的再加速和到达板极：}
+			\begin{itemize}
+				\item \textbf{通过第二栅极后的运动：} 电子通过第二栅极后，会受到板极和第二栅极之间的反向电压（\( V_{G2P} \)）的影响。这个电压试图将电子推回第二栅极。
+				\item \textbf{影响因素：}
+				\begin{itemize}
+					\item 反向电压 \( V_{G2P} \)：决定了电子能否克服反向电场到达板极，这影响板极电流的大小。电子的能量必须大于这个反向电压造成的势能差，才能到达板极。
+					\item 电子与氩原子的非弹性碰撞：如果电子在穿越第二栅极后与氩原子发生非弹性碰撞，电子会失去部分能量，这可能导致电子不能克服 \( V_{G2P} \) 到达板极。
+				\end{itemize}
+			\end{itemize}
+			
+			\item \textbf{电流的检测：}
+			\begin{itemize}
+				\item \textbf{板极电流的形成：} 最终，抵达板极的电子形成板极电流，该电流被实验中的电流测量装置检测。
+				\item \textbf{影响因素：}
+				\begin{itemize}
+					\item \textbf{电子在板极区间的残余能量：} 电子的能量在经过所有碰撞和电场影响后的剩余能量决定了能抵达板极的电子数。
+				\end{itemize}
+			\end{itemize}
+		\end{enumerate}
+		
+		\item 用数学定量描述物理过程
+		\begin{enumerate}
+			\item \textbf{电子的加速}
+			
+			电子从阴极发射并在电场中加速，其动能的变化可以使用经典力学公式来描述。如果电子从阴极 \( K \) 到第一栅极 \( G1 \) 间的加速电压是 \( V_{G1K} \)，电子的加速过程可以表示为：
+			\[ KE = eV_{G1K} \]
+			其中，\( KE \) 是电子的动能，\( e \) 是电子的电荷，\( V_{G1K} \) 是加速电压。电子的速度 \( v \) 可以通过动能公式计算得出：
+			\[ v = \sqrt{\frac{2KE}{m}} = \sqrt{\frac{2eV_{G1K}}{m}} \]
+			这里 \( m \) 是电子的质量。
+			
+			\item \textbf{弹性碰撞}
+			
+			在弹性碰撞中，电子与原子核碰撞后能量守恒且动量守恒。如果碰撞是一维的，并假设原子核质量远大于电子质量，则电子的速度方向将反转，但其速度大小保持不变。对于更一般的三维碰撞，电子散射角 \( \theta \) 将影响其在原来运动方向上的速度分量：
+			\[ v' = v \cos(\theta) \]
+			这里 \( v' \) 是碰撞后沿原运动方向的电子速度。
+			
+			\item \textbf{非弹性碰撞}
+			
+			在非弹性碰撞中，电子传递给原子的能量足以使其从基态跃迁到激发态。假设激发能为 \( \Delta E \)，电子失去的能量等于激发能：
+			\[ \Delta KE = \Delta E = h\nu \]
+			这里 \( \nu \) 是由激发态到基态跃迁时原子发出光子的频率，\( h \) 是普朗克常数。电子碰撞后的剩余能量将决定其是否能够继续向板极运动。
+			
+			\item \textbf{多粒子系统的统计}
+			
+			在多粒子系统中，电子的速度、能量和位置分布可以通过统计力学来描述。电子的速度分布通常可以假设为麦克斯韦-玻尔兹曼分布：
+			\[ f(v) = 4\pi \left(\frac{m}{2\pi kT}\right)^{3/2} v^2 e^{-\frac{mv^2}{2kT}} \]
+			其中，\( k \) 是玻尔兹曼常数，\( T \) 是电子的温度。这个分布描述了在热平衡状态下，电子速度的概率密度。
+		\end{enumerate}
+		
+		\item 描述如何通过电压（电场）调控上述物理过程
+		\begin{enumerate}
+			\item \textbf{电子的加速}
+			
+			阴极到第一栅极的电压 \( V_{G1K} \)：
+			\begin{itemize}
+				\item 作用：这个电压决定电子从阴极释放并开始加速的初动能。
+				\item 调控：增加 \( V_{G1K} \) 会增加电子的初速度，使更多的电子能够到达第二栅极，并可能有足够的能量与原子发生碰撞。
+			\end{itemize}
+			
+			第二栅极的加速电压 \( V_{G2K} \)：
+			\begin{itemize}
+				\item 作用：此电压进一步加速通过第一栅极的电子，使其能量增加，足以引发氩原子的激发。
+				\item 调控：调整 \( V_{G2K} \) 可以精确控制电子的能量，从而控制电子与氩原子碰撞时的非弹性碰撞发生条件。
+			\end{itemize}
+			
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.3\textwidth]{Lab2_8Gra4.png}
+				\caption{F-H 管内空间电位分布}
+				\label{fig:fig4}
+			\end{figure}
+			
+			\item \textbf{弹性和非弹性碰撞}
+			
+			电子与氩原子的非弹性碰撞：
+			\begin{itemize}
+				\item 影响因素：电子的动能必须与氩原子从基态到激发态所需的能量相匹配，这个能量差通过 \( V_{G2K} \) 调节电子的动能来匹配。
+				\item 调控：通过细致调整 \( V_{G2K} \)，实验者可以使电子的能量达到特定值，这些值使得电子能够将能量传递给氩原子，引发特定能级的跃迁。
+			\end{itemize}
+			
+			\item \textbf{电子到达板极的过程}
+			
+			第二栅极与板极之间的反向电压 \( V_{G2P} \)：
+			\begin{itemize}
+				\item 作用：这个电压创建一个反向电场，用于减速或回推已经加速并可能与氩原子碰撞后能量减少的电子。
+				\item 调控：调整 \( V_{G2P} \) 可以控制哪些电子有足够的剩余能量到达板极，从而影响板极电流的大小。设置适当的 \( V_{G2P} \) 可以使只有具有足够高能量的电子能够到达板极，这有助于识别和验证非弹性碰撞发生的确切条件。
+			\end{itemize}
+		\end{enumerate}
+		
+		\item 描述预计实验应观察到的现象
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{Lab2_8Gra5.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{Lab2_8Gra6.jpg}
+			}
+			\caption{在这个加速电压为10V的Franck–Hertz实验里，可以隐约看到两层圆柱对称的青蓝色扁碟形光。在这个加速电压为24V的Franck–Hertz实验里，可以隐约看到五层圆柱对称的青蓝色扁碟形光。（参考文献[1]）}
+			\label{fig:fig5}			
+		\end{figure}
+		
+		\begin{enumerate}
+			\item \textbf{板极电流的量子化变化}
+			
+			实验中的主要观察目标之一是板极电流 \( I_P \) 随加速电压 \( V_{G2K} \) 变化的行为。随着 \( V_{G2K} \) 的增加，电子获得的能量逐渐增加，当电子能量达到氩原子激发能级所需的能量时，会观察到板极电流突然下降。这是因为电子将能量传递给氩原子，使其跃迁到激发态，因此失去了到达板极所需的能量。这种现象应呈现出明显的阶梯状或者锯齿状变化，反映了原子能级的量子化。
+			
+			\item \textbf{第一激发电位的确定}
+			
+			通过细致调节 \( V_{G2K} \)，可以测定氩原子从基态到第一激发态所需的精确能量。这个能量值对应于电子能量和氩原子激发能级之间的匹配，此时板极电流会显著减少。这一点是量子力学中能级量子化的直接证据。
+			
+			\item \textbf{谱线的重复出现}
+			
+			随着 \( V_{G2K} \) 的进一步增加，当电子能量超过氩原子第一激发电位的两倍、三倍等整数倍时，会再次观察到板极电流的下降。这些下降对应于电子与氩原子发生一次或多次非弹性碰撞后的能量损失。这种周期性的电流变化进一步验证了原子能级的量子化和电子能量传递的离散性。
+			
+			\item \textbf{光谱验证}
+			
+			除了电流测量之外，实验可能还包括通过光谱分析来验证电子激发氩原子后发射的光子。从激发态退回到基态的氩原子会发射特定频率的光，这个频率与原子的能级差对应。这些光子的检测为原子能级跃迁提供了另一种形式的证据。
+			
+			\item \textbf{操作的灵敏度}
+			
+			实验的精细操作将展示在调整电压和观察结果上的灵敏度。例如，电流峰谷的明显度和重复性将表明实验设置的精确性和电压调节的影响。
+		\end{enumerate}
+		
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 实验前思考题
+	\subsection{实验前思考题（Questions）}
+	
+	% 思考题1
+	\begin{question}
+		是否只要与原子发生碰撞的电子能量达到\( E_n - E_m \)，原子就会发生能级跃迁？
+	\end{question}
+	以下是为什么单纯电子能量达到 \( E_n - E_m \) 并不一定保证发生能级跃迁的原因：	
+	\begin{enumerate}
+		\item \textbf{能量传递的有效性：}
+		
+		当电子与原子发生碰撞时，电子必须将足够的能量有效传递给原子，使其能级跃迁到更高的激发态。仅仅电子具有足够的能量并不能保证这种能量转移的效率和完成性。在某些情况下，电子可能仅部分地将能量传递给原子，或者能量传递的方式可能不足以引发特定的能级跃迁。
+		
+		\item \textbf{碰撞过程的复杂性：}
+		
+		碰撞过程中还涉及动量的交换和能量分配的具体方式，这些因素也会影响能级跃迁的发生。例如，电子和原子的相对速度、碰撞角度等因素都可能影响最终能量转移的结果。
+		
+		\item \textbf{量子力学选择规则：}
+		
+		即使能量足够，能级跃迁的发生还受到量子力学选择规则的约束。这些规则基于原子系统的对称性和守恒定律，规定了哪些类型的能级跃迁是允许的。例如，某些跃迁可能需要满足角动量守恒等条件。
+	\end{enumerate}	
+	
+	因此，虽然电子的能量达到 \( E_n - E_m \) 是激发原子的一个基本前提，但这还需要结合能量的有效传递、动量守恒和量子选择规则等因素来综合考虑。只有当所有这些条件得到满足时，原子才会成功地从一个能级跃迁到另一个能级。这种综合考量使得实验设计和理论分析变得更加复杂和精细。
+	
+	
+	% 思考题2
+	\begin{question}
+		从阴极发射出来的，但又不能抵达板极的那些电子，最后跑到哪里去了？
+	\end{question}
+	电子从阴极发射并尝试到达板极的过程中，可能会因为多种原因未能成功抵达板极。以下是这些电子最终去向的概述：	
+	\begin{enumerate}
+		\item \textbf{能量不足以克服反向电场：}
+		
+		电子在通过第二栅极（\( G2 \)）时加速，并向板极（\( P \)）运动。如果电子在穿过第二栅极后因碰撞失去了部分或全部能量，可能就没有足够的动能克服从第二栅极到板极之间的反向电场（反向电压 \( V_{G2P} \)）。这种情况下，电子将被第二栅极和板极之间的电场推回或被捕获。
+		
+		\item \textbf{与氩原子的非弹性碰撞：}
+		
+		如果电子与氩原子发生非弹性碰撞，电子会将其部分或全部能量转移给原子，导致氩原子激发至更高能级。这时，电子可能失去足够的动能，使其无法到达板极。这些电子可能在管中随机运动，直到它们的能量耗尽，被管壁或其他电极捕获。
+		
+		\item \textbf{散射和反弹：}
+		
+		在Franck–Hertz管中，电子还可能与氩原子或其他电子发生弹性碰撞，导致其运动方向和速度发生变化。这些散射过程可能导致电子偏离原来直向板极的路径，从而无法到达板极。
+		
+		\item \textbf{被Franck–Hertz管内部结构捕获：}
+		
+		实验装置的设计和内部结构也可能影响电子的运动路径。电子在运动过程中可能被管壁、电极或其他装置结构直接捕获，尤其是在它们失去动能或方向被显著改变后。
+	\end{enumerate}	
+	
+	总结来说，那些未能抵达板极的电子，最终可能被反向电压推回、在管内随机运动直到被捕获、或由于各种散射和反弹作用而被实验装置的其他部分捕获。这些过程在实验的数据解释中也扮演重要角色，因为它们影响了实验观测到的板极电流和整体实验结果。
+	
+	
+	% 思考题3
+	\begin{question}
+		依据电荷守恒定理，本实验是否可以不测板极电流而监测 G2 极电流？ 为什么实验没有这样设计？
+	\end{question}
+	尽管理论上依据电荷守恒定理，可以通过测量第二栅极（G2）电流来间接推测板极电流，实际上实验并没有采用这种设计。以下是几个可能的原因，为什么实验中通常选择直接测量板极电流而不是第二栅极电流：	
+	\begin{enumerate}
+		\item \textbf{直接相关性和简便性：}
+		
+		\begin{itemize}
+			\item 板极电流直接反映了抵达板极的电子数量，这与实验的主要目的——测量电子和氩原子之间非弹性碰撞的结果——直接相关。这使得数据更直观，解释和分析也更为简单。
+		\end{itemize}
+		
+		\item \textbf{测量精确性：}
+		
+		\begin{itemize}
+			\item 在Franck–Hertz实验中，板极设计为捕捉通过第二栅极区域的电子。如果电子成功地穿越这个区域并克服反向电场，那么这些电子将到达板极并被检测。这种方法减少了背景噪声和其他干扰因素的影响，提高了测量的精度和可靠性。
+		\end{itemize}
+		
+		\item \textbf{技术和实验设计限制：}
+		
+		\begin{itemize}
+			\item 测量G2极电流可能需要更复杂的设备和设置，因为这涉及到在电场中的一个动态区域进行测量，可能受到多种因素的影响。例如，电子在G2极和板极间的区域可能受到复杂的电场影响，导致测量误差和解释困难增加。
+		\end{itemize}
+		
+		\item \textbf{电子损失考虑：}
+		
+		\begin{itemize}
+			\item 在实验中，电子可能在到达G2极后由于非弹性碰撞而失去足够的能量，这部分电子将不会被G2极电流测量所捕捉，因为它们没有回到G2极，而是向其他方向散射或被捕获。直接测量板极电流可以更精确地评估由于非弹性碰撞引起的电子能量损失。
+		\end{itemize}
+		
+		\item \textbf{数据的解释和相关性：}
+		
+		\begin{itemize}
+			\item 直接测量板极电流可以更清晰地展示非弹性碰撞对电流的影响，因为这种方法直接关联了非弹性碰撞后电子能否到达板极的情况。这对于理解电子与氩原子相互作用的物理本质是至关重要的。
+		\end{itemize}
+	\end{enumerate}
+	
+	综上所述，虽然理论上监测G2极电流是可行的，但由于直接测量板极电流在数据的准确性、简便性和直接相关性方面的优势，实验通常采用后者。这种方法为物理分析和理论验证提供了更直接、更有效的途径。
+	
+	
+	% 思考题4
+	\begin{question}
+		实验测量为散点值，有什么方法可以精确得到$I_P$-$V_{G2K}$曲线的峰值和谷值？
+	\end{question}
+	为了精确地获取这些数据曲线的峰值和谷值，可以采用以下几种方法：	
+	\begin{enumerate}
+		\item \textbf{数据平滑和曲线拟合}
+		
+		\begin{itemize}
+			\item \textbf{平滑处理：} 使用数学平滑技术（如移动平均或高斯平滑）来减少数据中的随机波动，使曲线更加平滑，便于识别峰值和谷值。
+			\item \textbf{曲线拟合：} 使用适当的数学模型（如多项式拟合、高斯拟合或洛伦兹拟合）来近似数据点，从而准确地确定峰值和谷值的位置。拟合过程可以使用统计软件或编程工具（如 MATLAB, Python 中的 SciPy 库）实现。
+		\end{itemize}
+		
+		\item \textbf{微分方法}
+		
+		\begin{itemize}
+			\item \textbf{数值微分：} 通过计算 \( I_P \) 关于 \( V_{G2K} \) 的一阶导数，可以识别出导数为零的点，这些点通常对应于曲线的局部极大值（峰值）和极小值（谷值）。
+			\item \textbf{二阶导数检验：} 为了确认这些点是峰值还是谷值，可以计算二阶导数。二阶导数为负的点是峰值，为正的点是谷值。
+		\end{itemize}
+		
+		\item \textbf{自动化数据分析技术}
+		
+		\begin{itemize}
+			\item \textbf{信号处理算法：} 应用信号处理中的峰值检测算法，如找到局部最大和最小值的点。这些算法在数据分析软件包中通常可用，能自动识别并标记峰值和谷值。
+			\item \textbf{机器学习方法：} 可以使用机器学习技术，如监督学习模型来预测和分类峰值和谷值的位置，尤其在数据复杂或模式不明显时有效。
+		\end{itemize}
+		
+		\item \textbf{实验设计优化}
+		
+		\begin{itemize}
+			\item \textbf{细分电压步长：} 在进行实验时，减小 \( V_{G2K} \) 的变化步长可以获得更密集的数据点，从而提高峰值和谷值确定的精度。
+			\item \textbf{重复测量：} 多次重复实验测量以增加数据的可靠性和准确性，通过平均多次测量结果来减少随机误差的影响。
+		\end{itemize}
+	\end{enumerate}
+	
+	
+	% 思考题5
+	\begin{question}
+		假设 F-H 管内没有充装任何原子气体，$I_P$随$V_{G2K}$是怎么变化的？
+	\end{question}
+	以下是没有充装原子气体时 \( I_P \) 的预期变化：
+	\begin{enumerate}
+		\item \textbf{电子的自由传输}
+		
+		\begin{itemize}
+			\item \textbf{无非弹性碰撞：} 在没有气体原子的情况下，电子在阴极和板极之间不会遇到任何原子核，因此也就不会发生任何非弹性碰撞（即不会有能量转移给气体原子的情况）。
+		\end{itemize}
+		
+		\item \textbf{\( I_P \) 随 \( V_{G2K} \) 的增加而单调增加}
+		
+		\begin{itemize}
+			\item \textbf{单调增加的电流：} 由于电子不会在路径中失去能量，板极电流 \( I_P \) 将随着 \( V_{G2K} \) 的增加而单调增加。电子将连续地获得更多的动能，几乎所有从阴极发射的电子都能到达板极。
+		\end{itemize}
+		
+		\item \textbf{没有电流的起伏变化}
+		
+		\begin{itemize}
+			\item \textbf{缺乏峰谷现象：} 在有气体原子的情况下，\( I_P \) 曲线显示出明显的峰和谷，这是因为电子与气体原子的非弹性碰撞造成电子能量丢失，从而导致电流的周期性下降。但在真空中，这种由于能级跃迁导致的峰谷现象将不存在。
+		\end{itemize}
+		
+		\item \textbf{影响因素}
+		
+		\begin{itemize}
+			\item \textbf{其他可能的影响：} 尽管在真空条件下，理论上 \( I_P \) 应该只随 \( V_{G2K} \) 增加而增加，但实际上还可能受到系统的其他因素影响，如电极的排列、电子散射于管壁等。这些因素可能会对电流值产生一定的影响，但总体上电流应该显示为比较平滑的上升趋势。
+		\end{itemize}
+	\end{enumerate}
+	
+	总结来说，如果 F-H 管内没有充装任何原子气体，那么板极电流 \( I_P \) 将表现为随 \( V_{G2K} \) 增加而单调增加，不会出现因非弹性碰撞引起的峰谷变化。这种情况下的曲线可以用来作为实验的一个控制实验，验证系统是否按预期运行，以及检查电子是否存在其他非预期的散射或损失。
+	
+	
+	% 思考题6
+	\begin{question}
+		求在电子与氩原子发生非弹性碰撞时，电子的速度分布和氩原子的速度分布以及推导证明在发生弹性碰撞后，电子损失的能量与碰撞前自身的动能相比可忽略不计（这两个思考题合在一起回答）。
+	\end{question}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.2\textwidth]{Lab2_8Gra7.png}
+		\caption{Elastic and inelastic collisions of electrons with mercury atoms. Electrons traveling slowly change direction after elastic collisions, but do not change their speed. Faster electrons lose most of their speed in inelastic collisions. The lost kinetic energy is deposited into the mercury atom. The atom subsequently emits light, and returns to its original state.（参考文献[1]）}
+		\label{fig:fig7}
+	\end{figure}
+	
+	\begin{enumerate}
+		\item \textbf{非弹性碰撞中的速度分布}
+		
+		在非弹性碰撞中，电子将其部分或全部动能转移给氩原子，使其从基态跃迁到激发态。假设电子初速度为 $v$，氩原子初速度可以近似为 0，因为其质量远大于电子，使得其热运动速度相对较小。
+		
+		电子的速度分布可以假设为麦克斯韦-玻尔兹曼分布，即：
+		
+		\[
+		f(v) = 4 \pi \left( \frac{m}{2 \pi k T} \right)^{3/2} v^2 \exp\left(-\frac{m v^2}{2 k T}\right)
+		\]
+		
+		其中 $m$ 是电子质量，$k$ 是玻尔兹曼常数，$T$ 是温度。
+		
+		\item \textbf{弹性碰撞中的速度分布和能量损失}
+		
+		在弹性碰撞中，总动能和总动量都守恒。对于电子（质量 $m_e$）与氩原子（质量 $M$，远大于 $m_e$）的碰撞，设电子和氩原子的初速度分别为 $v_e$ 和 $v_A = 0$（因为氩原子质量远大，其速度较小可以忽略）。
+		
+		动量守恒：
+		
+		\[
+		m_e v_e = m_e v_e' + M v_A'
+		\]
+		
+		由于 $M \gg m_e$，可以近似认为 $v_A'$ 很小。电子的速度变化 $v_e' \approx v_e$（方向可能改变）。
+		
+		能量守恒：
+		
+		\[
+		\frac{1}{2} m_e v_e^2 = \frac{1}{2} m_e v_e'^2 + \frac{1}{2} M v_A'^2
+		\]
+		
+		再次由于 $M \gg m_e$，$v_A'$ 所带的能量非常小，可以认为电子的能量损失微小，即 $\frac{1}{2} m_e v_e'^2 \approx \frac{1}{2} m_e v_e^2$。
+		
+		能量损失推导：
+		
+		对于 $v_A'$：
+		
+		\[
+		v_A' = \frac{2 m_e v_e}{M + m_e} \approx \frac{2 m_e v_e}{M} \quad \text{因为} \quad M \gg m_e
+		\]
+		
+		电子能量损失：
+		
+		\[
+		\Delta E = \frac{1}{2} M v_A'^2 = \frac{1}{2} M \left( \frac{2 m_e v_e}{M} \right)^2 = \frac{2 m_e^2 v_e^2}{M}
+		\]
+		
+		因为 $\frac{m_e}{M}$ 很小，所以 $\Delta E$ 相对于电子的初始能量 $\frac{1}{2} m_e v_e^2$ 可以忽略不计。
+		
+		\item \textbf{结论}
+		
+		电子与氩原子发生弹性碰撞时，由于氩原子质量远大于电子，电子损失的动能相对于其原始动能可以忽略不计。这意味着电子在碰撞后基本保持原有的动能，但方向可能发生改变。这样的处理对于理解碰撞动力学和预测实验结果是非常有用的。
+		
+	\end{enumerate}
+	
+	% 思考题7
+	\begin{question}
+		当年没有现在这么精密的微电流放大器，如果是你，你会怎么测量板极电流（$I_P$） ？
+	\end{question}
+	如果我要在没有现代微电流放大器的情况下测量板极电流（$I_P$），我可能会采用以下几种方法：
+	\begin{enumerate}
+		\item \textbf{镜式振动计（Mirror Galvanometer）}
+		
+		这是历史上用来检测非常小的电流的一种设备。它基于一个小镜子附着在磁铁或线圈上，当通过线圈的电流引起微小的磁效应时，
+		镜子会转动。这个转动通过光线反射到刻度尺上，从而可以读取微小电流的变化。虽然这种设备对环境振动敏感，需要仔细校准，但它在早期物理实验中非常有效。
+		
+		\item \textbf{电位差法}
+		
+		使用一系列已知电阻和电压源，通过电路中的电位差来间接测量电流。可以使用基本的电压表来测量跨过已知电阻的电压降，并利用欧姆定律 $V = IR$ 来计算电流。这种方法对于电流的测量精度依赖于电阻和电压表的准确性。
+		
+		\item \textbf{电荷收集方法}
+		
+		如果电流太小不易直接测量，可以考虑使用电荷积累的方法。例如，允许电流在一定时间内流入一个已知容量的电容器中，然后测量电容器上的电压变化。通过 $Q = CV$ （其中 $Q$ 是电荷，$C$ 是电容，$V$ 是电压），可以计算出流过的总电荷，再除以时间得到电流。
+		
+		\item \textbf{使用放大电路}
+		
+		虽然没有现代的微电流放大器，但可以使用电子管或晶体管构建简单的放大电路来增强电流信号。这些早期的放大器可能不如现代的仪器精确和稳定，但在适当设计和校准后，可以用于放大微小的电流，使其足以被传统的测量设备检测。
+		
+		\item \textbf{热电效应}
+		
+		利用微小电流产生的热量来测量电流的大小。例如，通过电流通过的精细丝状电阻丝引起的温度变化可以间接测量电流。温度变化可以用热敏电阻或热电偶来检测。
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 实验记录	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 26\degree C & 实验地点： & A509 \\
+			\hline
+			学生签名：& 见\textbf{附件} & 评分： &\\
+			\hline
+			实验时间：& 2024/5/9 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-8 原子定态能级的观测（The Franck–Hertz Experiment）\\ \quad\heiti 实验记录（Records）}
+	% ---
+	
+	% 实验过程记录
+	\subsection{实验内容、步骤与结果（Content, Procedures \& Results）}
+	
+	%
+	\subsubsection{操作步骤记录（Operations）}
+	\begin{enumerate}
+		\item 选择合适电流量程，设置氩管工作电压。 
+		
+		\item 分析灯丝电压对$I_p-V_{G2K}$关系曲线的影响。
+		\begin{enumerate}
+			\item 按照出厂参数自动测量$I_p-V_{G2K}$关系曲线。
+			
+			\item 除出厂参数外，另外选择两个灯丝电压值（一个大于出厂参数，一个小于出厂参数），测量不同灯丝电压下$I_p-V_{G2K}$关系曲线，并作图进行比较，详述不同灯丝电压下曲线的异同。
+		\end{enumerate}
+		
+		\item 氩原子第一激发电位测量
+		\begin{enumerate}
+			\item 按照出厂参数手动逐点测量$I_p-V_{G2K}$关系曲线，测量过程中从小到大单向调节，不要在测量过程中反复；记录完最后一组数据后，立即将$V_{G2K}$归零，保护氩管。
+			
+			\item 与自动测量比较，并计算氩的第一激发电位。
+		\end{enumerate}
+		
+		\item 数据处理（详见\textbf{数据分析}部分）：寻峰、寻谷 ；计算峰-峰间距、谷-谷间距；是等峰-峰间距（谷-谷间距）吗？分析误差。
+		
+	\end{enumerate}	
+	
+	%
+	\subsubsection{实验结果展示（Display）}
+	\begin{enumerate}
+		\item 仪器的连线搭建结果如\cref{fig:fig1}所示，实验测控界面如\cref{fig:fig1}所示，F-H管出厂设置如\cref{fig:fig1}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.33\textwidth]{Lab2_8Gra8.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.33\textwidth]{Lab2_8Gra9.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.33\textwidth]{Lab2_8Gra10.jpg}
+			}
+			\caption{实验过程展示}
+			\label{fig:fig8}			
+		\end{figure}
+		
+		\item 由于实验数据量太大，不便于以表格的方式展示，因此我将直接展示测量数据的绘图结果，如图所示。其中，有两次测量是分别调小了步长和增大了时间间隔，事实证明，这样的探究是有意义的（详见\textbf{数据分析}部分）。手动测量数据可以参见原始数据记录（\cref{fig:figO1} and \cref{fig:figO2}）。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_8GraA1.png}
+			\caption{实验数据：$V_L=2V$}
+			\label{fig:figA1}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_8GraA2.png}
+			\caption{实验数据：$V_L=3V$}
+			\label{fig:figA2}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_8GraA3.png}
+			\caption{实验数据：$V_L=2.5V$}
+			\label{fig:figA3}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_8GraA4.png}
+			\caption{实验数据：$V_L=1.5V$}
+			\label{fig:figA4}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_8GraA5.png}
+			\caption{实验数据：$V_L=2V$}
+			\label{fig:figA5}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_8GraA6.png}
+			\caption{实验数据：$V_L=2V$ (30s)}
+			\label{fig:figA6}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_8GraA7.png}
+			\caption{实验数据：$V_L=2V$ (By Hand)}
+			\label{fig:figA7}
+		\end{figure}
+		
+	\end{enumerate}
+	
+	% ---
+	
+	% 原始数据
+	\clearpage
+	\subsection{原始数据记录（Original Data）}
+	The original data in the experimental notebook is shown in \cref{fig:figO1} and \cref{fig:figO2} (signed).
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.3\textwidth]{Lab2_8GraO1.jpg}
+		\caption{Original Data 1}
+		\label{fig:figO1}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.3\textwidth]{Lab2_8GraO2.jpg}
+		\caption{Original Data 2}
+		\label{fig:figO2}
+	\end{figure}
+	
+	See the \textbf{Attachment} section for the arrangement of the experimental bench desktop (\cref{fig:figO3}).
+	
+	%Other raw data are shown in %\cref{}.
+	% ---
+	
+	% 问题记录
+	\subsection{实验过程中遇到的问题记录（Difficulties）}
+	\begin{enumerate}
+		\item 注意对微电流放大器量程的调节，量程太小会导致超过量程的部分无法被传感器读取；
+		
+		\item 测量过程中从小到大单向调节，不要在测量过程中反复，否则会导致结果异常。
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 分析与讨论	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2024/5/14 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-8 原子定态能级的观测（The Franck–Hertz Experiment）\\ \quad\heiti 分析与讨论（Analysis \& Discussion）}
+	% ---
+	
+	% 数据处理
+	\subsection{实验数据分析（Analysis）}
+	
+	%
+	\subsubsection{分析灯丝电压对$I_p-V_{G2K}$关系曲线的影响}
+	\begin{enumerate}
+		\item 将三组不同的灯丝电压所测得的数据绘制在同一张图上，如\cref{fig:figA8}所示。在曲线的初始部分，观察到电流基本趋近于零（实际上有时甚至出现反向电流）的现象。这是由于电子必须克服$V_G2P$的势垒，只有具备能量高于此电压的电子才能到达板极，从而形成板极电流。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.45\textwidth]{Lab2_8GraA8.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.45\textwidth]{Lab2_8GraA9.png}
+			}
+			\caption{数据分析：分析灯丝电压对$I_p-V_{G2K}$关系曲线的影响}
+			\label{fig:figA8}			
+		\end{figure}
+		
+		通过观察图形，可以发现当灯丝电压低于制造商推荐值$V_L = 2V$时，所得曲线的电流远远小于其他两种电压情况下的数据。而当电压高于制造商推荐值时，所得曲线的电流明显增加。这是因为当灯丝电压设置过低时，无法产生足够的电子以形成可观测的电流；而电压设置过高时，又会导致电子产生过多，从而影响实验测量的准确性。
+		
+		从中我们还可以发现，手动测量的数据出现了一些反常，这可能是违背了“测量过程中从小到大单向调节，不要在测量过程中反复”导致的。
+		
+		\item 进一步分析，考虑以下问题：
+		\begin{question}
+			电子与氩原子碰撞会涉到原子电离等物理过程，怎样设置F-H管各电极的电压（工作点），使测量的$I_p-V_{G2K}$曲线更多地反映出发生氩原子第一激发的电子-氩原子非弹性碰撞？ 
+		\end{question}
+		总的来说，直接采用出厂设置是一个不错的选择。具体我们可以作如下考虑：
+		
+		\begin{enumerate}
+			\item \textbf{第一栅极电压} \( V_{G1K} \)
+			\begin{itemize}
+				\item \textbf{目的：} 使电子从阴极获得初步的加速，足以使它们达到第二栅极，但不足以导致氩原子电离。
+				\item \textbf{设置：} 应设定为一个相对较低的值，以确保电子具有足够的能量通过第一栅极，但低于能引起氩原子电离的阈值。
+			\end{itemize}
+			
+			\item \textbf{第二栅极加速电压} \( V_{G2K} \)
+			\begin{itemize}
+				\item \textbf{目的：} 精细控制电子能量，使其足以引发氩原子的非弹性碰撞和激发，而不是电离。
+				\item \textbf{设置：} \( V_{G2K} \) 应逐渐增加，从一个低值开始，逐步测试，直至观测到 \( I_P \) 显著下降，这表明达到了氩原子的第一激发电位。此电位是一个关键点，标志着氩原子从基态跃迁到激发态的最小能量。
+			\end{itemize}
+			
+			\item \textbf{反向电压} \( V_{G2P} \)
+			\begin{itemize}
+				\item \textbf{目的：} 设置适当的反向电压，以防止未发生碰撞或电子能量过低的电子到达板极。
+				\item \textbf{设置：} \( V_{G2P} \) 应该设置在一个适中的水平，使得只有具有足够能量的电子（即那些在与氩原子发生非弹性碰撞后仍具有足够剩余能量的电子）能够到达板极。这有助于减少背景电流，并使 \( I_P \) 曲线的变化更明显地反映氩原子的激发。
+			\end{itemize}
+			
+			\item \textbf{综合考虑}
+			\begin{itemize}
+				\item \textbf{平衡：} 在实验中需要找到一个平衡点，即电子具有足够的能量引起非弹性碰撞激发氩原子，同时又不足以引起过多的电离或穿过反向电场到达板极。
+				\item \textbf{试验和调整：} 通过逐步调整 \( V_{G2K} \) 和 \( V_{G2P} \)，监测 \( I_P \) 曲线的变化，找到反映氩原子第一激发状态的最佳电压设置。
+			\end{itemize}
+		\end{enumerate}		
+		
+	\end{enumerate}
+	
+	%
+	\subsubsection{峰谷分析}
+	\begin{enumerate}
+		\item 寻峰、寻谷
+		
+		基于\textbf{AMPD算法}，我用Python语言实现了用于本实验数据处理的寻峰寻谷脚本，详见\textbf{附录}部分；对于波谷，有一个非常好的想法——将信号乘以-1翻转一下就是。结果如\cref{fig:figA10}、\cref{fig:figA11}和\cref{fig:figA12}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_8GraA10.png}
+			\caption{数据分析：$V_L=2V$寻峰寻谷}
+			\label{fig:figA10}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_8GraA11.png}
+			\caption{数据分析：$V_L=2V$ (By Hand)寻峰寻谷}
+			\label{fig:figA11}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_8GraA12.png}
+			\caption{数据分析：$V_L=2V$ (30s)寻峰寻谷}
+			\label{fig:figA12}
+		\end{figure}
+		
+		\item 计算峰-峰间距、谷-谷间距
+		
+		计算结果如\cref{tab:tab1}所示。
+		
+		\begin{table}[htbp]
+			\centering
+			\caption{数据分析：计算峰-峰间距、谷-谷间距}
+			\label{tab:tab1}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				测量条件 & \multicolumn{2}{c|}{$V_L=2V$ (30s)} & \multicolumn{2}{c|}{$V_L=2V$ (By Hand)} & \multicolumn{2}{c|}{$V_L=2V$} \\
+				\cline{2-6}
+				& ppd/V & vvd/V & ppd/V & vvd/V & ppd/V & vvd/V \\
+				\hline
+				d2-d1 & 12 & 11 & 11.5 & 12 & 11.5 & 12 \\
+				d3-d2 & 11 & 12 & 12 & 11.5 & 11.5 & 11.5 \\
+				d4-d3 & 12 & 11 & 13.5 & 11.5 & 11.5 & 12 \\
+				d5-d4 & 12 & 12 & nan & 12.5 & 12 & 12 \\
+				d6-d5 & 11 & nan & nan & nan & 12.5 & nan \\
+				均值 & 11.6 & 11.5 & 12.3 & 11.9 & 11.8 & 11.9 \\
+				实验标准差 & 0.24 & 0.29 & 0.60 & 0.24 & 0.20 & 0.13 \\
+				\hline
+			\end{tabular}
+		\end{table}		
+		
+		\item 是等峰-峰间距（谷-谷间距）吗？
+		
+		从上述计算结果知道，并不是等峰-峰间距（谷-谷间距）；但我认为这是由实验误差导致的
+		
+		\item 进一步分析，考虑以下问题：
+		\begin{question}
+			为什么$I_p-V_{G2K}$波谷点的电流不会下降为零，且随$V_{G2K}$的增大而增大？  
+		\end{question}
+		在Franck–Hertz实验中，\(I_P\)（板极电流）与\(V_{G2K}\)（第二栅极加速电压）的关系曲线是研究电子与氩原子碰撞动力学的关键。当电流的波谷点不会下降至零，并随着\(V_{G2K}\)的增大而增大的现象，可以通过以下几个因素来解释：
+		
+		\begin{enumerate}
+			\item \textbf{非弹性碰撞后的电子动能} \\
+			在电子与氩原子发生非弹性碰撞后，电子将部分或全部动能转移给氩原子，使其激发到高能态。虽然这导致电子能量减少，但并不一定意味着电子的能量降为零。电子仍然可能保有足够的能量，只是比未发生碰撞前低。因此，即使电子能量减少，一些电子依然能够克服反向电场抵达板极，导致板极电流不会完全降为零。
+			
+			\item \textbf{电场的作用} \\
+			第二栅极和板极之间的反向电压（\(V_{G2P}\)）设计用来抵抗电子的到达。然而，随着\(V_{G2K}\)的增大，即使是能量被减少的电子，由于其初始动能更高，依然有可能穿越反向电场抵达板极。这导致随着\(V_{G2K}\)的增加，即使在非弹性碰撞后，电流的波谷也会逐渐增大。
+			
+			\item \textbf{系统内部的空间电位分布} \\
+			F-H 管内的空间电位分布也会影响电子的运动。即使电子在通过第二栅极后与氩原子发生了能量转移，F-H 管内的电位分布可能帮助这些电子部分重新获得动能，从而使得一部分电子能够克服反向电场。
+			
+			\item \textbf{自由程的分布} \\
+			电子在碰撞前获得的自由程长（即在没有发生碰撞前行进的距离）的分布也是一个因素。具有更长自由程的电子可能从加速电场获得更多的能量。这些电子即使在发生非弹性碰撞后损失了一部分能量，其剩余的能量可能仍足以抵达板极。
+		\end{enumerate}
+		
+		这些因素共同作用下，即使在非弹性碰撞导致电子能量损失后，板极电流也不会降至零，而是形成一系列的波谷，这些波谷随着\(V_{G2K}\)的增大而逐渐增大。这种现象在Franck–Hertz实验中是观测和研究电子与原子间相互作用的重要特征。
+		
+		
+	\end{enumerate}
+	
+	%
+	\subsubsection{氩原子第一激发电位测量}
+	\begin{enumerate}
+		\item 计算和误差分析。
+		
+		直接利用上述结果得到如\cref{tab:tab2}所示。查询资料得知，Ar原子的第一激发电位为11.6V，由此计算相对误差。
+		
+		\begin{table}[htbp]
+			\centering
+			\caption{数据分析：氩原子第一激发电位测量}
+			\label{tab:tab2}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				测量条件 & \multicolumn{2}{c|}{$V_L=2V$ (30s)} & \multicolumn{2}{c|}{$V_L=2V$ (By Hand)} & \multicolumn{2}{c|}{$V_L=2V$} \\
+				\cline{2-7}
+				测量量 & ppd/V & vvd/V & ppd/V & vvd/V & ppd/V & vvd/V \\
+				\hline
+				d2-d1 & 12 & 11 & 11.5 & 12 & 11.5 & 12 \\
+				d3-d2 & 11 & 12 & 12 & 11.5 & 11.5 & 11.5 \\
+				d4-d3 & 12 & 11 & 13.5 & 11.5 & 11.5 & 12 \\
+				d5-d4 & 12 & 12 & nan & 12.5 & 12 & 12 \\
+				d6-d5 & 11 & nan & nan & nan & 12.5 & nan \\
+				均值 & 11.6 & 11.5 & 12.3 & 11.9 & 11.8 & 11.9 \\
+				相对误差 & 0.00\% & -0.87\% & 5.95\% & 2.32\% & 1.69\% & 2.32\% \\
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		如综合考虑峰-峰间距和谷-谷间距，则结果如\cref{tab:tab3}所示。
+		
+		\begin{table}[htbp]
+			\centering
+			\caption{数据分析：氩原子第一激发电位测量}
+			\label{tab:tab3}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				测量条件 & $V_L=2V$ (30s) & $V_L=2V$ (By Hand) & $V_L=2V$ \\
+				\hline
+				ave\_ppd/V & 11.60 & 12.33 & 11.80 \\
+				ave\_vvd/V & 11.50 & 11.88 & 11.88 \\
+				均值 & 11.55 & 12.10 & 11.84 \\
+				相对误差 & -0.43\% & 4.35\% & 2.05\% \\
+				\hline
+			\end{tabular}
+		\end{table}				
+		
+		\item 对比上述结果，可以发现测量条件“$V_L=2V$ (30s)”的相对误差最小，测量效果最好；在我看来，这个方案本身模拟了手动测量并且比手动测量更加稳定，因此，这可以为我们完成这个实验提供一些新的更好的方法。
+	\end{enumerate}
+	
+	% ---
+	
+	% 实验后思考题
+	\subsection{实验后思考题（Questions）}
+	
+	%思考题1
+	\begin{question}
+		处于激发态的原子不稳定，退回基态时会发射光子（复习原子光谱），那么，这些光子处于哪个波段？它能产生光电效应吗？
+	\end{question}
+	处于激发态的原子退回基态时发射的光子的波段取决于激发态和基态之间的能量差。在Franck–Hertz实验中，常见的气体如氩或汞会在特定的能级差跃迁时发射光子。
+	
+	光子的能量 \( E \) 可以用公式 \( E = h \nu \) 表示，其中 \( h \) 是普朗克常数，\( \nu \) 是光子的频率。能量差 \( \Delta E \) 等于两个能级之间的差值，这个差值决定了光子的频率：\[ \nu = \frac{\Delta E}{h} \]
+	
+	由频率可以确定光子的波长 \( \lambda \)，波长与频率的关系为：\[ \lambda = \frac{c}{\nu} \]
+	其中 \( c \) 是光速。
+	
+	对于具体的气体，如氩，其第一激发态的能级差通常在几电子伏特（eV）。例如，氩的第一激发电位大约在11.55 eV至11.72 eV之间，这对应的光子波长在紫外光区域。对于汞，其典型的激发态跃迁产生的光子在253.7纳米，这也位于紫外光范围。
+	
+	光电效应是当光子的能量足够高，能够从金属表面释放出电子时发生的现象。是否能够产生光电效应，取决于光子的能量是否超过材料的逸出功（即最低能量阈值，用于克服电子与原子的结合能从而从材料中逸出）。
+	
+	对于紫外光区域的光子，它们的能量通常足以引起许多类型金属的光电效应，因为紫外光的能量（例如11.55 eV至11.72 eV）高于许多常见金属的逸出功。例如，钠的逸出功约为2.28 eV，铜约为4.7 eV，都远低于氩或汞激发态退激时光子的能量。
+	
+	因此，处于激发态的氩或汞原子退回基态时发射的光子确实有足够的能量产生光电效应，特别是当这些光子照射到适当的金属表面时。这种特性使得光电效应成为研究物质光物理性质的重要手段，并广泛应用于科学研究和技术中，例如在光电管和太阳能电池等设备中。
+	
+	
+	% 思考题2
+	\begin{question}
+		原子对电子的弹性散射会改变电子运动方向，它对电子动能有何影响？对电子继续从电场中获得能量有何影响？对所测量的电流呢？
+	\end{question}
+	原子对电子的弹性散射主要影响电子的运动方向而不是其总动能，因为在弹性散射过程中，电子的动能和动量总量保持不变。这种散射的影响对电子在电场中的行为和最终测得的电流有以下几个方面的影响：
+	
+	在弹性散射过程中，尽管电子的动能总量保持不变，电子的速度方向可能发生显著变化。因此，尽管电子的总能量没有改变，其在原始加速方向上的能量成分可能减少。这意味着在某些情况下，电子沿着加速电场的方向的动能减少，影响其进一步在电场中的加速效率。
+	
+	当电子的运动方向因弹性散射而改变后，其与电场的对齐程度也可能改变。如果电子偏离了原本与电场方向一致的路径，它在随后的运动中从电场中获得的能量可能会减少，因为电场对电子做功的效率部分取决于电子速度与电场方向的对齐程度。如果电子与电场方向更为垂直，那么从电场中获得的动能就更少。
+	
+	由于电子的运动方向变化，一些电子可能不再直接朝向板极移动。这导致它们可能无法到达板极，或者到达板极的路径变长，增加了与其他气体原子碰撞的机会，从而可能进一步散射或失去能量。因此，经历弹性散射的电子对板极电流的贡献可能会减少，导致测量到的总电流下降。特别是在电场不均匀或电子必须通过复杂路径到达板极的设备中，这种影响可能更加显著。
+	
+	总的来说，虽然弹性散射不改变电子的总动能，但它通过改变电子的运动方向间接影响了电子从电场中获取能量的效率以及最终到达板极的概率和时间，从而影响实验测量结果中的电流大小。这些因素都需要在分析实验数据时予以考虑。
+	
+	
+	% 思考题3
+	\begin{question}
+		如何（数学） 定量描述F-H管各电极电压对$I_p-V_{G2K}$曲线的影响。
+	\end{question}
+	要数学定量描述Franck–Hertz(F-H)管中各电极电压对板极电流 \(I_P\) 与第二栅极加速电压 \(V_{G2K}\) 曲线的影响，可以采用一个模型来描述电子在电场中的加速、散射和到达板极的过程。以下是一个简化的数学模型和步骤，用于描述这一关系：
+	
+	电子从阴极发射后首先经过第一栅极 \(V_{G1K}\) 加速，这可以通过以下公式描述：
+	
+	\[ KE = e V_{G1K} \]
+	
+	其中 \(KE\) 是电子通过第一栅极后的动能，\(e\) 是电子的电荷量，\(V_{G1K}\) 是第一栅极的电压。电子的速度 \(v\) 可以用下式计算：
+	
+	\[ v = \sqrt{\frac{2KE}{m}} = \sqrt{\frac{2eV_{G1K}}{m}} \]
+	
+	在第一栅极和第二栅极之间，电子进一步加速由 \(V_{G2K}\) 控制：
+	
+	\[ KE_{total} = e (V_{G1K} + V_{G2K}) \]
+	
+	\[ v_{total} = \sqrt{\frac{2KE_{total}}{m}} = \sqrt{\frac{2e(V_{G1K} + V_{G2K})}{m}} \]
+	
+	非弹性碰撞导致电子能量减少，影响其到达板极的能力。假设每次非弹性碰撞电子能量损失 \( \Delta E \)（通常等于原子激发能），碰撞后电子能量为：
+	
+	\[ KE' = KE_{total} - \Delta E \]
+	
+	电子到达板极的条件取决于第二栅极到板极之间的反向电压 \(V_{G2P}\)。只有当电子的剩余动能大于由 \(V_{G2P}\) 引起的能量损失时，电子才能到达板极：
+	
+	\[ KE' \geq e V_{G2P} \]
+	
+	板极电流可以表示为成功到达板极的电子数量。通过比较电子的剩余动能和所需克服的能量，可以定量描述 \(I_P\)：
+	
+	\[ I_P = \text{const} \times N \times \text{Prob}(KE' \geq e V_{G2P}) \]
+	
+	其中，\(N\) 是单位时间内从阴极发射的电子数，\(\text{Prob}(KE' \geq e V_{G2P})\) 是电子能量足以克服反向电压到达板极的概率。
+	
+	这个模型简化了电子的行为，实际情况中还需要考虑散射事件、电子发射效率的变化以及实际设备中的非理想因素。
+		
+	% ---
+	
+	
+	% 结语部分
+	\clearpage
+	
+	% 小标题
+	\section{Lab2-8 原子定态能级的观测（The Franck–Hertz Experiment）\\ \quad\heiti 结语（The End）}
+	% ---
+	
+	% 总结、杂谈与致谢
+	\subsection{总结、杂谈与致谢（Summary, Thoughts \& Thanks）}
+	\begin{enumerate}
+		\item 感谢老师能阅读这篇还有很多不足的实验报告，希望老师能指出做得不好的地方；祝老师身体健康、生活幸福、工作顺利！
+	\end{enumerate}
+	% ---
+	
+	% 参考文献
+	\subsection{参考文献（References）}
+	[1] 维基百科 https://zh.wikipedia.org
+	
+	[2] 沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4
+	
+	[3] An Efficient Algorithm for Automatic Peak Detection in Noisy Periodic and Quasi-Periodic Signals ($\text{https://www.mdpi.com/1999-4893/5/4/588}$)
+	
+	% ---
+	
+	% 附件
+	\subsection{附件（Attachment）}
+	The arrangement of the experimental bench desktop is shown in \cref{fig:figO3}.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.3\textwidth]{Lab2_8GraO3.jpg}
+		\caption{Clean Up}
+		\label{fig:figO3}
+	\end{figure}
+	
+	The personal signature of the experimental report is shown in \cref{fig:name}.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{name.png}
+		\caption{个人签名}
+		\label{fig:name}
+	\end{figure}
+	
+	% ---
+	
+	\textbf{All relevant code (Python and LaTex source code) has been uploaded to Github.}
+	
+	
+	
+\end{document}

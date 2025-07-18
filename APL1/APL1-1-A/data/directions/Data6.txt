@@ -1,0 +1,5 @@
+f = 8888Hz
+tau = 100ms
+Slope = 24dB/oct
+Sample Rate(S) = 1s
+T = 298.3K

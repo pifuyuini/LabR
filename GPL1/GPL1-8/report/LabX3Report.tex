@@ -1,0 +1,574 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+
+\begin{document}
+	
+	
+	
+	%实验报告封面	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 2\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2023/11/9 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{center}
+		\LARGE LabX3 \quad 磁滞回线的测量
+	\end{center}
+	
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（25分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：\textcolor{red}{\textbf{处理实验原始数据（学习仪器使用类型的实验除外），结合误差理论的课程内容，对所有测量数据进行误差分析，转动惯量理论值、实验值、转动惯量变化前后的角动量测量值均用$A±δ\delta A$的形式表示，分析转动惯量理论值和实验值是否在误差范围内吻合，转动惯量变化前后的角动量测量值是否在误差范围内吻合；}}按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。\textcolor{red}{\textbf{（25分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\end{enumerate}
+	
+	\textbf{【实验安全注意事项】}	
+	\begin{enumerate}
+		\item 注意用电安全，电源电压和电流按要求设置；
+		\item 如发现线圈或者电阻过热，要及时关闭电源，避免烫伤；
+		\item 实验中，要求采样电阻两端电压幅值不能超过±1V；
+		\item 注意myDAQ数据采集单元的输入电压不能超过±10V，应在±6V以内；
+		\item 为防止仪器损坏，调整电路时应关闭电源，其他疑难故障请询问老师；
+		\item 得到测量结果后，应及时点击输出开关，关闭电源，防止电阻长时间使用而发烫，甚至损坏。		
+	\end{enumerate}
+	
+	\textbf{【特别鸣谢及模板说明】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号LabX3}}
+	
+	
+	
+	\clearpage
+	\tableofcontents
+	\clearpage
+	
+	
+	
+	%预习报告	
+	\setcounter{section}{0}
+	\section{LabX3 磁滞回线的测量 \quad\heiti 预习报告}
+	
+	\subsection{实验目的}
+	\begin{enumerate}
+		\item 加深对铁磁材料的磁化曲线、磁滞回线、剩磁、矫顽力等物理概念的理解；
+		\item 用数值积分法测量磁感应强度，从而测量磁滞回线。
+	\end{enumerate}
+	
+	\subsection{仪器用具}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1& 电源 & 1 & -- \\
+			
+			2& 功率放大电路板 & 1 & -- \\
+			
+			3& 环形变压器 & 1 & 硅钢材料 \\
+			
+			4& myDAQ数据采集单元 & 1 & -- \\
+			
+			5& 实验电路板 & 1 & -- \\
+			
+			6& 导线 & 若干 & -- \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	
+	\subsection{原理概述}
+	\begin{enumerate}
+		
+		\item 铁磁材料的磁滞现象
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.35\textwidth]{LabX3GraAD2.png}
+			\caption{磁滞回线示意图（参考文献[1]）}
+			\label{fig:figAD1}
+		\end{figure}
+		
+		磁滞现象是指铁磁性物理材料（例如：铁）在磁化和去磁过程中，铁磁质的磁化强度不仅依赖于外磁场强度，还依赖于原先磁化强度的现象。 当外加磁场施加于铁磁质时，其原子的偶极子按照外加场自行排列。即使当外加场被撤离，部分排列仍保持：此时，该材料被磁化。 一旦被磁化了，其磁性会继续保留。要消磁的话，只要施加相反方向的磁场就可以了。这亦是硬盘的记忆运作原理。
+		
+		在铁磁质中，磁场强度（H）和磁感应强度（B）之间的关系是非线性的。如果在增强场强条件下，此二者关系将呈曲线上升到某点，到达此点后，即使场强H继续增加，磁感应强度B也不再增加。该情况被称为磁饱和（magnetic saturation）。
+		
+		如果此时磁场线性降低，该线性关系将以另一条曲线返回到0场强的某点，该点的B将被初始曲线的磁感应强度量BR叫做剩磁感应强度或剩磁（remnant flux density） 相抵消。
+		
+		如果绘制以外加磁场的全部强度的二者关系图（如\cref{fig:figAD2}），将为S形的回路。S的中间厚度描述了磁滞量，该量与材料的矫顽力相关。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.3\textwidth]{LabX3GraAD1.png}
+			\caption{磁化向量M-H关系图（参考文献[1]）}
+			\label{fig:figAD2}
+		\end{figure}
+		
+		具体来说，对已退磁的铁磁材料（材料内部磁化强度 $M=0$）施加磁场时，材料会被磁化（如\cref{fig:fig1}所示）。磁化开始时，磁感应强度 $B$ 随磁场强度 $H$ 的增加而增加，即曲线 $0a$ 段，称为起始磁化曲线。当 $H$ 增加到一定值后， $B$ 的增加趋于缓慢，磁化强度 $M$ 在 $a$ 点后达到饱和（如\cref{fig:fig1}左图），即 $M$ 不再随磁场强度增加而增加；此时对应磁感应强度 $B = \mu_0 (H + M)$ 变化缓慢（对铁磁材料，$M \gg H$ 或相对磁导率 $\mu_r \gg 1$），我们称 $a$ 点对应磁化强度 $M_s$ 称为饱和磁化强度，相应地，对应的 $H_s$ 称为饱和磁场强度、$B_s$ 称为饱和磁感应强度（如\cref{fig:fig1}）。此时如果将 $H$ 由饱和点加大到 $H_m$ 并退回，磁化曲线是可逆的、重合的。当外加 $H$ 由 $H_s$ 变到 $-H_s$，再由 $-H_s$ 变到 $H_s$，$M$ 或 $B$ 将随 $H$ 的变化而变化，形成一条对称的闭合曲线（即 $a \rightarrow b \rightarrow c \rightarrow d \rightarrow e \rightarrow f \rightarrow a$），称为该铁磁材料的磁滞回线。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.35\textwidth]{LabX3Gra1.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.35\textwidth]{LabX3Gra2.png}
+			}
+			\caption{磁滞回线}
+			\label{fig:fig1}			
+		\end{figure}
+		
+		如果将铁磁材料置于周期性变化的磁场中，它将被反复磁化，由此得到的磁滞回线称为动态磁滞回线（Dynamic Magnetization Curve）。
+		
+		如果由小到大选取不同的最大磁场强度 $H_m$，则可得到一系列由小到大的磁滞回线，如\cref{fig:fig1}所示。这些曲线的顶点连接起来（$0 \rightarrow a_1 \rightarrow a_2 \rightarrow a_3 \rightarrow a$），得到的 $B$-$H$ 曲线称为铁磁材料的基本磁化曲线。通常该曲线与其起始磁化曲线并不一定完全重合。
+		\item 磁滞回线测量原理
+					
+		基于myDAQ数据采集通过数值积分描绘磁滞回线：
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{LabX3Gra3.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{LabX3Gra4.png}
+			}
+			\caption{基于myDAQ测量数值积分法的磁滞回线测量电路原理图}
+			\label{fig:fig3}			
+		\end{figure}
+		
+		\cref{fig:fig3}对于我们的实验仪器，互感线圈的初级匝数 $N_1$ 和次级匝数 $N_2$ 在0-400匝（共6个抽线头）；通过一体机电脑上的软件控制myDAQ模块的模拟输出端口，输出指定频率、幅值和偏置量的交流信号，该交流信号经过功率放大模块后，作为初级线圈的输入激励信号（$\widetilde{I_1}$）；电流采样电阻 $R_1$ 为功率电阻，阻值可任选。
+			
+		当绕在环形铁磁芯的初级线圈 $N_1$ 通过交变电流 $\widetilde{I_1}$ 时，根据安培环路定理，在环形铁芯内产生的磁场强度 $\widetilde{H}$ 为
+		\[
+		\widetilde{H}  = \frac{N_1}{l} \widetilde{I_1} \quad 
+		\]
+			
+		在无漏磁的理想情况下，由法拉第电磁感应定律得，在次级线圈 $N_2$ 中产生的交变电动势 $\widetilde{e_2}$ 为
+		\[
+		\widetilde{e_2} = -N_2 A \frac{d \widetilde{B}}{d t} \quad 
+		\]
+			
+		式中， $N_1$ 为初级线圈的匝数， $l$ 为环形铁芯的平均磁路长度； $N_2$ 为次级线圈的匝数， $A$ 为环形铁芯的截面积。
+		
+		与初级线圈串联的电阻 $R_1$ 为取样电阻。将 $R_1$ 上的电压 $\widetilde{U_1}$ 接到数据采集单元测量，则
+		\[
+		\widetilde{H} = \frac{N_1}{l} \frac{\widetilde{U}_1}{R_1} \quad 
+		\]
+		
+		由于 $N_1$、 $l$、 $R_1$ 皆为已知不变量，所以数据采集单元测量的电压 $\widetilde{U}_1$ 就与磁场强度 $\widetilde{H}$ 的大小成正比。铁磁材料内部磁感应强度可由以下积分得
+		\[
+		\widetilde{B} (t) = -\int_0^t \frac{\widetilde{e_2} (t)}{N_2 A} dt \quad (4)
+		\]	
+			
+	\end{enumerate}
+	
+	\subsection{实验前思考题}
+	\begin{question}
+		写出你认为实验中需要重点考虑的内容或注意事项。
+	\end{question}
+	\begin{enumerate}
+		\item 安全注意事项： 首先要确保实验室中的电源电压和电流都按照要求设置，并遵守电安全规范。检查线圈和电阻是否正常，以避免过热和电路短路，防止意外发生。
+		
+		\item 数据采集精度： 由于实验是基于数值积分方法来测量磁滞回线，所以需要确保数据采集的精度和稳定性。确保myDAQ数据采集单元的输入电压在安全范围内，不要超过±10V。注意采样电阻两端电压幅值不能超过±1V，否则可能损坏电路元件。
+		
+		\item 电路连接和校验： 在连接电路之前，仔细检查电源、导线、电阻、线圈以及所有连接是否正确。确保电路连接正确，根据电路原理图逐一校验，以确保信号流向正确。同时，检查功率放大模块的电源输入是否正确。
+		
+		\item 匝数和信号设置： 选择合适的初级线圈和次级线圈匝数，以获得所需的信号范围。设置信号源的频率和幅值，根据实验要求，确保频率和幅值的选择合适，同时注意信号幅值不要导致线圈中电流过大。
+		
+		\item 实验软件操作： 使用磁滞回线数值积分软件进行数据采集和分析。确保正确选择myDAQ设备和通道。在进行数据采集时，小心地逐步改变输出信号幅值，观察磁滞回线的动态变化，直到达到饱和状态。同时，注意导出和保存实验数据以供后续分析。
+		
+		\item 仪器保养： 在实验结束后，及时关闭电源和软件，以避免电阻长时间使用而发烫，甚至损坏。保持仪器和设备的干净和整洁，以确保其正常运行和持续性能。
+		
+		\item 实验报告和数据分析： 最后，根据实验数据编写实验报告，并进行数据分析。分析得到的磁滞回线，提取相关参数，如饱和磁化强度、剩磁、矫顽力等，以满足实验目的。
+	\end{enumerate}
+	
+	\begin{question}
+		对于铁磁性物质，为什么缠上线圈，通上电流，就能在缠绕物质中产生非常强的磁感应强度？微观物理机制是什么？
+	\end{question}
+	铁磁性物质之所以能够在缠绕物质中产生非常强的磁感应强度，涉及到材料的微观磁性结构和原子水平的行为。以下是这一现象的微观机制：
+	
+	\begin{enumerate}
+		\item 自旋磁矩排列：铁磁性物质中的原子和离子具有自旋磁矩，这些磁矩会相互作用并排列在同一方向，形成微观的磁性域。这些磁性域中的自旋磁矩会在缠绕线圈通电时协同翻转，从而增强整体磁矩的方向，导致强磁场的生成。
+		
+		\item 磁滞回线特性：铁磁性物质具有磁滞回线特性，即在施加磁场后，磁化强度不会立即跟随磁场变化，而呈现出一定的滞后现象。这意味着铁磁性物质可以在无外部磁场的情况下保持磁化，这就是所谓的剩磁。
+		
+		\item 饱和磁化：当外部磁场足够大时，铁磁性物质的磁矩会趋于饱和，即磁化强度不再随磁场的增加而增加。这时的磁化被称为饱和磁化。
+		
+		\item 矫顽力：铁磁性物质的磁矩在不同的外部磁场方向下具有一定的稳定性。要翻转磁矩的方向，需要施加足够大的反向磁场，这个值称为矫顽力。
+	\end{enumerate}
+	
+	对于铁磁性物质，如铁、钴、镍等，它们内部有许多微观磁畴，它们的方向是随机的，相互抵消，在没有外加磁场时，没有净磁矩。当在物质周围缠上线圈，通过电流时，就会产生外加磁场，这个磁场会使磁畴的方向排列一致，这样就在物质内部产生了非常强的磁感应强度，远大于外加磁场。微观物理机制是物质原子中未成对的电子之间的交换作用，它使电子的自旋倾向于平行排列，这样就为每个磁畴创造了一个净磁矩，而磁畴又倾向于与外加磁场一致，以降低磁能。
+		
+	\begin{question}
+		如何选择初级线圈的匝数，次级线圈匝数，电流采样电阻R1？如何设置交流电压频率和电压幅值，两者间有何关系，如何避免线圈中电流过大？
+	\end{question}
+	简单来说，有如下考虑：
+	\begin{itemize}
+		\item 初级线圈匝数和次级线圈匝数：选择线圈的匝数要根据实验需要和预期的电压信号范围。通常，初级线圈的匝数较少，次级线圈的匝数较多，以增大信号幅值。较高的次级匝数可以放大初级线圈的输出。
+		
+		\item 电流采样电阻\(R1\)：选择电流采样电阻的阻值要考虑到电流测量的灵敏度和合适的电压输出范围。通常，\(R1\) 的阻值应根据实验中所需的电压信号幅值来选择，以保持电压在安全范围内。
+		
+		\item 电压频率和幅值：电压信号的频率和幅值通常是根据实验要求来设置的。在实验中，频率通常是已知的，并根据需要设置为特定的值。幅值要根据所需的信号范围和测量精度来选择。
+		
+		\item 避免电流过大：为避免线圈中电流过大，应根据所选的线圈和电源规格来设置电压幅值。确保信号源的输出幅值不会导致线圈中的电流超过线圈和电源的额定电流范围，以防止过载和损坏。
+	\end{itemize}
+	
+	具体来说，考虑到有：
+	\begin{itemize}
+		\item 选择初级线圈和次级线圈的匝数，主要是根据输入和输出电压的比例，以及铁芯的磁化特性。一般来说，匝数越多，电压越高，磁通密度越大，但也更容易饱和。匝数越少，电压越低，磁通密度越小，但也更容易保持线性。因此，需要根据实验目的和条件，选择合适的匝数比，使得磁滞回线能够清晰地显示出磁滞现象，而不失去细节。本实验中，可以先选择初级线圈为9V端口，次级线圈为4V端口，然后根据实际测量结果，适当调整匝数比，直到满足实验要求。
+		
+		\item 选择电流采样电阻$R1$，主要是为了测量初级线圈的电流，从而计算磁场强度。$R1$的值应该足够小，以减少功率损耗和电压降，但又要足够大，以产生可测量的电压。本实验中，可以选择$R1$的值在0.1到1欧姆之间，然后根据实际测量结果，适当调整$R1$的值，直到满足实验要求。
+		
+		\item 设置交流电压频率和电压幅值，主要是为了控制铁芯的磁化过程，以及输出电压的大小。一般来说，频率越高，磁化速度越快，磁滞回线越窄，但也会增加铁芯的损耗和线圈的阻抗。频率越低，磁化速度越慢，磁滞回线越宽，但也会减少铁芯的损耗和线圈的阻抗。因此，需要根据实验目的和条件，选择合适的频率，使得磁滞回线能够充分地反映出铁磁材料的磁滞特性，而不受其他因素的干扰。本实验中，可以先选择频率为5Hz，然后根据实际测量结果，适当调整频率，直到满足实验要求。
+		
+		电压幅值越大，初级线圈的电流越大，磁场强度越大，磁感应强度越大，但也更容易导致铁芯的饱和和线圈的过热。电压幅值越小，初级线圈的电流越小，磁场强度越小，磁感应强度越小，但也更容易保持铁芯的线性和线圈的安全。因此，需要根据实验目的和条件，选择合适的电压幅值，使得磁滞回线能够完整地显示出磁滞现象，而不超过铁芯和线圈的额定值。
+		
+		交流电压频率和电压幅值之间的关系，可以通过变压器的等效电路来分析。其中，$R_1$和$X_1$表示初级线圈的电阻和感抗，$R_2$和$X_2$表示次级线圈的电阻和感抗，$R_c$和$X_m$表示铁芯的等效电阻和等效感抗。由图可知，初级线圈的电流$I_1$由输入电压$V_1$和等效阻抗$Z_1$决定，即$I_1 = \frac{V_1}{Z_1}$，其中，$Z_1 = R_1 + jX_1 + (R_2 + jX_2)\left(\frac{N_1}{N_2}\right)^2 + (R_c + jX_m)\left(\frac{N_1}{N_2}\right)^2$。由此可见，电压幅值$V_1$越大，电流$I_1$越大；频率$f$越高，感抗$X_1$，$X_2$和$X_m$越大，电流$I_1$越小。因此，为了避免线圈中电流过大，可以适当降低电压幅值或者提高频率，但也要注意不要影响磁滞回线的质量和效果。		
+	\end{itemize}
+	
+	综合来看，选择适中的初级线圈匝数，以防止实验中磁场强度过大影响实验结果；次级线圈与初级线圈匝数比不宜过大，以避免产生大电压；R1 大小要适中，既可以保护电路，又可以使电流变化明显。交流电压频率和电压幅值成反比。为了避免电流过大，可以控制电压幅值不能过大，同时增加保护电阻。
+	
+	
+	
+	%实验记录	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 26摄氏度 & 实验地点： & 实验室509 \\
+			\hline
+			学生签名：& 杨舒云 & 评分： &\\
+			\hline
+			实验时间：& 2023/11/9 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{LabX3 磁滞回线的测量 \quad\heiti 实验记录}
+	\subsection{实验内容、步骤与结果}
+	\subsubsection{连接实验电路}
+	\begin{enumerate}
+		\item 按\cref{fig:fig5}接好电路，其中初级线圈选择 9V、 86 匝的线圈；次级线圈选择 4V， 38 匝的线圈，采样电阻和初级线圈串联。采样电阻和次级线圈两端都要连接到 MyDAQ 的数据采集单元。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{LabX3Gra5.png}
+			\caption{实验电路图}
+			\label{fig:fig5}
+		\end{figure}
+		
+		\item 接入数据采集软件，电脑上打开 Labview 数据采集软件选择对应的设备，设置波形类别“Sine Wave”， 具体实验参数如\cref{tab:tab1}：
+		\begin{table}[h]
+			\centering
+			\caption{实验参数}
+			\begin{tabular}{|c|c|}
+				\hline
+				频率 & 5.00HZ \\
+				\hline
+				采样电阻 & 1$\Omega$ \\
+				\hline
+				幅度 & 1.24V \\
+				\hline
+				最大幅值 & 6V \\
+				\hline
+				CH1 & 10V 1A \\
+				\hline
+				CH4 & 10V 1A \\
+				\hline
+				初级线圈 & 86 0.41mm \\
+				\hline
+				次级线圈 & 38 0.41mm \\
+				\hline
+				铁芯内径/外径/高度 & 38mm/68mm/30mm \\
+				\hline
+				截面积 & $9 \times 10^{−4}𝑚^2$ \\
+				\hline
+			\end{tabular}
+			\label{tab:tab1}			
+		\end{table}
+		
+		
+		事实上，在我完成接好电路并检查无误后，数据采集软件并不能正常工作。在与助教老师沟通后确定是仪器出现了故障。万幸的是，在老师和助教老师的帮助下，故障得以排除，实验能顺利进行下去（我将把我借此学到的一点点故障排除小技巧记录记录在\textbf{问题记录}部分）。
+		
+		附：接好的电路图如\cref{fig:figA1}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{LabX3GraA1.jpg}
+			\caption{接好的实物电路图}
+			\label{fig:figA1}
+		\end{figure}
+		
+	\end{enumerate}
+	
+	\clearpage
+	\subsubsection{数据采集}
+	\begin{enumerate}
+		\item 在确保“U1（V）”中的幅值在±1V以内、和“e2（V）”的幅值在±6V以内的前提下，从软件中逐步小幅改变信号源的输出信号幅值，观察软件中“U1-e2数值积分曲线”，直至图线达到饱和，饱和状态下磁感应强度B不再随磁场强度H的增加而发生变化，即曲线两端变平。
+		
+		\item 实验结果（若希望查看数据记录表，请联系我获得Excel表格）。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.6\textwidth]{LabX3GraA4.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{LabX3GraA5w.jpg}
+			}
+			\caption{数据采集结果}
+			\label{fig:figA4}			
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{LabX3GraA6w.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{LabX3GraA7w.jpg}
+			}
+			\caption{数据采集结果}
+			\label{fig:figA6}			
+		\end{figure}
+		
+		\item 导出数据便于后续处理。
+		
+		附：过程中软件截图如\cref{fig:figA2}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{LabX3GraA2.jpg}
+			\caption{实验过程中软件采集数据界面截图}
+			\label{fig:figA2}
+		\end{figure}
+		
+		数据分析见\textbf{实验数据分析}部分。
+		
+	\end{enumerate}
+	
+	
+	
+	\subsection{原始数据记录}
+	原始数据见\cref{fig:figA1}、\cref{fig:figA2}和\cref{fig:figA3}。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{LabX3GraA3.jpg}
+		\caption{记录本原始数据记录}
+		\label{fig:figA3}
+	\end{figure}
+	
+	实验台桌面整理见\textbf{附件}部分(\cref{fig:figA8})。
+	预习报告签字见\textbf{附件}部分(\cref{fig:figA9})。
+	
+	\subsection{实验过程中遇到的问题记录}
+	这个部分我将记录本次实验中我在老师的指导下跟着助教老师排查故障的经历。
+	\begin{enumerate}
+		\item 首先根据老师的指导，排查故障的原理是：根据信号的流向利用示波器来检查电路连接。对于初级线圈需检查：myDAQ信号输出端口→功放输入端口→功放输出端口正极→初级线圈端口→采样电阻→功放输出端口负极；采样电阻两端接入myDAQ数据采集单元的0+、0-端口；对于次级线圈，其输出端口接入myDAQ数据采集单元的1+、1-端口；检查功率放大模块的电源输入是否正确；检查myDAQ数据采集单元与电脑连接的USB线是否连接。
+		\item 利用示波器逐步排查：首先将电源模块接入示波器，示波器显示出了正弦波形，这表明它的输出是正常的。接下来将功率放大模块接入示波器，只有噪声，这表明它的输出出现故障了。
+		\item 找到故障来源：在更换新的电源模块后，输出仍然出现故障，在老师的提醒下我们察觉到是连接放大模块和采样电阻的导线出现了问题，在更换后故障被排除，数据采集软件能采集到正常的数据。
+		\item 收获：复习了示波器的使用，感悟了根据电路信号走向用示波器逐步排查电路故障的方法。
+	\end{enumerate}
+	
+	
+	
+	%分析与讨论	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2023/11/9 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{LabX3 磁滞回线的测量 \quad\heiti 分析与讨论}
+	\subsection{实验数据分析}
+	\subsubsection{数值积分法绘制磁滞回线}
+	\begin{enumerate}
+		\item 在Excel中根据实验原理计算出H与被积函数，然后将实验数据连接到OriginPro 2023b（学习版）,如\cref{fig:fig10}；
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.9\textwidth]{LabX3Gra10.png}
+			\caption{Origin操作界面}
+			\label{fig:fig10}
+		\end{figure}
+				
+		\item 按“分析——数学——积分”算出B的数值积分，结果如\cref{fig:fig7}所示；
+		
+		\clearpage
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.47\textwidth]{LabX3Gra7.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.47\textwidth]{LabX3Gra9.png}
+			}
+			\caption{数值积分出B-t图}
+			\label{fig:fig7}			
+		\end{figure}
+		
+		\item 最终绘制出磁滞回线，如\cref{fig:fig6}所示。		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.62\textwidth]{LabX3Gra6.png}
+			\caption{磁滞回线}
+			\label{fig:fig6}
+		\end{figure}
+		
+		\clearpage
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{LabX3Gra8.png}
+			\caption{磁滞回线}
+			\label{fig:fig8}
+		\end{figure}
+		
+	\end{enumerate}
+	
+	\subsubsection{误差分析}
+	初步分析，实验误差可能有以下来源：
+	\begin{enumerate}
+		\item 计算机精度。 由于参数的调制和线圈的选取， 不同实验者之间的实验数据的区间均不相同，这就导致了一定程度上会受到绘图和计算软件的精度问题的影响。
+		\item 估算。在计算过程中存在估算，所以可能引入误差。
+		\item 可能是没有退磁。如果数据集体出现问题，如图像整体偏移的问题，解决方法为先断电然后再进行实验操作。
+	\end{enumerate}
+	实验误差会影响定量测量，但对于本实验定性了解磁滞回线来说，上述结果可以令人比较满意了。
+	
+	\clearpage
+	\subsection{实验后思考题}
+	\begin{question}
+		各向异性磁电阻(AMR)传感器为何要退磁？
+	\end{question}
+	对于本实验来说，主要是\textbf{没有退磁而有剩磁}会使得数据集体出现问题，如图像整体偏移的问题。
+	
+	AMR传感器是一种利用铁磁材料的各向异性磁电阻效应来测量磁场的传感器。各向异性磁电阻效应是指铁磁材料的电阻与电流方向和磁化方向的夹角有关，当夹角为0度或180度时，电阻最小，当夹角为90度时，电阻最大。AMR传感器通常采用四个AMR元件组成的惠斯通电桥，通过施加一个偏置磁场来调节电桥的工作点，使其对外界磁场变化更敏感。1
+	
+	AMR传感器在使用过程中，可能会受到超过其线性工作范围的磁场的干扰，导致磁畴排列紊乱，改变传感器的输出特性，使其失去准确性和稳定性。为了恢复传感器的使用特性，需要对其进行退磁处理。
+	\begin{itemize}
+		\item 剩余磁化和畸变：当一个AMR传感器暴露在外部磁场中时，它的磁矩方向会受到影响，导致传感器产生剩余磁化。这意味着即使没有外部磁场作用，传感器本身也具有一定的磁场，这可能导致测量误差。此外，畸变也可能发生，导致输出信号的非线性响应。
+		
+		\item 校准和准确性：为了确保AMR传感器的准确性，需要在测量之前进行退磁。通过退磁，可以将传感器的磁矩方向重新归零，消除剩余磁化和畸变，从而实现更准确的测量。
+		
+		\item 稳定性：AMR传感器的性能和稳定性与其磁矩方向有关。在长时间使用后，磁矩方向可能发生变化，导致性能下降。退磁可以恢复传感器的性能，延长其寿命。
+	\end{itemize}
+	
+	\begin{question}
+		为什么输入、输出正弦波会发生畸变？什么情况下畸变比较小？
+	\end{question}
+	对于本实验来说，畸变主要是因为磁性材料存在磁滞性质，其磁矩\textbf{不会立即跟随磁场的变化而变化}，存在\textbf{滞后}，从而会导致畸变。
+	
+	由于畸变源于磁滞，而在\textbf{高频}率的条件下磁滞带来的影响远\textbf{比在低频率下大}，低频率可以使得材料有充足的时间来响应变化。此外\textbf{低振幅也会使得畸变变小}，这是由于高振幅可能会导致材料非线性变化加剧，从而产生畸变。
+	
+	一般来说，畸变的主要原因包括：
+	\begin{itemize}
+		\item 非线性元件：如果电路中包含非线性元件，例如二极管、晶体管、放大器等，这些元件在处理正弦波时可能引入非线性畸变。非线性元件的特性使其响应与输入信号的幅值或频率有关，因此在输出信号中可能会出现畸变。
+		
+		饱和效应：当输入信号的幅值过大，达到某些元件的饱和电平时，这些元件无法继续线性放大信号，从而导致信号畸变。这通常发生在放大器或运算放大器的饱和区域。
+		
+		高频效应：高频信号在通过电路时可能会受到带宽限制，导致输出信号的高频成分被截断，从而引入畸变。
+	\end{itemize}
+	
+	减小畸变的情况包括：
+	\begin{itemize}
+		\item 线性电路： 如果电路中的元件和放大器是线性的，它们会以相同的方式放大所有频率和幅值的信号，从而减小畸变的可能性。
+		
+		\item 低幅值信号： 较低幅值的输入信号通常更容易保持线性响应，因此畸变可能会较小。
+		
+		\item 高带宽元件： 如果电路中的元件具有足够的带宽以处理高频信号，那么高频信号的畸变可能会较小。		
+	\end{itemize}
+	
+	\begin{question}
+		铁磁材料的磁导率在什么条件下才可以近似为一常数？
+	\end{question}
+	铁磁材料的磁导率通常不是常数，而是与磁场的强度和方向有关。然而，磁导率在小磁场强度、低频磁场和远离饱和区域的条件下可以近似为常数。
+	\begin{itemize}
+		\item 小磁场强度： 当磁场的强度相对较小，即远离材料的饱和磁场强度时，铁磁材料的磁导率通常可以近似为常数。这是因为在这种情况下，材料的磁化响应是线性的，磁感应强度与磁场强度成线性关系。
+		
+		\item 低频磁场： 高频磁场对铁磁材料的磁导率产生更复杂的影响，因为材料的磁化需要时间。在低频情况下，材料有足够的时间来跟随磁场的变化，从而使磁导率近似为常数。
+		
+		\item 远离饱和： 当磁场的强度远低于材料的饱和磁场强度时，材料的磁导率更容易近似为常数。在饱和区域，材料的磁化已经达到极限，无法继续增加。
+	\end{itemize}
+	对于本实验来说，\textbf{在磁化起始阶段的一段时间内可以视为一个常数}。
+	
+	\clearpage
+	\section{LabX3 磁滞回线的测量 \quad\heiti 参考文献与附件}
+	\subsection{参考文献}
+	[1] 维基百科 https://zh.wikipedia.org
+	
+	[2]	赵凯华，《电磁学》(第三版)，第四、五、六章[B]. 高等教育出版社，231-437。
+	
+	[3]	吕庆荣，冯双久, 磁场强度波形畸变对交流磁滞回线形状的影响[J］. 大学物理, 2021, 40(6): 45-47.
+	
+	[4]	朱盼盼，胡广兴，吴浩宇等. 基于 NI 数据采集器的动态磁滞回线测量[J］. 大学物理实验, 2019, 32(2): 77-80.
+	
+	[5]	徐顺利. 基于数字积分的磁滞回线测量教学实验方法研究[J］.中国科教创新导刊.2012,No 35:51-52.
+	
+	[6]	NI myDAQ Specifications. https://www.ni.com/ docs/zh-CN/bundle/mydaq-specs/page/specs.html
+	
+	[7]	Raluca Morjan ，Sergey Prasalovich，EM4: Magnetic Hysteresis – Lab manual – (version 1.001a)CHALMERS .UNIVERSITY OF TECHNOLOGY GOTEBOR ¨ G UNIVERSITY
+	
+	\subsection{附件}
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.45\textwidth]{LabX3GraA8.jpg}
+		\caption{实验台桌面整理}
+		\label{fig:figA8}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.45\textwidth]{LabX3GraA9.jpg}
+		\caption{预习报告签字}
+		\label{fig:figA9}
+	\end{figure}
+	
+\end{document}

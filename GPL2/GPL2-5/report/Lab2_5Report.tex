@@ -1,0 +1,772 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+\usepackage{adjustbox}
+%\usepackage{mathrsfs} % 字体
+\captionsetup[figure]{name=Figure} % 图片形式
+\captionsetup[table]{name=Table} % 表格形式
+
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{xcolor} %添加更多文本颜色
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+
+
+\begin{document}
+	
+	
+	
+	% 实验报告封面	
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE25 & \small 见\textbf{附件} & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 信息栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 实验班2\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2024/4/10 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 大标题
+	\begin{center}
+		\LARGE Lab2-5 \quad 双光栅测量微弱振动位移量实验
+	\end{center}
+	% ---
+	
+	% 注意事项
+	
+	% 基本
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（25分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。\textcolor{red}{\textbf{（25分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\end{enumerate}
+	
+	% 安全
+	%\textbf{【实验安全注意事项】}	
+	
+	
+	% ---
+	
+	% 特别鸣谢
+	\textbf{【特别鸣谢及模板说明】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号Lab2-5}}
+	% ---
+	
+	
+	
+	% 目录
+	\clearpage
+	\tableofcontents
+	\clearpage
+	% ---
+	
+	
+	
+	% 预习报告	
+	
+	% 小标题
+	\setcounter{section}{0}
+	\section{Lab2-5 双光栅测量微弱振动位移量实验 \quad\heiti 预习报告}
+	% ---
+	
+	% 实验目的
+	\subsection{实验目的}
+	\begin{enumerate}
+		\item 了解利用光的Doppler频移形成光拍的原理并用于测量光拍拍频。
+		\item 学会使用精确测量微弱振动位移的一种方法。
+		\item 应用双光栅微弱振动测量仪测量音叉振动的微振幅。		
+	\end{enumerate}
+	% ---
+	
+	% 仪器用具
+	\subsection{仪器用具}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1&双光栅微弱振动测量仪 	&1 	& DHGS-1 型， 半导体激光器： $\lambda=650nm$，功率 2-5mW；音叉谐振频率： 500Hz 左右。\\
+			
+			2&数字示波器 	&1 	& DS1000E(D) \\
+			
+			3&信号发生器 &1 & MFG-2000\\
+			
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.75\textwidth]{Lab2_5Gra1.png}
+		\caption{仪器用具}
+		\label{fig:fig1}
+	\end{figure}
+	
+	% ---
+	
+	% 原理概述
+	\subsection{原理概述}
+	\subsubsection{位移光栅的Doppler频移}
+	\begin{enumerate}
+		\item 光的Doppler效应是指当光源与观察者之间存在相对运动时，观察者接收到的光波频率与光源实际发射的频率之间会发生变化的现象。这种频率的变化称为Doppler频移。光的Doppler效应可以分为两种情况：
+		
+		\begin{enumerate}
+			\item 向着观察者移动的光源：当光源向观察者移动时，观察者会观测到光波的频率比光源实际发射的频率要高，这是因为光波的波前在向观察者移动的方向上被“压缩”，导致波长变短，频率变高。这种现象称为向着观察者的Doppler“蓝移”。
+			
+			\item 远离观察者移动的光源：当光源远离观察者时，观察者会观测到光波的频率比光源实际发射的频率要低，这是因为光波的波前在远离观察者的方向上被“拉伸”，导致波长变长，频率变低。这种现象称为远离观察者的Doppler“红移”。
+		\end{enumerate}
+		
+		光的Doppler效应在天文学中有着非常重要的应用，比如通过观测远处恒星或星系光谱中特定波长的位移，科学家可以判断它们是在向我们移动还是远离我们，以及它们移动的速度有多快。这对于研究宇宙的扩展、星系的运动等现象都有着重要意义。
+		
+		\item Doppler频移是描述波源与观察者之间相对运动时接收到的波频率与发射频率之间差异的物理现象。这一原理在声波、电磁波乃至光波领域都有广泛的应用。特别是在位移光栅中，Doppler频移现象提供了一种独特的途径来研究和测量微小的运动和变化。
+		
+		当一个带有周期性结构的光栅在某一方向上移动时，通过光栅的光线会因为每个缝隙产生的衍射以及缝隙间的干涉而发生强度的周期性变化。这种变化不仅体现在光的强度上，还会引起光波波阵面的位移，从而产生相位变化。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{Lab2_5Gra2.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{Lab2_5Gra3.png}
+			}
+			\caption{波前示意图：展示了由位移光栅产生的出射折曲波阵面，直观地揭示了Doppler频移的效果；展示了衍射光线在y方向上的位移量和动光栅的Doppler平移情况}
+			\label{fig:fig2}			
+		\end{figure}
+		
+		\item 当光栅沿 $y$ 方向以速度 $v$ 移动时，从光栅出射的光波的波阵面也将以相同的速度在 $y$ 方向移动。这个过程导致了光波的位移量 $vt$ 和相应的位相变化量 $\Delta\phi(t)$，可由以下方程表示：
+		\[
+		\Delta \phi(t)=2\pi\lambda v t \sin \theta
+		\]
+			
+		将光栅衍射方程 $(d \sin\theta = \pm k\lambda)$ 代入上述方程，得到位相变化量的另一表达形式：
+		\[
+		\Delta \phi(t)=k 2 \pi d v t
+		\]
+			
+		因此，移动光栅出射的光波的电矢量方程可写为：
+		\[
+		E=E_0\cos(\omega_0t+\Delta \phi(t))=E_0\cos(\omega_0+k\omega_d)t
+		\]
+		这里，$\omega_d = \frac{2\pi v}{d}$ 代表了由于光栅移动而引入的频率变化量，从而得出移动的位相光栅产生的 $k$ 级衍射光波相对于静止位相光栅的Doppler频移 $\omega_a = \omega_0 + k\omega_d$。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{Lab2_5Gra4.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{Lab2_5Gra5.png}
+			}
+			\caption{移动光栅的Doppler频移}
+			\label{fig:fig4}			
+		\end{figure}
+		
+		\item 这种Doppler频移反映了光栅移动引起的位相变化，在衍射光波的频率上有明显的表现。位移光栅的Doppler频移现象不仅对于理解光波的传播和干涉具有重要意义，也为精确测量物体速度、研究物质的微观性质提供了强有力的工具。
+		
+	\end{enumerate}
+	
+	\subsubsection{光拍的获得与检测}
+	\begin{enumerate}
+		\item 光学测量技术在科学研究和工业应用中发挥着不可或缺的作用，尤其是在频率测量领域。光波的频率非常高，导致直接测量Doppler频移极为困难。为了解决这一挑战，科学家们采用了一种称为“拍频”的技术，通过这种方法可以便捷地检测光波频率的微小变化。
+		
+		拍频现象发生在两束频率相近的光波叠加时，产生的结果是低频率的变化。这种低频率的变化比原始光波的频率低得多，因此能够被常规的光电检测设备所捕捉。利用这一原理，我们可以间接测量出光波的频率变化，进而获得Doppler频移的信息。
+				
+		\item 在本实验中，我们采用了两片完全相同的光栅（分别记为A和B）来产生光拍。这两个光栅紧贴设置，光栅A以一定的速度移动，实现频率的移动（频移），而光栅B则保持静止，仅起到衍射作用。当激光通过这两个光栅时，由于激光束的宽度适宜，使得两束光能够平行迭加，从而形成光拍。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_5Gra6.png}
+			\caption{激光通过双光栅后所形成的衍射光：展示了激光通过双光栅后形成的衍射光以及频差较小的两列光波叠加形成的“拍”现象}
+			\label{fig:fig6}
+		\end{figure}
+		
+		\item 光拍的形成可以用以下电矢量方程来描述：
+		
+		\begin{itemize}
+			\item 未频移光束：$$E_1 = E_{10} \cos(\omega_0 t + \phi_1)$$
+			\item 频移光束：$$E_2 = E_{20} \cos((\omega_0 + \omega_d) t + \phi_2)$$
+		\end{itemize}
+		
+		光电流（I）反映了这两个电矢量的平方和，可表示为：
+		
+		\[
+		I=\xi \left[E_{1}^2+E_{2}^2+2E_1E_2\cos(\omega_d t+(\phi_2-\phi_1))\right]
+		\]
+		
+		在这个方程中，$\xi$ 是光电转换常数。由于光波频率$\omega_0$非常高，光电检测器无法响应方程中的大多数项，仅能响应表示拍频信号的第三项。因此，实际检测到的光电流$i_S$可以简化为：
+		
+		\[
+		i_S=\xi[E_{10}E_{20}\cos(\omega_d t +(\phi_2-\phi_1))]
+		\]
+		
+		拍频$F$的计算公式为：
+		
+		\[
+		F=2\pi\omega d=dvAn_\theta
+		\]
+		
+		其中，$n_\theta$ 是光栅的密度，本实验中 $n_\theta = \frac{1}{d}$，d为100条/mm。通过测量拍频$F$，我们可以间接地检测出Doppler频移量。
+		
+	\end{enumerate}
+	
+	\subsubsection{微弱振动位移量的检测}
+	\begin{enumerate}
+		\item 在众多科学研究和工业应用中，对微小振动的精确检测是一项挑战性任务，尤其是当振动位移量极其微弱时。利用光拍频率进行振动位移量检测，提供了一种高灵敏度和高精度的技术方法。这种方法的核心优势在于，其检测过程不依赖于光源的频率，而是通过分析由于振动引起的光栅移动速度的变化来实现。
+		
+		当一个光栅被粘贴在振动的物体（如音叉）上时，光栅的移动速度会随着物体的振动而产生周期性的变化。这种速度的变化导致通过光栅的光波频率也发生变化，进而在两束频率略有差异的光波重叠时形成光拍现象。通过分析光拍频率的变化，可以间接测量出振动位移量。
+		
+		\item 检测步骤详解
+		
+		\begin{enumerate}
+			\item 拍频波的个数测量：首先，通过示波器在一定时间内（如半个音叉振动周期）测量拍频波的个数。这是计算位移量的基础数据。
+			
+			\item 波形数的计算：波形数由完整波形数、波的首数和波的尾数三部分组成。对于不是完整波形的首尾部分，可通过反正弦函数计算其对应的波形分数部分。
+			
+			\item 位移振幅的计算：利用积分公式$A = \int_0^{T/2} F_{拍}(t)  dt$，计算出位移振幅，其中$F_{拍}(t)$表示拍频波的频率，$A$是位移振幅。
+			
+			\item 示波器读数：通过示波器读取完整和非完整波形的数量，这些数据将用于进一步的计算。
+			
+			\item 波形数的最终计算：将整数波形数与分数波形数相加，得到总波形数。计算公式中包含的波群首尾幅度与完整波形振幅之比，通过$\frac{\sin^{-1}a}{360^\circ}$和$\frac{\sin^{-1}b}{360^\circ}$转换为波形分数部分，其中$a$、$b$分别为波群的首、尾幅度与该处完整波形的振幅之比。
+		\end{enumerate}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.3\textwidth]{Lab2_5Gra7.png}
+			\caption{计算波形数}
+			\label{fig:fig7}
+		\end{figure}
+		
+		通过上述步骤，我们可以准确地计算出振动对象的位移振幅，进而确定微弱振动位移量。这种方法的精度和灵敏度高，能够满足科学研究和工业应用中对微小振动检测的需求。
+		
+	\end{enumerate}
+	
+	\subsubsection{总结}
+	\begin{enumerate}
+		\item 位移量对应的位相变化量 \(\Delta \phi(t)\) 可以用下列公式表示：
+		\[
+		\Delta \phi(t) = 2\pi \frac{vt}{\lambda}
+		\]
+		其中，\(v\) 是光栅移动的速度，\(\lambda\) 是光波的波长，\(t\) 是时间。
+		
+		通过进一步的数学推导，可以得到移动光栅产生的Doppler频移的具体表达式，显示移动的位相光栅级别 \(k\) 的衍射光波，相对于静止的位相光栅有一个 \(\omega_a=\omega_0+k\omega_d\) 的Doppler频移，其中 \(\omega_0\) 是光波的原始频率，\(\omega_d\) 是由于光栅移动产生的频率变化量。
+		
+		\item 光束迭加表达式：假设两个光束分别为 \( \cos(\omega_1 t + \phi_1) \) 和 \( \cos(\omega_2 t + \phi_2) \)，其中 \( \omega_1 \) 和 \( \omega_2 \) 分别是两个光束的角频率， \( \phi_1 \) 和 \( \phi_2 \) 是相位。这两个光束迭加后形成光拍。
+		
+		\item 光电流表达式：光拍信号进入光电检测器后，输出电流的表达式为：
+		\[
+		I(t) \propto \cos^2\left(\frac{\Delta \omega}{2} t + \frac{\Delta \phi}{2}\right)
+		\]
+		其中， \( \Delta \omega = \omega_2 - \omega_1 \) 是两光束频率之差， \( \Delta \phi = \phi_2 - \phi_1 \) 是相位差。
+		
+		\item 拍频 \( F \) 的计算：拍频，即拍频信号的频率，是由两束光频率差的绝对值决定的，可以表示为：
+		\[
+		F = \frac{\Delta \omega}{2\pi} = \frac{|\omega_2 - \omega_1|}{2\pi}
+		\]
+		这表示拍频信号的频率等于两入射光束频率差的绝对值。	
+			
+		\item 微弱振动位移量的关系：拍频 \( F \) 与光栅移动速度 \( v \) 之间的关系可以表达为：
+		\[
+		F = \frac{v}{d} \times n
+		\]
+		其中， \( d \) 是光栅的间距， \( n \) 是光栅的线密度。这表明，通过测量拍频，可以间接测量光栅的移动速度，从而进一步用于测量振动位移量。
+		
+		\item 拍频与振动位移的关系：拍频 \(F_{\text{拍}}\) 与光栅移动速度 \(v\) 的关系可以表示为：
+		\[
+		F_{\text{拍}} = \frac{v}{\lambda} \times n
+		\]
+		其中，\( \lambda \) 是光的波长，\( n \) 是光栅的线密度。这个关系表明拍频与光栅移动速度成正比。
+		
+		\item 振幅的计算公式：振动位移振幅 \(A\) 的计算公式为：
+		\[
+		A = \frac{1}{n} \times \int_{0}^{T/2} F_{\text{拍}}(t) \, dt
+		\]
+		其中，\( T \) 是振动周期，\( \int_{0}^{T/2} F_{\text{拍}}(t) \, dt \) 表示在半个振动周期内拍频波数的总和。这个公式反映了振动位移振幅与光拍波数之间的关系。	
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 实验前思考题
+	\subsection{实验前思考题}
+	
+	% 思考题1
+	\begin{question}
+		简述位移光栅的Doppler频移原理。
+	\end{question}
+	
+	详见\textbf{原理概述}部分。
+	
+	位移光栅的Doppler频移机制源自于Doppler效应：即当光源、接收器、传播媒介或其中间的反射体相对移动时，接收器所捕捉到的光波频率会与光源发射的频率不同，这一频率的偏差被称作Doppler频移。
+	
+	具体而言，当一束激光以平面波形式垂直照射位移光栅时，光栅中不同密度的媒介对光波产生的相位延迟效应将入射波转变为出射时的波形扭曲。若光栅以一定速度沿特定方向（如y轴方向）移动，出射光波的波形也将沿相同方向以等速移动，导致出射光波的相位随时间产生变化，即产生相位变化量$\Delta\phi(t)$。
+	
+	此相位变化量直接促成光波频率的改变。更精确地说，当光栅沿y方向以速度$v$移动时，位于光栅各点的光波相位变化遵循公式$\Delta\phi(t) = \frac{2\pi}{\lambda}(vt \sin\theta)$，其中$\lambda$代表光波波长，$\theta$为衍射角。通过将光栅的衍射方程$d\sin\theta = k\lambda$插入此公式，我们可以推导出光波频率的变动量，即实现了Doppler频移的量化。
+	
+	由此，当位移光栅移动时，其上的$k$级衍射光波相对于静态光栅展现出$\omega_a = \omega_0 + k\omega_d$的频率偏移，其中$\omega_a$为移动光栅的频率，$\omega_0$为静态时的频率，$\omega_d$为由光栅移动引发的频率变化量。这一原理的应用，能够实现对光源或光栅移动速度的测量，进而精确探测微小的位移变化。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.3\textwidth]{Lab2_5Gra8.jpg}
+		\caption{位移光栅的Doppler频移概念图}
+		\label{fig:fig8}
+	\end{figure}
+	
+	
+	% 思考题2
+	\begin{question}
+		简述光拍的获得与检测方法和原理。
+	\end{question}
+	
+	详见\textbf{原理概述}部分。
+	
+	获取和检测光拍的过程依托于将发生了Doppler频移的光束与未经频移的光束进行互相叠加，以此形成光拍。这项技术的核心挑战在于光频率的极高值，使得直接检测Doppler频移量变得不切实际，因而采用形成光拍的方法以间接方式进行测量。
+	
+	在我们的实验中，光拍的生成通过使用两片相同的光栅（一动一静）来实现。动态光栅A负责产生频率移动，而静态光栅B则仅仅执行衍射功能。当激光依次穿过这两片光栅时，衍射出的光束混合了两个或更多不同频率的光分量，这些分量由于两光栅的紧密排列和激光束的特定宽度，能够以平行方式进行迭加，从而直接并简便地形成光拍。
+	
+	光拍的检测方法涵盖了将由动态和静态光栅衍射产生的光束，通过光电探测器转化为电信号的过程。这一转换结果的电流信号与两束光波的电矢量相加有关，并可作为两束光的电场强度的函数表达。当这些电场强度以不同的频率振动时，它们的结合将引起电流信号的变化，其中含有一个表示两光波频率差绝对值的低频拍频成分。通过测定该拍频，我们可以间接得到原始光波的Doppler频移量。
+	
+	因而，通过这套实验装置和检测手段，我们可以借助光拍效应来测量光栅运动所引发的细微Doppler频移，进而精确探测微小振动位移。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.3\textwidth]{Lab2_5Gra9.jpg}
+		\caption{光拍的获得与检测概念图}
+		\label{fig:fig9}
+	\end{figure}
+	
+	% 思考题3
+	\begin{question}
+		简述微弱振动位移量的检测方法和原理。
+	\end{question}
+	
+	详见\textbf{原理概述}部分。
+	
+	微弱振动位移量的检测技术巧妙地利用了光拍频率与光栅移动速度之间的关联性。通过精细测定光拍频率，我们能够间接地推算出光栅（及其附着物，如音叉）的运动速度，进而计算得到振动位移量。
+	
+	具体实施时，将一片光栅贴附于振动中的音叉上，使得光栅随音叉振动而移动。鉴于光栅的移动速度与音叉振动速度一致，测定光拍频率便能间接获知音叉的振动速度。依据公式\[ F_{拍} = \frac{2v}{\lambda} \]（其中\( F_{拍} \)代表拍频，\( v \)为光栅移动速度，\( \lambda \)为光波波长），可以推算出振动速度\( v \)。同时，已知光栅密度\( \theta = \frac{1}{d} \)（\( d \)为光栅常数），进一步允许我们精确计算微弱振动的位移量。
+	
+	检测原理依托于光拍信号频率的时变性能反映光栅（即音叉）移动速度的变化，通过对光拍信号的分析，可获得一定时间范围内拍频的变化情况，据此计算音叉的平均振动速度。音叉振动速度与位移量直接相关，故可根据测得的拍频变化进一步推算音叉的振动位移振幅。
+	
+	实验操作中，通过记录特定时间段（如半个振动周期）内的拍频波数量，依据公式\[ A = \frac{1}{2} \int_{0}^{T/2} v(t) dt \]（其中\( A \)表示振幅，\( T \)为音叉振动周期），计算得到微弱振动的位移振幅。这一方法无需直接测量位移，而是通过测定与位移量息息相关的光拍频率来间接获取振动位移量，为精确测定微弱振动提供了一种高效的手段。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.3\textwidth]{Lab2_5Gra10.jpg}
+		\caption{微弱振动位移量的检测概念图}
+		\label{fig:fig10}
+	\end{figure}
+	
+	% ---
+	
+	
+	
+	% 实验记录	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 26\degree C & 实验地点： & A511 \\
+			\hline
+			学生签名：& 见\textbf{附件} & 评分： &\\
+			\hline
+			实验时间：& 2024/4/11 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-5 双光栅测量微弱振动位移量实验  \quad\heiti 实验记录}
+	% ---
+	
+	% 实验过程记录
+	\subsection{实验内容、步骤与结果}
+	
+	%
+	\subsubsection{操作步骤记录}
+	\begin{enumerate}
+		\item 熟悉双踪示波器的使用方法。
+		\item 熟悉固纬信号发生器的使用方法（使用前看仪器说明书）。
+		\item 将固纬信号发生器的 CH1 通道连接至光学实验平台音叉驱动器（动光栅）， 输出频率约为 500 Hz、 $V_{pp} $约为 6 V 的正弦波驱动信号。
+		\item 将光学实验平台光电传感器输出信号连接至示波器的 CH1 通道。因为光电传感器输出信号功率较低，示波器 CH1 探头选择放大约 500 倍。
+		\item 将固纬信号发生器同步信号输出（后面板 SYNC）连接至示波器 CH2 作为触发源。
+		\item 检查上述 3、 4、 5 步骤，注意不要接错。
+		\item 几何光路调整。 光学实验平台上的“激光器”接测试仪“半导体激光电源”，将激光器、静光栅、动光栅摆在一条直线上。打开半导体激光电源，让激光穿越静、动光栅后形成一竖排衍射光斑，使中间最亮光斑进入光电传感器里面，调节静光栅和动光栅的相对位置，使两光栅尽可能平行。
+		\item 音叉谐振调节。先调整好实验平台上音叉和激振换能器的间距，一般 0.3mm 为宜，可使用塞尺辅助调节。将固纬信号发生器的 CH1 通道连接至光学实验平台音叉驱动器（动光栅），输出频率约为 500 Hz、 $V_{pp} $ 约为 6 V 的正弦波驱动信号。 在 500Hz 附近连续微调（间隔 0.1Hz或更小） 输出频率， 直到使得音叉谐振（音叉振幅最大，光拍波数最多），调节时可用手轻轻地按音叉顶部感受振动强弱，或听振动声音，找出调节方向。若音叉谐振太强烈，可调小驱动信号幅度，使振动减弱，在示波器上看到的 T/2 内光拍的波数为 15 个左右（拍频波的幅度和质量与激光光斑、静动光栅平行度、光电传感器位置都有关系需耐心调节）。记录此时音叉振动频率、屏上完整波的个数、不足一个完整波形的首数和尾数值以及对应该处完整波形的振幅值。
+		\item 测出外力驱动音叉时的谐振曲线。 在音叉谐振点附近，调节驱动信号频率，测出音叉的振动频率与对应的音叉振幅大小，频率间隔可以取 0.1HZ，选 8 个点，分别测出对应的波的个数，计算出各自的振幅 A。
+		\item 保持驱动信号输出幅度不变，将软管放入音叉上的小孔从而改变音叉的有效质量，调节驱动信号频率，研究谐振曲线的变化趋势。
+		\item 由公式$ A =\frac{1}{2n_\theta} \int_0^{T/2} F_{拍}(t)  dt $可计算出音叉振动的位移振幅，其中实验用的动光栅有$n_\theta=100条/mm$。
+	\end{enumerate}
+	
+	
+	
+	%
+	\subsubsection{实验结果展示}
+	\begin{enumerate}
+		\item 音叉谐振调节
+		
+		测量结果如\cref{tab:tab1}所示。
+		
+		\begin{table}[h]
+			\centering
+			\caption{实验数据：音叉谐振调节}
+			\label{tab:tab1}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				测量序号 & 1 & 2 & 3 \\
+				\hline
+				频率/Hz & 506.50 & 506.54 & 506.46 \\
+				半周期内波数/个 & 24.5 & 24.5 & 25 \\
+				音叉振动振幅 & 0.1225 & 0.1225 & 0.1250 \\
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		示波器与信号发生器实时界面如\cref{fig:fig11}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_5Gra11.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_5Gra12.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_5Gra13.jpg}
+			}
+			\caption{实验记录：音叉谐振调节}
+			\label{fig:fig11}			
+		\end{figure}		
+		
+		\item 测出外力驱动音叉时的谐振曲线
+		
+		测量结果如\cref{tab:tab2}所示。
+		
+		\begin{table}[h]
+			\centering
+			\caption{实验数据：外力驱动音叉时的谐振曲线}
+			\label{tab:tab2}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+				\hline
+				驱动力频率/Hz & 506.2 & 506.3 & 506.4 & 506.5 & 506.6 & 506.7 & 506.8 & 506.9 & 507 \\
+				\hline
+				T/2内波数 & 4.5 & 6 & 7.5 & 24.5 & 20 & 17 & 14.5 & 11.5 & 9.5 \\
+				音叉振幅/mm & 0.0225 & 0.0300 & 0.0375 & 0.1225 & 0.1000 & 0.0850 & 0.0725 & 0.0575 & 0.0475 \\
+				\hline
+			\end{tabular}
+		\end{table}		
+		
+		\item 保持驱动信号输出幅度不变，将软管放入音叉上的小孔从而改变音叉的有效质量，调节驱动信号频率，研究谐振曲线的变化趋势。	
+		
+		测量结果如\cref{tab:tab3}所示。
+		
+		\begin{table}[h]
+			\centering
+			\caption{实验数据：研究谐振曲线随有效质量的变化趋势}
+			\label{tab:tab3}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+				\hline
+				驱动力频率/Hz & 505.47 & 505.57 & 505.67 & 505.77 & 505.87 & 505.97 & 506.07 & 506.17 & 506.27 \\
+				\hline
+				T/2内波数 & 4 & 5 & 6.5 & 17 & 17 & 14.5 & 12.5 & 10 & 8.5 \\
+				音叉+软管振幅/mm & 0.0200 & 0.0250 & 0.0325 & 0.0850 & 0.0850 & 0.0725 & 0.0625 & 0.0500 & 0.0425 \\
+				\hline
+			\end{tabular}
+		\end{table}
+		
+	\end{enumerate}
+	
+	% ---
+	
+	% 原始数据
+	\clearpage
+	\subsection{原始数据记录}
+	实验记录本上的原始数据见\cref{fig:figA1}（签字）。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Lab2_5GraA1.jpg}
+		\caption{实验记录本上的原始数据}
+		\label{fig:figA1}
+	\end{figure}
+	
+	实验台桌面整理见\textbf{附件}部分(\cref{fig:figA2})。
+	
+	其它原始数据见\cref{fig:fig11}。
+	% ---
+	
+	% 问题记录
+	\subsection{实验过程中遇到的问题记录}
+	\begin{enumerate}
+		\item 双踪示波器的使用方法不熟悉：在实验之前，不熟悉操作可能会导致错误的设置，比如错误的时间基准、不适当的放大倍数或错误的通道选择。解决这一问题的方法是在实验开始之前仔细阅读仪器的操作手册，并在指导老师或有经验的同学的帮助下练习操作。
+		
+		\item 如果设置了错误的频率或电压值，可能会导致音叉无法达到谐振状态或谐振不明显。必须确保按照步骤设置正确的频率和电压值。错误地连接信号发生器、光电传感器和示波器会导致无法正确测量。检查连接是否正确是必要的，这一步骤在实验中是关键的。
+		
+		\item 光路调整困难：正确地调整光路是确保光电传感器能接收到准确信号的关键。光路的调整需要非常精细，可能需要多次尝试来确保激光穿越光栅并准确地进入传感器。
+		
+		\item 音叉谐振调节难度：寻找音叉的确切谐振点可能非常困难，需要精确调整信号发生器的输出频率。调节过程中需要耐心，并仔细观察示波器的读数和听感觉音叉的振动声音。
+		
+		\item 谐振曲线的测量需要在不同频率下反复进行，且可能受到环境干扰。在测量过程中，确保环境尽可能稳定，并避免外界震动或风扇等的干扰。
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 分析与讨论	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2024/4/18 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-5 双光栅测量微弱振动位移量实验 \quad\heiti 分析与讨论}
+	% ---
+	
+	% 数据处理
+	\subsection{实验数据分析}
+	
+	%
+	\subsubsection{求出音叉谐振时光拍信号的平均频率和在谐振点时作微弱振动的位移振幅（第一和第二个问题合并）}
+	
+	对实验所得到的数据\cref{tab:tab1}进行计算与分析后得到\cref{tab:tab4}所示结果。
+	
+	\begin{table}[h]
+		\centering
+		\caption{实验数据分析：求出音叉谐振时光拍信号的平均频率和在谐振点时作微弱振动的位移振幅}
+		\label{tab:tab4}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			测量序号 & 1 & 2 & 3 & 均值 & 实验标准差 \\
+			\hline
+			频率/Hz & 506.50 & 506.54 & 506.46 & 506.50 & 0.0231 \\
+			半周期内波数/个 & 24.5 & 24.5 & 25 & 24.67 & 0.1667 \\
+			音叉振动振幅 & 0.1225 & 0.1225 & 0.1250 & 0.1233 & 0.0008 \\
+			\hline
+		\end{tabular}
+	\end{table}	
+	
+	音叉谐振时，即半周期时间内拍波数量最多时，计算为为$\bar{f}=506.50Hz$，平均半周期波数为24.67。
+	
+	则由此可计算出出光拍信号的平均频率为：
+	\[
+	\bar{F}=2\times24.67\times \bar{f}=24987.33Hz
+	\]
+	
+	由公式$ A =\frac{1}{2n_\theta} \int_0^{T/2} F_{拍}(t)  dt $可计算出音叉振动的位移振幅，其中实验用的动光栅有$n_\theta=100条/mm$
+	
+	则在谐振点时，微振动振幅为：
+	\[
+	\bar{A_max}=\frac{24.67}{2\times100}mm=0.1233mm	
+	\]
+	
+	%
+	\subsubsection{画出音叉的频率—振幅曲线；分析讨论其特点}
+	
+	\textbf{插入软管前}，音叉幅频特性曲线如\cref{fig:fig14}所示。从图中可以看出，所示的频率范围大约在506.2Hz到507.0Hz之间，随着频率的增加，音叉的振幅先是急剧上升，达到一个峰值，然后又逐渐下降。\textbf{这个峰值代表了音叉的共振频率}，即音叉在这个频率下的振动幅度最大。在共振频率附近，即使是很小的外部激励，也能引起音叉的大幅度振动。
+	
+	在共振频率前后，振幅的变化呈现\textbf{非对称}性，这可能是由音叉的物理结构或者激振方式的非线性特性造成的。
+	
+	曲线的下降趋势表明系统具有\textbf{阻尼}，即随着振动的继续，能量逐渐损失，振动幅度逐渐减小。
+	
+	从共振频率两侧的曲线斜率可以分析出，\textbf{共振频率的陡峭程度表明了音叉的品质因数}（Q因子）。Q因子是共振峰的尖锐程度的量度，高Q因子意味着共振峰非常尖锐和窄，表明音叉会在其共振频率上振动很长时间，即有很好的频率选择性和较长的振荡衰减时间。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Lab2_5Gra14.jpg}
+		\caption{\textbf{插入软管前}音叉幅频特性曲线}
+		\label{fig:fig14}
+	\end{figure}
+	
+	\textbf{插入软管后}，音叉幅频特性曲线如\cref{fig:fig15}所示。和之前的图相比，我们可以看出，在加入软管之后，共振频率有所变化，这反映了音叉振动特性的改变。曲线的峰值出现在接近506 Hz的地方，与之前未加软管时的曲线相比，\textbf{这个峰值的频率可能有所下降}，这表明软管的加入降低了系统的自然频率。\textbf{加入软管可能改变了音叉的有效质量或者弹性模量}，从而导致共振频率的降低。
+	
+	与之前相比，\textbf{共振峰的振幅有所不同}，这可以指示软管对\textbf{振动能量的传递效率}有影响。如果软管增加了系统的阻尼，那么在共振峰值之后振幅下降的速度可能会更快。
+	
+	曲线的形状可能表明系统行为的非线性特性，特别是在峰值附近。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Lab2_5Gra15.jpg}
+		\caption{\textbf{插入软管后}音叉幅频特性曲线}
+		\label{fig:fig15}
+	\end{figure}
+	
+	%
+	\subsubsection{作出音叉不同有效质量时的谐振曲线，分析讨论其变化趋势}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Lab2_5Gra16.jpg}
+		\caption{音叉不同有效质量时的谐振曲线}
+		\label{fig:fig16}
+	\end{figure}
+	
+	这张图表（\cref{fig:fig16}）展示了两条谐振曲线，代表了音叉在不同有效质量下的振动幅度与频率的关系。这些曲线表现了如何通过改变系统的质量分布来调整其动态特性，特别是共振频率。红色曲线和蓝色曲线分别代表两种不同有效质量条件下的测量结果。
+	
+	从这两条曲线，我们可以观察到以下几点：
+	\begin{itemize}
+		\item 共振频率的改变：两条曲线的峰值出现在不同的频率点，这表明改变有效质量会影响音叉的自然频率。一般来说，\textbf{增加系统的质量会降低共振频率，减少质量则会提高共振频率。}
+		
+		\item 振幅的变化：不同的有效质量下，音叉在共振频率处的振动幅度也有所不同。从图中可以看出，红色曲线在其共振频率处的振幅大于蓝色曲线，这可能意味着\textbf{质量的改变影响了系统的能量存储和释放能力}。
+		
+		\item 阻尼的影响：如果曲线在共振峰值之后下降的速度有所不同，这可能表明不同质量条件下阻尼特性有所改变。曲线更陡峭的下降可能指出阻尼更大。
+		
+		\item 系统的稳定性：曲线的宽度（即共振峰值的“锋利度”）可以反映系统对频率变化的敏感性。较宽的峰值可能意味着系统对频率的变化不那么敏感，更加稳定。
+	\end{itemize}
+	
+	事实上，我测量了不同软管数下的音叉的共振峰特性，如\cref{tab:tab5}所示。这表明\textbf{随有效质量增加确实会使共振峰向左下角移动，峰值减小，共振频率减小。}
+	
+	\begin{table}[h]
+		\centering
+		\caption{不同软管数下的音叉的共振峰特性}
+		\label{tab:tab5}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			软管数/个 & 谐振频率/Hz & 半周期内波数/个 & 振幅/mm \\
+			\hline
+			1 & 505.82 & 17 & 0.0850 \\
+			2 & 505.46 & 10.5 & 0.0525 \\
+			3 & 505.16 & 8.5 & 0.0425 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	具体分析，随着软管数量的增加，谐振频率逐渐降低（从505.82 Hz到505.16 Hz）。这一趋势符合预期，因为增加软管意味着增加了系统的有效质量，理论上会导致自然频率的降低。
+	
+	振幅随软管数量的增加而降低（从0.0850 mm减少到0.0425 mm）。这说明了振动能量的传递效率和系统的能量存储能力随着有效质量的增加而下降。由于系统的自然频率降低，与激励源的匹配程度可能也在改变，导致能量传递不那么高效。
+	
+	振幅的降低也可以是由于阻尼的增加。当有效质量增加时，系统可能需要更多的能量来维持相同的振动水平，从而导致振幅下降。
+	
+	% ---
+	
+	% 实验后思考题
+	%\subsection{实验后思考题}
+	
+	
+	
+	% ---
+	
+	
+	% 结语部分
+	\clearpage
+	
+	% 小标题
+	\section{Lab2-5 双光栅测量微弱振动位移量实验 \quad\heiti 结语}
+	% ---
+	
+	% 总结、杂谈与致谢
+	\subsection{总结、杂谈与致谢}
+	\begin{enumerate}
+		\item 这个实验的实验过程比较复杂，在此我感谢实验过程中来自实验老师和助教老师的帮助。
+		\item 在做实验的过程中我学习到了如何对光路和激励源频率进行细致地调节，以及进一步熟悉了示波器的使用。
+		\item 感谢老师能阅读这篇还有很多不足的实验报告，希望老师能指出做得不好的地方；祝老师身体健康、生活幸福、工作顺利！
+	\end{enumerate}
+	% ---
+	
+	% 参考文献
+	\subsection{参考文献}
+	[1] 维基百科 https://zh.wikipedia.org
+	
+	[2] 沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4
+	
+	[2] DHGS-1 型双光栅微弱振动测量仪使用说明书，杭州大华仪器制造有限公司
+	
+	% ---
+	
+	% 附件
+	\subsection{附件}
+	实验台桌面整理如\cref{fig:figA2}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_5GraA2.jpg}
+		\caption{实验台桌面整理}
+		\label{fig:figA2}
+	\end{figure}
+	
+	预习报告签字如\cref{fig:figA3}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_5GraA3.jpg}
+		\caption{预习报告签字}
+		\label{fig:figA3}
+	\end{figure}
+	
+	实验报告个人签名如\cref{fig:name}。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{name.png}
+		\caption{个人签名}
+		\label{fig:name}
+	\end{figure}
+	
+	% ---
+	
+	相关代码已上传至Github。
+	
+	
+	
+\end{document}

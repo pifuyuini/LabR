@@ -1,0 +1,758 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+\usepackage{adjustbox}
+%\usepackage{mathrsfs} % 字体
+\captionsetup[figure]{name=Figure} % 图片形式
+\captionsetup[table]{name=Table} % 表格形式
+
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{xcolor} %添加更多文本颜色
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+
+\begin{document}
+	
+	
+	
+	% 实验报告封面	
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|>{\centering}X|>{\centering}X|>{\centering}X
+				|>{\centering}X|>{\centering}X|>{\centering\arraybackslash}X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{c|}{实验记录与分析}&\multicolumn{2}{c|}{总成绩}\\
+			\hline
+			\LARGE30 & & \LARGE50 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 信息栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 实验班2\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2024/3/28 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 大标题
+	\begin{center}
+		\LARGE Lab2-4 \quad 光学像差实验I
+	\end{center}
+	% ---
+	
+	% 注意事项
+	
+	% 基本
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}[label=\arabic*., leftmargin=*]
+		\item 实验报告由两部分组成：
+		\begin{enumerate}[label=\arabic*), leftmargin=*]
+			\item 预习报告：课前认真研读\textbf{实验讲义}，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（30分）}}
+			\item 实验记录与分析：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得手记的值输入到电脑打印）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（50分）}}
+		\end{enumerate}
+		
+		\item \textcolor{red}{\textbf{本实验报告可提前打印出来，当场记录分析完成交给带实验的老师，课后无需再提交。若当场完成不了，则请课后完成，再扫描并通过seelight提交。}}
+		
+		\textcolor{red}{\textbf{注意：本文档已留出填写空间，若填写空间不够的话请提前规划留白，做到报告的美观}}
+		\item 注意事项：
+		\begin{enumerate}[label=\arabic*), leftmargin=*]
+			\item 实验中\textcolor{red}{\textbf{避免激光器伤到眼睛}}
+			\item 避免用手直接接触镜片的光学面
+			\item 安装镜片时需在光学平台上尽量靠近台面的高度操作，以免失手跌落摔碎镜片
+			\item 实验平台配件所用固定螺钉需拧紧，以免镜架晃动；但不可过紧，以免损坏
+			\item 实验前需按仪器清单检查光学元件是否齐全，\textcolor{red}{\textbf{实验结束后按照顺序放回元件盒}}
+			
+		\end{enumerate}
+	\end{enumerate}
+	
+	% 安全
+	\textbf{【实验安全注意事项】}	
+	\begin{enumerate}
+		\item 实验中需带手套，尽量避免用手直接接触镜片的光学面。若不小心触摸了光学表面，需尽快用镜头纸或擦镜布擦拭干净。
+		\item 安装镜片时需在光学平台上尽量靠近台面的高度操作，以免失手跌落摔碎镜片。
+		\item 实验平台配件所用固定螺钉需拧紧，以免镜架晃动；但不可过紧，以免损坏。
+		\item 实验前需按仪器清单检查光学元件是否齐全，实验结束后按照顺序放回元件盒。
+	\end{enumerate}	
+	% ---
+	
+	% 特别鸣谢
+	\textbf{【特别鸣谢及模板说明】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号Lab2-4}}
+	% ---
+	
+	
+	
+	% 目录
+	\clearpage
+	\tableofcontents
+	\clearpage
+	% ---
+	
+	
+	
+	% 预习报告	
+	
+	% 小标题
+	\setcounter{section}{0}
+	\section{Lab2-4 光学像差实验I \quad\heiti 预习报告}
+	% ---
+	
+	% 实验目的
+	\subsection{实验目的}
+	\subsection{实验目的}
+	\begin{enumerate}
+		\item 了解七种几何像差产生的原理、基本规律；
+		\item 了解各种像差对光学成像质量的影响；
+		\item 掌握慧差、色差产生的原理及其测量表征； 
+		\item 掌握光学系统的基本调试方法。
+	\end{enumerate}
+	% ---
+	
+	% 仪器用具
+	\subsection{仪器用具}
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			产品编号 & 产品名称 & 规格 & 数量 \\
+			\hline
+			1 & 激光光源 & $\lambda =632.6nm$ & 1 \\
+			2 & 激光器夹持器 & 3维调整 & 1 \\
+			3 & 显微物镜 & 10×/0.25 & 1 \\
+			4 & 针孔 & Ø100um或Ø50um & 1 \\
+			5 & 五维调整机构 & 装配显微物镜和针孔用 & 1 \\
+			6 & 衰减片1 & 0.0001（衰减系数），装在镜框中 & 1 \\
+			7 & 衰减片2 & 0.01（衰减系数），装在镜框中 & 1 \\
+			8 & 双凸透镜1 & 焦距$f=300mm$，装在透镜/反射镜座中 & 1 \\
+			9 & 平凸透镜2 & 焦距$f=100mm$，装在透镜/反射镜座中 & 1 \\
+			10 & 平凸透镜3 & 焦距$f=150mm$，装在透镜/反射镜座中 & 1 \\
+			11 & 白屏 & SZ-13，一面白屏，一面带坐标纸 & 1 \\
+			12 & 成像相机 & 大恒的MER-130-30UM或元启智能的REV-13AMU2C & 1 \\
+			13 & 数据线 & 图像采集数据线 & 1 \\
+			14 & 计算机 & 台式或笔记本，安装有成像相机图像采集软件 & 1 \\
+			15 & 光学导轨 & 长度1米，带刻度 & 1 \\
+			16 & 二维平移台 & 行程>10mm & 4 \\
+			17 & 平移滑块 & & 8 \\
+			18 & 支杆 & 50mm长和75mm长 & 3+5 \\
+			19 & 磁性表座 & & 4 \\
+			20 & 旋转调整台 & 可调角度>±5° & 1 \\
+			21 & 白光灯 & GY-6型，亮度可调，即溴钨灯 & 1 \\
+			22 & 滤光片1 & 透光波长：435nm & 1 \\
+			23 & 滤光片2 & 透光波长：630nm & 1 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	% ---
+	
+	% 原理概述
+	\subsection{原理概述}
+	\begin{enumerate}
+		\item \textbf{色差}
+		
+		色差产生的原理主要基于不同颜色（波长）的光在折射介质中的折射率不同这一物理现象。这种现象导致了在光学系统中，不同颜色的光束在经过折射或反射后聚焦于不同的位置，形成了位置色差和倍率色差两种主要类型的色差。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_4Gra2.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_4Gra3.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_4Gra4.jpg}
+			}
+			\caption{光学色差}
+			\label{fig:fig2}			
+		\end{figure}
+		
+		\begin{itemize}
+			\item \textbf{位置色差（轴向色差）} 主要是因为不同颜色的光束在通过光学系统后，其焦点与光轴的交点位置不同。这导致在任何给定的像面位置，物点的像是一个彩色的弥散斑，从而影响成像的清晰度和色彩的准确性。
+			
+			\item \textbf{倍率色差（横向色差或垂轴色差）} 则是因为光学系统对于不同颜色的光具有不同的垂轴放大率，导致同一个轴外物点的不同色光在像面上的大小（即图像的高度）不一致。
+		\end{itemize}
+		
+		这两种色差的存在，尤其是在高精度的成像需求中，都必须通过光学设计的优化或使用特殊的光学材料和元件（如非球面透镜、复合透镜等）来进行校正和消除。		
+		
+		\item \textbf{慧差}
+		
+		\textbf{慧差的产生原理}
+		
+		慧差（也称为彗差或彗形像差）是当光学系统不满足等晕条件时产生的一种像差，主要发生在轴外光束上。在这种情况下，近轴点成像光束的对称性被破坏，导致原本应该在像方对称主光线的各个光线交点不再位于主光线上。这种失对称的像差会使成像光束与高斯像面相交，形成一个类似彗星尾巴状的弥散斑。
+		
+		慧差的产生与光束通过光学系统的孔径大小和视场位置有关，它既与孔径相关，也与视场相关。慧差的存在会使轴外的像点变成彗星状的弥散斑，严重影响轴外像点的清晰程度。在设计光学系统时，通过适当的设计和调整可以减小或消除慧差的影响，从而提高成像质量。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Lab2_4Gra1.jpg}
+			\caption{光学慧差}
+			\label{fig:fig1}
+		\end{figure}
+		
+		具体来说，慧差（spherical aberration）是由透镜或反射镜的球面形状导致的光线偏折，使得不同位置的光线聚焦于不同的焦点，导致成像模糊。理想透镜下，来自物体上任意一点的光线会通过透镜在像平面上的单一点聚焦。但是，即便是完美制造的透镜也无法实现这一点，这些偏离理想透镜性能的情况被称为透镜的像差。
+		
+		\item 关于光学像差的原理补充
+		
+		像差理论是光学设计求解光学系统初始结构的理论基础。在建立起理想光学系统后，将实际光学系统所成的像偏离理想光学系统的误差称为几何像差，简称像差。光学设计者将几何像差分为七种，即球差、慧差、像散、场曲、畸变、位置色差和倍率色差。产生像差的原因有三点：
+		\begin{itemize}
+			\item 光线计算公式的非线性；
+			\item 物面为平面，折（反）射面为球面（曲面），成像面为曲面；
+			\item 不同颜色（波长）的光在折射介质中的折射率不同。
+		\end{itemize}
+		
+		下面简单总结七中光学像差：
+		
+		\textbf{球差 (Spherical Aberration)}
+		
+		球差发生在光轴上的物点发出的光束通过光学系统后，不同孔径的光线与光轴交点不同，导致像点位置不一致。这主要是因为物面为平面，而折射面为球面（曲面），导致不同孔径光线在光轴上的焦点相对于理想像点的距离不同。球差的存在会影响成像的清晰度和分辨率。
+		
+		\textbf{慧差 (Coma)}
+		
+		慧差是针对轴外光束而言，当光学系统不满足等晕条件时，近轴点成像光束的对称性被破坏，形成彗星状的弥散斑。慧差与孔径大小和视场位置有关，且既与孔径相关又与视场相关。它会使轴外像点变成彗星状，影响轴外像点的清晰度。
+		
+		\textbf{像散 (Astigmatism)}
+		
+		像散发生在视场较大时，除了慧差外，还有像散等像差产生。像散是因为光束的子午焦线和弧矢焦线不在同一位置，导致在理想像面上的弥散斑为一椭圆。像散的存在，必然引起像面弯曲，但即便像散为零，像面也不是平的，而是相切于高斯像面中心的二次抛物面。
+		
+		\textbf{场曲 (Field Curvature)}
+		
+		场曲是由于实际光学系统的成像面为曲面（由于折射面一般为球面或非球面造成），与理想成像平面的差异所导致。场曲的存在导致无法同时在一个较大平面上成清晰像，即边缘清晰时中心模糊，反之亦然。
+		
+		\textbf{畸变 (Distortion)}
+		
+		畸变是由于主光线的实际角放大率不等于+1时导致的，即像方主光线与理想像点不重合。畸变只改变轴外物点在理想像面的成像位置，导致像的形状产生失真，但不影响像的清晰度。
+		
+		\textbf{位置色差 (Longitudinal Chromatic Aberration)}
+		
+		位置色差是因为不同波长的光在介质中的折射率不同，导致不同颜色的光在经过光学系统后与光轴的交点不同，即轴上点两种色光之间成像位置的差异。
+		
+		\textbf{倍率色差 (Transverse Chromatic Aberration)}
+		
+		倍率色差是因为光学系统对不同色光具有不同的垂轴放大率，导致轴外物点发出的两种色光的主光线在消单色光像差的高斯像面上的交点高度之差。
+		
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 实验前思考题
+	\subsection{实验前思考题}
+	
+	% 思考题1
+	\begin{question}
+		慧差与孔径、视场的关系？
+	\end{question}
+	\begin{enumerate}
+		\item 先说明上述三个概念：
+		
+		\textbf{慧差 (Chromatic Aberration)}
+		
+		慧差是一种因为镜头或其他光学系统中的材料对不同波长的光折射率不同而产生的像差。这种现象导致不同颜色的光在经过光学系统后无法在同一点汇聚，从而在成像时产生颜色边缘或模糊。慧差主要有两种类型：轴向慧差（longitudinal chromatic aberration，也称为色差）和横向慧差（transverse chromatic aberration，也称为色散）。
+		
+		\textbf{孔径 (Aperture)}
+		
+		孔径是指光学系统中用于限制通过系统的光束大小的开口。孔径的大小直接影响到成像质量和光量。一般来说，孔径越大，允许进入的光量越多，成像亮度越高，但同时也会增加光学系统的慧差和其他像差。相反，缩小孔径可以减少像差，提高成像的锐度，但会减少进入相机的光量，影响成像的亮度。
+		
+		\textbf{视场 (Field of View)}
+		
+		视场是指光学系统能够观察到的空间区域的范围。它通常由角度来描述，在相机和望远镜等光学设备中尤为重要。视场的大小受到光学系统焦距和传感器尺寸的影响。焦距越短，视场越广阔；焦距越长，视场越狭窄。
+		
+		\item \textbf{慧差与孔径、视场的关系}
+		\begin{enumerate}
+			\item 孔径与慧差的关系：
+			
+			孔径大小直接影响慧差的程度。在一个具有固定焦距的光学系统中，随着孔径增大（即允许通过的光线数量增多），光束的边缘部分与光轴的夹角也增大。因为球面透镜或反射镜对于靠近边缘的光线的聚焦能力较差（与理想的聚焦点有所偏离），所以随着孔径的增大，慧差也随之增加。这意味着图像的模糊程度或失焦将更为严重。
+			
+			增大孔径可以增加进入光学系统的光量，提高成像亮度，但同时也会增加慧差，特别是横向慧差，因为大孔径允许更多角度不同的光线进入，增加了色散的可能性。通过减小孔径可以在一定程度上减少慧差，但这也会减少成像亮度和景深。
+			\item 视场与慧差的关系：
+			
+			随着视场的增大，即图像边缘的光线入射角度增加，这些光线在透镜或反射镜的边缘部分聚焦，导致了更大的慧差。在广角镜头或具有宽视场的望远镜中，边缘图像的质量下降尤为明显，因为这些光线受到更大的偏折。
+			
+			视场的广阔通常会增加光学系统边缘部分的慧差，尤其是横向慧差。在广角镜头中，由于需要捕捉更广阔的视场，边缘部分的光线与光轴形成较大的角度，导致更严重的色散现象。
+			\item 孔径与视场的共同影响：
+			
+			慧差的量化可以通过几何光学的公式来描述，其中考虑了光线入射角、透镜曲率半径和折射率。一个简化的慧差表达式考虑了光线的入射高度（从透镜中心到光线入射点的距离），孔径大小和透镜的物理属性。虽然具体的数学模型可能较为复杂，但基本原理是：随着孔径的增大或视场的扩大，慧差引起的图像质量下降。
+			
+			在设计光学系统时，需要综合考虑孔径和视场的大小，以达到理想的成像质量。孔径的选择不仅会影响慧差的程度，也会影响视场中不同部位的成像质量。同时，为了获得更宽广的视场而设计的光学系统需要特别注意控制边缘部分的慧差。
+		\end{enumerate}
+	\end{enumerate}
+	
+	% 思考题2
+	\begin{question}
+		产生色差原因？列举几种消色差的方法。
+	\end{question}
+	\begin{enumerate}
+		\item \textbf{产生色差原因}
+		
+		光学色差是镜头或光学系统在成像过程中由于光的折射率与波长相关性导致的一种成像缺陷。当不同波长的光通过同一光学元件时，由于折射率的差异，各种颜色的光线在焦点、方向或大小上产生不同程度的分离，导致成像时出现色彩边缘或模糊，影响成像质量。主要表现为两种类型：
+		\begin{enumerate}
+			\item \textbf{轴向色差（Longitudinal Chromatic Aberration, LCA）}：不同颜色的光在光轴方向上焦点不一致，导致图像上出现彩色晕轮。这种色差主要出现在图像的高对比度边缘处，例如黑白边界。
+			\item \textbf{横向色差（Lateral Chromatic Aberration, LaCA）}：不同颜色的光经过光学系统后，在成像平面上呈现不同的放大率，导致彩色边缘平行于光轴的位置错位。这种色差通常出现在图像的边缘部分。
+		\end{enumerate}
+		
+		\item \textbf{消除色差的方法}
+		
+		色差是由透镜折射率对不同波长光线的依赖性不同引起的，导致不同颜色的光在透镜中聚焦于不同的点。为了减少色差，可以使用具有不同色散特性材料组成的复合透镜，如消色差双胶合镜（achromatic doublet），这种透镜通常由玻璃和氟化物材料制成，以降低光学色散，实现不同颜色光线的更好聚焦。色差的最小化可以通过使用具有不同折射率和色散的材料组合透镜实现。一个常见的方法是使用消色差透镜或者称为消色差双胶合镜，它由冠玻璃和氟玻璃组成，能够在一定波长范围内减少色差，尽管无法完全校正。进一步增加不同组合的透镜可以进一步提高校正程度，例如使用超消色差透镜或apochromat。此外，衍射光学元件（diffractive optical elements）也可以用来校正色差，它们具有与光学玻璃和塑料的正阿贝数相反的负色散特性。
+		
+		\begin{enumerate}
+			\item 使用低色散材料：选用低色散（Low-Dispersion, LD）或超低色散（Extra-Low Dispersion, ED）材料制造光学元件，可以有效减少光的色散，从而减轻色差。
+			\item 光学设计优化：通过优化光学系统的设计，例如使用多片镜头组合，调整镜片的曲率和厚度，可以在设计阶段减少色差的产生。
+			\item 非球面镜片：使用非球面镜片可以更精确地控制光线的传播，以减少色差和其他像差。
+			\item 复合镜头（Achromatic Lens）：通过将不同材料的两个或多个镜片粘合在一起制成复合镜头，以抵消不同颜色光线的色散效应。这种方法常用于制造消色差透镜。
+			\item 数字后期处理：在图像或视频被捕捉后，可以通过软件算法识别并修正色差，这是现代数码摄影中常见的处理手段。许多相机和图像编辑软件都内置了色差校正功能。
+			\item 光栅校正：在一些专业的光学仪器中，会使用光栅来校正色差，尤其是在高精度的测量仪器和天文望远镜中。
+		\end{enumerate}
+		
+		\item \textbf{相关文献调研}
+		\begin{enumerate}
+			\item 数字图像处理法：通过分析不显示色差的边缘颜色行为，限制颜色差异信号的范围，以此检测和消除色差（Chung2010）。
+			
+			\item 特制光学系统：设计并构建了用于校正眼睛平均纵向色差的光学系统，保持相对较宽的视场（Benny2007）。
+			
+			\item 电子镜法：使用超越式电子镜校正色差，通过特定的磁偏转系统和透镜组合来实现色差校正（Mauck1993）。
+			
+			\item 使用关键点校正单张图像中的色差：通过匹配每个颜色通道的关键点并对其进行对齐，
+			来校正单个照片中的色差（Cecchetto2020）。
+			
+			\item 假彩色滤波技术：利用假彩色滤波技术过滤掉输入图像色度信号中的假彩色成分，减少色差产生的色彩失真（Chang2013）。
+		\end{enumerate}
+	\end{enumerate}
+	
+	% 思考题3
+	\begin{question}
+		针孔滤波的工作原理。
+	\end{question}
+	\textbf{针孔滤波}是光学中的一个重要概念，主要应用于成像技术中改善图像质量。其工作原理基于波动光学的基本原理，特别是衍射和干涉现象。以下是针孔滤波的工作原理的详细叙述：
+	
+	\begin{enumerate}
+		\item \textbf{基本概念：}
+		\begin{itemize}
+			\item \textbf{衍射}：当光波遇到障碍物（如缝隙、孔洞等）时，其传播路径会发生偏离，形成新的波前。这种现象称为衍射。
+			\item \textbf{干涉}：当两个或多个波遇合时，它们会相互加强（构造干涉）或相互削弱（破坏性干涉），形成新的波形模式。
+			\item \textbf{空间频率}：描述图像中细节大小的一个量度。高空间频率对应于图像中的细小细节，而低空间频率对应于图像中的大尺寸特征。
+		\end{itemize}
+		
+		\item \textbf{针孔滤波的工作原理：}
+		\begin{enumerate}
+			\item \textbf{衍射限制：}
+			\begin{itemize}
+				\item 光源发出的光波通过物体时，光波会根据物体的结构发生衍射。
+				\item 当这些衍射的光波穿过针孔时，由于针孔的尺寸非常小，它只允许通过中心的一部分光波。
+				\item 这意味着，针孔作用下，能够通过的光波主要是与物体的细节相对应的那些空间频率较高的成分。
+			\end{itemize}
+			
+			\item \textbf{干涉和重建：}
+			\begin{itemize}
+				\item 衍射后的光波通过针孔后，这些光波在针孔另一侧重叠并干涉，形成图像。
+				\item 由于针孔滤波去除了一些光波成分，通过的光波主要是高空间频率的成分，因此可以改善图像的对比度和分辨率，尤其是在处理细节丰富的场景时。
+			\end{itemize}
+			
+			\item \textbf{空间滤波：}
+			\begin{itemize}
+				\item 针孔滤波实际上是一种空间滤波技术，它通过物理方式实现对光波空间频率成分的选择性传递。
+				\item 这种滤波方式可以用来减少图像的模糊，提高成像系统的光学性能。
+			\end{itemize}
+		\end{enumerate}
+	\end{enumerate}
+	
+	\textbf{针孔滤波}也是一种图像处理技术，常用于去除图像中的噪声或进行图像增强。它的工作原理基于空间域滤波的概念，利用邻近像素的值对目标像素进行处理，从而实现对图像的平滑或锐化。针孔滤波特别适用于去除小的噪声点，同时保留图像的主要结构和边缘信息。
+	
+	\begin{enumerate}
+		\item \textbf{滤波器的定义：}
+		针孔滤波器通常定义为一个小的、中心对称的矩阵，称为核（Kernel）或掩模（Mask）。这个核决定了滤波器如何对目标像素及其邻域像素进行加权和计算。在针孔滤波中，核的中心通常有一个较大的权值，而周围的权值较小或为零，这样设计是为了模拟通过一个小孔（针孔）观察图像的效果，只有中心的光线可以通过。
+		
+		\item \textbf{滤波过程：}
+		针孔滤波的过程可以分为以下几个步骤：
+		\begin{itemize}
+			\item \textbf{核的移动：} 滤波器核在图像上逐像素移动。对于图像中的每一个像素，都将核置于以该像素为中心的位置。
+			\item \textbf{加权和计算：} 计算核内所有像素的加权和。核中心的像素权重最大，反映了针孔滤波的特性。这个加权和替代了原来核中心位置的像素值。
+			\item \textbf{边界处理：} 由于核在图像边缘无法完全覆盖像素，因此需要采取一定的边界处理策略，如复制边缘像素、镜像反射或者忽略边缘。
+		\end{itemize}
+		
+		\item \textbf{噪声去除与图像增强：}
+		\begin{itemize}
+			\item \textbf{噪声去除：} 通过以上加权和计算，小的噪声点（其像素值与周围像素差异较大）会被平滑掉，因为加权和的计算使得这些点的像素值被邻近的像素值所替代。
+			\item \textbf{图像增强：} 虽然针孔滤波主要用于噪声去除，但适当调整核中的权值也可以用于增强图像的边缘和细节，使图像看起来更清晰。
+		\end{itemize}
+	\end{enumerate}
+	
+	% ---
+	
+	
+	
+	% 实验记录	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 28\degree C & 实验地点： & A512 \\
+			\hline
+			学生签名：& 见\textbf{附件} & 评分： &\\
+			\hline
+			实验时间：& 2024/3/28 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-4 光学像差实验I  \quad\heiti 实验记录}
+	% ---
+	
+	% 实验过程记录
+	\subsection{实验内容、步骤与结果}\textcolor{ForestGreen}{（按照实验顺序依次}\textcolor{red}{简要记录}\textcolor{ForestGreen}{实验内容及步骤，）（空间不够，可自行加页）}
+	
+	%
+	\subsubsection{色差测量实验}
+	
+	%
+	\textbf{实验光路}如\cref{fig:graph3}所示：	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.85\textwidth]{graph3.png}
+		\caption{位置色差测量光路图}
+		\label{fig:graph3}
+	\end{figure}
+	
+	\textbf{实验步骤}如下：
+	\begin{enumerate}
+		\item 按图示光路，先\textcolor{red}{摆放}溴钨灯、透镜、白屏，\textcolor{red}{调整}透镜3的中心高与光源等高，使光源在透镜3的物方1-2倍焦距处，\textcolor{red}{调整}白屏的位置，找到溴钨灯\textcolor{red}{灯丝}最清晰的像位置，并记录该位置x1=（     ）；
+		\item 按图示光路，放置滤光片1，调整白屏的位置，\textcolor{red}{找到}这时溴钨灯丝最清晰的像位置并\textcolor{red}{记录}白屏位置x2;
+		\item \textcolor{red}{更换}为滤光片2，再\textcolor{red}{调整}白屏的位置，\textcolor{red}{找到}这时溴钨灯丝最清晰的像位置并\textcolor{red}{记录}白屏位置x3；
+		\item \textcolor{red}{计算}位置色差；
+		\item \textcolor{red}{判断}波长与折射率之间的关系。		
+	\end{enumerate}
+	
+	\textbf{实验结果}如下：
+	分别测得光源位置、透镜位置以及成像位置如\cref{fig:fig5}所示（其中，白光成像两次测量结果分别为14.95cm与13.65cm）。白光成像效果如\cref{fig:fig6}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Lab2_4Gra5.png}
+		\caption{各光学器件在光具座上的位置}
+		\label{fig:fig5}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Lab2_4Gra6.jpg}
+		\caption{白光成像}
+		\label{fig:fig6}
+	\end{figure}
+	
+	事实上，人眼对“最清晰的像位置”有主观上得判断，因此，我也让其他同学帮我作了判断以消除主观上的误差，结果如\cref{tab:tab1}所示。\textbf{注意这里我将色差（位置色差）表达为$\Delta L_{GR}=X_2-X_3$，表示绿光与红光的色差。}
+	
+	\begin{table}[h]
+		\centering
+		\caption{实验结果记录：色差测量实验}
+		\label{tab:tab1}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			读数人 & 杨舒云 & 戴鹏辉 & 马万成 \\
+			\hline
+			红光成像位置$X_2$/cm & 12.70 & 12.90 & 12.55 \\
+			绿光成像位置$X_3$/cm & 14.10 & 14.20 & 14.50 \\
+			色差/cm & -1.40 & -1.30 & -1.95 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	计算得到平均值$\bar{\Delta L_{GR}}=-1.55cm$，实验中使用红色滤光片时，波长为$\lambda_C=656.27nm$，使用蓝色滤光片时，波长为$\lambda_F=486.13nm$。则根据位置色差计算公式以及实验测得的数据，\textbf{波长越短，成像越近，折射率越大}。
+	
+	%
+	\subsubsection{光路调试与慧差测量实验}
+	
+	\textbf{实验光路}如\cref{fig:graph4}所示。
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.85\textwidth]{graph4.png}
+		\caption{慧差观测光路图}
+		\label{fig:graph4}
+	\end{figure}
+	
+	\textbf{实验步骤}如下：
+	\begin{enumerate}
+		\item 根据图示布局及元器件参数，\textcolor{red}{估计}各器件的摆放位置，并做初步的\textcolor{red}{预调整}；
+		\item 放置好激光器，打开光源，白屏安装在滑块上并在导轨上前后移动，利用激光光源打在白屏上的光点的位置\textcolor{red}{调整}激光器的方位和俯仰，使得光点的位置随白屏的移动基本不变；之后在离激光器约400mm的位置固定白屏，并在白屏上\textcolor{red}{标记}光斑的位置；
+		\item 	把显微物镜和针孔\textcolor{red}{安装}到五维调整机构上，并如图摆放，让激光正入射显微物镜，先\textcolor{red}{调整}针孔的位置，使其位于显微物镜的焦点位置，直到出现环形衍射光斑；\textcolor{red}{后微调}五位调整机构的高低和左右（垂直光轴方向）平移，同时微调针孔的平移，\textcolor{red}{目标}是使得环形衍射光斑的中心位于第2步中所标记的位置；之后\textcolor{red}{固定并保持}显微物镜和针孔的位置不变。\textcolor{red}{记录}此时调试出来的环形衍射光斑；
+		\item 如图\textcolor{red}{拜访}上双凸透镜1，对经过针孔的发散球面波进行准直。\textcolor{red}{调整}透镜的位置，使光斑与镜面通孔同心，并使针孔位于透镜的焦点位置，光斑经过透镜后为近似平行光（前后平移白屏，观察光斑在白屏上的尺寸，如光斑大小基本不变，则可判定出射光为平行光）；
+		\item 如图\textcolor{red}{拜访}上平凸透镜2（也可用平凸透镜3）（平面朝入射光方向），\textcolor{red}{调整}该透镜的位置，使入射光斑与镜面同心，并使旋转调整机构位于调整的中间位置，方便后续的正负角度调整。
+		\item 如图\textcolor{red}{先摆放}上衰减片1，\textcolor{red}{后安装}成像相机，\textcolor{red}{打开}相机控制采集软件，\textcolor{red}{采集}图像，\textcolor{red}{调整}相机位置，使相机靶面位于平凸透镜2的焦点处，并使图像尽可能位于靶面中心。最开始应通过软件把相机的增益和曝光时间调低，防止过度曝光，损坏相机。如果衰减的不够，可以用上衰减片2。在图像没有饱和的情况下，\textcolor{red}{记录}此时得到的焦点图像；在光路调整没有问题的情况下，此时应该得到一个圆心光斑，并可看到暗的同心环。
+		\item \textcolor{red}{调整}旋转调整机构的旋转角度，使平凸透镜2发生偏转，观察并\textcolor{red}{记录}此时得到的\textcolor{red}{焦点图像}，同时\textcolor{red}{记录}偏转角度（这一步应该能够观察到前述慧差所对应的像斑形状）；在旋转调整机构的角度调整范围内选5点（如-10°、-5°、0°、5°、10°），分别\textcolor{red}{记录}对应得到的图像，\textcolor{red}{分析}慧差大小随角度的变化关系。
+	\end{enumerate}
+	
+	\textbf{实验结果}如\cref{fig:fig8}所示。各光学器件在光具座上的位置如\cref{fig:fig7}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.61\textwidth]{Lab2_4Gra7.png}
+		\caption{各光学器件在光具座上的位置}
+		\label{fig:fig7}
+	\end{figure}
+	
+	此处我先展示一张相机原始图片，如\cref{fig:figAD}所示。可以看出，所成的像实在是太小了，因此为了方便观察我将所得到的图片作了裁剪（如老师希望查看原始图片可以联系我）。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Lab2_4GraAD.jpg}
+		\caption{慧差实验原始图片}
+		\label{fig:figAD}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\subfloat[逆时针旋转15°]
+		{\includegraphics[width=0.31\textwidth]{Lab2_4_H_f15.jpg}\label{fig:subfig2}}
+		\quad
+		\subfloat[逆时针旋转10°]
+		{\includegraphics[width=0.31\textwidth]{Lab2_4_H_f10.jpg}\label{fig:subfig3}}
+		\quad
+		\subfloat[逆时针旋转5°]
+		{\includegraphics[width=0.31\textwidth]{Lab2_4_H_f5.jpg}\label{fig:subfig4}}
+		\quad
+		\subfloat[正入射]
+		{\includegraphics[width=0.31\textwidth]{Lab2_4_H_0.jpg}\label{fig:subfig5}}
+		\quad
+		\subfloat[顺时针旋转5°]
+		{\includegraphics[width=0.31\textwidth]{Lab2_4_H_5.jpg}\label{fig:subfig6}}
+		\quad
+		\subfloat[顺时针旋转10°]
+		{\includegraphics[width=0.31\textwidth]{Lab2_4_H_10.jpg}\label{fig:subfig7}}
+		\quad
+		\subfloat[顺时针旋转15°]
+		{\includegraphics[width=0.31\textwidth]{Lab2_4_H_15.jpg}\label{fig:subfig8}}
+		\quad
+		\caption{慧差实验结果图}
+		\label{fig:fig8}
+	\end{figure}
+	
+	根据上述图像，我们可以得出偏转角度为0即正向入射时，光斑最小并且没有彗尾。当透镜2旋转一定角度后，图像开始出现彗尾。逆时针旋转时，彗尾向右，图像左移；顺势针旋转时，彗尾向左，图像右移。\textbf{彗尾的大小与透镜旋转角度呈正相关关系}。
+	
+	事实上，每张图像都是实验过程中的一个数据点，表现了在特定的偏转角度下的光学视差效果。通过比较这些图像，我们可以观察到光斑的中心位置随着角度的改变而移动，这是视差现象的直接结果。从中我们可以量化视差的大小，通过计算光斑中心的位移和角度变化之间的关系，我们可以得到视差与角度之间的关系。
+		
+	% ---
+	
+	% 原始数据
+	%\clearpage
+	\subsection{原始数据记录}
+	实验记录本上的原始数据见\cref{fig:figA1}（签字）。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Lab2_4GraA1.jpg}
+		\caption{原始数据记录}
+		\label{fig:figA1}
+	\end{figure}
+	
+	实验台桌面整理见\textbf{附件}部分(\cref{fig:figA2})。
+	
+	其它原始数据见\cref{fig:fig8}。
+	% ---
+	
+	% 问题记录
+	\subsection{实验过程中遇到的问题记录}
+	本次实验过程中遇到了不少问题，集中出现在慧差测量实验当中，现详细复盘与总结如下。
+	\begin{enumerate}
+		\item 关于色差测量
+		
+		在观察色差的实验中，应注意光源应当放置在透镜1至2倍焦距处，以成放大的像，便于观察。
+		
+		\item 光路调节
+		\begin{enumerate}
+			\item 首先，由于透镜2整体组成过高，所以其它元件在调节时出现了不够高的情形；利用已有其它仪器对其它元件高度调整后，勉强使得光路能够水平。
+			\item 光路整体偏左，但光具座的横向调节限度不够，这导致出射光无法射入相机当中；在助教老师和其他同学的帮助下，我勉强解决了这个问题。
+			\item 上述两个问题使得我对光路进行了反复的调整，严重拖慢了实验进度。事实上，在观察慧差的实验中，需要保证所有的光学器件都应保持等高共轴，这样能保证成像最清晰。
+		\end{enumerate}		
+		
+		\item 成像与观察
+		\begin{enumerate}
+			\item 从实验结果可以看出，慧差实验的成像效果并不好。但是，值得一提的是成像并无纵向的慧差，这说明光路还是等高共轴的。
+			\item 关于成像效果太差的原因，我有一个大胆的猜想，那就是相机本身可能存在一定问题（事实上我询问了同学戴鹏辉，他的像是红色和橘色的并且又大又清晰，而我的却是青蓝色的）。
+			\item 其次，反思整个实验流程，由于图像分辨率低且缺乏可见的参考点，没有更多的数据，很难进行更详细的分析。考虑任何在背景中的固定参考点（在这里由于黑暗而看不见）可以用来衡量由于视差产生的光源的表观运动；而实验设置的细节，如物体之间的距离、运动的比例尺和图像之间的时间间隔，对于更详细的分析至关重要；此外这些图像相当暗，分辨率低。为了更精确的分析，可能需要更高质量的图像来辨别更细致的细节。
+		\end{enumerate}
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 分析与讨论	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2024/3/28 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-4 光学像差实验I \quad\heiti 分析与讨论}
+	% ---
+	
+	% 实验后思考题
+	\subsection{实验后思考题}
+	
+	%思考题1
+	\begin{question}
+		有没有办法通过图像计算光学系统的像差？请给出方法说明。如果通过相机采集图像进行判断的话，相机象元尺寸应如何选择？
+	\end{question}
+	\begin{enumerate}
+		\item 初步检索资料并提出方法
+		\begin{enumerate}
+			\item 方法说明
+			
+			\textbf{图像采集}：使用待评估的光学系统与高质量的相机配合，拍摄一组特定的测试图案（如点源、条纹或标准测试图）。
+			
+			\textbf{预处理}：对采集到的图像进行必要的预处理，包括去噪、亮度和对比度调整等，以提高分析的准确性。
+			
+			\textbf{像差评估}：
+			\begin{itemize}
+				\item 点扩散函数（PSF）分析：如果测试图案为点源，可以通过分析点扩散函数（PSF）来评估像差。PSF描述了点源在图像上的展开情况，理想情况下应为一个点，但实际上会因像差展开成特定形状。
+				\item 调制传递函数（MTF）分析：通过分析系统对不同空间频率信息的传递能力来评估系统的分辨率和对比度。MTF可以从条纹图案获得。
+				\item 波前分析：通过分析从理想波前偏离的程度来评估光学系统的像差，通常需要专门的仪器如夏克-哈特曼波前传感器。
+			\end{itemize}
+			
+			\textbf{数据处理与分析}：根据PSF、MTF或波前分析的结果，可以定量评估光学系统的各种像差，如球面像差、彗差、畸变和像散等。
+			
+			\item 相机象元尺寸选择
+			\begin{itemize}
+				\item 奈奎斯特准则：为了精确捕捉到光学系统的细节，相机的采样频率（由象元尺寸决定）应至少为系统最高空间频率的两倍。这意味着象元尺寸应小于系统能解析的最小细节的一半。
+				\item 系统分辨率：如果光学系统的分辨率已知，象元尺寸应选择为能够匹配或超过该分辨率的水平。例如，如果系统分辨率为2微米，相机的象元尺寸应小于或等于1微米。
+				\item 实际应用中的权衡：考虑到成本和技术限制，可能需要在分辨率和其他因素（如动态范围、信噪比等）之间做出权衡。选择最小可接受的象元尺寸，既可以保证像差评估的准确性，又能满足其他性能要求。
+			\end{itemize}			
+		\end{enumerate}
+		
+		\item 进一步对文献做调研
+		\begin{enumerate}
+			\item 综合分析算法与软件的应用：通过集成现有的分析算法到软件中，可以自动计算含有声光(AO)衍射元素的光学系统的像差。这种方法利用了软件的自动化优势，使得对各种配置的AO元素系统的像差计算和相关设备的优化成为可能。这表明了计算方法在光学设计中的实用性和灵活性 (Batshev, Machikhin, \& Pozhar, 2017)。
+			
+			\item 计算光学设计方法：通过结合光学系统设计和图像处理，可以从最终系统获得高分辨率图像。这种方法分析了调制传递函数(MTF)和像差，提出了一个基于波前像差理论和Zernicke公式的方法，确定点扩散函数(PSF)和某些单色像差之间的关系 (Shao, Wang, Xu, \& Liu, 2017)。
+			
+			\item 基于迭代计算的第三阶像差方法：这种方法通过单独和迭代地计算光学系统中每个透镜组的像差，以达到一个组的像差补偿另一组的目的。该方法在成像光谱仪的光学系统设计中得到应用，验证了其稳定性和实用性 (Choi, Kong, \& Lee, 2014)。
+			
+			\item 编码孔径基校正像差(CACAO-FB)方法：这种方法通过计算成像法重建光学系统的瞳函数并通过去卷积校正像差，特别适用于难以提供空间相干照明的成像场景。CACAO-FB方法展示了通过计算后处理将光学设计的复杂性转换为算法的潜力，使得光学成像系统能够在广阔的视场内达到衍射极限性能 (Chung, Martinez, Lencioni, Sadda, \& Yang, 2019)。
+		\end{enumerate}
+		这些方法各有侧重，从利用现有算法和软件的综合应用，到将光学设计和图像处理结合的计算光学设计方法，再到特定于解决单色像差和光学系统校正的创新技术。每种方法都展示了光学像差计算领域的深度和广度，以及利用图像分析进行光学系统评估和优化的潜力。
+		
+		关于相机象元尺寸的选择，这取决于特定分析方法和所需的像差分析分辨率。理想情况下，应选择能够平衡分析分辨率要求与被评估成像系统光学特性的象元尺寸。尽管这些文献未具体讨论最优相机象元尺寸，但通常，进行此类评估时应考虑到成像系统的光学特性和分辨率要求，以确保能够有效地捕获并分析系统的像差。
+		
+		\item 具体示例
+		
+		具体来看J. Chung等人在2019年发表的研究：“Computational aberration compensation by coded-aperture-based correction of aberration obtained from optical Fourier coding and blur estimation (CACAO-FB)”(Chung, Martinez, Lencioni, Sadda, \& Yang, 2019)。这篇文章介绍了一种新的光学测量系统和计算方法，用于确定和校正光学系统中的像差。系统由一种计算成像方法构成，该方法能够通过适应于非相干成像方式的重叠Fourier编码来重构光学系统的瞳函数，并通过去卷积恢复在像差图像中潜在的高分辨率图像。为了增强去卷积对噪声的鲁棒性，使用编码孔径捕获图像。
+		
+		我们可以根据文章中描述的计算方法概述一个基于去卷积来校正像差的简单示例。此示例将演示如何使用Python中的常用库来实现基于估计点扩散函数（PSF）的图像去卷积，这是光学像差校正中的一个关键步骤。以下示例代码使用Python的scipy和numpy库来模拟简单的去卷积过程，用于像差校正。这不是原文中CACAO-FB方法的直接实现，但提供了一个理解光学像差计算和校正概念的基础。
+		
+		\begin{lstlisting}[style=pythonstyle,caption=代码记录]
+			import numpy as np
+			from scipy.signal import convolve2d
+			from scipy.ndimage import gaussian_filter
+			
+			# 假设的原始图像
+			original_image = np.random.rand(100, 100)
+			
+			# 模拟的点扩散函数(PSF)，这里使用高斯模糊作为简单示例
+			psf = gaussian_filter(np.zeros((100, 100)), sigma=5)
+			psf[int(100 / 2), int(100 / 2)] = 1  # 将PSF中心点设为高值
+			psf = gaussian_filter(psf, sigma=5)  # 应用高斯模糊以模拟PSF
+			
+			# 使用PSF对原始图像进行卷积，模拟产生像差的过程
+			aberrated_image = convolve2d(original_image, psf, mode='same')
+			
+			# 去卷积以校正像差（简化示例，实际情况可能需要更复杂的方法）
+			# 这里假设我们知道PSF
+			deconvolved_image = convolve2d(aberrated_image, np.flip(np.flip(psf, axis=0), axis=1), mode='same')
+		\end{lstlisting}		
+	\end{enumerate}
+	
+	% ---
+	
+	
+	% 结语部分
+	%\clearpage
+	
+	% 小标题
+	\section{Lab2-4 光学像差实验I \quad\heiti 结语}
+	% ---
+	
+	% 总结、杂谈与致谢
+	\subsection{总结、杂谈与致谢}
+	\begin{enumerate}
+		\item 这个实验的实验过程比较复杂，在此我感谢实验过程中来自实验老师和助教老师以及同学戴鹏辉、马万成和栾锦萱等人的帮助。
+		\item 在做实验的过程中我学习到了如何对光路进行细致地调节，以及如何有效地观测慧差。
+		\item 感谢老师能阅读这篇还有很多不足的实验报告，希望老师能指出做得不好的地方；祝老师身体健康、生活幸福、工作顺利！
+	\end{enumerate}
+	% ---
+	
+	% 参考文献
+	\subsection{参考文献}
+	[1] 维基百科 https://zh.wikipedia.org
+	
+	[2] 沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4
+	
+	% ---
+	
+	% 附件
+	\subsection{附件}
+	试验台桌面整理如\cref{fig:figA2}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Lab2_4GraA2.jpg}
+		\caption{实验台桌面整理}
+		\label{fig:figA2}
+	\end{figure}
+	
+	实验报告个人签名如\cref{fig:name}。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{name.png}
+		\caption{个人签名}
+		\label{fig:name}
+	\end{figure}
+	
+	% ---
+	
+	相关代码已上传至Github。
+	
+	
+	
+\end{document}

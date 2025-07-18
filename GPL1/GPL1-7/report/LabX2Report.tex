@@ -1,0 +1,818 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+
+\begin{document}
+	
+	
+	
+	%实验报告封面	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 2\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2023/10/26 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{center}
+		\LARGE LabX2 \quad 转动惯量与角动量守恒
+	\end{center}
+	
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（25分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：\textcolor{red}{\textbf{处理实验原始数据（学习仪器使用类型的实验除外），结合误差理论的课程内容，对所有测量数据进行误差分析，转动惯量理论值、实验值、转动惯量变化前后的角动量测量值均用$A±δ\delta A$的形式表示，分析转动惯量理论值和实验值是否在误差范围内吻合，转动惯量变化前后的角动量测量值是否在误差范围内吻合；}}按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。\textcolor{red}{\textbf{（25分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+		\item 除以之外：实验前：要预习，明确实验目的和达成的目标；实验中：取、放和安装待测物体时要轻拿轻放，不得摔碰；不得随意拿取其它实验台的部件，如有缺失，请及时举手告知老师；平台转动前，应注意保持转轴在垂直方向，即注意调节A型基座水平；实验后：仔细分析处理数据，认真撰写实验报告。
+	\end{enumerate}
+	
+%	\textbf{【实验安全注意事项】}	
+	
+	
+	\textbf{【特别鸣谢及模板说明】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号LabX2}}
+	
+	
+	
+	\clearpage
+	\tableofcontents
+	\clearpage
+	
+	
+	
+	%预习报告	
+	\setcounter{section}{0}
+	\section{LabX2 转动惯量与角动量守恒 \quad\heiti 预习报告}
+	
+	\subsection{实验目的}
+	\begin{enumerate}
+		\item 按理论法和实验法测量不同形状和质量的物体的转动惯量。这个实验将使用PASCO ME-8950A完整旋转系统，以及数字式电子天平、传感器等仪器，来测量圆盘、圆环等不同形状和质量的物体的转动惯量，并与理论值进行比较。
+		\item 验证角动量守恒定律。这个实验将使用PASCO ME-8950A完整旋转系统，以及传感器等仪器，来观察和测量不同情况下系统的总角动量，并验证其是否保持不变。
+		\item 总的来说，本实验就是通过测量圆盘、圆环、竖直圆盘的半径、质量，来计算各物体理论转动惯量；再通过测量得到实验转动惯量，进行对比并验证角动量守恒定律。
+	\end{enumerate}
+	
+	\subsection{仪器用具}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1& PASCO ME-8950A 完整旋转系统 & 1 & 型号：ME-8950A，旋转轴长度：0.5 m，旋转轴直径：0.01 m，旋转速度范围：0-300 rpm，旋转速度精度：±1 rpm \\
+			
+			2& 	电子天平 & 1 & 型号：ME-2150，测量范围：0-200 g，测量精度：±0.01 g \\
+			
+			3& 尺子 & 1 & 型号：SE-8715A，测量范围：0-30 cm，测量精度：±0.1 mm \\
+			
+			4& 无限旋转运动传感器 & 1 & -- \\
+			
+			5& 圆盘 & 2 & 型号：ME-8952A，直径：0.15 m，厚度：0.01 m，质量：0.5 kg \\
+			
+			6& 圆环 & 2 & 型号：ME-8953A，外径：0.15 m，内径：0.10 m，厚度：0.01 m，质量：0.5 kg \\
+			
+			7& 转动惯量测量附属设备（质量与支架套装） & 1 & 型号：ME-8953 \\
+			
+			8& 游标卡尺 & 1 & -- \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	
+	\subsection{原理概述}
+	\begin{enumerate}
+		\item 转动惯量与角动量守恒
+		
+		转动惯量（也称为惯性矩）和角动量之间有密切的关系，它们描述了物体绕某一轴旋转时的性质。
+		
+		转动惯量是一个描述物体绕某一轴旋转时的惯性的物理量，它取决于物体的质量和形状，以及轴线与物体的位置关系。转动惯量可以用以下的公式来计算：
+		
+		\[
+		I = \sum_{i=1}^n m_i r_i^2
+		\]
+		
+		其中，\(I\) 是转动惯量，\(m_i\) 是物体上第\(i\)个质点的质量，\(r_i\) 是第\(i\)个质点到轴线的距离，\(n\) 是物体上质点的总数。对于连续分布的物体，可以用以下的公式来计算：
+		
+		\[
+		I = \int r^2 dm
+		\]
+		
+		其中，\(dm\) 是物体上某一微小部分的质量，\(r\) 是该部分到轴线的距离。对于一些常见的形状和质量分布的物体，可以用一些简化的公式来计算，如：
+		
+		
+		角动量是一个描述物体绕某一点旋转时的运动状态的物理量，它取决于物体的质量、速度和与旋转点的距离。角动量可以用以下的公式来计算：
+		
+		\[
+		\vec{L} = \vec{r} \times \vec{p}
+		\]
+		
+		其中，\(\vec{L}\) 是角动量矢量，\(\vec{r}\) 是物体到旋转点的位矢，\(\vec{p}\) 是物体的动量矢量。对于一个绕固定轴旋转的刚体，可以用以下的公式来计算：
+		
+		
+		角动量守恒的条件可以用以下公式来表达：
+		
+		\[
+		L_i = L_f
+		\]
+		
+		这里：\(L_i\) 代表系统的初始总角动量；\(L_f\) 代表系统的最终总角动量。
+		
+		孤立系统的情况：在没有外力矩作用的情况下，总角动量保持不变。这适用于封闭系统，其中没有外部扭矩（力矩）来改变系统的角动量。
+		
+		外部扭矩为零：即使系统不是孤立的，如果外部扭矩（力矩）为零，总角动量仍然守恒。
+		这意味着系统内部的角动量转移或改变，但总和保持不变。
+		
+		满足牛顿第三定律：当系统中的内部部分发生相互作用时，它们之间的角动量交换必须满足牛顿第三定律，即每个作用力都有一个等大反向的反作用力。
+		
+		转动惯量和角动量之间的关系可以表示为 \(L = I \cdot \omega\)，其中 \(L\) 代表角动量，\(I\) 代表转动惯量，\(\omega\) 代表物体的角速度。这个关系表明，当一个物体绕固定轴旋转时，其角动量的大小取决于物体的质量分布（转动惯量）以及旋转的速度（角速度）。根据角动量守恒定律，如果外部扭矩（力矩）为零，角动量将保持不变，这也意味着转动惯量不变。这解释了为什么旋转系统在没有外部扭矩作用下会保持角动量守恒。
+		
+		\item 圆盘和圆环的转动惯量
+		
+		对于实验中涉及的圆盘的转动惯量 $I_d$：
+		
+			\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{LabX2Gra1.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{LabX2Gra2.png}
+			}
+			\caption{圆盘的转动惯量}
+			\label{fig:fig1}			
+		\end{figure}
+		
+		$$
+		I_d=\frac12MR^2
+		$$		
+		
+		竖直转动的圆环的转动惯量 $I_v$：
+		
+		$$
+		I_v=\frac14MR^2
+		$$
+		
+		圆环转动惯量 $I_r{:}$：
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.3\textwidth]{LabX2Gra3.png}
+			\caption{圆环的转动惯量}
+			\label{fig:fig3}
+		\end{figure}
+		
+		$$
+		I_r=\frac{1}{2}M(R_o^2+R_i^2)
+		$$
+		\item 转动惯量的实验测定与角动量守恒的实验验证
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.9\textwidth]{LabX2Gra4.png}
+			\caption{实验测量原理图}
+			\label{fig:fig4}
+		\end{figure}
+		
+		在实验中我们通过下式计算
+				
+		$$
+		I=\frac\tau\alpha 
+		$$
+		
+		其中 $\tau$ 是旋转平台所受力矩，满足 $\tau=(M_t-M_f)r(g-a)$, $M_t$ 是悬挂质量，$M_f$ 是摩擦质量，$a$ 是悬挂物下落的线加速度，而角加速度 $\alpha$ 满足 $\alpha=a/r$ , 为悬挂物线圈所在圆的半径，将 $\tau$ 和 $\alpha$ 代入上式中，得到 
+		$$
+		I=(M_t-M_f)r^2(\frac{g}{a}-1)
+		$$
+		
+		此式即为实验测量转动惯量的原理。
+		
+		角动量守恒定律是一个表明在没有外力矩作用时，一个系统的总角动量保持不变的物理定律。外力矩是指作用在系统上，并使系统产生角加速度或改变旋转方向的力对系统旋转中心产生的力矩。外力矩可以用以下的公式来计算：
+		
+		\[
+		\vec{\tau} = \vec{r} \times \vec{F}
+		\]
+		
+		其中，\(\vec{\tau}\) 是外力矩矢量，\(\vec{r}\) 是作用力所在点到系统旋转中心的位矢，\(\vec{F}\) 是作用力矢量。如果外力矩为零，则系统的总角动量不变，即：
+		
+		\[
+		\vec{L}_{\text{initial}} = \vec{L}_{\text{final}}
+		\]
+		
+		其中，\(\vec{L}_{\text{initial}}\) 是系统初始时的总角动量，\(\vec{L}_{\text{final}}\) 是系统最终时的总角动量。
+		
+		
+	\end{enumerate}
+	
+	\subsection{实验前思考题}
+	\begin{question}
+		写出你认为实验中需要重点考虑的内容或注意事项。
+	\end{question}
+	\begin{enumerate}
+		\item 在实验前需要仔细阅读文件中的介绍和设备说明部分，了解实验的目的、原理、方法和步骤，以及实验所需的设备和附件。您也需要检查设备和附件是否完好无损，是否符合规格要求，是否正确安装和连接。
+		
+		\item 在实验中，需要注意以下几点：
+		\begin{itemize}
+			\item 需要保证系统的旋转平衡性，即系统在任何方向上都能保持静止或匀速旋转。为此，需要调节铸铁底座上的水平螺丝，使旋转平台水平，并且在旋转平台上放置物体时，尽量使物体的质量分布均匀。
+			
+			\item 需要保证系统的旋转自由度，即系统在没有外力矩作用时能够自由旋转。为此，需要减小摩擦力或空气阻力对系统旋转的影响，选择质量较大、半径较小、表面光滑、形状对称的物体进行旋转，并且选择质量较小、弹性较好、长度适中、不易打结的弹簧秤或绳子来拉住物体。
+			
+			\item 需要保证系统的旋转可测性，即系统在旋转时能够准确地测量角速度和角动量。为此，需要正确地安装和调节光电门头和旋转传感器，并且连接到适当的接口和数据采集软件。也需要在实验过程中尽可能快地测量物体旋转时所需的时间和弹簧秤或绳子所受到的拉力，并且尽可能多地重复实验并取平均值，以减小误差。
+		\end{itemize}
+		
+		\item 在实验后，需要根据实验数据和理论公式，计算出系统绕轴线的转动惯量、角速度和角动量，并且分析实验结果与理论预期之间的差异和原因。
+	\end{enumerate}
+	
+	\begin{question}
+		为什么在测量圆盘的转动惯量时，要用弹簧秤拉住圆盘的边缘？
+	\end{question}
+	在测量圆盘的转动惯量时，要用弹簧秤拉住圆盘的边缘，是为了给圆盘施加一个恒定的力矩，使其产生一个恒定的角加速度。这样，可以根据牛顿第二定律和角动量守恒定律，得到以下的公式：
+	
+	\[
+	\tau = I\alpha
+	\]
+	
+	其中，$\tau$是弹簧秤对圆盘施加的力矩，$I$是圆盘绕轴线的转动惯量，$\alpha$是圆盘绕轴线的角加速度。如果已知$\tau$和$\alpha$，就可以求出$I$。
+	
+	\begin{question}
+		滑轮两侧绳子的张力是否相等？角动量守恒实验中，能否先让两者转动，然后拿起圆筒？
+	\end{question}
+	\begin{enumerate}
+		\item 并不相等，由于绳子通过定滑轮改变方向，悬挂物下落过程中，绳子带动定滑轮旋转，绳子会给定滑轮一个力矩，使得其具有角动量，因此绳子两端张力实际并不相等，但是由于定滑轮质量太轻，我们可以忽略滑轮转动造成的绳子张力不同，近似地认为绳子两端拉力相同。
+		
+		\item 不可以，拿起圆筒相当于系统凭空损失了圆筒的角动量，此时由于人为操作的原因会导致系统角动量不守恒，因此得出的结论一定是角动量不守恒。
+	\end{enumerate}
+	
+	
+	
+	%实验记录	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 26摄氏度 & 实验地点： & 实验室509 \\
+			\hline
+			学生签名：& 杨舒云 & 评分： &\\
+			\hline
+			实验时间：& 2023/10/26 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{LabX2 转动惯量与角动量守恒 \quad\heiti 实验记录}
+	\subsection{实验内容、步骤与结果}
+	\subsubsection{转动惯量理论值测定}
+	\begin{enumerate}
+		\item 测量圆盘、圆环的质量 $M_D$ 和 $M_R$ 以及圆盘半径 $R_D$ 和圆环内、外半径 $R_i$, $R_o$；
+		\item 计算转动惯量理论值；
+		\item 结果如\cref{tab:tab1}所示。
+		
+		\begin{table}[h]
+			\centering
+			\caption{转动惯量理论值测定}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+				\hline
+				测量序号 & 1 & 2 & 3 & 4 & 5 & 均值 & 实验标准差 \\
+				\hline
+				$M_D/g$ & 1394.31 & 1394.31 & 1394.32 & 1394.32 & 1394.33 & 1394.32 & 0.0037 \\
+				\hline
+				$M_R/g$ & 1431.00 & 1431.00 & 1431.02 & 1431.01 & 1431.01 & 1431.01 & 0.0037 \\
+				\hline
+				$R_D/mm$ & 114.0 & 114.3 & 114.4 & 114.5 & 114.2 & 114.2 & 0.0781 \\
+				\hline
+				$R_i/mm$ & 53.44 & 53.43 & 53.50 & 53.49 & 53.47 & 53.47 & 0.0136 \\
+				\hline
+				$R_o/mm$ & 63.70 & 63.57 & 63.88 & 63.78 & 63.83 & 63.75 & 0.0544 \\
+				\hline
+			\end{tabular}
+			\label{tab:tab1}
+		\end{table}
+		
+		附：原始数据如\cref{fig:figA1}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.9\textwidth]{LabX2GraA1.jpg}
+			\caption{原始数据1}
+			\label{fig:figA1}
+		\end{figure}
+		
+		数据分析见\textbf{实验数据分析}部分。
+		
+	\end{enumerate}
+	
+	\clearpage
+	\subsubsection{转动惯量实验值测定}
+	\begin{enumerate}
+		\item 测量传感器、旋转平台的半径；
+		\item 平衡摩擦力，在线圈上悬挂小重量砝码，使得悬挂物下落时匀速运动，记录此时悬挂物质量 Friction Mass；
+		\item 悬挂高质量的砝码，使得悬挂物加速下落，记录此时传感器线加速度 $a_s$ 以及砝码质量 Hanging Mass；
+		\item 由于同一根皮筋上两点线加速度相同，同转轴上角加速度相同，通过公式 $a_h = \frac{a_sr_{t2}}{r_{t1}}$计算得到悬挂物下落的线加速度，由此按实验原理中所述公式计算测得的转动惯量；
+		\item 结果如\cref{tab:tab2}所示。
+		
+		\begin{table}[h]
+			\centering
+			\caption{转动惯量实验值测定}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+				\hline
+				测量序号 & 1 & 2 & 3 & 4 & 5 & 均值 & 实验标准差 \\
+				\hline
+				$r_s/mm$ & 15.38 & 15.30 & 15.05 & 15.50 & 16.00 & 15.45 & 0.16 \\
+				\hline
+				$r_{t1}/mm$ & 19.35 & 19.50 & 19.37 & 19.41 & 19.39 & 19.40 & 0.03 \\
+				\hline
+				$r_{t2}/mm$ & 13.00 & 12.99 & 12.90 & 12.96 & 12.94 & 12.96 & 0.02 \\
+				\hline
+				$a_{sD1}/(m\cdot s^{-2})$ & 0.0804 & 0.0831 & 0.0837 & 0.084 & 0.0767 & 0.0816 & 0.00138 \\
+				\hline
+				$a_{sD2}/(m\cdot s^{-2})$ & 0.02 & 0.0216 & 0.0214 & 0.0217 & 0.0215 & 0.0212 & 0.00031 \\
+				\hline
+				$a_{sDR1}/(m\cdot s^{-2})$ & 0.0142 & 0.015 & 0.0148 & 0.0147 & 0.0142 & 0.0146 & 0.00016 \\
+				\hline
+				$a_{sDR2}/(m\cdot s^{-2})$ & 0.0577 & 0.0556 & 0.0561 & 0.0555 & 0.0588 & 0.0567 & 0.00065 \\
+				\hline
+				$a_{sVD}/(m\cdot s^{-2})$ & 0.0414 & 0.0398 & 0.0395 & 0.0408 & 0.0417 & 0.0406 & 0.00043 \\
+				\hline
+			\end{tabular}
+			\label{tab:tab2}
+		\end{table}
+		
+		
+		附：原始数据如\cref{fig:figA2}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.9\textwidth]{LabX2GraA2.jpg}
+			\caption{原始数据2}
+			\label{fig:figA2}
+		\end{figure}
+		
+		数据分析见\textbf{实验数据分析}部分。
+	\end{enumerate}
+	
+	\clearpage
+	\subsubsection{角动量守恒验证}
+	转动圆盘，使得圆盘具有一个初速度，接着在圆盘上放上圆环，读出前后角速度，依此验证角动量守恒；
+	
+	结果如\cref{tab:tab3}所示。
+	
+	\begin{table}[h]
+		\centering
+		\caption{验证角动量守恒定律}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			测量序号 & 1 & 2 & 3 & 4 & 5 \\
+			\hline
+			Disk Angular Speed $(rad \cdot s^{-1})$ & 12.849 & 13.268 & 12.828 & 18.253 & 20.598 \\
+			\hline
+			Total Angular Speed $(rad \cdot s^{-1})$ & 3.896 & 7.09 & 7.016 & 9.676 & 12.179 \\
+			\hline
+			$I_D (kg \cdot m^2)$ & 0.009098467 & 0.009098467 & 0.009098467 & 0.009098467 & 0.009098467 \\
+			\hline
+			$I_R (kg \cdot m^2)$ & 0.004953385 & 0.004953385 & 0.004953385 & 0.004953385 & 0.004953385 \\
+			\hline
+			$I_R + I_D (kg \cdot m^2)$ & 0.014051852 & 0.014051852 & 0.014051852 & 0.014051852 & 0.014051852 \\
+			\hline
+			$I_D \cdot \omega_D$ & 0.116906203 & 0.120718461 & 0.116715135 & 0.166074319 & 0.187410225 \\
+			\hline
+			$I_{total} \cdot \omega_{total}$ & 0.054746014 & 0.099627628 & 0.098587791 & 0.135965716 & 0.171137501 \\
+			\hline
+			Relative Difference & 53\% & 17\% & 16\% & 18\% & 9\% \\
+			\hline
+		\end{tabular}
+		\label{tab:tab3}
+	\end{table}
+	
+	附：原始数据如\cref{fig:figA2}所示。
+		
+	数据分析见\textbf{实验数据分析}部分。
+	
+	
+	\subsection{原始数据记录}
+	实验记录本上的原始数据见\cref{fig:figA1}、\cref{fig:figA2}。
+	
+	以下附上部分传感器数据截图。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{LabX2GraA5.png}
+		\caption{原始数据3}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{LabX2GraA6.png}
+		\caption{原始数据4}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{LabX2GraA7.png}
+		\caption{原始数据5}
+	\end{figure}
+	
+	
+	实验台桌面整理见\textbf{附件}部分(\cref{fig:figA3})。
+	
+	预习报告签字见\textbf{附件}部分(\cref{fig:figA4})。
+	
+	\subsection{实验过程中遇到的问题记录}
+	\begin{enumerate}
+		\item 平衡摩擦力时，很难使得速度呈水平直线。
+		\item 直接测加速度波动太大，采用实验仪器自带的拟合功能完成测量。
+		\item 可能由于实验操作员或实验仪器的某些原因，实验的误差比较大（详见\textbf{误差分析}部分）。
+		\item 半径不容易测准，需多次测量。
+	\end{enumerate}
+	
+	
+	
+	%分析与讨论	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2023/10/26 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{LabX2 转动惯量与角动量守恒 \quad\heiti 分析与讨论}
+	\subsection{实验数据分析}
+	\subsubsection{实验结果}
+	按数据记录中给出的表格，初步计算处理后得到以下结果。
+	\begin{enumerate}
+		\item 理论值
+		
+		结果如\cref{tab:tab4}所示。
+		
+		\begin{table}[h]
+			\centering
+			\caption{转动惯量理论值}
+			\begin{tabular}{|c|c|}
+				\hline
+				$I_D (kg \cdot m^2)$ & 0.009098 \\
+				\hline
+				$I_{VD} (kg \cdot m^2)$ & 0.004549 \\
+				\hline
+				$I_R (kg \cdot m^2)$ & 0.004953 \\
+				\hline
+			\end{tabular}
+			\label{tab:tab4}
+		\end{table}
+				
+		\item 实验值
+		
+		结果如\cref{tab:tab5}所示。
+		
+		\begin{table}[h]
+			\centering
+			\caption{转动惯量理论值}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				计算 & Disk Alone & Vertical Disk & Disk and Ring \\
+				\hline
+				Friction Mass (g) & 4.5 & 10.25 & 9.75 \\
+				\hline
+				Hanging Mass 1 (g) & 200 & 50 & 50 \\
+				\hline
+				Acceleration 1 $(m \cdot s^{-2})$ & 0.05448 & 0.02715 & 0.00974 \\
+				\hline
+				Hanging Mass 2 (g) & 50 & & 200 \\
+				\hline
+				Acceleration 2 $(m \cdot s^{-2})$ & 0.01418 & & 0.03789 \\
+				\hline
+				Rotation Inertia 1 $(kg \cdot m^2)$ & 0.006007 & 0.003023 & 0.008441 \\
+				\hline
+				Rotation Inertia 2 $(kg \cdot m^2)$ & 0.005792 & & 0.008651 \\
+				\hline
+			\end{tabular}
+			\label{tab:tab5}
+		\end{table}
+		
+		\item 实验结果说明
+		\begin{itemize}
+			\item 首先是理论值，理论值结果与老师所给出的数据差异不大，因此可以认为是比较准确的。
+			\item 对于实验值来说，从上述结果就可以看出与理论值差异非常大，相关误差分析将在下一节中给出。
+			\item \textbf{验证角动量守恒的结果：}相关结果已在数据展示部分（表）给出，此处不做赘述。需要说明的是从结果中可以看出，在初速度较小时相对误差都非常大，而在第五组实验中初速度较大，相对误差达到一个较小值。
+			
+			在此也将误差分析作说明，下一节中就不再赘述了。关于这个实验的误差，可以从传感器上的数据看出本身仪器自带的摩擦就会使角动量不守恒，其次，由于我所选取的数据点很不合理，这进一步加大了误差。
+		\end{itemize}
+	\end{enumerate}
+	
+	\subsubsection{误差分析（不确定度评定）}
+	\begin{enumerate}
+		\item 计算实验值与理论值的相对误差
+		
+		结果如\cref{tab:tab6}所示。
+		
+		\begin{table}[htbp]
+			\centering
+			\caption{相对误差}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline
+					相对误差 & Disk Alone Rotation Inertia1 & Vertical Disk Rotation Inertia2 & Disk and Ring Rotation Inertia1 & Disk Alone Rotation Inertia2 & Disk and Ring Rotation Inertia2 \\
+					\hline
+					$\eta$ & -34\% & -34\% & -40\% & -36\% & -38\% \\
+					\hline
+				\end{tabular}%
+			}
+			\label{tab:tab6}
+		\end{table}
+		
+		毫无疑问，相对误差都高于30\%，并且都在30\%到40\%左右，这说明实验值的测定存在着巨大的误差，并且很可能是系统误差。
+		
+		\item 理论值的不确定度评定
+		
+		实验值的不确定度按如下方法评定：
+		
+		A类不确定度由统计手段给出，直接取实验标准差；B类不确定度取为天平精度0.1g，钢尺精度0.2mm，游标卡尺精度0.02mm，按误差传递计算。
+		
+		不确定度报告如下：
+		
+		\begin{equation*}
+			I_D=\bar{I_D}\pm U_{I_D}\approx( 9104839.65 \pm  229697.49 )\times10^{-9}kg\cdot m^2
+		\end{equation*} 
+		其中展伸不确定度$U_{I_D}={k}\times{u_{I_D}}\approx 229697.49 \times10^{-9}kg\cdot m^2$ 是由合成标准不确定度$u_{I_D}\approx 34697.50 \times10^{-9}kg\cdot m^2$ 和$k\approx6.62$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx4.00$查t分布表得到的。
+		
+		\begin{equation*}
+			I_R=\bar{I_R}\pm U_{I_R}\approx( 4953384.58 \pm  34385.5 )\times10^{-9}kg\cdot m^2
+		\end{equation*} 
+		其中展伸不确定度$U_{I_R}={k}\times{u_{I_R}}\approx 34385.50 \times10^{-9}kg\cdot m^2$ 是由合成标准不确定度$u_{I_R}\approx 5396.63 \times10^{-9}kg\cdot m^2$ 和$k\approx6.13$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx4.35$查t分布表得到的。
+		
+		\begin{equation*}
+			I_{VD}=\bar{I_{VD}}\pm U_{I_{VD}}\approx( 4552419.83 \pm  46631.03 )\times10^{-9}kg\cdot m^2
+		\end{equation*} 
+		其中展伸不确定度$U_{I_{VD}}={k}\times{u_{I_{VD}}}\approx 46631.03 \times10^{-9}kg\cdot m^2$ 是由合成标准不确定度$u_{I_{VD}}\approx 7043.96 \times10^{-9}kg\cdot m^2$ 和$k\approx6.62$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx4.00$查t分布表得到的。
+		
+		\item 实验值的不确定度评定
+		
+		A类不确定度由统计方法给出，直接取实验标准差；B类不确定度取为天平精度0.1g，钢尺精度0.2mm，游标卡尺精度0.02mm，按误差传递计算。
+		
+		以下给出不确定度报告，注意到顺序分别对应表，即为 Disk Alone 1, Disk and Ring 2, Disk Alone 2, Disk and Ring 1, Vertical Disk 1按以下$I_D$、$I_{DR}$、$I_D$、$I_{DR}$、$I_{VD}$给出。
+		
+		\begin{equation*}
+			I_D=\bar{I_D}\pm U_{I_D}\approx( 6007317.57 \pm  662822.42 )\times10^{-9}kg\cdot m^2
+		\end{equation*} 
+		其中展伸不确定度$U_{I_D}={k}\times{u_{I_D}}\approx 662822.42 \times10^{-9}kg\cdot m^2$ 是由合成标准不确定度$u_{I_D}\approx 102549.06 \times10^{-9}kg\cdot m^2$ 和$k\approx6.46$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx4.10$查t分布表得到的。
+		
+		\begin{equation*}
+			I_{DR}=\bar{I_{DR}}\pm U_{I_{DR}}\approx( 8651941.18 \pm  633466.40 )\times10^{-9}kg\cdot m^2
+		\end{equation*} 
+		其中展伸不确定度$U_{I_{DR}}={k}\times{u_{I_{DR}}}\approx 633466.40 \times10^{-9}kg\cdot m^2$ 是由合成标准不确定度$u_{I_{DR}}\approx 100669.54 \times10^{-9}kg\cdot m^2$ 和$k\approx6.29$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx4.23$查t分布表得到的。
+		
+		\begin{equation*}
+			I_D=\bar{I_D}\pm U_{I_D}\approx( 5792176.34 \pm  554928.51 )\times10^{-9}kg\cdot m^2
+		\end{equation*} 
+		其中展伸不确定度$U_{I_D}={k}\times{u_{I_D}}\approx 554928.51 \times10^{-9}kg\cdot m^2$ 是由合成标准不确定度$u_{I_D}\approx 86479.59 \times10^{-9}kg\cdot m^2$ 和$k\approx6.42$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx4.14$查t分布表得到的。
+		
+		\begin{equation*}
+			I_{DR}=\bar{I_{DR}}\pm U_{I_{DR}}\approx( 8441820.26 \pm  599700.18 )\times10^{-9}kg\cdot m^2
+		\end{equation*} 
+		其中展伸不确定度$U_{I_{DR}}={k}\times{u_{I_{DR}}}\approx 599700.18 \times10^{-9}kg\cdot m^2$ 是由合成标准不确定度$u_{I_{DR}}\approx 95568.92 \times10^{-9}kg\cdot m^2$ 和$k\approx6.28$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx4.24$查t分布表得到的。
+		
+		\begin{equation*}
+			I_{VD}=\bar{I_{VD}}\pm U_{I_{VD}}\approx( 3023202.58 \pm  204514.93 )\times10^{-9}kg\cdot m^2
+		\end{equation*} 
+		其中展伸不确定度$U_{I_{VD}}={k}\times{u_{I_{VD}}}\approx 204514.93 \times10^{-9}kg\cdot m^2$ 是由合成标准不确定度$u_{I_{VD}}\approx 32747.49 \times10^{-9}kg\cdot m^2$ 和$k\approx6.25$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx4.26$查t分布表得到的。
+		
+		\clearpage
+		\item 系统误差	
+		按方法$|\bar{x_i}-\bar{x_j}|<2\sqrt{\sigma_i^2+\sigma_j^2}$判断测量结果是否存在系统误差，注意以下均约定前者为实验值，后者为理论值，结果如\cref{tab:tab7}所示：
+		
+		\begin{table}[h]
+			\centering
+			\caption{系统误差}
+			\resizebox{\textwidth}{!}{%
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+				\hline
+				& 理论值 & 展伸不确定度 & 实验值 & 展伸不确定度 & 最佳估计值之差 & 两倍合成展伸不确定度 & 判定系统误差 (if > 0, True) & 是否有系统误差 \\
+				\hline
+				$I_D/(10^{-9}\,kg\cdot m^2)$ & $9.10\times 10^6$ & $2.30\times 10^5$ & $6.01\times 10^6$ & $6.63\times 10^5$ & $3.10\times 10^6$ & $1.40\times 10^6$ & $1.69\times 10^6$ & 是 \\
+				\hline
+				$I_{DR}/(10^{-9}\,kg\cdot m^2)$ & $1.41\times 10^7$ & $2.32\times 10^5$ & $8.65\times 10^6$ & $6.33\times 10^5$ & $5.41\times 10^6$ & $1.35\times 10^6$ & $4.06\times 10^6$ & 是 \\
+				\hline
+				$I_D/(10^{-9}\,kg\cdot m^2)$ & $9.10\times 10^6$ & $2.30\times 10^5$ & $5.79\times 10^6$ & $5.55\times 10^5$ & $3.31\times 10^6$ & $1.20\times 10^6$ & $2.11\times 10^6$ & 是 \\
+				\hline
+				$I_{DR}/(10^{-9}\,kg\cdot m^2)$ & $1.41\times 10^7$ & $2.32\times 10^5$ & $8.44\times 10^6$ & $6.00\times 10^5$ & $5.62\times 10^6$ & $1.29\times 10^6$ & $4.33\times 10^6$ & 是 \\
+				\hline
+				$I_{VD}/(10^{-9}\,kg\cdot m^2)$ & $4.55\times 10^6$ & $4.66\times 10^4$ & $3.02\times 10^6$ & $2.05\times 10^5$ & $1.53\times 10^6$ & $4.20\times 10^5$ & $1.11\times 10^6$ & 是 \\
+				\hline
+			\end{tabular}%
+		}
+			\label{tab:tab7}
+		\end{table}
+		
+		基本可以确定，有较大的系统误差，以下作一些猜测：
+		\begin{itemize}
+			\item 有可能来自于由于圆盘是通过中间的孔与转轴连在一起的，但是我在做实验时观察到的情况是二者并不能很好的嵌合在一起，即转轴与圆盘间出现了相对运动，这导致圆盘真实的角加速度并不是我们测得的，而是更小的某个值，于是转动惯量的实验值也就要比理论值更小。
+			\item 传感器和转轴虽然由透明带进行传动，但由于透明带的传动性能并不好，很有可能传感器和转轴对应圆盘的线速度也不相等，这应该是系统误差的另一来源。
+		\end{itemize}			
+	\end{enumerate}
+	
+	\clearpage
+	\subsubsection{尝试找出系统误差}
+	\begin{enumerate}
+		\item 根据上述分析，可以确定是一定有系统误差的。而除了猜测的原因以外，在和同学讨论后我得到了一种新的可能的误差来源，即传感器半径设置出现了错误。
+		\item 将半径修正为正确半径，按\cref{tab:tab8}、\cref{tab:tab9}再代入数据：
+		
+		\begin{table}[h]
+			\centering
+			\caption{半径修正}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				传感器大环直径 (mm) & $r_s$ (mm) & $r_{t1}$ (mm) & $r_{t2}$ (mm) \\
+				\hline
+				25.172 & 15.446 & 19.403 & 12.958 \\
+				\hline
+			\end{tabular}
+			\label{tab:tab8}
+		\end{table}
+		
+		\begin{table}[h]
+			\centering
+			\caption{传感器测得的加速度}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				 $a_{sD1}$ $(m\cdot s^{-2})$ & $a_{sD2}$ $(m\cdot s^{-2})$ & $a_{sDR1}$ $(m\cdot s^{-2})$ & $a_{sDR2}$ $(m\cdot s^{-2})$ & $a_{sVD}$ $(m\cdot s^{-2})$ \\
+				\hline
+				0.08158 & 0.02124 & 0.01458 & 0.05674 & 0.04064 \\
+				\hline
+			\end{tabular}
+			\label{tab:tab9}
+		\end{table}
+		
+		按$a_t=\frac{a_s^{'}r_sr_{t2}}{r_s^{'}r_{t1}}$重新计算得到如\cref{tab:tab10}所示结果：
+		
+		\begin{table}[h]
+			\centering
+			\caption{修正后的转动惯量实验值}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				& Disk Alone & Vertical Disk & Disk and Ring \\
+				\hline
+				Friction Mass (g) & 4.5 & 10.25 & 9.75 \\
+				\hline
+				Hanging Mass 1 (g) & 200 & 50 & 50 \\
+				\hline
+				Acceleration 1 $(m\cdot s^{-2})$ & 0.033431133 & 0.016654097 & 0.005974821 \\
+				\hline
+				Hanging Mass 2 (g) & 50 & & 200 \\
+				\hline
+				Acceleration 2 $(m\cdot s^{-2})$ & 0.008704061 & & 0.023251808 \\
+				\hline
+				Rotation Inertia $(kg\cdot m^2)$ & 0.009810629 & 0.004931877 & 0.013762022 \\
+				\hline
+				Rotation Inertia $(kg\cdot m^2)$ & 0.009444179 & & 0.014120291 \\
+				\hline
+			\end{tabular}
+			\label{tab:tab10}
+		\end{table}
+		
+		\clearpage
+		\item 我们重点关注相对误差的情况
+		
+		如\cref{tab:tab11}对比实验值和理论值：
+		
+		\begin{table}[h]
+			\centering
+			\caption{重新计算相对误差}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				理论值 &  &  &  \\
+				\hline
+				$I_D$ $(kg\cdot m^2)$ & 0.009098467 & & \\
+				\hline
+				$I_{VD}$ $(kg\cdot m^2)$ & 0.004549234 & & \\
+				\hline
+				$I_R$ $(kg\cdot m^2)$ & 0.004953385 & & \\
+				\hline
+				Total & 0.014051852 & & \\
+				\hline
+				 &  &  &  \\
+				\hline
+				实验值 & Disk Alone & Vertical Disk & Disk and Ring \\
+				\hline
+				Rotation Inertia $(kg\cdot m^2)$ & 0.009810629 & 0.004931877 & 0.013762022 \\
+				\hline
+				Rotation Inertia $(kg\cdot m^2)$ & 0.009444179 & & 0.014120291 \\
+				\hline
+			\end{tabular}
+			\label{tab:tab11}			
+		\end{table}
+		
+		得到相对误差如\cref{tab:tab12}所示：
+		
+		\begin{table}[h]
+			\centering
+			\caption{重新计算后的相对误差}
+			\label{tab:tab12}
+			\resizebox{\textwidth}{!}{%
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				相对误差 & Disk Alone Rotation Inertia1 & Vertical Disk Rotation Inertia2 & Disk and Ring Rotation Inertia1 & Disk Alone Rotation Inertia2 & Disk and Ring Rotation Inertia2 \\
+				\hline
+				$\eta$ & 7.83\% & 8.41\% & -2.06\% & 3.80\% & 0.49\% \\
+				\hline
+			\end{tabular}%
+		}
+		\end{table}
+		
+		\item 上述分析说明，主要系统误差来源的确实是传感器半径设置错误。再次按方法$|\bar{x_i}-\bar{x_j}|<2\sqrt{\sigma_i^2+\sigma_j^2}$判断测量结果是否存在系统误差，可以发现没有明显的系统误差。
+		
+	\end{enumerate}
+	
+	\clearpage
+	\subsection{实验后思考题}
+	\begin{question}
+		使用切向加速度a测量是否准确？需要注意什么？
+	\end{question}
+	使用切向加速度 a 测量并不特别准确，感应器所测的是感应器转盘的线加速度，要将线加速度转化为旋转平台的角加速度，再通过测量悬挂物品小圆的半径得到切向加速度 a，这其中多次测量半径都存在误差。
+	
+	除此之外，如果使用传感器直接测量加速度，由于实验仪器的问题，砝码并不是匀加速下落的，反映在传感器图像
+	上就是非常严重的上下抖动，完全无法读数，所以实验时可以选择测量速度曲线，在使用软件内置的线性拟合工具进行线性拟合，得到加速度值。
+	
+	需要注意：
+	
+	在实验中，要保证细线的张力不变，否则会影响切向加速度的测量。
+	在实验中，要保证细线与转轴垂直，否则会引入余弦误差。
+	在实验中，要保证细线不松弛，否则会影响半径r的测量。
+	在实验中，要尽量减小空气阻力和摩擦力对转动惯量的影响。
+	
+	除此之外，理论上传感器转盘和皮筋所连接的旋转平台的转轴满足的是线加速度相同，如果电脑测量的是感应器的角加速度，还需要将其转化为线加速度，再依此进行计算。
+	
+	\begin{question}
+		滑轮两侧绳子的张力是否相等？
+	\end{question}
+	滑轮两侧绳子的张力不一定相等。如果滑轮是理想的，即没有质量和摩擦，那么滑轮两侧绳子的张力相等。但是如果滑轮有质量和摩擦，那么滑轮两侧绳子的张力不相等，而是满足以下关系：$T_1-T_2=I\beta$，其中T1和T2分别是滑轮两侧绳子的张力，I是滑轮的转动惯量，$\beta$是滑轮的角加速度。
+	
+	\begin{question}
+		角动量守恒实验中，能否光让两者转动，然后拿起圆筒？
+	\end{question}
+	首先答案是不能的，然后以下给出解释：
+	
+	在角动量守恒实验中，光让两者转动然后拿起圆筒是可能的，前提是在拿起圆筒时不施加任何外部扭矩或力矩。如果能够确保拿起圆筒的动作不会引入额外的力或扭矩，整个系统的总角动量将会保持守恒。
+	
+	但实际上考虑先让两者转动，则系统的总角动量是两者的角动量之和。若直接拿起圆筒，则圆盘的角动量不变，圆筒的角动量直接从系统中凭空消失了，这个操作就等同于施加外力矩，使圆筒停止旋转，则系统的角动量自然是不守恒的。
+	
+	\clearpage
+	\section{LabX2 转动惯量与角动量守恒 \quad\heiti 参考文献与附件}
+	\subsection{参考文献}
+	[1]PASCO科学公司. (2022). ME-8950A型完整旋转系统: 说明书和实验指南. 
+	\subsection{附件}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{LabX2GraA3.jpg}
+		\caption{实验台桌面整理}
+		\label{fig:figA3}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{LabX2GraA4.jpg}
+		\caption{预习报告签字}
+		\label{fig:figA4}
+	\end{figure}
+	
+\end{document}

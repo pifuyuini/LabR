@@ -1,0 +1,1003 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+
+\begin{document}
+	
+	
+	
+	%实验报告封面	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 9\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2023/10/12 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{center}
+		\LARGE LabX1 \quad 光栅常数及光波波长的测量
+	\end{center}
+	
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（25分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。\textcolor{red}{\textbf{（25分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\end{enumerate}
+	
+	\textbf{【实验安全注意事项】}	
+	\begin{enumerate}
+		\item 实验中\textcolor{red}{禁止用手触摸或擦拭光栅和平面镜等光学元件}；
+		\item 汞灯不用时请关闭，以\textcolor{red}{防止汞灯的紫外长时间直射到眼睛}！
+		\item \textcolor{red}{\textbf{请根据讲义内容提前阅读《基础物理实验（沈韩主编）》中的相关章节。}}
+	\end{enumerate}
+	
+	\textbf{【特别鸣谢及模板说明】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号LabX1。}}
+	
+	
+	
+	\clearpage
+	\tableofcontents
+	\clearpage
+	
+	
+	
+	%预习报告	
+	\setcounter{section}{0}
+	\section{LabX1 光栅常数及光波波长的测量 \quad\heiti 预习报告}
+	
+	\subsection{实验目的}
+	\begin{enumerate}
+		\item 了解分光计的构造，原理及其调节方法。
+		\item 了解光栅的构造，观测光栅的衍射现象并了解其基本原理。
+		\item 掌握测量光栅常数，光波波长和光栅角色散率的方法。
+	\end{enumerate}
+	
+	\subsection{仪器用具}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1& 分光计 &1 & KF-JJY \\
+			
+			2& 平面镜 &1 & $\phi$36×4 \\
+			
+			3& 平面透射光栅 & 1 & 1/300mm \\
+			
+			4& 汞灯 & 1 & GP20 Ng \\
+			
+			5& 钠灯 & 1 & GP20 Na \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	
+	\subsection{原理概述}
+	本实验旨在通过使用分光计和光栅，测量光线的偏折角度，进而计算光栅常数、光波波长和角色散率等物理参数。该实验涉及分光计和光栅的原理和应用，以便准确测量光线偏折角度并获取与之相关的物理参数，如折射率、光栅常数和光波波长。分光计是一种广泛应用于光学测量的仪器，用于测量角度，例如反射角、折射角和衍射角，并用于光学特性的研究，如光谱分析。为确保测量结果的准确性，分光计需要进行精细调整。
+	
+	\textcolor{red}{\textbf{以下是用自己的语言描述光栅的基本原理，描述利用分光计测量光栅常数和光线波长的方法：}}
+	
+	光栅是一种可以将光分成不同颜色的装置，它由许多很细很密的平行线条组成，每两条线条之间有一定的距离，这个距离叫做光栅常数。当光照射到光栅上时，每条线条都像一个小孔一样，让光通过并向各个方向散射。这些散射的光会在远处相遇并叠加，形成一些亮的和暗的条纹，这些条纹叫做衍射条纹。不同颜色的光会在不同的角度上形成衍射条纹，因为它们的波长不同，波长越短的光，衍射角越小；波长越长的光，衍射角越大。这样就可以把复杂的光分解成单色的光，这个过程叫做光栅衍射。
+	
+	分光计是一种可以测量衍射角和波长的仪器，它由一个望远镜、一个平行光管、一个载物台和一个中心轴等部分组成。我们可以把光栅放在载物台上，让平行光管发出的平行光垂直照射到光栅上，然后用望远镜观察衍射条纹，并记录望远镜的读数。如果我们知道了入射光的波长，我们就可以用下面这个公式计算出光栅常数：
+	
+	\[ d = \frac{k \lambda}{\sin \theta} \]
+	
+	其中，(d) 是光栅常数，(k) 是衍射级数（衍射条纹的序号），($\lambda$) 是入射光波长，($\theta$) 是衍射角。反之，如果我们知道了光栅常数，我们就可以用同样的公式计算出入射光波长。	
+	
+	具体来说，利用分光计测量光栅常数和光线波长的方法是：
+	
+	\begin{itemize}
+		\item 首先，要调节分光计，使望远镜聚焦于无穷远，平行光管产生平行光，望远镜和平行光管的光轴都垂直于仪器的转轴，光栅平面与平行光管光轴垂直，光栅的刻痕与仪器转轴平行。
+		\item 然后，以低压钠灯为光源，照明狭缝。记录零级光谱的位置，即望远镜分化板竖直线与狭缝像重合时的位置。转动望远镜，观察一级和二级光谱中的黄线，并记录它们与分化板垂直线重合时的位置。计算出衍射角，并求出左右两边同级光谱中衍射角的平均值。代入公式 $\sin \theta = m\lambda/d$，求出光栅常数 $d$，其中 $\theta$ 是衍射角， $m$ 是衍射级数， $\lambda$ 是钠灯黄线的波长（589.3 nm）。
+		\item 最后，以汞灯为光源，按上面的方法测出各级光谱的衍射角，并代入公式 $\sin \theta = m\lambda/d$，求出汞灯各色谱线的波长。然后计算角色散率 $D$，即相邻两色谱线之间的衍射角差与波长差之比。
+	\end{itemize}
+	
+	
+	\textcolor{red}{\textbf{以下是预习时查找资料整理得到的更详细的原理概述：}}
+	
+	
+	\begin{enumerate}
+		\item 分光计的调节条件：
+		
+		为确保分光计的准确性和可靠性，需要满足以下调节条件：
+		\begin{enumerate}
+			\item 保持稳定的光源： 使用一个稳定的光源，以确保分光计测量的光线强度和性质在实验过程中保持一致。
+			\item 调整分光计零点： 在分光计调节过程中，需要调整仪器的零点，以确保在没有入射光线时分光计指示为零。
+			\item 调整仪器的刻度： 分光计通常具有刻度，用于测量角度。这些刻度需要校准，以确保准确性。通常使用标准角度进行刻度校准。
+			\item 光线的垂直入射： 入射光线必须垂直于分光计的刻度盘，以确保测量的角度准确。
+			\item 消除仪器误差： 仪器本身可能存在一些误差，需要进行仪器误差的校正，以提高测量的准确性。
+		\end{enumerate}
+		\item 光栅衍射原理：
+		
+		光栅是一种常用于光谱分析的色散元件，分为透射光栅和反射光栅。实验中采用平面透射光栅，由许多等宽度 \(b\) 和等间距 \(d\) 的平行缝组成，是一种分光元件。光栅能产生衍射光栅的相长干涉，其条件由光栅方程表示：
+		
+		\[
+		d\sin\theta = k\lambda
+		\]
+		
+		光栅的基本特性由角色散率 \(D\) 和分辨本领 \(R\) 这两个重要参量描述。（详见下）
+		
+		\item 单缝衍射和双缝干涉
+		
+		光是电磁波，具有波粒二象性。光的衍射是光波动性的基本特征之一。在精密测量、光谱分析、全息技术、光信息处理等现代光学技术领域，衍射已成为一种重要的研究手段和方法。
+		\begin{enumerate}
+			\item 单缝夫琅禾费衍射
+			
+			单缝夫琅禾费衍射原理如下：根据惠更斯-菲涅尔原理，窄缝上的各点可以看成新的波源，这些点向各个方向发出球面波。次波在透镜后叠加形成一组明暗相间的条纹。任一点的光强可以表示为：
+			
+			\[
+			I(\theta) = I_0 \left(\frac{\sin\left(\frac{\pi b}{\lambda}\sin\theta\right)}{\frac{\pi b}{\lambda}\sin\theta}\right)^2
+			\]
+			
+			\item 双缝干涉
+			
+			双缝干涉原理如下：单色线光源投射到一个有两条狭缝的挡板上，狭缝相距很近，光波会同时传到狭缝，它们就成了两个振动情况总是相同的波源，称为相干波源。它们发出的光在挡板后面的空间相互叠加，发生干涉现象。汇聚到特定点的光程差可以表示为：
+			
+			\[
+			r_2 - r_1 = d\sin\theta
+			\]
+			
+			根据干涉增强和干涉减弱的条件，明条纹和暗条纹可以由光程差的条件表示为：
+			
+			\[
+			d\sin\theta = \pm m\lambda
+			\]
+		\end{enumerate}
+		
+		\item 光栅衍射原理
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{LabX1Gra1.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{LabX1Gra2.png}
+			}
+			\caption{光栅衍射原理图（参考文献[2]）}
+			\label{fig:fig1}			
+		\end{figure}
+		
+		如\cref{fig:fig1}所示，光栅是一种常用于光谱分析的色散元件，广泛应用于现代技术中。光栅分为透射光栅和反射光栅。实验中采用平面透射光栅，由许多等宽度 \(b\) 、等间距 \(d\) 的平行缝组成，是一种分光元件。光栅能产生衍射光栅的相长干涉，其条件由光栅方程表示：
+		
+		\[
+		d\sin\theta = k\lambda
+		\]
+		
+		通常光栅狭缝间距要比双缝干涉的缝间距要小，所以在同样的观测角度范围内，光栅所产生的明条纹更少。
+		
+		\item 光栅的基本特性
+		
+		光栅的基本特性由角色散率 \(D\) 和分辨本领 \(R\) 这两个重要参量描述。角色散率 \(D\) 定义为谱线的角位置对波长的变化率，即同一级两条谱线衍射角之差 \(d\theta\) 与二者波长 \(d\lambda\) 之比：
+		
+		\[
+		D = \frac{d\theta}{d\lambda} = \frac{k\lambda}{d}
+		\]
+		
+		光栅分辨本领 \(R\) 定义为两条刚可以被分开的谱线的波长差除以它们的平均波长，即：
+		
+		\[
+		R = \frac{\lambda}{\Delta\lambda} = kN
+		\]
+		
+		其中，\(N\) 为光栅夹缝的总数。光栅的分辨本领与级次成正比，特别是与光栅的总缝数 \(N\) 成正比。当要求在某一级次的谱线上提高光栅的分辨能力时，必须增大光栅的总缝数。
+	\end{enumerate}
+	
+	\subsection{实验前思考题}
+	\begin{question}
+		简述低压汞灯的发光机理，给出特征谱线，并标明可见光波段谱线所对应的颜色。
+	\end{question}
+
+	低压汞灯是一种利用汞原子发光的金属蒸气灯。汞原子在电流的激发下，产生短波紫外线和可见光谱线。低压汞灯的发光机理如下:
+	
+	\begin{itemize}
+		\item 汞灯内部含有少量的惰性气体（如氩或氙），以及液态或固态的汞。
+		\item 当电流通过灯丝时，灯丝加热并发射电子，这些电子与惰性气体原子碰撞，使它们电离。
+		\item 电离的惰性气体原子形成一个等离子体，它能够导电并维持电弧。
+		\item 电弧的热量使汞蒸发并增加其蒸气压，从而提高发光效率。
+		\item 汞原子在电弧中被激发，并在返回基态时发射特定波长的光子。
+		\item 其中一部分光子是短波紫外线（185 nm或254 nm），它们能够激发灯管内壁涂有的荧光粉，使其发出可见光。
+		\item 另一部分光子是可见光谱线（如365.4 nm，404.7 nm，435.8 nm，546.1 nm和578.2 nm），它们直接从灯管透出。
+	\end{itemize}
+	
+	低压汞灯的特征谱线和对应的颜色如下表所示：
+	
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			波长 (nm) & 颜色 \\
+			\hline
+			184.5 & 紫外线 \\
+			253.7 & 紫外线 \\
+			365.4 & 紫外线 \\
+			404.7 & 紫色 \\
+			435.8 & 蓝色 \\
+			546.1 & 绿色 \\
+			578.2 & 黄色 \\
+			1014 & 红外线 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	以下有关低压汞灯的资料：
+	低压汞灯是一种利用汞蒸气放电产生可见光和紫外光的气体放电灯。它的结构主要包括一个石英玻璃制成的放电管，两个钨电极，以及一定量的汞和惰性气体（通常是氩气或氙气）。
+	
+	低压汞灯的工作原理如下：	
+	当通电时，惰性气体被激发，形成低温等离子体，从而引发汞蒸气放电。
+	汞蒸气放电产生大量的紫外线，主要集中在185 nm和253.7 nm两个波长。
+	紫外线照射到放电管内壁涂有荧光粉的地方，激发荧光粉发出可见光。
+	荧光粉的种类和比例决定了低压汞灯的颜色温度和显色性。
+	
+	低压汞灯的优点有：
+	发光效率高，比白炽灯节能5~6倍。
+	使用寿命长，一般可达20000~30000小时。
+	紫外线输出稳定，适合用于杀菌、消毒、光化学反应等领域。
+	
+	低压汞灯的缺点有：	
+	需要预热时间，启动速度慢。
+	需要配合镇流器使用，增加了成本和复杂度。
+	含有汞，对环境有污染风险。
+	
+	如下实验可以更好地理解低压汞灯的发光机理：	
+	准备一个低压汞灯（可以从日光灯中取出），一个镇流器（可以从日光灯座中取出），一个电源开关，一些导线和夹子。
+	用导线和夹子将镇流器、开关和低压汞灯连接起来，注意不要接触到裸露的金属部分。
+	在黑暗的环境中打开开关，观察低压汞灯的启动过程和发光情况。
+	用一张白纸或其他物体遮挡低压汞灯的部分区域，观察荧光粉对可见光的影响。
+	用一块玻璃或其他透明物体遮挡低压汞灯的部分区域，观察紫外线对荧光物质（如荧光笔、荧光纸等）的影响。
+	关闭开关，断开电源，清理实验器材。
+	
+	通过这个实验，可以观察到以下现象：	
+	低压汞灯启动时会先发出暗淡的蓝色或紫色光，这是因为惰性气体的放电产生的。随着温度的升高，汞蒸气逐渐参与放电，光线变得更亮更白，这是因为汞蒸气的放电产生的紫外线和可见光的混合。
+	低压汞灯的颜色温度和显色性取决于荧光粉的种类和比例。荧光粉可以吸收紫外线，转化为可见光，从而改变光的颜色和质量。如果遮挡低压汞灯的部分区域，可以看到荧光粉的不同颜色和亮度。
+	低压汞灯发出的紫外线可以激发荧光物质发出可见光，从而产生荧光效应。如果用玻璃或其他透明物体遮挡低压汞灯的部分区域，可以看到荧光物质的不同颜色和亮度。
+	
+	\begin{question}
+		现有每厘米 10,000 条线平面透射光栅一个，对于 575nm 光源，计算其＋1、+2 级衍射线的角度差。
+	\end{question}
+	要计算+1和+2级衍射线之间的角差，需要使用以下公式：
+	
+	\[
+	d \sin \theta = m \lambda
+	\]
+	
+	其中，\(d\)是狭缝间距，\(\theta\)是衍射角，\(m\)是级数，\(\lambda\)是光的波长。
+	
+	由于每厘米有10,000条线，每条线之间相隔1/10,000厘米。因此，狭缝间距为：
+	
+	\[
+	d = \frac{1}{10,000} \times 10^{-2} \ \text{m} = 10^{-6} \ \text{m}
+	\]
+	
+	光的波长给定为575 nm，即：
+	
+	\[
+	\lambda = 575 \times 10^{-9} \ \text{m}
+	\]
+	
+	对于+1级衍射线，可以代入\(m=1\)并解出\(\theta\)：
+	
+	\[
+	\sin \theta_1 = \frac{\lambda}{d} = \frac{575 \times 10^{-9}}{10^{-6}} = 0.575
+	\]
+	
+	\[
+	\theta_1 = \sin^{-1}(0.575) = 35.26^{\circ}
+	\]
+	
+	对于+2级衍射线，可以代入\(m=2\)并解出\(\theta\)：
+	
+	\[
+	\sin \theta_2 = \frac{2\lambda}{d} = \frac{2 \times 575 \times 10^{-9}}{10^{-6}} = 1.15
+	\]
+	
+	然而，由于\(\sin \theta_2 > 1\)，这意味着对于这个波长和狭缝间距，不存在+2级衍射线。这是因为光被衍射得太多，无法到达屏幕。
+	
+	因此，+1级和+2级衍射线之间的角差未确定。
+	
+	\begin{question}
+		\textbf{修改后：}现有每厘米 \textbf{5000} 条线平面透射光栅一个，对于 575nm 光源，计算其＋1、+2 级衍射线的角度差。
+	\end{question}
+		有一个平面传输光栅，每厘米有5000条线。对于波长为575 nm的光源，计算+1和+2级衍射线之间的角差。
+	
+		首先，我们使用光栅方程来计算+1和+2级衍射线之间的角差：
+		
+		\[
+		m \lambda = d \sin(\theta)
+		\]
+		
+		其中：
+		\(m\)是衍射级次，
+		\(\lambda\)是光的波长，
+		\(d\)是光栅间距（每厘米线数的倒数），
+		\(\theta\)是衍射角。
+		
+		给定数据：
+		\(d = \frac{1}{5000 \times 100}m\)（转换为每米线数）
+		\(\lambda = 575 \, \text{nm}\)（转换为米）
+		+1级的\(m\)为1，+2级的\(m\)为2
+		
+		首先，我们需要将光栅间距\(d\)转换为每米线数：
+		
+		\[
+		d = \frac{1}{5000 \times 100 \, \text{每米线数}}=2×10^{−6}m
+		\]
+		
+		现在，我们可以使用光栅方程计算+1和+2级的角度：
+		
+		对于+1级（\(m = 1\)）：
+		\[
+		1 \times 575 \, \text{nm} = 2×10^{−6}m \times \sin(\theta_1)
+		\]
+		
+		解出 \(\theta_1\)：
+		\[
+		\theta_1 = \arcsin\left(\frac{1 \times 575 \times 10^{-9}}{2×10^{−6}m}\right)
+		\]
+		
+		对于+2级（\(m = 2\)）：
+		\[
+		2 \times 575 \, \text{nm} = 2×10^{−6}m \times \sin(\theta_2)
+		\]
+		
+		解出 \(\theta_2\)：
+		\[
+		\theta_2 = \arcsin\left(\frac{2 \times 575 \times 10^{-9}}{2×10^{−6}m}\right)
+		\]
+		
+		最后，计算+1和+2级衍射线之间的角差：
+		
+		\[
+		\text{角差} = \theta_2 - \theta_1
+		\]
+		
+		\[
+		\text{角差} \approx \theta_2 - \theta_1 \approx 0.164 \, \text{弧度}
+		\]
+		
+		所以，+1和+2级衍射线之间的角差约为 \(0.164\) 弧度。
+		
+		转换为角度：
+		\[
+		\text{角差（度）} = \text{角差（弧度）} \times \left( \frac{180}{\pi} \right)
+		\]
+		
+		\[
+		\text{角差（度）} \approx 0.164 \times \left( \frac{180}{\pi} \right) \approx 9.39^\circ
+		\]
+		
+		所以，+1和+2级衍射线之间的角差约为 \(9.39^\circ\)。	
+
+
+
+	%实验记录	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 26摄氏度 & 实验地点： & 实验室508 \\
+			\hline
+			学生签名：& 杨舒云 & 评分： &\\
+			\hline
+			实验时间：& 2023/10/12 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{LabX1 光栅常数及光波波长的测量 \quad\heiti 实验记录}
+	\subsection{实验内容、步骤与结果}
+	\subsubsection{仪器检查和测量准备}
+	\begin{enumerate}
+		\item 检查仪器及用具是否齐全，完好。
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{LabX1Gra3.png}
+			\caption{分光计结构及主要调节旋钮（参考文献[1]）}
+			\label{fig:fig3}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{LabX1Gra4.png}
+			\caption{调节示意图（参考文献[1]）}
+			\label{fig:fig4}
+		\end{figure}
+		\item 望远镜调焦无穷远
+		\begin{enumerate}
+			\item 粗调。调节望远镜光轴高低调节螺钉（2）和载物台调平螺钉（8），通过目测判断使望远镜光轴及载物台基本水平。
+			\item 望远镜目镜调焦。接通望远镜照明电源，在目镜中观察到分划板的视场如\cref{fig:fig4}。分划板下方有一绿色的亮区。先逆时针旋转望远镜目镜调焦手轮（ 3）使分划板刻线完全模糊，再顺时针慢慢旋转该手轮，至刻线清晰且无视差。此后不要再转动调焦手轮。
+			\item 在载物台（E） 上按\cref{fig:fig4}所示放置平面反射镜， 使反射面与调平螺钉 A′B′的连线垂直。
+			\item 松开游标盘锁紧螺钉（16），稍微转动游标盘，载物台上的反射镜随之转动。从目镜观察，可看到一绿色亮斑，此亮斑是\cref{fig:fig4}中分划板下方的亮十字经望远镜出射后，又被平面反射镜 A 面反射回来，经物镜折回所形成的反射光斑。若看不到反射回来的绿色亮斑，需重新进行粗调。
+			\item 看到反射亮斑后，松开望远镜目镜锁紧螺钉（4），再调节望远镜物镜调焦螺钉（5），前后伸缩目镜筒，使反射亮斑聚焦成一清晰的绿色十字像，并保证反射的亮十字像和分划板上黑色十字线无视差，即左右移动头部（视线需保持在望远镜目镜范围内）时，\cref{fig:fig4}中绿色十字像和黑色十字的垂直线间距 d 保持不变。之后调紧目镜锁紧螺钉。
+		\end{enumerate}
+		至此，望远镜已调焦无穷远，望远镜系统的（3,4,5）三个螺钉不能再作调节。
+		\item 调节望远镜光轴垂直于公共转轴 
+		\begin{enumerate}
+			\item 粗调。 转动游标盘，交替使反射镜的 AB 两面正对望远镜，并调节望远镜光轴高低调节螺钉（2） 和载物台调平螺钉（\cref{fig:fig4}中的 A′ 螺钉或 B′ 螺钉）， 使得反射镜 AB面正对望远镜时都能在视场中看到绿色的十字像。
+			\item 细调。采用“渐近法”进行细调，选定一个反射面（例如 A 面）正对望远镜，在目镜视场中观察，绿色十字像的水平线通常不与分划板上方的黑色水平线重合，它们之间有一垂直距离 l。调节望远镜光轴高低调节螺钉（2），使 l 减少一半。然后再调节靠近望远镜的载物台调平螺钉 A′， 使它们完全重合。
+			
+			将游标盘转 180°，观察反射镜 B 面反射的绿色十字像。若绿色十字像的水平线与分划板上方的黑色水平线不重合，它们之间有垂直距离 l，则调节望远镜光轴高低调节螺钉（2）， 使距离减少一半。 然后再调节靠近望远镜的载物台调平螺钉 B′（此时不能调A′）， 使它们完全重合。
+			
+			如此交替进行多次，使从反射镜任何一反射面反射回来的绿色十字像的水平线均与分划板上方的黑色水平线重合，则望远镜的光轴与公共转轴垂直。之后整个望远镜的调节机构不能再作调节。
+		\end{enumerate}
+		\item 调节载物台水平
+		
+		把平面反射镜改为如\cref{fig:fig4}所示位置， 平面反射镜与调平螺钉 A′B′的连线平行。 转动圆盘使反射镜正对望远镜， 从目镜观察并调节载物台调平螺钉 C′（注意不要调节 A′ 和B′）， 使绿色十字像水平线与分划板上方的黑色水平线重合， 则载物台水平。
+		
+		\item 平行光管调焦无穷远
+		
+		点亮光源（常使用钠灯）正照狭缝，松开望远镜支架锁紧螺钉（ 18），转动望远镜正对平行光管。松开狭缝装置锁紧螺钉（13），转动狭缝使狭缝垂直。再前后伸缩狭缝装置，使狭缝在望远镜中成像清晰，且与分化板上的黑色十字线没有视差，则平行光管对焦无穷远，锁紧狭缝装置锁紧螺钉。
+		
+		\item 调节平行光管光轴垂直于公共转轴
+		
+		先将狭缝垂直放置，在水平面移动望远镜并从目镜中观察，使狭缝像与分划板的竖直线重合。将狭缝转 90° ， 调平行光管高低调节螺钉（15），使狭缝像与分划板中心的水平线重合，则平行光管光轴与公共转轴垂直。
+		
+		至此，分光计的调节已经完成，可以开始进行测量。
+		
+		\item 光栅的调节
+		转动狭缝至垂直位置，狭缝像与分划板竖直线重合。放置光栅片，使光栅片与 A′B′连线垂直。
+		
+		在固定平行光管和望远镜的前提下， 转动圆盘， 使光栅表面反射回来的绿色十字像垂直线与分划板竖直线重合， 则光栅平面与平行光管轴线垂直。锁紧转盘锁紧螺钉（16），并在此后的实验中保持不变。
+		
+		在水平面上转动望远镜，在视场中观察到光栅的衍射光谱。调节光源的位置以及狭缝的宽度（不能太宽）， 使谱线明亮、清晰。
+		
+		在水平面上转动望远镜， 若发现左右两组光谱的高度不对称， 可轻微调节螺钉 C′，直到左右两组光谱的高度一致。
+	\end{enumerate}
+	
+	\clearpage
+	\subsubsection{测量光栅常数}
+	\begin{enumerate}
+		\item 以低压钠灯为光源，照明狭缝。
+		\item 记录主极亮的位置，即望远镜分化板竖直线与零级光谱（即平行光管狭缝像）重合时的位置，这个位置就是上一步中调节好了的位置。记下此时刻度盘两窗口的读数；
+		\item 把望远镜向零级光谱的一边转动（如向右），直到看到一级光谱中的黄线，并使它与分化板垂直线重合。记下刻度盘两窗口读数，计算出衍射角；继续原方向转到望远镜，并在二级光谱中找到该谱线再做同样的测量；
+		\item 把望远镜往零级光谱的另一边转动（刚才向右，现在则向左），做步骤（3）中相同测量；
+		\item 把光栅法线左右两边所测同级光谱中的两个衍射角求平均后代入公式 ，求光栅常数。要求两个值之差不能超过 10’，否则，应重新调节入射光与光栅面垂直。最后求一、二级谱线测得的光栅常数 d 的平均值及其实验不确定度。
+		
+		测量结果如\cref{tab:tab1}所示。
+		\begin{table}[htbp]
+			\centering
+			\caption{测量光栅常数数据表}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				刻盘读数 & -2级 & -1级 & 0级 & 1级 & 2级 \\
+				\hline
+				A & 346°0′ & 356°30′ & 6°43′ & 16°53′ & 27°26′ \\
+				B & 166°2′ & 176°32′ & 186°43′ & 196°55′ & 207°30’ \\
+				$\phi$ & 256°1' & 266°31' & 96°43' & 106°54' & 117°28' \\
+				\hline
+			\end{tabular}
+			\label{tab:tab1}
+		\end{table}
+		说明：A代表左刻盘，B代表右刻盘；$\phi=(A+B)/2$。
+		
+		附：原始数据如\cref{fig:figA1}所示。
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{LabX1GraA1.jpg}
+			\caption{原始数据1}
+			\label{fig:figA1}
+		\end{figure}
+		
+		注意：钠灯光各级光谱中的黄线可能有两条（若光栅分辨率不高，则两条合为一条），$\lambda=589.3nm$ 是指这两条黄线的平均波长。因此，上述测量时，应将目镜中的垂直叉丝对准这两条黄线的平均位置。
+		
+		数据分析见\textbf{实验数据分析}部分。
+	\end{enumerate}
+	
+	\clearpage
+	\subsubsection{测定未知光波波长及角色散率 D（以汞灯为光源）}
+	以汞灯为光源，按上面方法测出各级光谱的衍射角，计算出它们的波长。然后计算角色散率及不确定度。 （测绿、紫、黄三色即可）
+	
+	测量结果如\cref{tab:tab2}所示。		
+		\begin{table}[htbp]
+			\centering
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+					\hline
+					\textbf{刻盘读数} & \textbf{0级} & \textbf{蓝1级} & \textbf{绿1级} & \textbf{黄1级} & \textbf{X1Y1级} & \textbf{绿2级} & \textbf{黄2级} & \textbf{X2Y2级} & \textbf{X3Y3级} \\ \hline
+					A & 6°45′ & 14°14′ & 16°8′ & 16°43′ & 21°53′ & 25°50′ & 26°57′ & 28°1′ & 29°45′ \\ \hline
+					B & 186°45′ & 194°14′ & 196°10’ & 196°44′ & 201°56′ & 205°54′ & 207°0′ & 208°4′ & 209°50′ \\ \hline
+					$\phi$ & 96°45'0.0" & 104°14' & 106°9' & 106°43'30'' & 111°54'30'' & 115°52' & 116°58'30'' & 118°2'30'' & 119°47'30'' \\ \hline
+					\textbf{刻盘读数} & \textbf{紫？-1级} & \textbf{蓝-1级} & \textbf{绿-1级} & \textbf{黄-1级} & \textbf{紫？-2级} & \textbf{蓝？-2级} & \textbf{绿-2级} & \textbf{黄-2级} & \textbf{} \\ \hline
+					A & 359°45′ & 359°13′ & 357°15′ & 356°43′ & 351°28′ & 343°30′ & 347°30′ & 346°20′ &  \\ \hline
+					B & 179°44′ & 179°10′ & 177°12′ & 176°42′ & 缺失 & 153°30′ & 167°30′ & 166°20′ &  \\ \hline
+					$\phi$ & 269°44'30'' & 269°11'30'' & 267°13'30'' & 266°42'30'' & 缺失 & 248°30'0.0" & 257°30'0.0" & 256°20' &  \\ \hline
+				\end{tabular}%
+			}
+			\caption{测定未知光波波长数据表}
+			\label{tab:tab2}
+		\end{table}
+		
+	附：原始数据如\cref{fig:figA1}、\cref{fig:figA2}所示。
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.6\textwidth]{LabX1GraA2.jpg}
+		\caption{原始数据2}
+		\label{fig:figA2}
+	\end{figure}
+	
+	数据分析见\textbf{实验数据分析}部分。
+	
+	\clearpage
+	\subsection{原始数据记录}
+	实验记录本上的原始数据见\cref{fig:figA1}、\cref{fig:figA2}。
+	
+	实验台桌面整理见\textbf{附件}部分(\cref{fig:figA3})。
+	
+	\subsection{实验过程中遇到的问题记录}
+	\begin{enumerate}
+		\item 我的个人感觉是，要后面的测量顺利进行，需要前面将分光计调得比较好。
+		\item 在测低压汞灯谱线时，蓝色紫色不好分辨，需根据思考题中的参考值来判断。
+		\item 测量次数太少了，不确定度分析很难进行。
+		\item 以度分秒格式记录的数据非常难以参与数据的处理。
+	\end{enumerate}
+	
+	
+	
+	%分析与讨论	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2023/10/12 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{LabX1 光栅常数及光波波长的测量 \quad\heiti 分析与讨论}
+	\subsection{实验数据分析}
+	\textcolor{red}{\textbf{特别说明：由于本实验报告全部计算内容由计算机软件（Excel、Mathematica和Python）完成，因此可能会出现数据输入错误、精度丢失、运算结果出错等问题。若老师批改时发现自己算的和我算的不一样，请先检查自己的计算是否有问题；若还是对不上，请不要怀疑本实验报告的原创性，请联系我获得Excel原始表格及本实验报告的\LaTeX 代码，以便进一步确定错误来源。除此之外，本实验报告计算时用到的度分秒计算的源代码已放在附件部分了，实话说，我比较怀疑这个代码能不能不丢失精度，请老师多多包涵！}}
+	\subsubsection{测量光栅常数}
+	\begin{enumerate}
+		\item 由测量数据初步计算出光栅常数的均值与实验标准差
+		
+		计算结果如\cref{tab:tab3}所示。
+		\begin{table}[htbp]
+			\centering
+			\caption{光栅常数的均值与实验标准差}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				m & $\phi$/degree & $\phi$/rad & $\theta$/rad & $\sin{\theta}$ & d/nm & d/m \\
+				\hline
+				-2 & 256.02 & 4.4683 & 2.7803 & 0.35348 & 3334.3 & 3.3343E-06 \\
+				-1 & 266.52 & 4.6516 & 2.9636 & 0.17709 & 3327.7 & 3.3277E-06 \\
+				0 & 96.72 & 1.6880 & & & & \\
+				1 & 106.90 & 1.8658 & 0.1777 & 0.17680 & 3333.2 & 3.3332E-06 \\
+				2 & 117.47 & 2.0502 & 0.3622 & 0.35429 & 3326.6 & 3.3266E-06 \\
+				\hline
+				均值 & & & & & 3330.5 & 3.3305E-06 \\
+				实验标准差 & & & & & 1.9 & 1.9E-09 \\
+				\hline
+			\end{tabular}
+			\label{tab:tab3}
+		\end{table}
+		
+		\item 不确定度分析
+		
+		A类评定：直接按\cref{tab:tab3}取光栅常数d的实验标准差，$u_A=1.93$。
+		
+		B类评定：分为两个方面。一方面是光的波长$u(\lambda)_{B}=\frac{0.1nm}{\sqrt{3}}$；另一方面则是仪器$u(\phi)_{B}=\frac{2'}{\sqrt{3}}$。
+		
+		为了简单起见，不妨就按以下公式计算合成不确定度：$u_d=\sqrt{u_A^2+u(\lambda)_{B}^2+\Sigma (\frac{\partial \lambda/\sin\theta}{\partial \theta})^2}\approx 2.97nm$。
+		
+		自由度不妨就取为3.00。
+		
+		\item 不确定度报告及测量结果
+		\begin{equation*}
+			d=\bar{d}\pm U_{d}\approx( 3330.45 \pm  27.42 )nm
+		\end{equation*} 
+		其中展伸不确定度$U_{d}={k}\times{u_{d}}\approx 27.42nm $ 是由合成标准不确定度$u_{d}\approx 2.97nm $ 和$k\approx9.22$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx3.00$查t分布表得到的。
+	\end{enumerate}
+	
+	\subsubsection{测定未知光波波长}
+	\begin{enumerate}
+		\item 由测量数据初步计算出各光波波长
+		
+		计算结果如\cref{tab:tab4}所示。
+		\begin{table}[htbp]
+			\centering
+			\caption{测定未知光波波长计算结果}
+			\begin{tabular}{|l|c|c|c|c|c|c|}
+				\hline
+				m & $\phi$/degree & $\phi$/rad & $\theta$/rad & $\sin{\theta}$ & $\lambda$/nm & 备注 \\
+				\hline
+				0级 & 96.75 & 1.6886 & 0.0000 & 0.00000 & 0.0 & \\
+				蓝1级 & 104.23 & 1.8192 & 0.1306 & 0.13018 & 433.6 & \\
+				绿1级 & 106.15 & 1.8527 & 0.1641 & 0.16333 & 544.0 & \\
+				黄1级 & 106.73 & 1.8627 & 0.1741 & 0.17322 & 576.9 & \\
+				X1Y1级 & 111.91 & 1.9532 & 0.2646 & 0.26152 & 435.5 & 蓝2级 \\
+				绿2级 & 115.87 & 2.0223 & 0.3337 & 0.32755 & 545.4 & \\
+				黄2级 & 116.98 & 2.0416 & 0.3530 & 0.34571 & 575.7 & \\
+				X2Y2级 & 118.04 & 2.0602 & 0.3716 & 0.36309 & 403.1 & 紫3级 \\
+				X3Y3级 & 119.79 & 2.0907 & 0.4021 & 0.39137 & 434.5 & 蓝3级 \\
+				紫？-1级 & 269.74 & 4.7078 & 3.0192 & 0.12205 & 406.5 & 紫-1级 \\
+				蓝-1级 & 269.19 & 4.6982 & 3.0096 & 0.13157 & 438.2 & \\
+				绿-1级 & 267.23 & 4.6640 & 2.9753 & 0.16548 & 551.1 & \\
+				黄-1级 & 266.71 & 4.6550 & 2.9664 & 0.17434 & 580.6 & \\
+				紫？-2级 & & & 6.0165 & -0.26354 & 438.9 & 蓝-2级 \\
+				蓝？-2级 & 248.50 & 4.3371 & 2.6485 & 0.47332 & 394.1 & 紫-4级 \\
+				绿-2级 & 257.50 & 4.4942 & 2.8056 & 0.32969 & 549.0 & \\
+				黄-2级 & 256.33 & 4.4738 & 2.7852 & 0.34890 & 581.0 & \\
+				\hline
+			\end{tabular}
+			\label{tab:tab4}
+		\end{table}
+		
+		\item 分析计算结果
+		
+		首先说明由于原数据中存在不确定的颜色和级数，因此采用先代入各级数求出波长然后看与参考值的相符程度，由此确定出X1Y1级为蓝2级，X2Y2级为紫3级，X3Y3级为蓝3级；而紫-2级其实为蓝-2级，蓝-2级其实为紫-4级。
+		
+		上述结果有许多奇怪的地方，例如紫色谱线没有观察到1级但观察到了-1级；最奇怪的即是出现了疑似紫-4级的谱线。除此之外，由于黄色总是以两条非常相邻的谱线的形式出现，因此上述结果应该计算其平均波长。
+		
+		但是，总的来说还是与参考图相符合的。
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{LabX1Gra5.png}
+			\caption{低压汞灯光源的光栅衍射}
+			\label{fig:fig5}
+		\end{figure}
+		
+		\item 计算相对误差
+		
+		接下来计算上述结果与参考值的相对误差：
+		\begin{table}[htbp]
+			\centering
+			\caption{各波长测量值的相对误差}
+			\begin{tabular}{|l|c|c|c|}
+				\hline
+				m & $\lambda$/nm & 参考值/nm & 相对误差 \\
+				\hline
+				0级 & & & \\
+				蓝1级 & 433.6 & 435.8 & -0.51\% \\
+				绿1级 & 544.0 & 546.1 & -0.39\% \\
+				黄1级 & 576.9 & 578.2 & -0.23\% \\
+				蓝2级 & 435.5 & 435.8 & -0.07\% \\
+				绿2级 & 545.4 & 546.1 & -0.12\% \\
+				黄2级 & 575.7 & 578.2 & -0.44\% \\
+				紫3级 & 403.1 & 404.7 & -0.40\% \\
+				蓝3级 & 434.5 & 435.8 & -0.30\% \\
+				紫-1级 & 406.5 & 404.7 & 0.44\% \\
+				蓝-1级 & 438.2 & 435.8 & 0.55\% \\
+				绿-1级 & 551.1 & 546.1 & 0.92\% \\
+				黄-1级 & 580.6 & 578.2 & 0.42\% \\
+				蓝-2级 & 438.9 & 435.8 & 0.70\% \\
+				紫-4级 & 394.1 & 404.7 & -2.62\% \\
+				绿-2级 & 549.0 & 546.1 & 0.53\% \\
+				黄-2级 & 581.0 & 578.2 & 0.48\% \\
+				\hline
+			\end{tabular}
+			\label{tab:tab5}
+		\end{table}
+		
+		\item 最终结果
+		
+		根据相对误差，我们取如下结果为测量最终结果：
+		
+		紫色取-1级与3级结果平均值$\bar{\lambda}(purple)=404.8nm$，相对误差0.02\%。
+		
+		蓝色取2级测量结果$\lambda(blue)=435.5nm$，相对误差-0.07\%。
+		
+		绿色取2级测量结果$\lambda(green)=545.4nm$，相对误差-0.12\%。
+		
+		黄色取各级结果平均值$\bar{\lambda}(yellow)=578.6nm$，相对误差0.06\%。				
+	\end{enumerate}
+	
+	\subsubsection{测定角色散率 D}
+	\begin{enumerate}
+		\item 由测量数据初步计算出角散射率
+		
+		计算结果如\cref{tab:tab6}所示。
+		\begin{table}[htbp]
+			\centering
+			\caption{测定角色散率计算结果}
+			\begin{tabular}{|l|c|c|c|c|c|}
+				\hline
+				m & $\phi$/degree & $\phi$/rad & $\theta$/rad & $\cos{\theta}$ & $D/\text{nm}^{-1}$ \\
+				\hline
+				0级 & 96.75 & 1.6886 & 0.0000 & 1.00000 & $3.00\times 10^{-4}$ \\
+				蓝1级 & 104.23 & 1.8192 & 0.1306 & 0.99149 & $3.03\times 10^{-4}$ \\
+				绿1级 & 106.15 & 1.8527 & 0.1641 & 0.98657 & $3.04\times 10^{-4}$ \\
+				黄1级 & 106.73 & 1.8627 & 0.1741 & 0.98488 & $3.05\times 10^{-4}$ \\
+				蓝2级 & 111.91 & 1.9532 & 0.2646 & 0.96520 & $6.22\times 10^{-4}$ \\
+				绿2级 & 115.87 & 2.0223 & 0.3337 & 0.94483 & $6.36\times 10^{-4}$ \\
+				黄2级 & 116.98 & 2.0416 & 0.3530 & 0.93834 & $6.40\times 10^{-4}$ \\
+				紫3级 & 118.04 & 2.0602 & 0.3716 & 0.93175 & $9.67\times 10^{-4}$ \\
+				蓝3级 & 119.79 & 2.0907 & 0.4021 & 0.92023 & $9.79\times 10^{-4}$ \\
+				紫-1级 & 269.74 & 4.7078 & 3.0192 & -0.99252 & $3.03\times 10^{-4}$ \\
+				蓝-1级 & 269.19 & 4.6982 & 3.0096 & -0.99131 & $3.03\times 10^{-4}$ \\
+				绿-1级 & 267.23 & 4.6640 & 2.9753 & -0.98621 & $3.04\times 10^{-4}$ \\
+				黄-1级 & 266.71 & 4.6550 & 2.9664 & -0.98469 & $3.05\times 10^{-4}$ \\
+				紫-4级 & 248.50 & 4.3371 & 2.6485 & -0.88089 & $1.36\times 10^{-3}$ \\
+				绿-2级 & 257.50 & 4.4942 & 2.8056 & -0.94409 & $6.36\times 10^{-4}$ \\
+				黄-2级 & 256.33 & 4.4738 & 2.7852 & -0.93716 & $6.41\times 10^{-4}$ \\
+				\hline
+			\end{tabular}
+			\label{tab:tab6}
+		\end{table}
+		
+		\item 不确定度分析
+		
+		这里取蓝绿黄各$\pm1$级谱线进行不确定度分析。除此之外，为了方便计算以$nm^{-1}$为单位。
+		
+		A类评定：按\cref{tab:tab6}取各测量值的实验标准差$u_A=\sigma_{\bar{D}}=\sqrt{\frac{\Sigma D}{n(n-1)}}=3.877\times10^{-7}nm^{-1}$。
+		
+		B类评定：取前面计算得到的光栅常数d的合成不确定作为D的B类不确定度。
+		
+		由此计算的到合成不确定度$u_D=\sqrt{u_A^2+\frac{u_B^2}{\bar{d}^4}}\approx 4.176\times10^{-7}nm^{-1}$
+		
+		\item 最终结果及不确定报告
+		\begin{equation*}
+			D=\bar{D}\pm U_{D}\approx( 0.0003040\pm  2.301\times10^{-6} )nm^{-1}
+		\end{equation*} 
+		其中展伸不确定度$U_{D}={k}\times{u_{D}}\approx 2.301\times10^{-6}nm^{-1} $ 是由合成标准不确定度$u_{D}\approx 4.176\times10^{-7}nm^{-1} $ 和$k\approx5.51$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx5.00$查t分布表得到的。
+	\end{enumerate}
+	
+	\clearpage
+	\subsection{实验后思考题}
+	\begin{question}
+		检索文献，列举三种测量光波波长的方法，给出参考文献列表。
+	\end{question}
+		\textbf{\large 光栅光谱仪测量法}
+		\begin{itemize}
+			\item \textbf{操作步骤}:
+			\begin{enumerate}
+				\item \textbf{准备工作}: 将光线导入光栅光谱仪，调整入射角使光线尽可能垂直进入光栅。
+				\item \textbf{光栅衍射}: 光线通过光栅时会发生衍射，形成光谱，不同波长的光被分散。
+				\item \textbf{光谱测量}: 使用光电探测器接收并测量光谱中不同波长的光强度。
+				\item \textbf{分析和计算}: 分析测得的光谱数据，确定不同波长的光强度分布，然后根据光栅特性计算光波的波长。
+			\end{enumerate}
+			\item \textbf{参考文献}:
+			\begin{itemize}
+				\item Palmer 指出，光栅光谱仪通过光栅衍射将光分散成不同波长的光谱，从而测量光波的波长。
+				\item Hecht 的著作提供了光栅光谱仪的原理和操作方法的详细介绍。
+			\end{itemize}
+		\end{itemize}
+		
+		\textbf{\large 干涉测量法}
+		\begin{itemize}
+			\item \textbf{操作步骤}:
+			\begin{enumerate}
+				\item \textbf{光束分裂}: 将光线分成两束，形成干涉。
+				\item \textbf{干涉产生}: 两束光相互干涉，产生干涉条纹。
+				\item \textbf{光程差调整}: 改变其中一束光的光程差，观察干涉条纹的变化。
+				\item \textbf{波长计算}: 通过测量干涉条纹的间距或特征，计算光波的波长。
+			\end{enumerate}
+			\item \textbf{参考文献}:
+			\begin{itemize}
+				\item Born 和 Wolf 在《Principles of Optics》中对干涉测量法进行了详尽的阐述 \cite{born1999principles}。
+				\item Goodman 的著作《Introduction to Fourier Optics》也提供了干涉测量的理论和实践知识。
+			\end{itemize}
+		\end{itemize}
+		
+		\textbf{\large 光子计数测量法}		
+		\begin{itemize}
+			\item \textbf{操作步骤}:
+			\begin{enumerate}
+				\item \textbf{光子计数}: 使用单光子计数器测量光子的到达时间。
+				\item \textbf{时间分布统计}: 统计光子到达时间并绘制光子到达时间分布曲线。
+				\item \textbf{频率和波长计算}: 通过光子到达时间分布曲线，计算光波的频率，再计算得到波长。
+			\end{enumerate}
+			\item \textbf{参考文献}:
+			\begin{itemize}
+				\item Mandel 和 Wolf 在《Optical coherence and quantum optics》中详细介绍了光子计数测量法。
+				\item 另外，Saleh 和 Teich 的《Fundamentals of Photonics》也包含了光子计数测量的基本原理。
+			\end{itemize}
+		\end{itemize}
+	
+	
+			
+	\clearpage
+	\section{LabX1 光栅常数及光波波长的测量 \quad\heiti 参考文献与附件}
+	\subsection{参考文献}
+	[1]沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4 
+	
+	[2]Eugene Hecht - Optics, Global Edition-Pearson Higher Education (2017) 5th  
+	
+	[3] Palmer, C. (2011). Optical metrology. CRC Press.
+	
+	[5] Born, M., \& Wolf, E. (1999). Principles of Optics: Electromagnetic Theory of Propagation, Interference and Diffraction of Light. Cambridge University Press.
+	
+	[6] Goodman, J. W. (2005). Introduction to Fourier Optics. Roberts and Company Publishers.
+	
+	[7] Mandel, L., \& Wolf, E. (1995). Optical coherence and quantum optics. Cambridge University Press.
+	
+	[8] Saleh, B. E. A., \& Teich, M. C. (2007). Fundamentals of photonics. John Wiley \& Sons.
+	
+	\clearpage
+	\subsection{附件}
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{LabX1GraA3.jpg}
+		\caption{实验台整理}
+		\label{fig:figA3}
+	\end{figure}
+	
+	\begin{lstlisting}[style=pythonstyle,caption=代码记录]
+		#CalDMS.py
+		
+		# 定义一个类来表示度分秒
+		class DMS:
+		# 构造函数，接受度、分、秒作为参数
+		def __init__(self, degree, minute, second):
+		self.degree = degree # 度
+		self.minute = minute # 分
+		self.second = second # 秒
+		
+		# 定义一个方法，将度分秒转换为十进制度
+		def to_decimal(self):
+		return self.degree + self.minute / 60 + self.second / 3600
+		
+		# 定义一个方法，将十进制度转换为度分秒
+		def from_decimal(self, decimal):
+		self.degree = int(decimal) # 取整数部分为度
+		self.minute = int((decimal - self.degree) * 60) # 取小数部分乘以60为分
+		self.second = (decimal - self.degree - self.minute / 60) * 3600 # 取剩余部分乘以3600为秒
+		
+		# 定义一个方法，返回度分秒的字符串表示
+		def __str__(self):
+		return f"{self.degree}°{self.minute}'{self.second}\""
+		
+		# 定义一个方法，实现度分秒的加法
+		def __add__(self, other):
+		result = DMS(0, 0, 0) # 创建一个新的对象作为结果
+		result.from_decimal(self.to_decimal() + other.to_decimal()) # 将两个对象转换为十进制度，相加后再转换为度分秒
+		return result
+		
+		# 定义一个方法，实现度分秒的减法
+		def __sub__(self, other):
+		result = DMS(0, 0, 0) # 创建一个新的对象作为结果
+		result.from_decimal(self.to_decimal() - other.to_decimal()) # 将两个对象转换为十进制度，相减后再转换为度分秒
+		return result
+		
+		# 定义一个方法，实现度分秒的乘法
+		def __mul__(self, a:float):
+		result = DMS(0, 0, 0) # 创建一个新的对象作为结果
+		result.from_decimal(self.to_decimal() * a) # 转换为十进制度，相乘后再转换为度分秒
+		return result
+		
+		# 定义一个方法，实现度分秒的除法
+		def __truediv__(self, a:float):
+		result = DMS(0, 0, 0) # 创建一个新的对象作为结果
+		result.from_decimal(self.to_decimal() / a) # 转换为十进制度，相除后再转换为度分秒
+		return result
+		
+		Am2=DMS(346, 0, 0)
+		Bm2=DMS(166, 2, 0)
+		print((Am2+Bm2)/2)
+		
+		Am1=DMS(356, 30, 0)
+		Bm1=DMS(176, 32, 0)
+		print((Am1+Bm1)/2)
+		
+		A0=DMS(6, 43, 0)
+		B0=DMS(186, 43, 0)
+		print((A0+B0)/2)
+		
+		A1=DMS(16, 53, 0)
+		B1=DMS(196, 55, 0)
+		print((A1+B1)/2)
+		
+		A2=DMS(27, 26, 0)
+		B2=DMS(207, 30, 0)
+		print((A2+B2)/2)
+		
+		print(((Am2+Bm2)/2).to_decimal())
+		
+		def phi(a:DMS, b:DMS):
+		print((a+b)/2)
+		print(((a+b)/2).to_decimal())
+		return ((a+b)/2)
+		
+		a1=DMS(6, 45, 0)
+		b1=DMS(186, 45, 0)
+		phi1=phi(a1, b1)
+		
+		a2=DMS(14, 14, 0)
+		b2=DMS(194, 14, 0)
+		phi2=phi(a2, b2)
+		
+		a3=DMS(16, 8, 0)
+		b3=DMS(196, 10, 0)
+		phi3=phi(a3, b3)
+		
+		a4=DMS(16, 43, 0)
+		b4=DMS(196, 44, 0)
+		phi4=phi(a4, b4)
+		
+		a5=DMS(21, 53, 0)
+		b5=DMS(201, 56, 0)
+		phi5=phi(a5, b5)
+		
+		a6=DMS(25, 50, 0)
+		b6=DMS(205, 54, 0)
+		phi6=phi(a6, b6)
+		
+		a7=DMS(26, 57, 0)
+		b7=DMS(207, 0, 0)
+		phi7=phi(a7, b7)
+		
+		a8=DMS(28, 1, 0)
+		b8=DMS(208, 4, 0)
+		phi8=phi(a8, b8)
+		
+		a9=DMS(29, 45, 0)
+		b9=DMS(209, 50, 0)
+		phi9=phi(a9, b9)
+		
+		a10=DMS(359, 45, 0)
+		b10=DMS(179, 44, 0)
+		phi10=phi(a10, b10)
+		
+		a11=DMS(359, 13, 0)
+		b11=DMS(179, 10, 0)
+		phi11=phi(a11, b11)
+		
+		a12=DMS(357, 15, 0)
+		b12=DMS(177, 12, 0)
+		phi12=phi(a12, b12)
+		
+		a13=DMS(356, 43, 0)
+		b13=DMS(176, 42, 0)
+		phi13=phi(a13, b13)
+		
+		a14=DMS(351, 28, 0)
+		
+		a15=DMS(343, 30, 0)
+		b15=DMS(153, 30, 0)
+		phi15=phi(a15, b15)
+		
+		a16=DMS(347, 30, 0)
+		b16=DMS(167, 30, 0)
+		phi16=phi(a16, b16)
+		
+		a17=DMS(346, 20, 0)
+		b17=DMS(166, 20, 0)
+		phi17=phi(a17, b17)
+	\end{lstlisting}
+	
+	
+	
+\end{document}

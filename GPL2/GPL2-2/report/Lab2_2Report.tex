@@ -1,0 +1,929 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+\usepackage{adjustbox}
+\usepackage{diagbox} % 表格对角线
+%\usepackage{mathrsfs} % 字体
+\captionsetup[figure]{name=Figure} % 图片形式
+\captionsetup[table]{name=Table} % 表格形式
+
+\begin{document}
+	
+	
+	
+	% 实验报告封面	
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 信息栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 2\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2024/3/14 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 大标题
+	\begin{center}
+		\LARGE Lab2-2 \quad Michelson干涉实验（白光干涉）
+	\end{center}
+	% ---
+	
+	% 注意事项
+	
+	% 基本
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（20分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。\textcolor{red}{\textbf{（30分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\end{enumerate}
+	
+	% 安全
+	\textbf{【实验安全注意事项】}	
+	\begin{enumerate}
+		\item 实验过程中，光源不要随意打开关闭；
+		\item 严禁用手触光学镜头的表面；
+		\item 严禁用强力和斜向力旋转测微头，这样会损坏测微头或其他部件；
+		\item 不要拆卸传动机构，以免影响仪器正常使用；
+		\item 实验过程中，数条纹时,避免桌面的振动。
+	\end{enumerate}
+	
+	% ---
+	
+	% 特别鸣谢
+	\textbf{【特别鸣谢及模板说明】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。%\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号LabX5}}
+	% ---
+	
+	
+	
+	% 目录
+	\clearpage
+	\tableofcontents
+	\clearpage
+	% ---
+	
+	
+	
+	% 预习报告	
+	
+	% 小标题
+	\setcounter{section}{0}
+	\section{Lab2-2 Michelson干涉实验（白光干涉） \quad\heiti 预习报告}
+	% ---
+	
+	% 实验目的
+	\subsection{实验目的}
+	\begin{enumerate}
+		\item 观察等倾、等厚干涉现象及调节白光干涉条纹；
+		\item 学习用Michelson干涉仪测量钠光谱波长差的方法；
+		\item 学习用白光干涉测量透明薄片折射率的方法；
+		\item 用Michelson干涉仪测量多种光源的相干长度；
+	\end{enumerate}
+	% ---
+	
+	% 仪器用具
+	\subsection{仪器用具}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1& 精密干涉仪 & 1 & SGM-3 \\
+			\hline
+			2& He-Ne 激光器 & 1 & -- \\
+			\hline
+			3& 钠钨双灯 & 1 & -- \\
+			\hline
+			4& 汞灯 & 1 & -- \\
+			\hline
+			5& 透明薄片 & 1 & -- \\
+			\hline
+			6& 螺旋测微计 & 1 & -- \\
+			\hline
+		\end{tabular}
+	\end{table}
+	% ---
+	
+	% 原理概述
+	\subsection{原理概述}
+	
+	\begin{figure}[htbp]
+		\centering
+		\subfloat[]{
+			\includegraphics[width=0.3\textwidth]{CB1Graph1.png}
+		}
+		\subfloat[]{
+			\includegraphics[width=0.3\textwidth]{CB1Graph2.png}
+		}
+		\caption{Michelson干涉仪光路图}
+		\label{fig:figCB1}			
+	\end{figure}
+	
+	\subsubsection{测钠双黄线的波长差}
+	\begin{enumerate}
+		\item 钠双黄线由两种波长相近的光组成，分别为589.0 nm和589.6 nm。这两条谱线在使用钠灯作为光源时形成各自的干涉条纹，当这些条纹在视场中叠加时，由于波长的差异，会产生错位现象。
+		\item 光拍现象是指当两组波长不同的干涉条纹叠加时，随着光程差的变化，干涉条纹出现由清晰到模糊再到清晰的周期性变化过程。这种现象反映了不同波长光线干涉加强或减弱的周期性变化。
+		\item 当两束光（具有不同波长）在观察屏上相遇并叠加时，由于它们的波长不同，会导致干涉条纹出现周期性的清晰和模糊变化。当移动反射镜（改变光程差）时，某一波长的亮条纹可能与另一波长的暗条纹重合，导致干涉条纹模糊，反之亦然。通过记录干涉条纹从模糊到清晰再到模糊的变化过程中，反射镜移动的距离，可以计算出两种波长的差值。
+		\item \textbf{测量原理}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.8\textwidth]{Lab2_2Gra1.png}
+			\caption{“光拍”现象及其原理}
+			\label{fig:fig1}
+		\end{figure}
+		
+		在移动反射镜M1时,形成的干涉条纹会从模糊到请晰再到模糊。对波长为$\lambda_{1}$的入射光,当$L_{1}=k_{1}\lambda_{1}$时，在视场巨中处涉加强；在视场E中小处干涉减弱。继续调节M1，当成像出现第一次模糊时，有
+		$L _{A}=k_{1}\lambda_{1}=(k_{2}+\frac{1}{2})\lambda_{2}$
+		再继续调节,待成像清晰有$L_{C}=(k_{1}+m)\lambda_{1}=[k_{2}+m-1+\frac{1}{2}]\lambda_{2}$
+		作差得出$\lambda_{2}-\lambda_{1}=\frac{\lambda_{2}}{m}$
+		最终得：
+		\[\Delta\lambda=\lambda_{2}-\lambda_{1}=\frac{\lambda_{2}\lambda_{1}}{2\Delta d}=\frac{\bar{\lambda}^{2}}{2\Delta d}\]
+		其中，$\bar{\lambda}=\dfrac{\lambda_1+\lambda_2}{2}$为双黄线平均波长。
+		
+		\textbf{记录下干涉条纹出现一次“模糊-清晰-模糊”的变化时，反射镜 M1 移动的距离$\Delta d$，结合钠双黄线的平均波长，即可利用上式求得钠双黄线的波长差。}
+	\end{enumerate}
+	\subsubsection{白光干涉的调节，并测定透明薄片的厚度 t 或者折射率 n}
+	\begin{enumerate}
+		\item 测量原理总结
+		\begin{enumerate}
+			\item 换上扩散的白光光源（本实验中采用溴钨灯加毛玻璃代替）， 微调 M1 精密测微头， 此时应能在玻璃镜（视场） 中观察到彩色的条纹，此即为“白光等厚干涉条纹”。 在视场中心处的彩色条纹之间还可观察到一条全黑的条纹，称为“中心暗纹”。
+			\item 然后在反射镜 M1 与分束镜 P1之间放上折射率为 n，厚度为 t 的透明薄片，且尽量使薄片与 M1 镜平行，则此时两干涉臂的光程差要比原来增大。
+			\item 放上透明薄片后，透过观察屏玻璃观察透明薄片处，可以看到视场中的白光干涉彩色条纹消失。此时如果将反射镜 M1 镜向前朝分束镜 P1方向移动一段距离$\Delta d$， 使得$\Delta d$ = $\Delta L$ /2（此时候相当于虚光源 S1’和 S2’距离减小 2$\Delta d$ = $\Delta L$，刚好是插入透明薄片后增加的光程差）， 则白光彩色干涉条纹重新出现（注意要调节反射镜M1 镜的精密测微头，使得中心暗纹移到视场中央）。此时有
+			\[\Delta d=t(n-1)\]
+			\item \textbf{测出 M1 镜的移动量$\Delta d$， 若已知透明薄片的厚度 t， 则可由上式可求出透明薄片的折射率n；反之，若已知透明薄片的折射率 n，可求出透明薄片的厚度 t 。}
+		\end{enumerate}
+		
+		\item 重点内容总结
+		\begin{enumerate}
+			\item \textbf{白光干涉的产生}
+			
+			撤掉He-Ne激光器并安装白光光源，通过精密调整可移动反射镜$M1$的位置，可以观察到彩色的干涉条纹。这些条纹是由于白光中包含的各种颜色的光波长不同，干涉条件各不相同所致。在干涉图样中，只有波长非常接近的光才能形成明显的干涉条纹，因此白光干涉条纹中心附近会出现一条明显的暗纹，称为“中心暗纹”。
+			
+			\item \textbf{透明薄片的插入与测量}
+			
+			在反射镜$M1$与分束镜$P1$之间插入一块已知折射率$n$或已知厚度$t$的透明薄片。由于薄片的插入改变了一个干涉臂的光程，这导致干涉条纹发生移动。通过调节反射镜$M1$，可以将干涉条纹调整至最初的位置，此时通过测量$M1$镜的移动距离$\Delta d$，可以计算出薄片的厚度$t$或折射率$n$。
+			
+			\item \textbf{计算公式}
+			
+			根据干涉原理，两干涉臂的光程差变化$\Delta L$可以表示为透明薄片引起的光程改变，即
+			\[ \Delta L = 2t(n-1) \]
+			其中，$t$是薄片的厚度，$n$是薄片的折射率。若已知薄片的厚度$t$，则可通过测量光程差的变化$\Delta L$来计算薄片的折射率$n$。反之，若已知薄片的折射率$n$，则可通过$\Delta L$计算薄片的厚度$t$。实际操作中，$\Delta L$可以通过测量反射镜$M1$移动的距离$\Delta d$来确定，因为反射镜移动$\Delta d$导致光程差变化为$2\Delta d$（来回路径）。因此，可以得到
+			\[ n = 1 + \frac{\Delta L}{2t} = 1 + \frac{\Delta d}{t} \]
+			或
+			\[ t = \frac{\Delta d}{n-1} \]
+		\end{enumerate}
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 实验前思考题
+	\subsection{实验前思考题}
+	
+	% 思考题1
+	\begin{question}
+		如何测量透明溶液的折射率？请自行就相关实验原理进行调研，并设计合理试验方案。
+	\end{question}
+	\begin{enumerate}
+		\item 调研记录
+		\begin{enumerate}
+			\item \textbf{CCD法测量透明介质的折射率}：依据折射定律，设计了一种测量装置，可用于测量透明介质的折射率。该研究详细阐述了测量装置的设计原理、使用方法以及一些实验内容，并给出了一些材料的折射率测量结果 [(Zhang Chang-yi, 2006)]。
+			
+			\item \textbf{利用CCD测量透明材料折射率的实验方法}：描述了一种基于扩展和准直激光束干涉的透明材料折射率测量实验方法。该光学排列简单易操作，测量折射率的准确性达到了$10^{-3}$的级别，通过应用CCD，这种方法可以扩展到测量其他与折射率相关的系数 [(Deng Guang, 2003)]。
+			
+			\item \textbf{基于数字全息显微术的溶液折射率测量}：提出了一种基于数字全息显微术的溶液折射率(RI)测量新方法。实验系统由改良的Mach-Zehnder干涉仪和相关的实验室开发分析软件组成。该方法能够高精度地获得被测试溶液的高质量数字全息图，进而计算出溶液的折射率，比用阿贝折射仪测量的结果更准确 [(Sujuan Huang et al., 2017)]。
+			
+			\item \textbf{非侵入式技术测量清澈和透明液体的折射率}：提出了一种测量清澈和透明液体折射率的光学技术。该技术通过测量光束经过液体介质后发生的横向位移来感知液体折射率的变化。实验结果表明，该技术能够以$10^{-4}$的精度测量折射率，且具有简单和非侵入式的新颖性 [(H. Singh et al., 2014)]。
+			
+		\end{enumerate}
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_2Gra2.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_2Gra3.jpg}
+			}
+			\caption{测量透明溶液的折射率}
+			\label{fig:fig2}			
+		\end{figure}
+		
+		\item 方案设计1
+		
+		基于CCD法测量透明介质的折射率。
+		
+		\begin{enumerate}
+			\item \textbf{实验材料与设备：}
+			
+			\begin{itemize}
+				\item 激光器（例如：He-Ne激光器）
+				\item CCD相机
+				\item 计算机（带有图像处理和数据分析软件）
+				\item 透明溶液样品
+				\item 标准折射率已知的透明溶液（用于校准）
+				\item 光学平台（包括固定装置和光路调整设备）
+				\item 分光镜
+				\item 光束扩展器
+				\item 准直镜
+			\end{itemize}
+			
+			\item \textbf{实验步骤：}
+			
+			\begin{enumerate}
+				\item 设备安装与校准：
+				\begin{itemize}
+					\item 将激光器安装在光学平台上，并使用光束扩展器和准直镜确保发出的激光束是准直的。
+					\item 安装分光镜，将激光束分成两路，一路直接照射CCD相机，另一路经过待测溶液后再照射CCD相机。
+					\item 使用已知折射率的标准溶液进行系统校准，确保测量系统的准确性。
+				\end{itemize}
+				
+				\item 溶液准备：
+				\begin{itemize}
+					\item 将待测透明溶液装入透明的容器中，确保容器壁厚均匀，无色差和畸变。
+					\item 调整容器位置，使激光束能够穿过溶液并最终到达CCD相机。
+				\end{itemize}
+				
+				\item 数据采集：
+				\begin{itemize}
+					\item 开启激光器和CCD相机，记录穿过标准溶液和待测溶液的激光束生成的干涉图案。
+					\item 使用图像处理软件分析干涉图案，收集干涉条纹的变化数据。
+				\end{itemize}
+				
+				\item 数据分析：
+				\begin{itemize}
+					\item 根据干涉图案的变化，利用软件计算待测溶液的折射率。可以通过比较标准溶液和待测溶液的干涉图案变化，计算出待测溶液的折射率。
+				\end{itemize}
+				
+				\item 结果验证：
+				\begin{itemize}
+					\item 使用不同浓度的已知折射率溶液验证测量系统的准确性和重复性。
+					\item 必要时，调整实验设置或重新校准系统，以提高测量结果的准确度。
+				\end{itemize}
+			\end{enumerate}
+		\end{enumerate}
+		
+		\item 方案设计2
+		
+		基于“非侵入式技术测量清澈和透明液体的折射率”的研究，我们可以设计一个简单且有效的实验方案来测量透明溶液的折射率。这种方法利用光束通过液体介质后的横向位移来感知液体折射率的变化。
+		
+		\begin{enumerate}
+			\item \textbf{实验目的}
+			
+			利用非侵入式技术，通过测量光束经过透明溶液后的横向位移，来确定溶液的折射率。
+			
+			\item \textbf{实验材料和设备}
+			
+			\begin{itemize}
+				\item 激光源：用于产生光束。
+				\item 透明容器：用于盛放被测试的透明溶液。
+				\item 光探测器或光电二极管：用于检测光束的位置。
+				\item 光屏或屏幕：用于观察光束的横向位移。
+				\item 微调台：用于精确调整光探测器的位置。
+				\item 温度控制装置：如果需要考虑温度对折射率的影响，则需要此设备。
+				\item 计算机和数据采集系统：用于记录数据和分析结果。
+			\end{itemize}
+			
+			\item \textbf{实验步骤}
+			\begin{enumerate}
+				\item \textbf{准备阶段：}
+				\begin{itemize}
+					\item 确保所有设备处于良好状态，尤其是激光源和光探测器。
+					\item 在透明容器中加入被测试的透明溶液，并放置在激光光束路径中。
+				\end{itemize}
+				
+				\item \textbf{激光照射：}
+				\begin{itemize}
+					\item 打开激光源，使激光光束垂直穿过透明容器中的溶液。
+					\item 确保激光光束通过溶液后在光屏或屏幕上形成清晰的光点。
+				\end{itemize}
+				
+				\item \textbf{测量位移：}
+				\begin{itemize}
+					\item 使用光探测器沿着光屏或屏幕移动，找到激光光束的新位置。
+					\item 记录光束经过溶液后相对于未经过溶液时的横向位移距离。
+					\item 如果需要，重复实验并改变溶液的浓度或类型，记录不同情况下的横向位移。
+				\end{itemize}
+				
+				\item \textbf{数据分析：}
+				\begin{itemize}
+					\item 根据光束的横向位移和溶液的已知参数，使用光学原理和公式计算溶液的折射率。
+					\item 如果进行了多次测量，可以计算平均值以提高结果的准确性和可靠性。
+				\end{itemize}
+				
+				\item \textbf{报告结果：}
+				\begin{itemize}
+					\item 汇总实验数据和计算结果，编写实验报告。
+					\item 分析可能影响实验结果的因素，如温度、溶液的不均匀性等。
+				\end{itemize}
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+	
+	% 思考题2
+	\begin{question}
+		如何测量汞灯光源的相干长度？请自行就相关实验原理进行调研，并设计具体实验方案。
+	\end{question}
+	\begin{enumerate}
+		\item 调研记录
+		\begin{enumerate}
+			\item \textbf{使用散斑模式来测量空间相干性：}Asakura, Fujii, 和 Murata (1972) 描述了一种通过使用作为随机非均匀介质的研磨玻璃产生的散斑模式来测量光的空间相干性的方法。该方法的理论基础已经建立，并通过使用激光和汞灯作为光源进行了实验验证【Asakura, Fujii, \& Murata, 1972】
+			\item \textbf{强度波动光散射光谱学：}Jakeman, Pusey, 和 Vaughan (1976) 使用汞弧灯作为光源研究了液晶样品散射的光强波动，确认在此类研究中原则上不需要激光源。该研究概述了实验问题，特别是时间和空间相干的相关参数【Jakeman, Pusey, \& Vaughan, 1976】
+		\end{enumerate}
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_2Gra4.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_2Gra5.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab2_2Gra6.jpg}
+			}
+			\caption{测量汞灯光源的相干长度}
+			\label{fig:fig4}			
+		\end{figure}
+		
+		\item 方案设计1
+		
+		基于“使用散斑模式来测量空间相干性”的原理，我们可以设计如下的具体实验方案：
+		
+		\begin{enumerate}
+			\item \textbf{实验目的}
+			
+			利用散斑模式测量汞灯光源的空间相干性，从而推算出相干长度。
+			
+			\item \textbf{所需材料}
+			
+			\begin{itemize}
+				\item 汞灯光源
+				\item 研磨玻璃
+				\item CCD相机或高分辨率数码相机
+				\item 光屏或投影屏
+				\item 光学台及固定支架
+				\item 计算机及图像处理软件
+			\end{itemize}
+			
+			\item \textbf{实验步骤}
+			
+			\begin{enumerate}
+				\item 光源准备：将汞灯安装在光学台上，使用合适的支架固定，确保光源稳定发光。
+				\item 设置研磨玻璃：在汞灯光源前放置一块研磨玻璃，作为随机非均匀介质，用于产生散斑模式。研磨玻璃的粗糙度应适中，既能有效散射光线，又不至于使散斑过于模糊。
+				\item 散斑捕获：在研磨玻璃的另一侧放置CCD相机或数码相机，对准研磨玻璃，以捕获散斑图案。相机应设置在适当的曝光和焦距下，以确保散斑图案的清晰度。
+				\item 图像记录：开启汞灯，并通过相机记录下散斑图案。最好进行多次拍摄，以便于后续分析中对比和验证。
+				\item 图像处理与分析：将捕获的散斑图案导入计算机，并使用图像处理软件进行分析。主要分析散斑尺寸和分布，这些特征与光源的空间相干性有直接关联。
+				\item 相干性评估：根据散斑图案的特征，使用相关的理论和公式评估汞灯光源的空间相干性。空间相干性的评估可以通过比较实验散斑图案与理论模型进行，确定光源的相干长度。
+			\end{enumerate}
+		\end{enumerate}
+		
+		\item 方案设计2
+		
+		基于“强度波动光散射光谱学”测量相干性。
+		
+		\begin{enumerate}
+			\item \textbf{实验目的}
+			
+			利用强度波动光散射光谱学法测量汞灯光源的空间和时间相干性，通过分析液晶样品散射光的强度波动来实现。
+			
+			\item \textbf{实验原理}
+			
+			强度波动光散射光谱学法基于分析液晶样品散射光的强度波动来探究光源的相干性。在此过程中，散射光的强度波动提供了光场空间和时间结构的信息，从而可以推断出光源的相干长度。
+			
+			\item \textbf{实验材料}
+			
+			\begin{itemize}
+				\item 汞弧灯作为光源
+				\item 液晶样品
+				\item 散射室（以减小环境光干扰）
+				\item 光强度检测系统（如光电探测器）
+				\item 数据采集系统（如示波器或计算机配合数据采集卡）
+			\end{itemize}
+			
+			\item \textbf{实验步骤}
+			
+			\begin{enumerate}
+				\item 实验准备：将汞弧灯安置在散射室中，以减少环境光的影响。液晶样品放置在汞灯光源的光路中，以便光线可以通过样品并散射。
+				\item 散射光的采集：使用光电探测器接收经液晶样品散射后的光，将探测器的输出信号传输至数据采集系统。
+				\item 数据记录与分析：
+				\begin{itemize}
+					\item 记录散射光强度随时间的波动情况。
+					\item 使用傅里叶变换等数学工具分析记录到的光强波动信号，提取相关的空间和时间相干性参数。
+					\item 分析液晶样品散射光强度的统计特性，如强度分布和强度波动频谱。
+				\end{itemize}
+				\item 相干性评估：根据强度波动分析结果，评估汞灯光源的空间和时间相干性。特别是通过强度波动的统计特性来估算相干长度。
+			\end{enumerate}
+		\end{enumerate}
+		
+		\item \textbf{基于本实验实验原理设计方案}
+		
+		\begin{enumerate}
+			\item \textbf{实验原理：}
+			
+			Michelson干涉仪是一种典型的用于测量光的相干长度的仪器。其基本原理是将来自同一光源的光分成两束，让它们沿着不同的路径传播，然后再次合并。当两束光的路径差不超过光源的相干长度时，它们可以产生干涉图样。通过测量当干涉图样消失时的路径差，可以计算出光源的相干长度。
+			
+			\item \textbf{实验步骤：}
+			
+			\begin{enumerate}
+				\item 准备实验装置：设置Michelson干涉仪，包括一个可调节的汞灯光源、分束镜、两个反射镜（一个固定，一个可移动）、合束镜和观察屏或探测器。
+				\item 调整光路：打开汞灯，通过调整Michelson干涉仪中的分束镜和反射镜，使得两束光在合束镜处重合并形成干涉条纹。
+				\item 测量干涉图样：通过缓慢移动一个反射镜，改变两束光之间的光程差。观察随着光程差的增加，干涉图样如何变化。
+				\item 确定相干长度：记录当干涉条纹开始变得模糊直至消失的那一点的光程差。这个光程差即为两倍的相干长度（因为光程差包括往返两次的路径）。
+				\item 计算相干长度：将记录的光程差除以2，得到汞灯光源的相干长度。
+			\end{enumerate}			
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	% ---
+	
+	
+	
+	% 实验记录	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 20\degree C & 实验地点： & A505 \\
+			\hline
+			学生签名：& 杨舒云 & 评分： &\\
+			\hline
+			实验时间：& 2024/3/14 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-2 Michelson干涉实验（白光干涉）  \quad\heiti 实验记录}
+	% ---
+	
+	% 实验过程记录
+	\subsection{实验内容、步骤与结果}
+	
+	%
+	\subsubsection{调节Michelson干涉仪，使产生定域等倾干涉条纹}
+	
+		\begin{figure}[htbp]
+		\centering
+		\subfloat[]{
+			\includegraphics[width=0.3\textwidth]{CB1Graph4.png}
+		}
+		\subfloat[]{
+			\includegraphics[width=0.6\textwidth]{CB1Graph5.png}
+		}
+		\caption{理论上的干涉条纹与定域等倾干涉条纹产生原理}
+		\label{fig:citeCB1}			
+	\end{figure}
+	
+	\begin{enumerate}
+		\item 安装并打开 He-Ne 或半导体激光器（注意不要直射眼睛），但先不安装扩束镜，
+		调节出射激光束平行于光学平台，并使激光束从分束镜P1的中心附近入射；
+		\item 调节可调反射镜M2背面的三个螺钉，使得M1和M2反射的光点的最亮处在
+		观察屏E上重合；
+		\item 装上扩束镜（ 以获得点光源），此时应能在观察屏上看到等倾干涉条纹（如观
+		察不到，则可微调固定激光器的螺钉，使得光束能顺利通过扩束镜）。
+		
+	    \begin{figure}[htbp]
+	    	\centering
+	    	\includegraphics[width=0.5\textwidth]{Lab2_2GraA1.jpg}
+	    	\caption{激光光源的干涉图像}
+	    	\label{fig:figA1}
+	    \end{figure}
+		
+		观察屏上的干涉条纹如\cref{fig:figA1}所示。
+	\end{enumerate}
+	
+	%
+	\subsubsection{测钠双黄线的波长差}
+	
+	\begin{enumerate}
+		\item 用激光器作为光源移动反射镜 $M_1$ 使圆环形的非定于干涉条纹变宽变稀直到光屏上的条纹数在3圈以下，这时候两干涉臂的光程几乎相等，光程差近似等于零。
+		
+		\item 不安装扩束镜。改用钠灯，灯前装有毛玻璃使光散射。观察屏改为平面玻璃反射镜；
+		
+		\item 从观察屏的玻璃中观察，仔细调节 $M_2$ 镜后的三颗倾斜度调节螺钉和 $M_1$镜的位置，可观察到黄黑相间的直线状的等厚干涉条纹；
+		
+		\item 调节精密测微头，移动反射镜 $M_1$，观察条纹“模糊→清晰→模糊” 的周期变化过程，记录每一次干涉条纹“模糊”时候精密测微头的读数，随后计算出$M_1$ 镜移动的距离$\Delta d$，即可根据公式计算钠双黄线的波长差\[\Delta \lambda\equiv\lambda_2-\lambda_1=\frac{\lambda_1\lambda_2}{2\Delta d}=\frac{\bar{\lambda}^2}{2\Delta d} \]
+		
+		\item 由于人为判断条纹清晰程度的误差比较大最好能够测量多个连续的周期。		
+	\end{enumerate}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.55\textwidth]{Lab2_2GraA3.jpg}
+		\caption{钠黄光光源的干涉图像}
+		\label{fig:figA3}
+	\end{figure}
+	
+	观察屏上的干涉条纹如\cref{fig:figA3}所示。
+	
+	实验测得的数据如\cref{tab:tab1}所示。
+	\begin{table}[h]
+		\centering
+		\caption{测钠双黄线的波长差测量数据}
+		\label{tab:tab1}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\diagbox{桌号}{位置/mm} & 模糊1 & 模糊2 & 双黄线波长/nm（理论值） \\
+			\hline
+			A2 & 11.255 & 0.410 & 589.0 \\
+			B4 & 22.105 & 10.450 & 589.6 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	%
+	\subsubsection{利用白光干涉测定透明薄片的折射率 $n$}
+	
+	\begin{enumerate}
+		\item 这里使用钨灯作为白光源。根据之前实验的测量结果钨灯的相干长度只有 $5.8μm$ 左右因此想要看到干涉条纹需要非常精确地调出零光程差点。反过来如果看到了干涉条纹我们同样可以非常精确地确定零光程差。
+		
+		\item 用He-Ne激光器校准光路，在寻找零光程差点的时候可以先用He-Ne激光器粗调，使得条纹的圆心出现在屏幕上且整个屏幕只剩下12圈亮条纹，然后用钠灯做细调调到条纹非常清晰锐利时方可。将精密测微头调至25刻度附近，通过预置测微头调节 $M1$ 镜位置，使得条纹的圆心出现在屏幕上且整个屏幕只剩下12圈亮条纹。因为M1、M2镜的轨道并不严格共轴，调节过程中条纹圆心可能会移出屏幕，故调整过程中可以微调 $M2$ 镜的方向，以保证条纹的圆心一直在屏幕内。
+		
+		\item 换上扩散的白光光源（本实验中采用溴钨灯加毛玻璃代替），微调 $M_1$ 精密测微头，此时应能在玻璃镜（视场）中观察到彩色的条纹，此即为“白光等厚干涉条纹”。彩色条纹之间还可观察到一条全黑的条纹，称为“中心暗纹”。
+		
+		\item 观察到此现象后，可缓慢调节 $M_1$ 镜的精密测微头，使中心暗纹移到视场中央，并记录下此时反射镜 $M_1$ 精密测微头的读数 $d_2$；
+		
+		\item 在分束镜 $P_1$ 和反射镜 $M_1$ 间安装\textbf{透明薄片}并与光路垂直，彩色条纹及其间的暗纹消失。缓慢调节反射镜 $M_1$ 的精密测微头（注意此时不要再调节$M_2$背面的三颗螺钉），缩小$ M_1 $和 $P_1$之间的距离，直到重新观察到彩色条纹。再缓慢调节$ M_1$ 镜，使中心暗纹移到视场中央。记录下此时反射镜 $M_1$ 精密测微头的读数$ d_1$，计算 $M_1$ 移动的距离$\Delta d = d_2 – d_1$；
+		
+		\item 用螺旋测微计测量薄片的厚度$ t$， 结合$\Delta d$， 根据公式计算薄片的折射率 $n=1+\frac{\lambda}{2d}$。测量3次以上，以减小透明薄片不严格垂直于光路所引入的不确定度。
+	\end{enumerate}
+	
+	\clearpage
+	\begin{figure}[htbp]
+		\centering
+		\subfloat[]{
+			\includegraphics[width=0.4\textwidth]{Lab2_2GraA2.jpg}
+		}
+		\subfloat[]{
+			\includegraphics[width=0.4\textwidth]{Lab2_2GraA4.jpg}
+		}
+		\caption{白光光源的干涉图像}
+		\label{fig:figA2}			
+	\end{figure}
+	
+	观察屏上的干涉条纹如\cref{fig:figA2}所示。
+	
+	测量数据如\cref{tab:tab1}所示。
+	\begin{table}[h]
+		\centering
+		\caption{白光干涉测定透明薄片的折射率测量数据}
+		\label{tab:tab2}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\diagbox{桌号}{位置/mm} & 零光程差 & 重新出现干涉条纹 & 厚度 & 螺旋测微器基数/mm \\
+			\hline
+			A1 & 7.170 & 0.485 & 0.310 & 0.000 \\
+			B4 & 16.420 & 13.080 & 1.070 & 0.910 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	% ---
+	
+	% 原始数据
+	\clearpage
+	\subsection{原始数据记录}
+	实验记录本上的原始数据见\cref{fig:figA5}（签字）。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Lab2_2GraA5.jpg}
+		\caption{原始数据记录}
+		\label{fig:figA5}
+	\end{figure}
+	
+	实验台桌面整理见\textbf{附件}部分(\cref{fig:figA7})。
+	
+	预习报告签字见\textbf{附件}部分(\cref{fig:figA6})。
+	
+	其它原始数据见\cref{fig:figA1}、\cref{fig:figA2}和\cref{fig:figA3}。
+	% ---
+	
+	% 问题记录
+	\subsection{实验过程中遇到的问题记录}
+	\begin{enumerate}
+		\item 回顾之前存在的问题
+		\begin{enumerate}
+			\item 在进行“调节Michelson干涉仪，使产生定域等倾干涉条纹”这一实验时，按照实验步骤先调好平面镜位置再装上扩束镜会影响透镜位置，需要再次调节平面镜位置才能观察到干涉条纹。本次依然存在这个问题。
+			\item 在调试光路的过程中，需要直视扩束镜使得光线通过中心，
+			在某一角度会明显感受到激光的反射进入眼睛，这时需要注意佩戴护目镜。
+			\item 当使用精密测微头进行测量时，当使用较小读数时，会明显发现测量结果与实际值存在较大偏差，这是因为当使用小读数的时候，由于仪器本身的问题可能会存在极大的系统误差，故采用中间读数进行测量。但我在做第一组实验时并没有意识到这一点，这导致第一组数据与理论值偏差过大。
+			\item 注意精密测微头存在$\frac{1}{40}$的杠杆，计算距离时要注意换算。			
+			\item 在使用$He-Ne$激光光源，使其产生定域等倾干涉条纹，然后减小两干涉臂的光程差时，一定要保持干涉圆环的圆心始终保持在视场中心，这样能保证后面调节白光干涉时成功率更高。
+		\end{enumerate}
+		\item 本次实验中新增问题
+		\begin{enumerate}
+			\item 我所在的实验台激光器高出扩束镜太多，对激光干涉的调节造成很大负面影响。
+			\item 猜测可能是因为干涉仪的原因，我所在的实验台激光干涉非常难以调出，在我和同学接力调节接近一个半小时时间后才好不容易调出一个勉强能看的干涉条纹，因此，\textbf{部分数据我在他人的实验台上进行了独立测量}。
+			\item 白光干涉和钠光干涉的难度更大，又需要用激光器校准光路，这导致这个实验的难度异常的大，因此测量的重复次数较少，较难进行误差分析。
+		\end{enumerate}
+		\item 本次实验中，我非常感谢帮助我调节激光干涉的助教老师以及几位同学，他们是戴鹏辉22344016、马万成22344018和栾锦萱22344012。在他们的帮助下，我也有许多收获。
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 分析与讨论	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2024/3/14 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-2 Michelson干涉实验（白光干涉） \quad\heiti 分析与讨论}
+	% ---
+	
+	% 数据处理
+	\subsection{实验数据分析}
+	
+	%
+	\subsubsection{实验涉及到的相关参数}
+	钠光灯：
+	
+	相干长度：1到2cm；
+	
+	双黄线：$589.0nm$，$589.6nm$；
+	
+	$\Delta d = \frac{(\bar{\lambda})^2}{2\Delta\lambda}\approx 0.3mm$
+	
+	%
+	\subsubsection{根据测量得到的数据计算相关物理量}
+	\begin{enumerate}
+		\item 测钠双黄线的波长差
+		
+		A2桌：
+		
+		\[ 
+		x_1=11.255mm, \quad x_2=0.410mm 
+		\]
+		\[\Rightarrow \Delta\lambda=\frac{\bar{\lambda}^2}{2\Delta d}=\frac{(589.3\times10^{-9})^2}{2\times(\frac{(11.255-0.410)\times10^{-3}}{40})}mm=0.640nm
+		\]
+		
+		B4桌：
+		
+		\[ 
+		x_1=22.105mm \quad x_2=10.450mm 
+		\]
+		\[\Rightarrow \Delta\lambda=\frac{\bar{\lambda}^2}{2\Delta d}=\frac{(589.3\times10^{-9})^2}{2\times(\frac{(22.105-10.450)\times10^{-3}}{40})}mm=0.596nm
+		\]
+		
+		\item 利用白光干涉测定透明薄片的折射率 $n$
+		
+		A1桌：
+		
+		\[ 
+		x_1=7.170mm, \quad x_2=0.485mm\Rightarrow \Delta d=x_1-x_2=6.685mm
+		\]
+		\[ 
+		t_0=0.000mm, \quad t_1=0.310mm\Rightarrow t=t_1-t_0=0.310mm
+		\]
+		\[ 
+		\Rightarrow n=\frac{\Delta d}{t}+1=\frac{6.685}{40\times0.310}+1=1.539
+		\]
+		
+		B4桌：
+		
+		\[ 
+		x_1=16.420mm, \quad x_2=13.080mm\Rightarrow \Delta d=x_1-x_2=3.340mm
+		\]
+		\[ 
+		t_0=0.910mm, \quad t_1=1.070mm\Rightarrow t=t_1-t_0=0.160mm
+		\]
+		\[ 
+		\Rightarrow n=\frac{\Delta d}{t}+1=\frac{3.340 }{40\times0.160}+1=1.522
+		\]
+		
+	\end{enumerate}
+	
+	%
+	\subsubsection{不确定度评定}
+	\begin{enumerate}
+		\item 测钠双黄线的波长差
+		\begin{enumerate}
+			\item 相对误差计算：$\eta = \dfrac{\dfrac{\Delta\lambda_1+\Delta\lambda_2}{2}}{\Delta\lambda} = 3.03\%$
+			\item 不确定度评定：
+			\begin{itemize}
+				\item 仪器标记中所设的\(\Delta d\)不确定性引入的不确定度为：
+				\[u_1(\Delta d) = \frac{\Delta \lambda}{\lambda} \Delta d\]
+				\[v_1(\Delta d) = 50\]
+				
+				\item 人眼判断条纹清晰与否的不确定性：
+				这个不确定性来源于人眼辨别条纹清晰度中，因此可以用测量值的A类不确定度计算；但是，由于测量次数太少，这一类无法评定。
+				
+				\item 精密测微探头的最小分辨率
+				精密测微探头的最小分辨率为0.01mm，故取：
+				\[u_3(\Delta d) = \dfrac{0.01mm}{\sqrt{3}}\]
+				
+				\item 对于波长的测量，
+				\[\Delta\lambda = \left\frac{(\lambda)^2-\varepsilon}{2\Delta d}\right\]
+				其中 $\varepsilon = (\Delta\lambda/2)^2$，在计算时我们假设$\varepsilon = 0$，而实际上 $\varepsilon > 0$，因此这里会引入系统误差。即
+				\[u_c(\varepsilon) = \dfrac{\left(\frac{\Delta\lambda}{2}\right)^2}{\sqrt{3}}\]
+				\[v_{eff}}(\varepsilon) = 50\]
+			\end{itemize}
+			\item 将上述不确定进行合成后并按自由度取t分布扩展为展伸不确定度，给出最终结果为：
+			
+			\begin{equation*}
+				\Delta\lambda=\bar{\Delta\lambda}\pm U_{\Delta\lambda}\approx( 0.618 \pm  0.132 )nm
+			\end{equation*} 
+			其中展伸不确定度$U_{\Delta\lambda}={k}\times{u_{\Delta\lambda}}\approx 0.132 $ 是由合成标准不确定度$u_{\Delta\lambda}\approx 0.0264 $ 和$k\approx5.51$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx5.00$查t分布表得到的。			
+		\end{enumerate}
+		
+		\item 利用白光干涉测定透明薄片的折射率 $n$
+		
+		相关不确定度评定方法与测钠双黄线的波长差相同，但由于测量次数太少，效果不好，因此此处不再赘述。		
+	\end{enumerate}
+	
+	% ---
+	
+	\clearpage
+	% 实验后思考题
+	\subsection{实验后思考题}
+	
+	%思考题1
+	\begin{question}
+		当空气温度变化时，空气折射率也会发生变化，请思考如何测得空气折射率。
+	\end{question}
+	\begin{enumerate}
+		\item 以下是几种测量空气折射率的常用方法：
+		
+		\begin{enumerate}
+			\item \textbf{干涉仪法}：利用干涉仪测量在不同条件下光波的相位差，从而计算出空气的折射率。这种方法精度较高，常用于实验室测量。
+			
+			\item \textbf{光折变法}：通过测量光在空气中传播路径的弯曲程度来确定空气的折射率。这种方法适用于大气观测，可以用于研究大气折射效应。
+			
+			\item \textbf{微波折射率测量}：利用微波信号在空气中的传播特性来测量空气的折射率，这种方法可以用于远距离和大气层间的折射率测量。
+			
+			\item \textbf{激光回波法}：通过发送激光脉冲并接收其在大气中反射回来的信号，分析回波信号的变化来计算空气折射率。这种方法适用于大范围和高空大气的折射率测量。
+			
+			\item \textbf{折射率计}：直接使用折射率计测量空气样本的折射率。这种设备通常用于实验室，可以精确测量样本的折射率。
+		\end{enumerate}
+		
+		\item 具体实验方案：基于“干涉仪法”设计的实验以测量空气折射率
+		
+		在选择具体测量方法时，需要考虑测量的环境条件、测量精度要求以及可用的技术和设备。例如，对于实验室内精细测量，可能会选择干涉仪法或折射率计；而对于户外大气状况的监测，可能会使用光折变法或激光回波法。每种方法都有其优势和适用场景，选择合适的测量方法对于获得准确的折射率数据至关重要。
+		
+		\begin{enumerate}
+			\item 实验装置
+			\begin{itemize}
+				\item \textbf{干涉仪}：选用迈克耳孙干涉仪，因其适用于测量光程差，从而可以用来计算折射率。
+				\item \textbf{可控温度和压力的气室}：实验需要在不同的温度和压力条件下测量空气的折射率，因此需要一个可控环境的气室。
+				\item \textbf{光源}：使用波长已知的单色光源，如氦氖激光。
+				\item \textbf{测温计和压力计}：用以精确测量和控制气室内的温度和压力。
+				\item \textbf{尺度或光标}：用于测量干涉条纹的移动。
+			\end{itemize}
+			
+			\item 实验步骤
+			\begin{enumerate}
+				\item \textbf{实验准备}：
+				\begin{itemize}
+					\item 将干涉仪安置于稳定的平台上，确保仪器水平且稳定。
+					\item 将可控温度和压力的气室安置在干涉仪的一条臂中，确保光线可以穿过。
+					\item 开启光源，调整干涉仪使得在无样品（空气）条件下获得清晰的干涉条纹。
+				\end{itemize}
+				
+				\item \textbf{环境调整}：
+				\begin{itemize}
+					\item 在气室内设置初始的温度和压力，记录下初始状态下的干涉条纹。
+					\item 逐步改变气室内的温度（保持压力不变），每次变化后稳定一段时间，记录干涉条纹的变化情况。
+				\end{itemize}
+				
+				\item \textbf{数据记录}：
+				\begin{itemize}
+					\item 记录每次温度变化后干涉条纹的移动情况，特别是条纹的位移数目。
+					\item 同时记录对应的温度和压力读数。
+				\end{itemize}
+				
+				\item \textbf{计算折射率}：
+				\begin{itemize}
+					\item 利用干涉条纹的移动数目以及已知的光波长、气室长度、温度和压力变化，计算空气的折射率。具体计算可以使用以下公式：
+					\[ n = 1 + \left(\frac{\Delta m \lambda}{2L}\right) \]
+					其中，\(n\) 是空气的折射率，\(\Delta m\) 是干涉条纹的移动数目，\(\lambda\) 是光源的波长，\(L\) 是光线在气室中传播的长度。
+				\end{itemize}
+			\end{enumerate}
+		\end{enumerate}		
+	\end{enumerate}
+	
+	
+	% ---
+	
+	
+	% 结语部分
+	\clearpage
+	
+	% 小标题
+	\section{Lab2-2 Michelson干涉实验（白光干涉） \quad\heiti 结语}
+	% ---
+	
+	% 总结、杂谈与致谢
+	\subsection{总结、杂谈与致谢}
+	\begin{enumerate}
+		\item 这个实验的实验过程比较复杂。
+		\item 在做实验的过程中我学习到了如何对仪器进行细致地调节。
+		\item 感谢老师能阅读这篇还有很多不足的实验报告，希望老师能指出做得不好的地方；祝老师身体健康、生活幸福、工作顺利！
+	\end{enumerate}
+	% ---
+	
+	% 参考文献
+	\subsection{参考文献}
+	[1] 维基百科 https://zh.wikipedia.org
+	
+	[2] 沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4
+	
+	[3] Eugene Hecht - Optics, Global Edition-Pearson Higher Education (2017) 5th Chapter 9 
+	
+	% ---
+	
+	% 附件
+	\subsection{附件}
+	试验台桌面整理如\cref{fig:figA7}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_2GraA7.jpg}
+		\caption{实验台桌面整理}
+		\label{fig:figA7}
+	\end{figure}
+	
+	预习报告签字如\cref{fig:figA6}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_2GraA6.png}
+		\caption{预习报告签字}
+		\label{fig:figA6}
+	\end{figure}
+	
+	实验报告个人签名如\cref{fig:name}。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{name.png}
+		\caption{个人签名}
+		\label{fig:name}
+	\end{figure}
+	
+	% ---
+	
+	相关代码已上传至Github。
+	
+	
+	
+\end{document}

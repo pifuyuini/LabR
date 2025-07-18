@@ -1,0 +1,209 @@
+% 设定说明
+
+
+% ----------------------------------------------------- 
+% 加边框的命令
+%参考：https://tex.stackexchange.com/questions/531559/how-to-add-the-page-border-for-first-two-pages-in-latex
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{eso-pic}
+\AddToShipoutPictureBG{%
+\begin{tikzpicture}[overlay,remember picture]
+\draw[line width=0.6pt] % 边框粗细
+    ($ (current page.north west) + (0.6cm,-0.6cm) $)
+    rectangle
+    ($ (current page.south east) + (-0.6cm,0.6cm) $); % 边框位置
+\end{tikzpicture}}
+
+
+% ----------------------------------------------------- 
+% 自定义颜色（这里采用的是我老婆的配色！）
+\usepackage{xcolor}
+\definecolor{fblack}{HTML}{3E324A} % #3e324a（紫黑）
+\definecolor{fgrayblue}{HTML}{475D7B} % #475d7b（灰蓝）
+\definecolor{fgraygreen}{HTML}{97C6C0} % #97c6c0（灰绿）
+\definecolor{fred}{HTML}{E26E1B} % #e26e1b（深橘红）
+\definecolor{fsilver}{HTML}{E6E4E0} % #e6e4e0（银白）
+\definecolor{fbluegreen}{HTML}{4DF8E8} % #4df8e8（蓝绿）
+
+
+% ----------------------------------------------------- 
+% 链接
+\usepackage{ctex}
+\usepackage[top=28mm,bottom=28mm,left=15mm,right=15mm]{geometry}
+\usepackage{hyperref} 
+\hypersetup{
+	colorlinks,
+	linktoc = section, % 超链接位置，选项有section, page, all
+	linkcolor = fgrayblue, % linkcolor 目录颜色
+	citecolor = fgrayblue  % citecolor 引用颜色
+}
+
+
+% ----------------------------------------------------- 
+% 引入必要的包
+\usepackage{amsmath,enumerate,multirow,float}
+\usepackage{tabularx}
+\usepackage{tabu}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{wrapfig}  
+\usepackage{physics}
+\usepackage{appendix}
+\usepackage{amsfonts}
+%B
+\usepackage{mathrsfs} % 字体
+\usepackage{calligra}
+\usepackage{lipsum}
+\usepackage{adjustbox}% 调整表格大小
+\usepackage{tabularray} % 绘制表格时可以更加方便添加框线
+%C
+\usepackage{caption}
+\usepackage{authblk}
+\usepackage{braket}
+\usepackage{amssymb} % 包含更多数学符号
+
+
+% ----------------------------------------------------- 
+% 定义彩色环境
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% 思考题
+\newtcolorbox[auto counter,number within=section]{question}[1][]{
+	breakable,
+	enhanced, %跨页后不会显示下边框
+	enhanced, breakable,
+	colback=fbluegreen!20!white,colframe=fbluegreen!80!black,colbacktitle = fbluegreen!80!black,
+	attach boxed title to top left = {yshift = -2mm, xshift = 5mm},
+	boxed title style = {sharp corners},
+	title={Reflection Question~\thetcbcounter：\quad},
+	fonttitle=\bfseries,
+	drop fuzzy shadow,
+	#1
+}
+%% 这是原版的，现在已经被注释掉了，不用看---------------------------------
+%\newtcolorbox[auto counter,number within=section]{question}[1][]{
+%  top=2pt,bottom=2pt,arc=1mm,
+%  boxrule=0.5pt,
+%%   frame hidden,
+%  breakable,
+%  enhanced, %跨页后不会显示下边框
+%  coltitle=fgrayblue!80!gray,
+%  colframe=fbluegreen,
+%  colback=fgraygreen!3!white,
+%  drop fuzzy shadow,
+%  title={Reflection Question~\thetcbcounter：\quad},
+%  fonttitle=\bfseries,
+%  attach title to upper,
+%  #1
+%}
+%% 这是原版的，现在已经被注释掉了，不用看---------------------------------
+
+% 高亮
+\newtcbox{\highlight}[1][fbluegreen]
+{on line, arc = 0pt, outer arc = 0pt,
+	colback = #1!85!white, colframe = white,
+	boxsep = 0pt, left = 1pt, right = 1pt, top = 2pt, bottom = 2pt,
+	boxrule = 0pt, bottomrule = 1pt, toprule = 1pt}
+
+% 通用框架
+\newtcolorbox{ubox}[2][]
+{enhanced, breakable,
+	colback = white, colframe = fbluegreen, coltitle = black,colbacktitle = fbluegreen,
+	attach boxed title to top left = {yshift = -2mm, xshift = 5mm},
+	boxed title style = {sharp corners},
+	fonttitle = \bfseries,
+	title={#2},#1}
+
+% ---------------------------------------------------------------------
+%	利用cleveref改变引用格式，\cref是引用命令
+\usepackage{cleveref}
+\crefformat{figure}{#2{\textcolor{fred}{\textbf{Figure #1}}}#3} % 图片的引用格式
+\crefformat{equation}{#2{(\textcolor{fred}{(#1)})}#3} % 公式的引用格式
+\crefformat{table}{#2{\textcolor{fred}{\textbf{Table #1}}}#3} % 表格的引用格式
+
+
+% ---------------------------------------------------------------------
+%	页眉页脚设置
+\fancypagestyle{plain}{\pagestyle{fancy}}
+\pagestyle{fancy}
+\lhead{SYSU.SPA \quad \textbf{Advanced Physics Laboratory \uppercase\expandafter{\romannumeral1}}} % 左边页眉
+\rhead{杨舒云 \quad 22344020} % 右边页眉
+\cfoot{\thepage} % 页脚，中间添加页码
+
+
+% ---------------------------------------------------------------------
+%	对目录、章节标题的设置
+\renewcommand{\contentsname}{\centerline{\Huge TABLE \quad OF \quad CONTENTS}}
+\usepackage{titlesec}
+\usepackage{titletoc}
+% \titleformat{章节}[形状]{格式}{标题序号}{序号与标题间距}{标题前命令}[标题后命令]
+\titleformat{\section}{\normalfont\bfseries\centering\color{fgrayblue}\LARGE}{}{1em}{}
+\titleformat{\subsection}
+{\normalfont\bfseries\color{fgrayblue}\Large} % 设置字体、大小、颜色
+{\thesubsection} % 设置subsection编号的格式
+{1em} % 编号和标题之间的间距
+{}
+\setcounter{secnumdepth}{3}
+\titleformat{\subsubsection}
+{\normalfont\bfseries\color{fgrayblue}\large} % 设置字体、大小、颜色
+{\thesubsubsection} % 设置subsubsection编号的格式
+{1em} % 编号和标题之间的间距
+{}
+
+% ---------------------------------------------------------------------
+% 图片、表格的设置
+\captionsetup[figure]{labelfont={color=fgrayblue,bf},name=Figure} % 图片形式
+\captionsetup[table]{labelfont={color=fgrayblue,bf},name=Table} % 表格形式
+
+
+% ---------------------------------------------------------------------
+%   listing代码环境设置
+\usepackage{listings}
+\lstloadlanguages{python}
+\lstdefinestyle{pythonstyle}{
+	backgroundcolor=\color{gray!6},
+	language=python,
+	frameround=tftt,
+	frame=shadowbox, 
+	keepspaces=true,
+	breaklines,
+	columns=spaceflexible,      
+	basicstyle=\ttfamily\color{fblack}, % 基本文本设置（这里可以改改字号）
+	keywordstyle=[1]\color{fbluegreen!90!black}\bfseries, 
+	keywordstyle=[2]\color{fred!90!black},   
+	stringstyle=\color{Purple!80!fblack},       
+	showstringspaces=false,
+	commentstyle=\ttfamily\color{fgraygreen!65!black},% 注释文本设置
+	tabsize=2,
+	morekeywords={as},
+	morekeywords=[2]{np, plt, sp},
+	numbers=left, % 代码行数
+	numberstyle=\scriptsize\color{fgrayblue}, % 代码行数的数字字体设置
+	stepnumber=1,
+	rulesepcolor=\color{fsilver}
+}
+
+
+% ---------------------------------------------------------------------
+%	其他设置
+\def\degree{${}^{\circ}$} % 角度
+\graphicspath{{./images/}} % 插入图片的相对路径
+\allowdisplaybreaks[4]  %允许公式跨页
+
+
+% ---------------------------------------------------------------------
+% 列表的设置
+\usepackage{enumitem}
+% 设置有序列表格式
+\setlist[enumerate,1]{label=\textcolor{fblack}{\arabic*.}, font=\bfseries\color{fblack}}
+\setlist[enumerate,2]{label=\textcolor{fblack}{(\arabic*)}, font=\bfseries\color{fblack}}
+\setlist[enumerate,3]{label=\textcolor{fblack}{\roman*.}, font=\bfseries\color{fblack}}
+\setlist[enumerate,4]{label=\textcolor{fblack}{(\roman*)}, font=\bfseries\color{fblack}}
+
+% 设置无序列表格式
+\setlist[itemize,1]{label=\textcolor{fbluegreen}{$\blacktriangleright$}, font=\bfseries\color{fbluegreen}}
+\setlist[itemize,2]{label=\textcolor{fbluegreen}{$\bullet$}, font=\bfseries\color{fbluegreen}}
+\setlist[itemize,3]{label=\textcolor{fbluegreen}{$\blacksquare$}, font=\bfseries\color{fbluegreen}}

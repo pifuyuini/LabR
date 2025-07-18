@@ -1,0 +1,702 @@
+% !TEX root = ../main.tex
+
+% 预习报告	
+\setcounter{section}{0}
+\section{APL1-2 Vacuum Compatibility Testing of Materials and Plasma Characteristics Study \\ Preview Report}
+
+
+%---------------------------------------------------------------------
+% 实验目的
+\subsection{Purpose}
+\begin{enumerate}
+	\item Learn the basic knowledge and techniques of vacuum technology, and master the methods for achieving and measuring vacuum.
+	
+	\item Verify Paschen's Law through vacuum gas discharge experiments and understand the basic physical processes of gas discharge.
+	
+	\item Use a fiber optic spectrometer to study the spectral characteristics of vacuum gas discharge plasma, obtain basic plasma parameters, and understand the fundamental concepts of plasma physics.
+	
+	\item Understand the working principle of the quadrupole mass spectrometer, and use it for vacuum system leak detection and gas composition analysis.
+\end{enumerate}
+
+
+%---------------------------------------------------------------------
+% 仪器用具
+\subsection{Instruments \& Equipment}
+\begin{table}[htbp]
+	\centering
+	\renewcommand\arraystretch{1.6}
+	% \setlength{\tabcolsep}{10mm}
+	\begin{tabular}{|p{0.08\textwidth}|p{0.16\textwidth}|p{0.08\textwidth}|p{0.6\textwidth}|}
+		\hline
+		Number & Name & Quantity & Main parameters (model, measurement range, measurement accuracy, etc.) \\
+		\hline
+		1 & 上海宜准公司VQP01真空平台 & 1 & 针对帕邢实验、四极质谱实验等实验项目而设计的一台综合实验装置，该装置由真空放电腔体、机械泵、分子泵、高压电源、四极质谱仪、真空计以及击穿电压测量系统等装置构成。 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+%---------------------------------------------------------------------
+% 原理概述
+\subsection{Principle}
+\begin{enumerate}
+	\item Vacuum and Related Concepts
+	\begin{enumerate}
+		\item Vacuum
+		
+		In physics, vacuum typically refers to a state of space that is devoid of matter, particularly lacking gas molecules. In an ideal scenario, vacuum is described as a space entirely free of any matter, but in reality, a perfect vacuum does not exist, as there will always be some residual gas molecules, cosmic rays, or dark matter. Pascal's experiments were the first to demonstrate the existence of vacuum, showing that most air could be evacuated from a sealed container to create an approximate vacuum environment. In quantum field theory, even in a complete vacuum, quantum fluctuations exist. These fluctuations indicate that vacuum is not entirely empty but is filled with the creation and annihilation of virtual particles.
+		
+		The definition of vacuum varies slightly across different technical and scientific fields:
+		
+		Physical Definition: From a macroscopic perspective, vacuum refers to a space devoid of matter. From a microscopic perspective, it is a state where the pressure is below a certain threshold (usually far below atmospheric pressure).
+		
+		Engineering Definition: In engineering applications, vacuum often refers to any environment with pressure lower than atmospheric pressure, used in various industrial and research activities such as vacuum packaging and electron tube manufacturing.
+		
+		Depending on the pressure, vacuum can be classified into several types:
+		\begin{itemize}
+			\item Low vacuum: Pressure slightly below atmospheric pressure.
+			\item Medium vacuum: Pressure further reduced, generally between a few pascals and a few millipascals.
+			\item High vacuum: Pressure even lower, typically at the micropascal level.
+			\item Ultra-high vacuum: Extremely low pressure, reaching the nanopascal level.
+		\end{itemize}
+		
+		\item Mean Free Path
+		
+		The mean free path is the average distance a particle travels between two successive collisions. Define $\bar{Z}$ as the average number of collisions per unit time for a single particle, and $\bar{v}$ as the average displacement per unit time. The mean free path can then be defined as $\bar{\lambda}=\frac{\bar{v}}{\bar{Z}}$, making it crucial to understand $\bar{Z}$. Here, the concept of collision cross-section is introduced. Let the radii of the two particles be $r_A$ and $r_B$, then the collision cross-section between them is $\sigma= \pi(r_A + r_B)^2$. Now, considering a single particle as the reference frame:
+		
+		$$
+		\bar{Z}=\frac{\Delta N}{\Delta t}=\frac{n \sigma \bar{v_{12}} \Delta t}{\Delta t}=\sqrt{2} n \sigma \bar{v}
+		$$
+		The above equation utilizes the relationship for the velocity statistics of identical particles, $\bar{v_{12}} = \sqrt{2}\bar{v}$.
+		
+		In general, the mean free path is:
+		
+		$$
+		\bar{\lambda}=\frac{\bar{v}}{\bar{Z}}=\frac{1}{\sqrt{2} n \sigma}=\frac{k T}{\sqrt{2} \sigma p}
+		$$
+		
+		The higher the gas density, the shorter the distance between molecules, leading to more frequent collisions, thereby shortening the mean free path. If the molecular diameter is large or the shape is complex, the collision cross-section increases, resulting in a higher collision frequency and a reduced mean free path. As the temperature increases, the average molecular velocity \( \bar{v} \) increases, which, although not directly affecting \( \lambda \), may influence the density \( n \) and collision cross-section \( \sigma \).
+		
+		The mean free path is a key parameter in describing gas viscosity, thermal conductivity, and diffusivity. For example, the coefficient of viscosity for a gas can be expressed as \( \eta = \frac{1}{3} \rho \bar{v} \lambda \). For a rarefied gas, if the container dimension is $L$, then $\bar{\lambda}\approx L$. In a high vacuum environment, due to the extremely low gas density, the mean free path of molecules can be larger than the dimensions of the container, meaning gas molecules can move without collisions within the container. This is important for vacuum system design and leak detection. In plasma, the mean free path of electrons and ions significantly influences plasma conductivity, reaction rates, and other properties.
+		
+		
+		\item Transport Processes
+		\begin{enumerate}
+			\item For viscosity, start with the Newtonian viscosity equation:
+			
+			$$
+			f=\frac{d P}{d t}=-\eta \frac{d u}{d z} A \Rightarrow J_p=\frac{d P}{A d t}=-\eta \frac{d u}{d z} \Rightarrow J_p=-\eta \partial_z u
+			$$
+			
+			$J_p$ is the tangential momentum flux density, representing the momentum transferred between different layers per unit time and unit area.
+			
+			Microscopic mechanism: Fluid molecules travel between layers due to thermal motion, with thermal motion causing isotropic transfer rates, but the uneven exchange of momentum gradually reduces the momentum difference between layers.
+			
+			\item For diffusion, distinguish between self-diffusion (small overall displacement), mutual diffusion (significant overall displacement), and free diffusion (unobstructed molecular diffusion into vacuum). Diffusion is described by Fick's law:
+			
+			$$
+			J_N=-D \frac{d n}{d z} \Rightarrow J_N=-D \nabla n
+			$$
+			
+			$J_N$ is the diffusive flux of particles, and $D$ is the diffusion coefficient.
+			
+			Microscopic mechanism: When the number density of molecules is uneven and there is no force to maintain this unevenness, a net exchange of molecular mass occurs between layers.
+			
+			\item Thermal conduction is described by Fourier's law, where $J_T$ is the heat flux density:
+			
+			$$
+			J_T=-\kappa \frac{d T}{d z} \Rightarrow J_T=-\kappa \nabla T
+			$$
+			
+			Microscopic mechanism: For gases, thermal motion leads to the exchange of molecules with different energies; for solids and liquids, energy transfer occurs mainly through the collision of vibrating molecules.
+		\end{enumerate}
+		
+		\item Molecular Flow (Regime): When gas pressure decreases (high vacuum), the mean free path of molecules exceeds the container dimensions, and molecules do not interact with each other but only with the container walls.
+		
+		\item Adsorption and Desorption of Gases on Solid Surfaces
+		\begin{itemize}
+			\item Adsorption
+			\begin{enumerate}
+				\item Adsorption refers to the process in which gas or liquid molecules interact with and adhere to a solid surface. Depending on the nature of the interaction forces involved in the adsorption process, adsorption can be classified into two main types—physisorption, which is more likely to occur at low temperatures due to weaker molecular thermal motion, driven mainly by van der Waals forces (weak intermolecular forces), with lower adsorption energy, typically reversible, commonly observed in the adsorption of gases on porous materials like activated carbon; chemisorption, which usually requires higher temperatures to overcome activation energy and form chemical bonds, involving covalent or ionic bonds between molecules and surface atoms, with higher adsorption energy, typically irreversible, often seen in the adsorption of reactant molecules on catalyst surfaces.
+				
+				\item The Langmuir adsorption model, proposed by Langmuir, is suitable for describing monolayer adsorption. It assumes that the adsorption surface is uniform, adsorption sites are equivalent, and adsorption is localized, meaning each adsorption site can accommodate only one adsorbed molecule. The relationship between the amount of adsorption \( \theta \) and gas partial pressure \( P \) can be expressed as:
+				
+				\[
+				\theta = \frac{KP}{1 + KP}
+				\]
+				
+				where \( K \) is the Langmuir adsorption constant, reflecting the strength of adsorption.
+				
+				\item BET theory extends Langmuir's theory and is used to describe multilayer adsorption, particularly in physisorption. The BET isotherm equation is:
+				
+				\[
+				\frac{1}{v[(P_0/P) - 1]} = \frac{c - 1}{v_m c} \cdot \frac{P}{P_0} + \frac{1}{v_m c}
+				\]
+				
+				where: \( v \) is the volume of adsorbed gas; \( v_m \) is the maximum adsorption volume for monolayer coverage; \( P_0 \) is the saturation vapor pressure; \( c \) is a constant related to the heat of adsorption.
+				
+				\item Additionally, using the grand canonical ensemble, we can also derive:
+				
+				$$
+				\bar{N}=-\frac{\partial}{\partial \alpha} \ln \Xi=\frac{N_0}{1+e^{-\beta\left(\mu+\varepsilon_0\right)}} \quad \Rightarrow \quad \theta=\frac{1}{1+\frac{k T}{p}\left(\frac{2 \pi m k T}{h^2}\right)^{3 / 2} e^{-\frac{\varepsilon_0}{k T}}}
+				$$
+				
+				The above equation shows that $\theta$ increases with the rise of $p$ and decreases with the rise of $T$.
+			\end{enumerate}
+			
+			\item Desorption
+			
+			Desorption refers to the process in which gas molecules adsorbed on a solid surface gain energy and detach from the surface. Desorption can be achieved through the following methods:
+			
+			Thermal Desorption: By heating the surface, enough energy is provided for the adsorbed molecules to overcome the adsorption energy and detach from the surface. This method is commonly used to study adsorption energy and adsorption site distribution.
+				
+			Pressure Desorption: By lowering the partial pressure of the gas, the interaction forces between the adsorbed molecules and the surface are reduced, making desorption easier. This method is often used in the regeneration process of porous materials, such as the regeneration of activated carbon.
+				
+			Photodesorption: Using high-energy photons (such as ultraviolet light) to irradiate the adsorbed surface, the energy of the photons is absorbed by the adsorbed molecules, causing desorption. This process is common in photocatalysis and photochemical reactions.
+				
+			Electric or Magnetic Field-Assisted Desorption: By applying an electric or magnetic field, the interaction between the adsorbed molecules and the surface is altered, leading to desorption. This method is used in certain specific studies of electrochemical or magnetic materials.
+		\end{itemize}
+			
+		\item Evaporation of Liquid Surface Molecules and Sublimation of Solid Surface Molecules
+			
+		\begin{itemize}
+			\item Evaporation is the process where liquid molecules escape from the liquid surface and enter the gas phase. Evaporation typically occurs at temperatures below the boiling point of the liquid and only at the liquid surface.
+			
+			Due to thermal motion, liquid molecules constantly collide within the liquid. The movement speeds of these molecules vary, and some molecules have higher kinetic energy. Surface molecules experience less intermolecular force as they lack the confinement from molecules outside the liquid. If surface molecules possess sufficient kinetic energy to overcome the surface tension, they can escape from the liquid surface and enter the gas phase, forming evaporation. In a closed system, the gas molecules escaping during evaporation will gradually accumulate until equilibrium is reached, at which point the rate of evaporation equals the rate of condensation, and the number of molecules between the gas and liquid phases remains constant.
+			
+			The higher the temperature, the more intense the molecular motion, increasing the number of molecules with sufficient kinetic energy to escape, hence increasing the evaporation rate. The larger the liquid surface area, the more molecules participate in evaporation, so the evaporation rate is proportional to the surface area. In a low-pressure environment, the reflux of gas molecules decreases, increasing the evaporation rate. The higher the humidity, the more water vapor molecules present in the air, inhibiting the evaporation of more liquid molecules. Therefore, the higher the humidity, the lower the evaporation rate.
+			
+			\item Sublimation is the process where a solid directly transitions to a gas, bypassing the liquid phase. This process typically occurs under specific conditions, such as low temperature or low pressure, or in solids with relatively weak intermolecular forces.
+			
+			In solids, molecules or atoms are fixed in a lattice structure by strong intermolecular forces (such as van der Waals forces, hydrogen bonds, or ionic bonds). However, a small number of molecules may have higher kinetic energy. Under specific conditions, surface molecules of a solid can gain sufficient kinetic energy to overcome intermolecular forces and directly escape into the gas phase. These molecules bypass the liquid phase and directly change from solid to gas. Similar to evaporation, in a closed system, sublimation will reach dynamic equilibrium with deposition (the direct transition of gas to solid), where the rate of sublimation equals the rate of deposition.
+			
+			The phenomenon of sublimation becomes significantly enhanced with rising temperature because higher temperatures provide more kinetic energy for molecules to escape from the solid surface. At lower pressures, solids are more prone to sublimation due to the reduced binding force between molecules under low pressure. The sublimation capability of different solids depends on their internal intermolecular forces. For example, dry ice (solid carbon dioxide) and iodine have strong sublimation capabilities, as the intermolecular forces in these substances are relatively weak under normal temperature and pressure.
+		\end{itemize}	
+			
+		\item Vacuum Generation
+		\begin{enumerate}
+			\item Mechanical Pumps
+			
+			Mechanical pumps are commonly used devices to create rough and medium vacuum by removing gases from the system through mechanical motion.
+			
+			\begin{itemize}
+				\item Rotary Vane Pump:
+				\begin{itemize}
+					\item Working Principle: The rotary vane pump uses a rotor installed eccentrically in the pump body. The vanes on the rotor capture and compress the gas, eventually discharging it.
+					\item Applications: Suitable for creating rough vacuum and is often used as a forepump in many high vacuum systems.
+				\end{itemize}
+				
+				\item Oil-Sealed Rotary Pump:
+				\begin{itemize}
+					\item Working Principle: The oil-sealed rotary pump uses oil to seal and lubricate internal mechanical components, improving the pump's efficiency and longevity.
+					\item Applications: Widely used in laboratories, industrial manufacturing, and scientific research for rough vacuum generation.
+				\end{itemize}
+				
+				\item Dry Pump:
+				\begin{itemize}
+					\item Working Principle: The dry pump does not use oil as a sealant or lubricant. It compresses and discharges gas through oil-free mechanical methods.
+					\item Applications: Suitable for environments requiring oil-free vacuum, such as semiconductor manufacturing.
+				\end{itemize}
+			\end{itemize}
+			
+			\item Molecular Pumps
+			
+			Molecular pumps are used to achieve high and ultra-high vacuum by relying on the interaction between gas molecules and a high-speed rotating surface to drive gas molecules out of the system.
+			
+			\begin{itemize}
+				\item Turbo Molecular Pump (TMP):
+				\begin{itemize}
+					\item Working Principle: The turbo molecular pump uses high-speed rotating turbine blades to compress and discharge gas molecules step by step. The design of the turbine blades causes gas molecules to be gradually pushed toward the exhaust port through multiple collisions.
+					\item Applications: Used for high and ultra-high vacuum generation, widely applied in electron microscopes, mass spectrometers, and semiconductor production equipment.
+				\end{itemize}
+				
+				\item Diffusion Pump:
+				\begin{itemize}
+					\item Working Principle: The diffusion pump uses high-temperature oil vapor to form a high-speed jet stream. Gas molecules are captured by the vapor stream and expelled from the system. The diffusion pump has no moving parts, resulting in high reliability and long service life.
+					\item Applications: Suitable for high vacuum environments and commonly used as the main pump in electron beam welding and vacuum coating equipment.
+				\end{itemize}
+			\end{itemize}
+			
+			\item Sorption Pumps
+			
+			Sorption pumps use adsorbent materials (such as activated carbon or molecular sieves) at low temperatures to capture and adsorb gas molecules, thereby achieving vacuum.
+			
+			\begin{itemize}
+				\item Cryopump:
+				\begin{itemize}
+					\item Working Principle: The cryopump lowers the gas to extremely low temperatures, causing it to condense and adsorb onto a cold surface, effectively reducing the gas pressure in the system.
+					\item Applications: Commonly used in applications requiring a clean vacuum environment, such as semiconductor manufacturing and superconducting research.
+				\end{itemize}
+				
+				\item Activated Charcoal Pump:
+				\begin{itemize}
+					\item Working Principle: Activated charcoal has a large number of micropores, which can effectively adsorb gas molecules at low temperatures, thereby reducing the pressure.
+					\item Applications: Typically used in conjunction with other pumps, especially in the process of achieving ultra-high vacuum.
+				\end{itemize}
+			\end{itemize}
+			
+			\item Ion Pumps
+			
+			Ion pumps achieve gas removal by ionizing gas molecules and accelerating them to a solid surface. They are commonly used to obtain and maintain ultra-high vacuum.
+			
+			\begin{itemize}
+				\item Sputter Ion Pump:
+				\begin{itemize}
+					\item Working Principle: Gas molecules are ionized in a strong electric field, and the resulting ions are accelerated to a metal electrode and captured or combined through the sputtering effect.
+					\item Applications: Widely used in high-energy physics, particle accelerators, and surface science research, where long-term maintenance of ultra-high vacuum is required.
+				\end{itemize}
+				
+				\item Getter Ion Pump:
+				\begin{itemize}
+					\item Working Principle: Uses getter materials (such as titanium) to capture and adsorb ionized gas molecules, further enhancing vacuum through the ionization effect of the ion pump.
+					\item Applications: Used in applications requiring long-term maintenance of ultra-high vacuum, such as space simulation experiments and precision measurement instruments.
+				\end{itemize}
+			\end{itemize}
+			
+			\item Combined Vacuum Systems
+			
+			To achieve a gradual transition from rough vacuum to ultra-high vacuum, multiple vacuum pumps are often used in combination. Such combined systems typically include:
+			\begin{itemize}
+				\item Backing Pump: Such as rotary vane pumps or oil-sealed pumps, used for initially lowering the pressure in the system.
+				\item Main Pump: Such as turbo molecular pumps or diffusion pumps, used to further reduce the pressure to achieve high vacuum.
+				\item Auxiliary Pump: Such as ion pumps or cryopumps, used to maintain ultra-high vacuum or remove residual gases.
+			\end{itemize}			
+		\end{enumerate}	
+	\end{enumerate}
+	
+	\item Gas Discharge and Plasma
+	\begin{itemize}
+		\item Gas Discharge
+		
+		Gas discharge refers to the ionization process of a gas under an applied electric field, which causes the gas to transition from an insulator to a conductor, resulting in the generation of an electric current through the gas. Gas discharge is widely used in everyday life and industry, such as in neon lights, fluorescent lamps, discharge tubes, and plasma technologies.
+		
+		\begin{enumerate}
+			\item Basic Process of Gas Discharge
+			
+			A gas is originally an electrical insulator, but under the influence of an applied electric field, gas molecules may become ionized into free electrons and positive ions. This process usually requires collisions, particularly when the electric field is strong enough for electrons to gain sufficient energy to ionize gas molecules through collisions.
+			
+			The initially produced free electrons are accelerated in the electric field and may collide with other gas molecules, further producing more electrons and ions. This avalanche effect rapidly enhances the gas's conductivity.
+			
+			When the number of free electrons in the gas reaches a certain level, the gas's conductivity increases sharply, and the current suddenly increases, forming a gas discharge. During this process, the path of the current through the gas may emit light (such as the glow discharge in neon lights) and may be accompanied by other phenomena, such as sound or arcs.
+			
+			\item Paschen's Law
+			
+			Breakdown voltage refers to the minimum voltage required under specific conditions to cause the gas to undergo breakdown and transition to a conductive state. The breakdown voltage is closely related to the electrode gap (the distance between the electrodes) and gas pressure. To understand this relationship, we must delve into Paschen's Law. Paschen's Law, proposed by the German physicist Friedrich Paschen in 1889 through experiments, describes the relationship between the breakdown voltage \( V_b \) and the product of electrode gap \( d \) and gas pressure \( p \) when gas breakdown occurs between two electrodes.
+			
+			The mathematical expression of Paschen's Law is:
+			
+			\[
+			V_b = \frac{B \cdot pd}{\ln(A \cdot pd) - \ln[\ln(1 + \frac{1}{\gamma})]}
+			\]
+			
+			where \( V_b \) is the breakdown voltage; \( p \) is the gas pressure; \( d \) is the distance between the electrodes; \( A \) and \( B \) are constants related to the properties of the gas; \( \gamma \) is the secondary electron emission coefficient, representing the efficiency of secondary electron emission caused by a positive ion striking the cathode.
+			
+			Paschen's Law indicates that the breakdown voltage \( V_b \) does not simply increase with the electrode gap or gas pressure but has a more complex relationship with their product \( pd \). For a specific gas and electrode material, there exists a particular \( pd \) value where the breakdown voltage \( V_b \) reaches its minimum. This implies that in some cases, by adjusting the electrode gap and gas pressure, the breakdown voltage can be minimized, which is particularly important in the design of discharge devices. When \( pd \) increases to a large value, the breakdown voltage \( V_b \) also increases. This is because at larger gaps or higher pressures, electrons require more energy (higher voltage) to gain enough energy within a single mean free path to ionize gas molecules. When \( pd \) decreases to a very small value, the breakdown voltage \( V_b \) rises sharply. This is because, at low pressures, the gas molecule density is low, and collisions between electrons are less frequent, leading to the need for higher voltage to ionize the gas and cause breakdown.
+			
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.6\textwidth]{apl1_2_Paschen_curves.png}
+				\caption{Paschen curves obtained for helium, neon, argon, hydrogen and nitrogen, using the expression for the breakdown voltage as a function of the parameters A,B that interpolate the first Townsend coefficient (From reference [1]).}
+				\label{fig:Paschen_curves}
+			\end{figure}
+			
+			The Paschen curve is a graphical representation of Paschen's Law, showing the relationship between the breakdown voltage \( V_b \) and \( pd \). The Paschen curve typically exhibits a "U" shape, indicating that at a certain \( pd \) value, the breakdown voltage reaches its minimum. When \( pd \) is very small, the breakdown voltage is high, and it is difficult for the gas to break down. This is because at low gas pressure, the molecule density is low, and it is hard for electrons to gain enough energy to cause ionization. When \( pd \) is very large, the breakdown voltage is also high, as the large electrode gap or high pressure causes electrons to lose more energy before reaching the other electrode, necessitating higher voltage to break down the gas. The minimum point at the bottom of the curve corresponds to the minimum breakdown voltage, and the \( pd \) value at this point is referred to as the "optimal condition."
+		\end{enumerate}
+		
+		\item Plasma
+		
+		Plasma consists of free electrons, ions, charged particles, and neutral atoms or molecules. Since the particles in plasma are charged, it can respond to electromagnetic fields and exhibits unique physical properties. Gas discharge is a common method of generating plasma.
+		
+		\begin{enumerate}
+			\item Basic Parameters of Plasma
+			
+			Electron Density (\( n_e \)): Refers to the number of free electrons per unit volume, usually expressed as the number of electrons per cubic centimeter. Electron density determines the conductivity and electromagnetic response of the plasma.
+			
+			Ion Density (\( n_i \)): Refers to the number of ions per unit volume. For most plasmas, the electron density and ion density are equal, reflecting the electrical neutrality of the plasma.
+			
+			Electron Temperature (\( T_e \)): Electron temperature refers to the average kinetic energy of electrons in the plasma, typically expressed in Kelvin (K) or electron volts (eV). Electron temperature determines the degree of ionization and chemical reaction rates in the plasma.
+			
+			Ion Temperature (\( T_i \)): Similar to electron temperature, ion temperature represents the average kinetic energy of ions. Ion temperature is usually lower than electron temperature, especially in cold plasmas.
+			
+			Plasma Frequency (\( \omega_p \)): Plasma frequency is the frequency at which electrons in the plasma oscillate collectively. It depends on electron density and is defined as:
+			
+			\[
+			\omega_p = \sqrt{\frac{n_e e^2}{\epsilon_0 m_e}}
+			\]
+			
+			where \( n_e \) is the electron density, \( e \) is the electron charge, \( m_e \) is the electron mass, and \( \epsilon_0 \) is the vacuum permittivity.
+			
+			Debye Length (\( \lambda_D \)): Debye length is the spatial scale over which potential changes significantly in the plasma, defined as:
+			
+			\[
+			\lambda_D = \sqrt{\frac{\epsilon_0 k_B T_e}{n_e e^2}}
+			\]
+			
+			where \( k_B \) is the Boltzmann constant, and \( T_e \) is the electron temperature. The Debye length reflects the plasma's ability to shield external electric fields.
+			
+			Magnetic Field (\( B \)): In magnetized plasma, the interaction between an external magnetic field and the plasma significantly influences its behavior. For example, in fusion reactors, magnetic fields are used to confine plasma to achieve stable fusion reactions.
+			
+			\item Plasma Spectroscopy
+			
+			Plasma spectroscopy is a method of studying the properties of plasma by analyzing the electromagnetic radiation spectrum it emits. Plasma spectroscopy includes atomic spectra, ionic spectra, molecular spectra, and continuous spectra, reflecting the physical state and chemical composition of the plasma. When atoms or ions in the plasma are excited and then return to lower energy levels, photons are emitted. Emission spectroscopy analyzes the energy of photons from transitions between different energy levels in the plasma, revealing its physical properties. When light from an external source passes through the plasma, specific wavelengths of light may be absorbed by particles in the plasma, reducing the intensity of light at those wavelengths. By measuring these absorption spectra, the density and temperature of particles in the plasma can be inferred. When light interacts with particles in the plasma, the direction and wavelength of the light may change, producing scattering spectra. This method is mainly used to study the microscopic structure and particle motion in plasma. Spectra caused by the acceleration or deceleration of free electrons in electric or magnetic fields (e.g., bremsstrahlung or free-free transitions) typically present as a continuous spectral distribution.
+			
+			By detecting the characteristic spectral lines of specific elements or compounds, the chemical composition of the plasma can be determined. By analyzing the width, intensity, and shift of spectral lines, the electron temperature and ion temperature of the plasma can be inferred. For example, the broadening of spectral lines can reflect the thermal motion of electrons or ions, which corresponds to the electron temperature or ion temperature. Electron temperature is usually determined by analyzing the continuous spectrum (such as bremsstrahlung) or the intensity distribution of emission lines. By analyzing the intensity distribution of spectral lines and the relative intensity between lines, the electron density and ion density in the plasma can be estimated. For example, the broadening of spectral lines due to the Stark effect is proportional to the electron density, thus it can be used to measure electron density. The broadening of spectral lines due to the Doppler effect can be used to analyze the velocity distribution of particles in the plasma, thereby studying the kinetic properties of the plasma. For example, in plasmas under strong magnetic fields, the Doppler effect can reveal the motion of particles in the direction of the magnetic field.
+		\end{enumerate}
+	\end{itemize}
+				
+	\item Quadrupole Mass Spectrometer
+	
+	The quadrupole mass spectrometer is a widely used mass spectrometry instrument that separates and detects ions with different mass-to-charge ratios (m/z) by generating a specific quadrupole electric field. It is extensively applied in chemical analysis, environmental monitoring, pharmaceutical research, and other fields. The core of the quadrupole mass spectrometer lies in controlling the motion of ions in the quadrupole electric field to achieve ion separation and mass analysis.
+	
+	\begin{enumerate}
+		\item The quadrupole mass spectrometer mainly consists of the following components:
+		
+		\begin{itemize}
+			\item Ion Source: Used to ionize sample molecules, generating charged ions.
+			\item Quadrupole Rod System: Composed of four parallel conductive rods, forming a quadrupole electric field by applying direct current (DC) and radio frequency (RF) voltages.
+			\item Detector: Used to detect ions passing through the quadrupole electric field and record their signals.
+		\end{itemize}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{apl1_2_Quadrupole Mass Spectrometry.jpg}
+			\caption{Schematic diagram of the principle of a quadrupole mass spectrometer (From web).}
+			\label{fig:Quadrupole Mass Spectrometry}
+		\end{figure}
+		
+		\item Characteristics of the Quadrupole Electric Field
+		
+		In the quadrupole mass spectrometer, four parallel conductive rods (typically metal bars) are arranged in pairs, with different voltages applied to generate a quadrupole electric field. The characteristic of this quadrupole electric field is that the electric field strength varies with position in space and has specific symmetry.
+		
+		The voltage applied to the quadrupole rod system consists of a direct current voltage \( U \) and a radio frequency voltage \( V \). For a pair of opposite quadrupole rods, the voltage can be expressed as:
+		
+		\[
+		\phi(x, y, t) = \frac{U + V\cos(\omega t)}{r_0^2} \left( x^2 - y^2 \right)
+		\]
+		
+		where \( \phi(x, y, t) \) is the electric potential; \( U \) is the direct current voltage; \( V \) is the peak value of the radio frequency voltage; \( \omega \) is the angular frequency of the radio frequency voltage; \( r_0 \) is the effective radius inside the quadrupole rods; \( x \) and \( y \) are the coordinates in the quadrupole rod plane.
+		
+		The electric field generated by this potential distribution is time-dependent and has no field component in the \( z \) axis direction (along the axis of the quadrupole rods), with field components only in the \( x \) and \( y \) directions.
+		
+		\item Ion Motion Equations in the Quadrupole Electric Field
+		
+		To deeply understand the working principle of the quadrupole mass spectrometer, one must study the motion of ions in the quadrupole electric field. This problem can be described by solving the Mathieu equation in classical mechanics.
+		
+		Consider an ion with mass \( m \) and charge \( q \), subjected to a force \( F = qE \) in the quadrupole electric field, where \( E \) is the electric field strength. The ion's motion in the \( x \) and \( y \) directions can be described by the following differential equations:
+		
+		\[
+		\frac{d^2x}{dt^2} + \frac{q}{m} \frac{U + V\cos(\omega t)}{r_0^2} x = 0
+		\]
+		
+		\[
+		\frac{d^2y}{dt^2} - \frac{q}{m} \frac{U + V\cos(\omega t)}{r_0^2} y = 0
+		\]
+		
+		By introducing the dimensionless parameters \( a_x \) and \( q_x \), the above differential equations can be normalized to the standard form of the Mathieu equation:
+		
+		\[
+		\frac{d^2u}{d\xi^2} + \left[ a - 2q\cos(2\xi) \right] u = 0
+		\]
+		
+		where \( u \) can represent either \( x \) or \( y \); \( \xi = \frac{\omega t}{2} \) is the normalized time; \( a_x = \frac{4qU}{m r_0^2 \omega^2} \) and \( q_x = \frac{2qV}{m r_0^2 \omega^2} \) are dimensionless parameters.
+		
+		The solutions of the Mathieu equation can be classified into two categories: stable solutions and unstable solutions. Stable solutions correspond to stable ion motion in the quadrupole electric field, while unstable solutions correspond to ion divergence or ejection from the quadrupole rod system. By analyzing the solutions of the Mathieu equation, one can determine the stability regions for ion motion under specific \( a \) and \( q \) parameters, corresponding to ions with specific mass-to-charge ratios \( m/z \) that can be stably transmitted through the quadrupole rod system. Ions in the unstable regions will be ejected by the alternating electric field and will not reach the detector.
+		
+		\item Working Principle of the Quadrupole Mass Spectrometer
+		
+		During operation, the quadrupole mass spectrometer separates ions with different mass-to-charge ratios by adjusting the direct current voltage \( U \) and the radio frequency voltage \( V \) applied to the quadrupole rods, controlling the stability region of ions. For a specific \( m/z \), precise adjustment of the \( U \) and \( V \) ratio ensures that the ion remains in a stable motion state in the quadrupole electric field, allowing it to pass through the quadrupole rods and reach the detector. By linearly or stepwise adjusting \( U \) and \( V \), different \( m/z \) ranges can be scanned, gradually transmitting ions with different mass-to-charge ratios. After the detector records the signals of different ions, a mass spectrum can be plotted, showing the relative abundance of different components in the sample.
+		
+		The resolution of the quadrupole mass spectrometer depends on the width of the stability region through which ions pass in the quadrupole electric field. Higher resolution means more precise differentiation of ions with close masses. Additionally, the frequency and amplitude of the radio frequency voltage also significantly affect resolution and sensitivity.
+	\end{enumerate}		 
+\end{enumerate}
+
+
+%---------------------------------------------------------------------
+% 实验前思考题
+\subsection{Thinking Before Experiment}
+
+% 思考题1
+\begin{question}
+	What are the research topics and methods in vacuum physics?
+\end{question}
+
+Vacuum physics is the theoretical foundation of vacuum science and technology, focusing on the theoretical study of the physical behavior of rarefied gases. It primarily employs methods from statistical physics and thermodynamics to investigate the motion of gas molecules and the interactions between gas molecules as well as between molecules and the walls of containers.
+
+% 思考题2
+\begin{question}
+	What is the definition of vacuum? What is the ideal gas pressure formula? What is the mean free path of gas molecules?
+\end{question}
+
+\begin{enumerate}
+	\item Definition of Vacuum: A state in a given space where the gas pressure is lower than one standard atmosphere (the state in which the density of gas molecules is lower than the density of gas molecules at standard atmospheric pressure) is referred to as a vacuum.
+	
+	\item Ideal Gas Pressure Formula:
+	
+	The equation of state for an ideal gas is:
+	
+	\[
+	pV = nRT
+	\]
+	
+	From this equation, the pressure formula for an ideal gas, which relates the gas pressure \( p \) to the molecular number density \( n \), can be derived as:
+	
+	\[
+	p = nk_BT
+	\]
+	
+	where \( p \) is the gas pressure; \( n \) is the number density of gas molecules, i.e., the number of molecules per unit volume, with the unit \( \text{m}^{-3} \); \( k_B \) is the Boltzmann constant, valued at \( 1.38 \times 10^{-23} \text{ J/K} \); and \( T \) is the absolute temperature of the gas.
+	
+	This formula indicates that at a given temperature, the gas pressure is directly proportional to the number density of the gas molecules.
+	
+	\item Mean Free Path of Gas Molecules: See the principle overview section for details; the formula is provided below.
+	
+	$$
+	\bar{\lambda}=\frac{\bar{v}}{\bar{Z}}=\frac{1}{\sqrt{2} n \sigma}=\frac{k T}{\sqrt{2} \sigma p}
+	$$
+\end{enumerate}
+
+% 思考题3
+\begin{question}
+	What are the basic processes of vacuum gas discharge? What is Paschen's Law?
+\end{question}
+
+\begin{itemize}
+	\item Vacuum Gas Discharge refers to the process where gas becomes ionized under the influence of an applied electric field in a vacuum or low-pressure environment, leading to the transition of the gas from an insulator to a conductor. The process of gas discharge under vacuum or low-pressure conditions can be divided into the following key stages:
+	\begin{enumerate}
+		\item Initial Ionization:
+		
+		Free electrons in the gas are typically excited by external factors (such as ultraviolet radiation, cosmic rays, thermionic emission, etc.). The initial number of free electrons is very small, but they serve as the seeds for the discharge process. Under the influence of an applied electric field, these free electrons accelerate in the direction of the electric field. If the electric field strength is sufficient, electrons can gain enough kinetic energy.
+		
+		\item Collision Ionization:
+		
+		Accelerated electrons may collide with gas molecules or atoms during their motion. If the electron’s kinetic energy exceeds the ionization energy of the gas molecule, it may ionize the molecule, producing a positive ion and another free electron. The newly generated free electron also accelerates under the electric field and may further trigger new ionizations. In this way, the number of free electrons and positive ions in the gas rapidly increases, forming an electron avalanche effect.
+		
+		\item Gas Conductivity:
+		
+		As the number of free electrons and ions increases significantly, the gas begins to exhibit conductivity, forming a plasma state. At this point, the gas transitions from an electrical insulator to a conductor, allowing current to flow. Depending on the electric field strength, gas pressure, and electrode spacing, gas discharge can be categorized into different types such as glow discharge, arc discharge, and spark discharge.
+		
+		\item Equilibrium State:
+		
+		Under the continuous influence of the electric field, the processes of ionization and recombination (recombination of electrons with ions) will reach a dynamic equilibrium, resulting in a stable current, and the gas discharge enters a steady state. If the applied electric field is weakened or removed, the ionization process will cease, electrons and ions will gradually recombine, and the gas will return to its insulating state, ending the discharge.
+	\end{enumerate}
+	
+	\item Paschen's Law: See the principle overview section for details; a brief summary is provided below.
+	
+	The mathematical expression of Paschen's Law is:
+	
+	\[
+	V_b = \frac{B \cdot pd}{\ln(A \cdot pd) - \ln[\ln(1 + \frac{1}{\gamma})]}
+	\]
+	
+	where \( V_b \) is the breakdown voltage; \( p \) is the gas pressure; \( d \) is the distance between the electrodes; \( A \) and \( B \) are constants related to the properties of the gas; \( \gamma \) is the secondary electron emission coefficient, i.e., the efficiency of secondary electron emission caused by a positive ion striking the cathode.
+	
+	Paschen's Law indicates that the breakdown voltage \( V_b \) does not simply increase with increasing electrode spacing or gas pressure, but rather has a more complex relationship with their product \( pd \). For a specific gas and electrode material, there exists a particular \( pd \) value at which the breakdown voltage \( V_b \) reaches a minimum. This suggests that in certain cases, the breakdown voltage can be minimized by adjusting the electrode spacing and gas pressure, which is crucial in the design of discharge devices.
+\end{itemize}
+
+\begin{question}
+	What are the characteristics of glow discharge?
+\end{question}
+
+\begin{enumerate}
+	\item Basic Characteristics of Glow Discharge
+	
+	Glow discharge typically occurs in low-pressure environments, with gas pressures ranging from a few hundred pascals to several hundred pascals. This is because, at low pressure, the mean free path between gas molecules is relatively long, allowing electrons to accelerate under the influence of the electric field and gain enough energy for collision ionization, thereby sustaining the discharge process. Glow discharge requires a certain voltage range to occur. The voltage must be sufficiently high for electrons to acquire enough kinetic energy to ionize gas molecules. As the voltage increases, the discharge first undergoes a dark discharge stage before entering the glow discharge stage. In glow discharge, gas molecules are ionized by collisions with free electrons or ions, forming a plasma. This plasma consists of electrons, positive ions, negative ions, and neutral particles, and can emit light during the discharge process. One of the notable features of glow discharge is the emission of visible light from the discharge region, which originates from the excitation and radiative transitions of gas molecules after collisions with electrons and ions. Different gases emit different glow colors; for example, neon emits an orange-red light, while argon emits purple light.
+	
+	\item Spatial Distribution Characteristics of Glow Discharge
+	
+	The physical process of glow discharge is complex and exhibits multiple spatial regions, each with its unique physical characteristics and discharge mechanisms. A typical glow discharge can be divided into the following regions:
+	
+	The Cathode Dark Space, which is adjacent to the cathode surface. Due to the low energy of the electrons, they are unable to excite gas molecules to emit light, resulting in a dark region. The electron density is low, but the ion density is high. The electric field is strongest in this region, where positive ions accelerate in the electric field, striking the cathode and causing secondary electron emission.
+	
+	The Cathode Glow, located next to the cathode dark space. In this region, high-energy electrons collide with gas molecules, exciting them to emit light, which manifests as bright glow. The electric field in this region is relatively strong, with an increased density of electrons and ions.
+	
+	The Faraday Dark Space, located after the cathode glow region. Electrons lose some energy in the cathode glow region, rendering them unable to effectively excite gas molecules to emit light, resulting in a dark state in the Faraday dark space. The electric field intensity decreases, but some ionization still occurs.
+	
+	The Anode Glow, near the anode region. Electrons are further accelerated near the anode, exciting gas molecules to emit light, forming the anode glow. The electron density is high, and the electric field strength near the anode increases again.
+	
+	The Anode Dark Space, between the anode glow and the anode. The electric field intensity in this region further weakens, and the electron energy is insufficient to excite gas molecules to emit light, resulting in a dark region. The ion flux density is relatively high, and the recombination effect of electrons and ions near the anode is significant.
+	
+	\item Current-Voltage Characteristics of Glow Discharge
+	
+	Glow discharge has a specific current-voltage characteristic curve (I-V curve), which reflects the relationship between voltage and current during the discharge process.
+	
+	At lower voltages, the current is very small and unstable, with the discharge process mainly involving the migration of a small number of electrons and ions in the electric field, without significant gas ionization or light emission. When the voltage increases to a certain level, the discharge enters the glow discharge stage, where gas ionization intensifies, the current increases rapidly, and obvious glow phenomena appear. The discharge voltage approaches the breakdown voltage described by Paschen's law. As the voltage continues to increase, the current and the light intensity of the discharge region remain relatively stable, forming a steady-state glow discharge. At this point, the relationship between current and voltage exhibits linear growth. If the voltage continues to increase, the current will exhibit nonlinear growth, the glow region will expand, potentially leading to discharge instability or even transition to arc discharge.
+\end{enumerate}
+
+\begin{question}
+	What is plasma? What are the basic parameters of plasma?
+\end{question}
+
+For further details, please refer to the principle overview section.
+
+Plasma consists of free electrons, ions, charged particles, and neutral atoms or molecules. Since the particles in plasma are charged, it can respond to electromagnetic fields and possesses unique physical properties. Gas discharge is a common form of plasma generation.
+
+The basic parameters of plasma are:
+\begin{enumerate}
+\item Electron Density, \( n_e \): Represents the number of free electrons per unit volume, usually expressed as the number of electrons per cubic centimeter. Electron density determines the conductivity and electromagnetic response capability of the plasma.
+
+\item Ion Density, \( n_i \): Represents the number of ions per unit volume. For most plasmas, the electron density and ion density are equal, reflecting the electrical neutrality of the plasma.
+
+\item Electron Temperature, \( T_e \): Refers to the average kinetic energy of electrons in the plasma, usually expressed in kelvins (K) or electron volts (eV). Electron temperature determines the degree of ionization of the plasma and the rate of chemical reactions.
+
+\item Ion Temperature, \( T_i \): Similar to electron temperature, ion temperature represents the average kinetic energy of ions. Ion temperature is usually lower than electron temperature, especially in cold plasmas.
+
+\item Plasma Frequency, \( \omega_p \): The plasma frequency is the frequency at which electrons in the plasma oscillate collectively. It depends on electron density and is defined as:
+
+\[
+\omega_p = \sqrt{\frac{n_e e^2}{\epsilon_0 m_e}}
+\]
+
+where \( n_e \) is the electron density, \( e \) is the electron charge, \( m_e \) is the electron mass, and \( \epsilon_0 \) is the vacuum permittivity.
+
+\item Debye Length, \( \lambda_D \): The Debye length is the spatial scale over which potential changes significantly in plasma, defined as:
+
+\[
+\lambda_D = \sqrt{\frac{\epsilon_0 k_B T_e}{n_e e^2}}
+\]
+
+where \( k_B \) is the Boltzmann constant and \( T_e \) is the electron temperature. The Debye length reflects the plasma's ability to shield external electric fields.
+
+\item Magnetic Field, \( B \): In magnetized plasmas, the interaction between the applied magnetic field and the plasma significantly influences the behavior of the plasma. For example, in nuclear fusion reactors, magnetic fields are used to confine the plasma to achieve stable fusion reactions.
+\end{enumerate}
+
+\begin{question}
+	What are the characteristics of the quadrupole electric field in a quadrupole mass spectrometer? How do ions move within it? What are the basic principles and processes of a quadrupole mass spectrometer?
+\end{question}
+
+\begin{enumerate}
+	\item Characteristics of the Quadrupole Electric Field
+	
+	The quadrupole electric field is generated by two independent voltage sources: a direct current voltage \( U \) and an alternating radio frequency voltage \( V \cos(\omega t) \). Four parallel metal rods are arranged in pairs to form two opposing electrode pairs. These electrode pairs are subjected to the following voltages: one pair of electrodes receives \( +U + V \cos(\omega t) \), while the other pair receives \( -U - V \cos(\omega t) \). Here, \( U \) is the direct current voltage, providing a constant electric field component; \( V \) is the peak value of the radio frequency voltage, producing an alternating electric field component; and \( \omega \) is the angular frequency of the radio frequency voltage. In this configuration, there is no electric field component along the axis (commonly defined as the \( z \)-axis) at the center of the quadrupole rods, and the distribution of the electric field varies only in the plane perpendicular to the electrodes (i.e., the \( x \)-\( y \) plane).
+	
+	The electric potential of the quadrupole field can be expressed as:
+	
+	\[
+	\phi(x, y, t) = \frac{U + V \cos(\omega t)}{r_0^2} \left( x^2 - y^2 \right)
+	\]
+	
+	where \( \phi(x, y, t) \) is the electric potential; \( x \) and \( y \) are the coordinates in the plane; and \( r_0 \) is the effective radius within the quadrupole rods.
+	
+	From the potential, the electric field strength (\( \mathbf{E} \)) can be derived as:
+	
+	\[
+	E_x = -\frac{\partial \phi}{\partial x} = -\frac{2(U + V \cos(\omega t))x}{r_0^2}
+	\]
+	
+	\[
+	E_y = -\frac{\partial \phi}{\partial y} = \frac{2(U + V \cos(\omega t))y}{r_0^2}
+	\]
+	
+	\item Ion Motion in a Quadrupole Electric Field
+	
+	For an ion with mass \( m \) and charge \( q \), the equation of motion in the quadrupole electric field can be expressed as:
+	
+	\[
+	m\frac{d^2x}{dt^2} = qE_x = -\frac{2q(U + V \cos(\omega t))x}{r_0^2}
+	\]
+	\[
+	m\frac{d^2y}{dt^2} = qE_y = \frac{2q(U + V \cos(\omega t))y}{r_0^2}
+	\]
+	
+	By appropriate variable substitution, the above equations can be simplified to the standard form of the Mathieu equation:
+	
+	\[
+	\frac{d^2u}{d\xi^2} + (a - 2q \cos(2\xi)) u = 0
+	\]
+	
+	where \( u \) can represent either \( x \) or \( y \); \( \xi = \frac{\omega t}{2} \) is the normalized time; \( a_x = \frac{4qU}{m r_0^2 \omega^2} \) and \( q_x = \frac{2qV}{m r_0^2 \omega^2} \) are dimensionless parameters.
+	
+	The solutions to the Mathieu equation can be classified into two categories: stable solutions and unstable solutions. Stable solutions correspond to the stable motion of ions in the quadrupole electric field, while unstable solutions correspond to the divergence or ejection of ions from the quadrupole system. By analyzing the solutions of the Mathieu equation, one can determine the regions of stable ion motion under specific parameters \( a \) and \( q \), which correspond to ions with equivalent mass-to-charge ratios \( m/z \) that can be stably transmitted through the quadrupole system. Ions in unstable regions will be expelled from the quadrupole due to the alternating electric field and will not reach the detector.
+	
+	\item Basic Principles and Process of Quadrupole Mass Spectrometry
+	
+	Ionization: First, the sample is ionized by an ion source (e.g., electron impact source, chemical ionization source, etc.), generating positively or negatively charged ions.
+	
+	Selective Electric Field of the Quadrupole: By applying specific \( U \) and \( V \) voltages, the characteristics of the quadrupole electric field are adjusted so that ions with a specific mass-to-charge ratio (m/z) can stably travel through the quadrupole, while ions with other mass-to-charge ratios are excluded due to unstable motion.
+	
+	Mass Filtering: The quadrupole mass spectrometer can sequentially allow ions with different mass-to-charge ratios to pass stably through the quadrupole by changing the ratio of \( U \) and \( V \). This method of scanning different mass-to-charge ratios by varying the voltage is known as the mass scanning mode.
+	
+	Ion Detection: Ions passing through the mass analyzer (i.e., the quadrupole system) enter a detector (e.g., an electron multiplier), which converts the ion signals into electrical signals.
+	
+	Signal Processing and Data Analysis: The electrical signals are amplified and processed to generate a mass spectrum, showing the mass-to-charge ratios and relative abundances of the components in the sample.
+\end{enumerate}
+
+\begin{question}
+	Why must the mechanical pump first reduce the vacuum pressure below 10 Pa before turning on the molecular pump power supply?
+\end{question}
+
+
+\begin{itemize}
+	\item Molecular Flow Conditions: The design of molecular pumps is intended to operate in molecular flow conditions, meaning the mean free path of gas molecules (i.e., the average distance between molecules) should be much greater than the characteristic size of the pump. At high pressures, the molecular spacing is smaller, and the molecular pump cannot effectively transport and expel gas molecules in a specific direction. Therefore, molecular pumps can only operate efficiently at low pressures (typically below 10 Pa).
+	
+	\item Gas Collisions and Pumping Efficiency: At high pressures, gas molecules frequently collide, resulting in viscous flow characteristics. In this situation, the interaction between the pump blades and gas molecules is no longer dominated by single molecule collisions with the blades but rather by molecular collisions, leading to a significant reduction in pumping efficiency. Mechanical pumps are used to reduce the pressure to a suitable level so that gas flow enters the molecular flow regime, allowing the molecular pump to function effectively.
+	
+	\item Operational Requirements: Molecular pumps must be started in low-pressure environments because starting a molecular pump at high pressure not only fails to effectively evacuate but may also cause damage to the internal components of the pump due to excessive gas load. High pressure increases the resistance of the turbine blades, making it difficult to start the pump and potentially causing mechanical failure. Different types of gases exhibit different flow behaviors at varying pressures. In particular, some gases may be difficult to expel through the molecular pump at high pressures, so it is necessary to pre-evacuate the system to a lower pressure using a mechanical pump before starting the molecular pump. When operating, the high-speed rotation of the pump blades generates heat. Starting the molecular pump at high pressures may cause friction between the blades and the gas, leading to overheating of the pump, affecting its cooling efficiency and stability, and consequently impacting its service life.
+\end{itemize}
+
+\begin{question}
+	Why must the vacuum pressure be below $5.0\times10^{-2}$ Pa before turning on the quadrupole mass spectrometer?
+\end{question}
+
+
+The basic working principle of the quadrupole mass spectrometer is to use the electric field generated by the quadrupole system for mass analysis of ions. Ions are precisely controlled in the quadrupole electric field to separate ions with different mass-to-charge ratios (m/z). However, the accuracy of ion motion and detection largely depends on the vacuum environment within the system.
+
+The quadrupole mass spectrometer generates a quadrupole electric field by controlling the direct current and radio frequency voltages on the quadrupole rods. Ions move along the axis of the quadrupole rods (typically defined as the \(z\) axis) while being constrained in the \(x\) and \(y\) directions perpendicular to the axis. For the quadrupole electric field to effectively select and stabilize or destabilize specific mass-to-charge ratios of ions, the ion motion must occur in a relatively interference-free environment. Under high vacuum conditions (below \(5.0 \times 10^{-2}\) Pa), the gas molecule density within the system is extremely low, significantly reducing the probability of ion collisions with background gas molecules. This environment helps to maintain the stability of ion trajectories, ensuring that they pass through the quadrupole as intended. At higher pressures, ions are more likely to collide with background gas molecules, leading to energy loss or trajectory deviation. This not only reduces the resolution of the mass spectrometer but may also result in the incorrect analysis or detection of ions with certain mass-to-charge ratios. The resolution of the quadrupole mass spectrometer depends on the stable motion of ions in the electric field. In high vacuum conditions, ion motion is least disturbed, allowing for more precise response to the selective action of the quadrupole electric field. This environment ensures that the instrument can separate ions with very close mass-to-charge ratios, achieving high-resolution mass spectrometry.
+
+At higher pressures, background gas molecules may deposit on the surface of the quadrupole rods, forming thin layers of contaminants. These contaminants affect the uniformity of the quadrupole electric field, interfering with the ion trajectories and thereby affecting the resolution and accuracy of the mass spectrometer. Additionally, contaminants may impact the electrode characteristics of the quadrupole rods, further degrading the instrument's performance. Operating the ion source at high pressures may lead to reactions between the internal electrodes and background gas molecules, causing irreversible damage. This not only shortens the lifespan of the ion source but may also degrade the performance of the entire mass spectrometry system. Therefore, it is crucial to ensure that the system reaches the required low-pressure state before starting the ion source and quadrupole mass spectrometer to prevent such damage. At higher pressures, high voltages in the quadrupole rod system may trigger gas discharge, leading to electrical breakdown. This discharge can cause severe damage to the quadrupole system and other electronic components, potentially resulting in system failure. Maintaining a pressure below \(5.0 \times 10^{-2}\) Pa significantly reduces the risk of such discharges, ensuring safe operation of the equipment.
+
+\begin{question}
+	List three examples of applications in vacuum science and technology.
+\end{question}
+
+\begin{itemize}
+	\item Semiconductor Manufacturing
+	
+	Physical Vapor Deposition (PVD) and Chemical Vapor Deposition (CVD): These techniques are used to deposit ultra-thin layers of metals or insulating materials onto semiconductor wafers. These processes require operation in ultra-high vacuum conditions to ensure the purity and uniformity of the deposited materials and to prevent contamination by gas molecules or impurities.
+	
+	Electron Beam Lithography (E-beam Lithography): This technique is used to create nanometer-scale patterns on semiconductor wafers. The electron beam is accelerated and focused in an ultra-high vacuum environment to precisely control the etching process.
+	
+	Ion Implantation: This process involves injecting an ion beam into semiconductor materials to alter their electrical properties. The process is conducted in a vacuum environment to control the energy and depth of ion implantation, thereby achieving precise doping concentrations.
+	
+	\item Electron Microscopy
+	
+	Electron Beam Generation: Electron microscopes rely on high-energy electron beams generated by electron guns. This process needs to be performed in ultra-high vacuum conditions to prevent scattering of electrons due to collisions with air molecules, thus maintaining the intensity and directionality of the electron beam.
+	
+	Sample Chamber Vacuum: The sample chamber is also maintained at high vacuum to reduce interference from air molecules on the electron beam and to ensure the sample surface remains uncontaminated. This allows the electron microscope to obtain clear images of samples at the nanometer or even atomic level.
+	
+	Scanning and Transmission Imaging: In Scanning Electron Microscopy (SEM) and Transmission Electron Microscopy (TEM), the electron beam scans or passes through the sample. The vacuum environment ensures the stability of the electron beam and the cleanliness of the sample surface, enhancing image resolution and contrast.
+	
+	\item Space Simulation and Aerospace Testing
+	
+	Space Environment Simulation: During the design and testing of spacecraft and satellites, it is necessary to simulate the high-vacuum conditions of outer space. Vacuum chambers are used to replicate the low-pressure conditions, high radiation environment, and extreme temperature variations of space to test the performance and reliability of spacecraft and materials under real space conditions.
+	
+	Spacecraft Component Testing: Components such as solar panels, thermal control systems, and propulsion systems need to be tested in high-vacuum environments to ensure their proper functioning in space. Space simulation includes not only low pressure but also high radiation and temperature extremes, allowing for precise reproduction of space conditions on the ground.
+	
+	Spacesuit Testing: Vacuum chambers are also used to test the airtightness, thermal insulation, and pressure resistance of spacesuits to ensure astronaut safety during spacewalks.
+\end{itemize}
+
+\begin{question}
+	List three examples of applications in plasma science and technology.
+\end{question}
+
+\begin{itemize}
+	\item Plasma Processing
+	
+	Plasma Etching: In semiconductor manufacturing, plasma etching technology is used to etch fine patterns of microelectronic devices. By controlling the chemical composition and energy of the plasma, precise etching of silicon wafers or other materials can be achieved to form the desired circuit structures. Plasma etching offers high precision, high anisotropy, and low damage, and is widely used in integrated circuit fabrication.
+	
+	Plasma Surface Modification: Plasma technology can be used to alter the physical and chemical properties of material surfaces, such as enhancing surface energy through plasma treatment to improve adhesion, wettability, or biocompatibility. This technology is widely applied in fields such as medical devices, packaging materials, and automotive components.
+	
+	Plasma Spraying: In the processing of metals and ceramics, plasma spraying is used to deposit high-performance coatings on substrates to improve wear resistance, corrosion resistance, and high-temperature resistance. This technology has significant applications in aerospace, energy, and automotive industries.
+	
+	\item Plasma Display Panel (PDP)
+	
+	Plasma displays generate images by applying voltage within tiny gas chambers to excite gas discharge and produce ultraviolet light, which then excites phosphors to emit visible light. Each pixel contains sub-pixels of red, green, and blue, and the brightness of these sub-pixels is controlled by plasma discharge to produce full-color images. Plasma displays are characterized by high contrast and wide viewing angles, making them suitable for large-size TVs and public displays. Although the market share of PDPs has declined with the development of LCD and OLED technologies, plasma displays still offer unique advantages in specific applications, such as in scenarios requiring high brightness and fast response. Each pixel in a plasma display can emit light independently and respond quickly, enabling high refresh rates and fast response times, making it particularly suitable for displaying fast-moving images, such as sports events or action movies.
+	
+	\item Nuclear Fusion Research
+	
+	Magnetic Confinement Fusion: In nuclear fusion experiments, such as those conducted with Tokamak devices, plasma is heated to extremely high temperatures (tens of millions to hundreds of millions of degrees Celsius) to enable fusion reactions of hydrogen isotopes (e.g., deuterium and tritium). Magnetic fields are used to confine the plasma and prevent it from contacting the container walls, thereby maintaining the high-temperature and high-density conditions necessary for controlled nuclear fusion.
+	
+	Inertial Confinement Fusion (ICF): In inertial confinement fusion experiments, powerful lasers or particle beams are focused on a small fuel pellet, creating intense plasma shock waves that compress the fuel to extremely high densities and temperatures, triggering nuclear fusion reactions. The formation and behavior of the plasma are crucial for energy transfer and fusion reaction efficiency.
+	
+	Plasma Diagnostics: In nuclear fusion research, accurate diagnostics of plasma parameters such as temperature, density, and velocity distribution are essential for understanding and controlling fusion reactions. Plasma diagnostic techniques include spectroscopy, interferometry, and Thomson scattering, which enable real-time monitoring of plasma conditions and optimization of reaction parameters.
+\end{itemize}

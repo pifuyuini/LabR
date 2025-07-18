@@ -1,0 +1,350 @@
+% ----------------------------------------------------- 
+%	说明
+% ----------------------------------------------------- 
+
+
+% ----------------------------------------------------- 
+% 一点碎碎念
+% 由于还不打算公开，所以这个小作文我暂时懒得写……
+
+
+% ----------------------------------------------------- 
+%	设定
+% ----------------------------------------------------- 
+
+
+% ----------------------------------------------------- 
+% 相较于最初的模板，我去掉了边框。
+%%	加边框的命令
+%%	参考：https://tex.stackexchange.com/questions/531559/how-to-add-the-page-border-for-first-two-pages-in-latex
+%\usepackage{tikz}
+%\usetikzlibrary{calc}
+%\usepackage{eso-pic}
+%\AddToShipoutPictureBG{%
+	%	\begin{tikzpicture}[overlay,remember picture]
+		%		\draw[line width=0.6pt] % 边框粗细
+		%		($ (current page.north west) + (0.6cm,-0.6cm) $)
+		%		rectangle
+		%		($ (current page.south east) + (-0.6cm,0.6cm) $); % 边框位置
+		%\end{tikzpicture}}
+
+
+% ----------------------------------------------------- 
+% 自定义颜色（这里采用的是我老婆的主题配色——也就是流萤的主题配色！）
+\usepackage{xcolor}
+\definecolor{fblack}{HTML}{3E324A} % #3e324a（紫黑）
+\definecolor{fgrayblue}{HTML}{475D7B} % #475d7b（灰蓝）
+\definecolor{fgraygreen}{HTML}{97C6C0} % #97c6c0（灰绿）
+\definecolor{fred}{HTML}{E26E1B} % #e26e1b（深橘红）
+\definecolor{fsilver}{HTML}{E6E4E0} % #e6e4e0（银白）
+\definecolor{fbluegreen}{HTML}{4DF8E8} % #4df8e8（蓝绿）
+\definecolor{flameorange}{HTML}{FF4500} % #FF4500（火焰橙）
+
+
+% ----------------------------------------------------- 
+% 链接
+\usepackage{ctex}
+\usepackage[top=28mm,bottom=28mm,left=25mm,right=25mm]{geometry} % 最通用的边距设置：上下边距：28mm；左右边距：25mm
+\usepackage{hyperref} 
+\hypersetup{
+	colorlinks,
+	linktoc = section, % 超链接位置，选项有section, page, all
+	linkcolor = fgrayblue, % linkcolor 目录颜色
+	citecolor = fgrayblue,  % citecolor 引用颜色
+	urlcolor = fgrayblue % 外部链接
+}
+
+
+% ----------------------------------------------------- 
+% 引入必要的包
+%A
+\usepackage{amsmath,enumerate,multirow,float} % 1.提供增强的数学公式排版功能，如 align、gather 等环境。2.增强 enumerate 环境，允许指定编号格式。3.在表格中合并多行单元格。4.用于控制浮动体（如表格、图片）的放置，提供 H 选项让浮动体固定在当前位置。
+\usepackage{tabularx} % 创建自动调整列宽的表格，比 tabular 更灵活。
+\usepackage{fancyhdr} % 自定义页眉和页脚。
+\usepackage{graphicx} % 插图
+\usepackage{appendix} % 创建附录部分，允许 \appendix 轻松管理附录编号。
+\usepackage{geometry}  % 页面调整
+\usepackage{colortbl} % 给表格填充颜色
+%B
+\usepackage{lipsum} % 生成占位文本 \lipsum[1-3]。
+\usepackage{adjustbox}% 调整表格大小
+\usepackage{tabularray} % 绘制表格时可以更加方便添加框线
+\usepackage{authblk} % 管理多作者信息。
+\usepackage{wrapfig} % 让图片环绕文本。
+\usepackage{subfig} % 创建多个子图。
+%C
+\usepackage{amsfonts} % 提供 \mathbb{}、\mathcal{} 等数学字体。
+\usepackage{mathrsfs} % 提供花体数学字体，如 \mathscr{}。
+\usepackage{calligra} % 提供书法风格字体，可用于 \textcalligra{}。
+\usepackage{caption} % 自定义图片/表格标题格式。
+\usepackage{physics} % 提供数学物理相关命令，如 \bra{}、\ket{}。
+\usepackage{braket} % 提供 \braket{a|b} 量子力学符号。
+\usepackage{amssymb} % 包含更多数学符号
+
+
+% ----------------------------------------------------- 
+% 定义彩色环境
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% 思考题
+\newtcolorbox[auto counter,number within=section]{question}[1][]{
+	breakable,
+	enhanced, %跨页后不会显示下边框
+	enhanced, breakable,
+	colback=fbluegreen!20!white,colframe=fbluegreen!80!black,colbacktitle = fbluegreen!80!black,
+	attach boxed title to top left = {yshift = -2mm, xshift = 5mm},
+	boxed title style = {sharp corners},
+	title={Reflection Question~\thetcbcounter：\quad},
+	fonttitle=\bfseries,
+	drop fuzzy shadow,
+	#1
+}
+
+% 高亮
+\newtcbox{\highlight}[1][fbluegreen]
+{on line, arc = 0pt, outer arc = 0pt,
+	colback = #1!85!white, colframe = white,
+	boxsep = 0pt, left = 1pt, right = 1pt, top = 2pt, bottom = 2pt,
+	boxrule = 0pt, bottomrule = 1pt, toprule = 1pt}
+
+% 通用框架
+\newtcolorbox{ubox}[2][]
+{enhanced, breakable,
+	colback = white, colframe = fbluegreen, coltitle = black,colbacktitle = fbluegreen,
+	attach boxed title to top left = {yshift = -2mm, xshift = 5mm},
+	boxed title style = {sharp corners},
+	fonttitle = \bfseries,
+	title={#2},#1}
+	
+% 代码块
+\definecolor{wt1}{HTML}{ebebeb} % 白色主题的标题框顶部背景颜色
+\definecolor{wt2}{HTML}{bebebe} % 白色主题的标题框底部背景颜色
+\definecolor{wt3}{HTML}{efefef} % 白色主题的正文部分的背景颜色
+\definecolor{circ1}{HTML}{eb605b} % 标题框左边第一个圆圈的颜色
+\definecolor{circ2}{HTML}{f6bb31} % 标题框左边第二个圆圈的颜色
+\definecolor{circ3}{HTML}{56cb45} % 标题框左边第三个圆圈的颜色
+\definecolor{macosbox@bord}{RGB}{182,176,176}
+\newtcolorbox{macbox}[2][]{
+	enhanced,
+	breakable,
+	coltitle=black,
+	colback = wt3,%macosbox@bg,
+	boxrule=0mm,
+	frame style={draw=macosbox@bord,fill=macosbox@bord},
+	title style={top color=wt1,bottom color=wt2},
+	drop fuzzy shadow=black,
+	title={{\textcolor{circ1}{\huge$\bullet$}
+			\textcolor{circ2}{\huge$\bullet$}
+			\textcolor{circ3}{\huge$\bullet$}
+			\hspace*{\fill}\texttt{#2}\hspace*{65mm}\hspace*{\fill}}},#1
+}
+
+% ---------------------------------------------------------------------
+%	利用cleveref改变引用格式，\cref是引用命令
+\usepackage{cleveref}
+\crefformat{figure}{#2{\textcolor{fred}{\textbf{图 #1}}}#3} % 图片的引用格式
+\crefformat{equation}{#2{(\textcolor{fred}{(#1)})}#3} % 公式的引用格式
+\crefformat{table}{#2{\textcolor{fred}{\textbf{表 #1}}}#3} % 表格的引用格式
+\crefformat{enumi}{#2{\textcolor{fred}{\textbf{[#1]}}}#3} % 文献的引用格式
+
+
+% ---------------------------------------------------------------------
+%	页眉页脚设置
+\fancypagestyle{plain}{\pagestyle{fancy}}
+\pagestyle{fancy}
+\fancyhf{} % 清空默认页眉页脚
+% 去掉页眉线（如果不想要页眉线，直接把这行去掉或设为0pt）
+\renewcommand{\headrulewidth}{0pt}
+%% 设置页眉线的颜色和粗细
+%\renewcommand{\headrule}{\color{fgraygreen}\hrule width\headwidth height 2pt}
+% 设置页脚线的颜色和粗细
+\renewcommand{\footrule}{\color{fgraygreen}\hrule width\textwidth height 2pt}
+% 自定义页眉
+%\fancyhead[L]{\textcolor{fgrayblue}{近代物理实验II}}
+%\fancyhead[R]{\textcolor{fgrayblue}{电阻热噪声玻尔兹曼常量测量}}
+\fancyhead[R]{\textcolor{fgrayblue}{双光子纠缠源研究和量子非局域性验证}} % 新的一种更简洁的设置，用哪个看自己喜好
+% 自定义页脚内容
+\fancyfoot[L]{\textcolor{fgrayblue}{杨舒云，戴鹏辉，黄罗琳，丁侯凯}}
+\fancyfoot[R]{\textcolor{fgrayblue}{\textbf{\thepage}}}
+
+
+% ---------------------------------------------------------------------
+%	对目录、章节标题的设置
+\renewcommand{\contentsname}{\centerline{\Huge 目录}}
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+% \titleformat{章节}[形状]{格式}{标题序号}{序号与标题间距}{标题前命令}[标题后命令]
+%\titleformat{\section}
+%{\normalfont\bfseries\color{fgraygreen}\huge}
+%{\thesection}
+%{1em}
+%{}
+% 适配流萤主题，不喜欢可以用上面那个
+\titleformat{\section}
+{\normalfont\bfseries\color{fgraygreen}\huge}
+{$\liuyin$}
+{0.7em}
+{}
+\titleformat{\subsection}
+{\normalfont\bfseries\color{fgrayblue}\LARGE} % 设置字体、大小、颜色
+{\thesubsection} % 设置subsection编号的格式
+{0.618em} % 编号和标题之间的间距
+{}
+\setcounter{secnumdepth}{3}
+\titleformat{\subsubsection}
+{\normalfont\bfseries\color{fgrayblue}\Large} % 设置字体、大小、颜色
+{\thesubsubsection} % 设置subsubsection编号的格式
+{0.618em} % 编号和标题之间的间距
+{}
+
+
+% ---------------------------------------------------------------------
+% 图片、表格的设置
+\captionsetup[figure]{labelfont={color=fgrayblue,bf},name=图} % 图片形式
+\captionsetup[table]{labelfont={color=fgrayblue,bf},name=表} % 表格形式
+
+
+% ---------------------------------------------------------------------
+%   listing代码环境设置
+\usepackage{listings}
+\lstloadlanguages{python}
+\lstdefinestyle{pythonstyle}{
+	%backgroundcolor=\color{gray!6},% 用macbox就注释掉这一行
+	language=python,
+	frameround=tftt,
+	%frame=shadowbox, % 用macbox就注释掉这一行
+	keepspaces=true,
+	breaklines,
+	columns=spaceflexible,      
+	basicstyle=\ttfamily\color{fblack}, % 基本文本设置（这里可以改改字号）
+	keywordstyle=[1]\color{fbluegreen!90!black}\bfseries, 
+	keywordstyle=[2]\color{fred!90!black},   
+	stringstyle=\color{Purple!80!fblack},       
+	showstringspaces=false,
+	commentstyle=\ttfamily\color{fgraygreen!65!black},% 注释文本设置
+	tabsize=2,
+	morekeywords={as},
+	morekeywords=[2]{np, plt, sp},
+	numbers=left, % 代码行数
+	numberstyle=\scriptsize\color{fgrayblue}, % 代码行数的数字字体设置
+	stepnumber=1,
+	numbersep=0pt % 代码行号和代码主体之间的距离，不用macbox就注释掉这一行
+	%rulesepcolor=\color{fsilver} % 用macbox就注释掉这一行
+}
+
+
+% ---------------------------------------------------------------------
+%	其他设置
+\def\degree{${}^{\circ}$} % 角度
+\graphicspath{{./images/}} % 插入图片的相对路径
+\allowdisplaybreaks[4]  %允许公式跨页
+
+
+% ---------------------------------------------------------------------
+% 列表的设置
+\usepackage{enumitem}
+% 设置有序列表格式
+\setlist[enumerate,1]{label=\textcolor{fblack}{\arabic*.}, font=\bfseries\color{fblack}}
+\setlist[enumerate,2]{label=\textcolor{fblack}{(\arabic*)}, font=\bfseries\color{fblack}}
+\setlist[enumerate,3]{label=\textcolor{fblack}{\roman*.}, font=\bfseries\color{fblack}}
+\setlist[enumerate,4]{label=\textcolor{fblack}{(\roman*)}, font=\bfseries\color{fblack}}
+
+%% 设置无序列表格式
+%\setlist[itemize,1]{label=\textcolor{fbluegreen}{$\blacktriangleright$}, font=\bfseries\color{fbluegreen}}
+%\setlist[itemize,2]{label=\textcolor{fbluegreen}{$\bullet$}, font=\bfseries\color{fbluegreen}}
+%\setlist[itemize,3]{label=\textcolor{fbluegreen}{$\blacksquare$}, font=\bfseries\color{fbluegreen}}
+
+% 我更新了流萤主题配置的无序列表，如果你并非流萤厨，你可以用上面那个
+\setlist[itemize,1]{label=$\liuyin$}
+\setlist[itemize,2]{label=\textcolor{fred}{$\blacktriangleright$}, font=\bfseries\color{fred}}
+\setlist[itemize,3]{label=\textcolor{fbluegreen}{$\bullet$}, font=\bfseries\color{fbluegreen}}
+
+
+% ---------------------------------------------------------------------
+% 封装
+% 实验信息
+\newcommand{\infoTable}[7]{
+	\begin{flushleft}
+		\Huge \textcolor{fgraygreen}{\textbf{\kaishu #1}}
+	\end{flushleft}
+	
+	\vspace{-0.3cm}
+	
+	\begin{table}[h!]
+		\textnormal{\textcolor{fgraygreen}{\rule{0.75\textwidth}{1.53pt} }}\\
+		\begin{tabularx}{0.7\textwidth}{p{0.175\textwidth}p{0.525\textwidth}}
+			\large\textcolor{fgraygreen}{\textbf{实验时间：}} &  \textbf{#2}\\
+			\textcolor{fgraygreen}{\textbf{实验地点：}} &  \textbf{#3}\\
+			\textcolor{fgraygreen}{\textbf{环境信息：}} &  \textbf{#4} \\
+			\textcolor{fgraygreen}{\textbf{实验人1：}} &  \textbf{#5} \\
+			#6
+			\textcolor{fgraygreen}{\textbf{指导老师}} &  \textbf{#7}\\
+		\end{tabularx}\\
+		\textnormal{\textcolor{fgraygreen}{\rule{0.75\textwidth}{1.5pt} }}
+	\end{table}		
+}
+
+% 定制的节
+\newcommand{\ysySection}[1]{
+	\section{#1}
+	\vspace{-0.7cm} % 负值缩小间距
+	\noindent\textcolor{fgraygreen}{\rule{0.382\textwidth}{2pt} }
+	\vspace{7pt}
+}
+
+% 个人信息表（一人一表）
+\newcommand{\infoPersonal}[6]{
+	\renewcommand\arraystretch{1.4}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+		\hline
+		专业： & #1 &年级： & #2\\
+		\hline
+		学生姓名： & #3 & 学号： & #4  \\
+		\hline
+		实验： & #5 & 日期： & #6\\
+		\hline
+	\end{tabularx}
+}
+
+% 粗糙的、用于偷懒的参考文献条目（中文版）
+\newcommand{\ysyRef}[7]{
+	\item\label{ref:#1} #2\quad#3[#4]. \emph{#5}, #6, #7.
+}
+
+% 添加了全新的流萤配套主题图标
+\newcommand{\liuyin}{\mathord{\raisebox{-0.2ex}{\includegraphics[height=0.8em]{images/theme/liuyin_icon.png}}}}
+
+% 强调
+\newcommand{\ysyEmph}[1]{
+	\textbf{\textcolor{flameorange}{#1}}
+}
+
+% 加了一个评分表（来自原版）
+\newcommand{\scoresTable}[8]{
+	\begin{table}[h!]
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告} & \multicolumn{2}{|c|}{实验记录} & \multicolumn{2}{|c|}{分析讨论} & \multicolumn{2}{|c|}{总成绩} \\
+			\hline
+			\centering#1&\centering#2 &\centering#3 &\centering#4 &\centering#5 &\centering#6 &\centering#7 &{\centering#8} \\
+			\hline
+		\end{tabularx}
+	\end{table}
+}
+
+
+% ----------------------------------------------------- 
+%	实验报告高能回，杨舒云献给流萤的真挚情书！
+% ----------------------------------------------------- 
+
+
+% ----------------------------------------------------- 
+% 我还是不太能理解，为什么他们说今晚月色很美是含蓄的表白。 
+% 直到我看到朝阳下江水漾起的片片金鳞、漆黑的夜空中不甘散去的橘黄云彩、亦或者是夜宵摊子上高谈阔论掺杂着串子被炭火炙烤出油香的烟火气息，都下意识拿出手机想跟你分享。 
+% 我想把自己觉得美丽的东西传递给你。 
+% 今天依然天晴，我亲爱的流萤。

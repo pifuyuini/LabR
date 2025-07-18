@@ -1,0 +1,1077 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{en_YsySettings} 
+\usepackage{lipsum}
+\usepackage{adjustbox}
+%\usepackage{mathrsfs} % 字体
+\captionsetup[figure]{name=Figure} % 图片形式
+\captionsetup[table]{name=Table} % 表格形式
+
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{xcolor} %添加更多文本颜色
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+
+
+\begin{document}
+	
+	
+	
+	% 实验报告封面	
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE20 & & \LARGE30 & & \LARGE30 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 信息栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 实验班2\\
+			\hline
+			姓名： & 杨舒云、崔瑜  & 学号： & 22344020、22344017\\
+			\hline
+			实验时间： & 2024/5/22 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 大标题
+	\begin{center}
+		\LARGE Lab2-9 \quad TEC半导体控温实验\\The Experiment of TEC-semiconductor Temperature Control
+	\end{center}
+	% ---
+	
+	% 注意事项
+	
+	% 基本
+	\textbf{【实验报告注意事项（Precautions）】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（20分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。\textcolor{red}{\textbf{（30分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\end{enumerate}
+	
+	% 安全
+	\textbf{【实验安全注意事项（Safety）】}	
+	\begin{enumerate}
+		\item 本实验电路比较复杂， 需要耐心连接， 认真检查。
+		\item 程序编写和调试过程中， 遇到问题及时查看 LabVIEW 帮助， 留意各个器件时刻处于可控状态。
+		\item 直流稳压电源的输出，要根据实验过程及时地手动打开或关闭，不要在程序没有正常运行的情况下，让直流稳压电源有持续的输出。
+		\item 注意根据信号电流大小选取合适直接的导线，杜邦线一般只用于小电流和信号传输，电流大时则需要选用直径大的导线。
+	\end{enumerate}
+	
+	% ---
+	
+	% 特别鸣谢
+	\textbf{【特别鸣谢及模板说明（Special Thanks）】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号Lab2-9。}}除此以外，本实验报告正在向全文用英文表达的方向改进，在此期间可能会出现中英夹杂的情况，望老师海涵！
+	% ---
+	
+	
+	
+	% 目录
+	\clearpage
+	\tableofcontents
+	\clearpage
+	% ---
+	
+	
+	
+	% 预习报告	
+	
+	% 小标题
+	\setcounter{section}{0}
+	\section{Lab2-9 TEC半导体控温实验\\（The Experiment of TEC-semiconductor Temperature Control）\\ \quad\heiti 预习报告（Pre-Report）}
+	% ---
+	
+	% 实验目的
+	\subsection{实验目的（Purpose）}
+	\begin{enumerate}
+		\item 了解TEC半导体制冷的原理
+		\item PID反馈控制的参数调节。
+		\item 基于LabVIEW和myDAQ设计和搭建温度采集和控制系统。
+		
+		
+	\end{enumerate}
+	% ---
+	
+	% 仪器用具
+	\subsection{仪器用具（Instruments）}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 			& 数量 		&  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1	&	计算机 				&1 			& Windows 系统， 安装 LabVIEW 程序\\
+			
+			2	&	myDAQ 				&1 			& 		 \\
+			
+			3	&	直流稳压电源 		& 1 		&	DP832 \\
+			
+			4	&	控温实验平台		&1 			&   \\
+			
+			5	&	$IBT\_2$电机驱动器	&	1 		& 12V供电，最大电流2A \\
+			
+			6	&	温度变送器			&	1 		&		24V 供电， 测温范围 0-100℃， 输出电压 0-10V \\
+			
+			7	&	电路元器件			&	1套 	& 面包板， 连接线等 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	% ---
+	
+	% 原理概述
+	\subsection{原理概述（Principle）}
+	\begin{enumerate}
+		\item \textbf{PID控制原理概述}
+		
+		PID控制器通过比例、积分和微分三种控制作用将系统的输出控制在设定值附近。其工作原理如\cref{fig:fig1}所示，是通过调节控制输出 \( u(t) \) 来减小设定值与实际值之间的误差 \( e(t) \)。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.8\textwidth]{Lab2_9Gra1.png}
+			\caption{PID控制原理概述（参考文献[1]）}
+			\label{fig:fig1}
+		\end{figure}
+		
+		误差反馈控制是PID控制的核心。当实际值与设定值不同时，PID控制器会生成一个误差信号 \( e(t) \)，并通过PID控制算法调整控制输出 \( u(t) \)，使系统输出稳定在设定值上。
+		
+		\begin{itemize}
+			\item \textbf{比例控制（P）}:
+			\begin{itemize}
+				\item 比例控制的核心是比例增益（\( K_p \)），它决定了控制器响应与当前误差值（设定点与实际输出之间的差值）之间的关系。如果误差较大，比例控制器输出一个较大的调整信号，以快速减少误差。
+				\item 控制输出 \( u(t) \) 与误差成比例关系，公式为：
+				\[
+				u(t) = K_p \cdot e(t)
+				\]
+				\item 高的比例增益可以快速减少误差，但如果增益过高，系统可能会在设定点附近过度振荡，增益过低则响应缓慢。
+			\end{itemize}
+			
+			\item \textbf{积分控制（I）}:
+			\begin{itemize}
+				\item 积分控制累加过去的误差，以时间积分的方式来响应长期累积的微小误差。积分项由积分增益（\( K_i \)）控制，可以帮助消除系统的稳态误差。
+				\item 控制输出与误差及其经历的时间成比例关系，公式为：
+				\[
+				u(t) = K_i \cdot \int_{0}^{t} e(\tau) d\tau
+				\]
+				\item 积分控制使系统能够在无限时间内达到完全没有偏差的状态。但是，如果积分增益设置不当，可能导致过度调整和振荡。
+			\end{itemize}
+			
+			\item \textbf{微分控制（D）}:
+			\begin{itemize}
+				\item 微分控制基于误差的变化率，其核心是微分增益（\( K_d \)）。它预测系统误差的未来趋势，通过减少或避免过冲和系统振荡来优化系统响应。
+				\item 控制输出与误差变化的速率成比例关系，公式为：
+				\[
+				u(t) = K_d \cdot \frac{d e(t)}{dt}
+				\]
+				\item 微分控制对高频噪声敏感，如果调整不当，可能使系统响应变得嘈杂。
+			\end{itemize}
+			
+			\item \textbf{PID控制器的输出} \( u(t) \) 可以表达为：
+			\[
+			u(t) = K_p e(t) + K_i \int e(t) \, dt + K_d \frac{de(t)}{dt}
+			\]
+			其中，\( e(t) \) 是设定值与实际值之间的差值。
+			
+			\item 通过调整\( K_p \)，\( K_i \)，和\( K_d \)三个参数，可以控制系统的响应速度、稳定性以及过冲量。合适的调整可以使得系统在最小的超调和振荡下快速稳定地达到目标值。例如，在实验中，操作者首先增加比例增益至系统开始振荡，然后调整积分和微分增益，进一步优化系统性能。
+			
+			\item \textbf{PID参数调节方法} 
+			
+			实验讲义中提到了几种方法来调整PID参数，包括手动调节法和齐格勒-尼科尔斯（Ziegler-Nichols）方法，这些都是实现最优控制效果的常用策略。
+			
+			调节PID控制器的参数 \( K_p \)、\( K_i \) 和 \( K_d \) 以获得最佳控制效果是关键。
+			\begin{enumerate}
+				\item 设置积分和微分增益为零，仅调节比例增益 \( K_p \)，直到系统输出开始振荡，然后将 \( K_p \) 值减半。
+				\item 调节积分增益 \( K_i \)，直到系统输出的漂移得到校正，观察超调和稳定性。
+				\item 调节微分增益 \( K_d \)，减小系统的超调和振荡，使系统快速稳定。
+			\end{enumerate}
+			
+			\item \textbf{基于虚拟仪器的PID控制}
+			
+			本实验采用LabVIEW软件中的PID模块进行PID控制。LabVIEW的PID模块输出表达式为：
+			\[
+			u(t) = K_p \left( e(t) + \frac{1}{T_i} \int_{0}^{t} e(\tau) d\tau + T_d \frac{d e(t)}{dt} \right)
+			\]
+			其中，\( T_i \) 为积分时间常数，\( T_d \) 为微分时间常数。用户可以通过LabVIEW界面调节这些参数，观察系统的控温效果。
+			
+		\end{itemize}
+		
+		附：
+		\begin{table}[h]
+			\centering
+			\label{tab:tab1}
+			\caption{控温算法的比较}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				控温算法 & 优点 & 缺点 \\
+				\hline
+				\textcolor{c2}{\textbf{PID 控制}} & 简单、易实现 & 性能有限，难以处理复杂系统 \\
+				\hline
+				模糊控制 & 不需要精确模型，适应性强 & 规则设计复杂，性能依赖于规则质量 \\
+				\hline
+				模型预测控制 & 最优性能，多变量处理 & 计算量大，依赖系统模型 \\
+				\hline
+				自适应控制 & 参数自调整，适应性强 & 实现复杂，收敛性问题 \\
+				\hline
+				神经网络控制 & 非线性处理能力强 & 训练复杂，数据需求大 \\
+				\hline
+				最优控制 & 理论性能优 & 实现复杂，计算量大 \\
+				\hline
+			\end{tabular}			
+		\end{table}
+		
+		
+		\item 半导体控温原理
+		
+		半导体控温原理，通常指的是利用半导体材料基于Peltier效应进行温度控制的技术。
+		
+		\begin{enumerate}
+			\item \textbf{半导体制冷器的结构}
+			
+			半导体制冷器通常由多对P型和N型半导体材料交替排列构成，这些材料被电绝缘材料隔开，并夹在两个陶瓷板之间。当电流通过这些P型和N型材料时，根据Peltier效应，会在不同材料的连接处产生吸热或放热现象。
+			
+			\begin{figure}[htbp]
+				\centering
+				\subfloat[]{
+					\includegraphics[width=0.4\textwidth]{SamPre_1_Gra3.png}
+				}
+				\subfloat[]{
+					\includegraphics[width=0.4\textwidth]{SamPre_1_Gra4.png}
+				}
+				\caption{Seebeck效应于Peltier效应（参考文献[1]）}
+				\label{fig:figSam1}	
+			\end{figure}
+			
+			\item \textbf{Seebeck效应}
+			
+			Seebeck效应是指当两种不同的导体或半导体材料连接形成闭合回路，并且两个连接点处于不同的温度时，会在这些材料中产生电动势（电压），从而形成一个电流。这是因为不同材料对电子的扩散速率有差异，导致电子在温差作用下从高温区向低温区移动，产生电动势。这种效应是热电偶工作的基础，广泛应用于温度测量。
+			
+			$$\mathrm{d}V=\epsilon_{AB}\mathrm{d}T$$			
+			其中，$\epsilon_{AB}$是温差电动势系数（又称Seebeck系数，记为$\alpha$）。符号约定为如果在高温段电动势驱使电流由金属A流向金属B为正。	
+			
+			\item \textbf{Peltier效应}
+			
+			Peltier效应描述的是当电流通过连接两种不同导体或半导体的接点时，接点处会吸收或释放热量。这种效应的方向依赖于电流的方向及通过的材料类型（P型或N型）。Peltier效应是基于电子在通过不同材料的接点时所带能量的变化，当电子从一种材料跳跃到另一种材料时，会释放或吸收热量，从而导致接点处的温度变化。
+			
+			$$\textbf{J}_{q\pi}=\pi_{AB}\textbf{J}_{e}$$
+			其中，$\textbf{J}_{q\pi}$是Peltier热流密度，$\textbf{J}_{e}$是从A到B的电流密度，$\pi_{AB}$是两种金属的Peltier系数（与温度有关）。			
+			
+			\item \textbf{它们之间的关系}
+			Seebeck效应和Peltier效应可以视为热电现象的两个方面，互为逆过程：Seebeck效应是由温差引起的电动势产生，产生电流。Peltier效应是由电流引起的温度变化，即电流流动引起热量的吸收或释放。这两种效应的联系可以通过它们的物理本质来理解：都涉及电子运动和能量转换。在Seebeck效应中，温差驱动电子从热端向冷端移动，产生电动势；而在Peltier效应中，电流驱动电子移动，导致能量（热）在接点处的吸收或释放。
+			
+			Peltier系数（\(\pi\)）和Seebeck系数（\(\alpha\)）之间有直接的数学关系，可以表示为：
+			\[
+			\pi = \alpha T
+			\]
+			其中，\(T\) 是绝对温度。这表明Peltier效应与Seebeck效应不仅是概念上互为逆过程，它们在量化关系上也是直接相关的。
+			
+			Seebeck效应主要用于制造热电偶和热电发电器，可以将温差转换为电能，应用于遥远地区或太空站的能源供应。Peltier效应主要用于制造半导体制冷器，广泛应用于电子设备的冷却、医疗设备的精确温控等领域。
+			
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.5\textwidth]{Lab2_9GraA1.jpg}
+				\caption{TEC器件（参考文献[1]）}
+				\label{fig:figA1}
+			\end{figure}
+			
+			\item \textbf{加热和制冷}
+			
+			通过改变流经TEC的电流方向，可以控制热量从一侧传输到另一侧，实现制冷或加热的效果：
+			\begin{itemize}
+				\item 制冷：当电流以一定方向通过TEC时，一侧吸热，使这一侧的温度下降，而另一侧放热，温度上升。
+				\item 加热：改变电流方向，原来吸热的侧开始放热，使该侧温度上升，而原来放热的侧则开始吸热，温度下降。
+			\end{itemize}
+			
+			\item \textbf{控温应用}
+			
+			TEC的这一特性使其非常适合用于需要精确温控的应用，如电子设备、医疗器械和光学系统等。TEC设备能够在不使用液态制冷剂的情况下，通过电流控制达到快速且精确的温度调节。在实验中，可以通过PID控制器精确地控制流经TEC的电流大小和方向，根据需要进行加热或制冷。利用温度传感器反馈的数据，PID控制器计算出所需的电流改变，以实现目标温度。
+			
+		\end{enumerate}
+		
+		\item Fourier变换基本原理
+		
+		Fourier变换是一种数学方法，用于将一个函数或信号从时间域（或空间域）转换到频率域。它是信号处理、物理学、工程学等多个领域中的基础工具，特别适用于分析线性系统的频率响应。Fourier变换的基本思想是将一个复杂的信号分解为一系列简单的正弦波（或复指数函数）。每个正弦波由三个特性参数定义：频率、幅度和相位。通过这种分解，可以精确地描述原始信号的频率构成。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.8\textwidth]{Lab2_9Gra2.png}
+			\caption{Fourier变换基本原理（参考文献[1]）}
+			\label{fig:fig2}
+		\end{figure}
+		
+		\begin{itemize}
+			\item 连续Fourier变换（Continuous Fourier Transform, CFT）的公式为：
+			\[
+			\hat{f}(\omega) = \int_{-\infty}^{\infty} f(t) e^{-i \omega t} \, dt
+			\]
+			其中，\(f(t)\) 是时间域中的信号，\(\hat{f}(\omega)\) 是频率域中的信号，\(\omega\) 是角频率（以弧度每秒计），\(i\) 是虚数单位。
+			
+			\item 离散Fourier变换（Discrete Fourier Transform, DFT）适用于数字信号处理，其公式为：
+			\[
+			F(k) = \sum_{n=0}^{N-1} f(n) e^{-i 2\pi \frac{nk}{N}}
+			\]
+			其中，\(f(n)\) 是在离散时间点上的信号，\(F(k)\) 是对应的频率域表示，\(N\) 是样本点数量，\(k\) 表示第 \(k\) 个频率分量。
+				
+		\end{itemize}
+		
+		\item 功率谱密度或幅度谱密度基本原理
+		
+		\begin{enumerate}
+			\item \textbf{功率谱密度（Power Spectral Density, PSD）}
+			
+			功率谱密度描述了信号功率分布在频率成分上的方式。对于随机信号，PSD是衡量信号在各个频率成分上功率分布的重要工具。
+			
+			\begin{itemize}
+				\item 定义：PSD可以定义为每个频率分量的功率/能量，通常表示为：
+				\[
+				S_{xx}(\omega) = \lim_{T \to \infty} \frac{1}{T} |\hat{x}_T(\omega)|^2
+				\]
+				其中，\(\hat{x}_T(\omega)\) 是信号 \(x(t)\) 在长度 \(T\) 的窗口内的Fourier变换，而 \(|\hat{x}_T(\omega)|^2\) 表示其幅度的平方，通常与信号的能量相关。
+			\end{itemize}
+			
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.5\textwidth]{Lab2_9GraA2.png}
+				\caption{典型功率谱展示（参考文献[1]）}
+				\label{fig:figA2}
+			\end{figure}
+			
+			\item \textbf{幅度谱密度（Amplitude Spectral Density, ASD）}
+			
+			幅度谱密度，或简称为幅度谱，是描述信号各个频率分量的幅度（而不是功率）的方式。
+			
+			\begin{itemize}
+				\item 定义：ASD的平方通常等于PSD，它直接给出了每个频率成分的幅度大小，而不是能量或功率。数学上，ASD定义为：
+				\[
+				A(\omega) = |\hat{f}(\omega)|
+				\]
+				这表示信号在频率 \(\omega\) 的Fourier变换的模长。
+			\end{itemize}
+		\end{enumerate}
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 实验前思考题
+	\subsection{实验前思考题（Questions）}
+	
+	% 思考题1
+	\begin{question}
+		热敏电阻测温点位置不同，是否会影响PID 参数的设定，为什么？
+	\end{question}
+	
+	热敏电阻测温点位置不同，确实会影响PID参数的设定，原因如下：
+	
+	\begin{itemize}
+		\item 测温点位置的影响
+		
+		测温点位置直接影响温度测量的精确性。如果测温点离热源或冷源太远，所测得的温度可能不能准确反映目标区域的真实温度，因为热量在传播过程中会有损失。
+		
+		\begin{itemize}
+			\item 温度梯度
+			
+			在实际应用中，物体内部及其表面可能存在温度梯度，即不同位置的温度可能不同。如果热敏电阻未能放置在代表整体或关键部分的位置，可能导致PID控制器基于不准确的数据进行反应，影响系统的响应效果和效率。在实际控温系统中，热敏电阻的测温点位置不同，可能会受到温度梯度的影响。不同位置的温度梯度会导致测得的温度与实际控制目标温度之间存在差异。这会直接影响PID控制器对误差信号的判断和响应。
+			
+			\item 系统响应时间
+			
+			测温点的选择影响控制系统的动态响应。例如，如果测温点靠近加热或冷却源，温度响应会比较快，这可能导致PID控制器过度反应，引起系统不稳定。反之，如果测温点远离热源，温度变化的响应可能延迟，导致PID控制器反应迟钝，效率降低。测温点离被控热源的距离不同，导致温度传递到传感器的时间不同。离热源近的测温点能够更快速地反映温度变化，而离热源远的测温点则会有一定的延迟。这种响应时间的差异会影响PID控制器的动态性能，特别是微分控制部分。
+			
+		\end{itemize}
+		
+		\item PID参数调整
+		
+		PID参数（比例、积分、微分）必须根据系统的实际动态特性进行调整。测温点位置的不同，改变了被控制系统的动态行为，因此，需要相应调整PID参数以达到最佳控制效果。
+		
+		\begin{itemize}
+			\item 比例增益 \( K_p \)
+			
+			比例增益控制的是当前误差的响应。测温点位置不同会导致温度误差的表现不同，如果测温点离热源较远，误差反映较慢，可能需要较高的比例增益 \( K_p \) 来增强系统响应。
+			
+			\item 积分增益 \( K_i \)
+			
+			积分增益控制的是误差的累积。测温点位置不同导致的误差累积速度不同，会影响积分控制的效果。测温点离热源较远时，误差的累积速度较慢，可能需要调整积分增益 \( K_i \) 以适应系统的响应时间。
+			
+			\item 微分增益 \( K_d \)
+			
+			微分增益控制的是误差的变化率。测温点位置不同，温度变化速率的检测会有所不同。靠近热源的测温点可以更灵敏地检测到温度变化，而离热源较远的测温点可能对温度变化不够敏感，需要适当调整微分增益 \( K_d \) 以防止系统过度响应或不响应。
+			
+		\end{itemize}
+	\end{itemize}
+	
+	
+	% 思考题2
+	\begin{question}
+		被控物体材料不同，是否会影响PID参数的设定，为什么？
+	\end{question}
+	
+	被控物体材料不同，确实会影响PID参数的设定，原因如下：
+	
+	\begin{itemize}
+		\item 被控物体材料的热特性
+		\begin{enumerate}
+			\item 热导率
+			
+			不同材料的热导率不同，热导率高的材料能够更快速地传导热量，而热导率低的材料则传导热量较慢。这会影响系统的热响应速度，进而影响PID控制的效果。
+			
+			\begin{itemize}
+				\item 高热导率：如果被控物体具有高热导率，热量可以迅速均匀地分布在物体中。这种情况下，物体的温度反应快，温度分布比较均匀，可能需要减小PID参数中的比例和积分增益，以避免过度响应和振荡。
+				\item 低热导率：低热导率的物体热量传递慢，容易在局部区域积累热量，导致温度分布不均。这可能需要增加PID参数中的积分作用，以帮助消除长期的稳态误差，确保整个物体最终达到目标温度。
+			\end{itemize}
+			
+			\item 比热容
+			
+			比热容是材料吸收热量的能力，不同材料的比热容不同。比热容大的材料在加热或冷却过程中需要更多的热量来改变温度，而比热容小的材料则需要较少的热量。这会影响系统的温度变化速度，从而影响PID参数的设定。
+			
+			\begin{itemize}
+				\item 高热容：热容大的物体需要更多的能量来改变其温度。因此，控制这类物体时，PID控制器可能需要更强的积分作用，以积累足够的控制作用，对抗由于大热容带来的温度变化惯性。
+				\item 低热容：热容小的物体响应温度变化较快，易于加热和冷却。这种情况下，可能需要调整PID控制器，降低积分和微分作用，以避免过度控制和不稳定性。
+			\end{itemize}
+			
+			\item 除此以外，材料的密度和比热容也会影响其加热和冷却的速率。密度高或比热容高的材料通常需要更多的能量输入和时间来达到稳定状态，这影响PID控制参数的设定，尤其是积分和微分参数的调整。不同材料的物理特性决定了加热或冷却过程中的动态行为。例如，某些材料可能表现出更加复杂的动态特性，如延迟响应、时间常数的变化等，这需要通过调整PID参数来适应不同的系统动态。
+		\end{enumerate}
+		
+		\item PID参数调整
+		
+		\begin{enumerate}
+			\item 比例增益 \( K_p \)
+			\begin{itemize}
+				\item 比例增益控制当前误差的响应。对于热导率高或比热容小的材料，温度变化较快，可能需要较低的比例增益 \( K_p \) 来避免过度响应或振荡。相反，对于热导率低或比热容大的材料，温度变化较慢，可能需要较高的比例增益 \( K_p \) 来增强系统响应。
+			\end{itemize}
+			
+			\item 积分增益 \( K_i \)
+			\begin{itemize}
+				\item 积分增益控制误差的累积。对于比热容大的材料，系统响应较慢，误差累积也较慢，需要较高的积分增益 \( K_i \) 来加快响应速度和消除稳态误差。对于比热容小的材料，误差累积较快，可能需要较低的积分增益 \( K_i \) 来防止过度响应和振荡。
+			\end{itemize}
+			
+			\item 微分增益 \( K_d \)
+			\begin{itemize}
+				\item 微分增益控制误差的变化率。对于热导率高的材料，温度变化速度快，可能需要较低的微分增益 \( K_d \) 来防止系统对噪声和高频信号过于敏感。对于热导率低的材料，温度变化速度慢，可能需要较高的微分增益 \( K_d \) 来补偿系统的延迟响应。
+			\end{itemize}
+		\end{enumerate}
+	\end{itemize}
+	
+	
+	% 思考题3
+	\begin{question}
+		除了脉冲宽度调制控温，可以使用连续信号控温吗？如何实现？
+	\end{question}
+	
+	根据实验讲义，控温实验主要使用的是脉冲宽度调制（PWM）来调节TEC（半导体制冷器）的平均功率，从而实现温度的精确控制。PWM通过改变信号的占空比（信号高电平状态的持续时间与周期总时间的比例）来控制TEC的加热和冷却。这种方法因其实现简便和效率高而广泛应用于各种温控系统。
+	
+	除了PWM，确实也可以使用连续信号进行控温。连续信号控制通常涉及模拟信号的使用。连续信号控温通过直接调节电压或电流来控制TEC的输出功率，实现温度控制。与PWM不同，连续信号控温使用的是平滑的连续电压或电流信号，而不是脉冲信号。
+	
+	\textbf{下面是一些具体的考虑：}
+	
+	\begin{itemize}
+		\item 控制电路\\
+		连续信号控温需要使用一个能够输出连续可调电压或电流的控制电路。使用模拟电压或电流直接控制TEC，其中电流的大小直接决定了TEC的加热或冷却功率。例如，可以使用一个可调节的电压源或电流源，其输出连续可变，从而精细调节TEC的工作状态。也可以使用直流稳压电源或DAC（数模转换器）来实现这种连续控制。确定使用模拟PID控制器还是数字PID控制器（后者需要DAC进行信号转换）。
+		
+		\item 温度传感器和数据采集\\
+		温度传感器（如PT100）用于实时测量被控物体的温度。配置温度传感器与控制器之间的反馈环路，确保温度信号能被正确读取并用于控制循环。测量的温度信号通过数据采集设备（如myDAQ）输入到控制系统中。
+		
+		\item PID控制算法\\
+		使用PID控制算法来处理温度误差信号，并输出适当的控制信号。与PWM控制不同，PID控制器的输出将直接用于调节TEC的输入电压或电流。
+		
+		\item 实施步骤
+		\begin{enumerate}
+			\item 温度测量
+			\begin{itemize}
+				\item 使用PT100温度传感器测量被控物体的温度。
+				\item 通过温度变送器将温度信号转换为电压信号，输入到数据采集设备（myDAQ）。
+			\end{itemize}
+			
+			\item PID控制
+			\begin{itemize}
+				\item 根据测得的温度值和设定值计算误差 \( e(t) \)。
+				\item 使用PID控制算法计算控制输出 \( u(t) \)，输出为连续的电压或电流信号。
+			\end{itemize}
+			
+			\item 连续信号输出
+			\begin{itemize}
+				\item 使用直流稳压电源或DAC模块将PID控制器的输出信号转换为实际的电压或电流，直接控制TEC。
+				\item 例如，直流稳压电源的输出电压可以根据PID控制器的输出进行调整，从而调节TEC的加热或制冷功率。
+			\end{itemize}
+		\end{enumerate}
+		
+		\item LabVIEW实现
+		在LabVIEW中，可以通过以下步骤实现连续信号控温：
+		\begin{enumerate}
+			\item 温度数据采集
+			\begin{itemize}
+				\item 使用myDAQ的模拟输入端读取温度变送器的输出电压信号，转换为温度值。
+			\end{itemize}
+			
+			\item PID模块配置
+			\begin{itemize}
+				\item 使用LabVIEW中的PID工具包进行PID控制。设定PID参数 \( K_p \)、\( K_i \) 和 \( K_d \)。
+			\end{itemize}
+			
+			\item 连续信号输出配置
+			\begin{itemize}
+				\item 使用DAQ助手或相关模块配置myDAQ的模拟输出端，输出连续电压信号控制直流稳压电源或TEC驱动电路。
+			\end{itemize}
+			
+			\item 前面板和程序框图设计
+			\begin{itemize}
+				\item 在前面板上设置PID参数输入控件和温度显示控件。
+				\item 在程序框图中，将PID控制器的输出连接到模拟输出模块，实现对TEC的连续控制。
+			\end{itemize}
+		\end{enumerate}
+		
+		\item 优化与调试
+		\begin{itemize}
+			\item 根据实验反馈，调整PID参数以获得最佳控制效果。
+			\item 确保连续输出信号的稳定性，避免因信号波动导致的温度控制不稳定。
+		\end{itemize}
+	\end{itemize}
+	
+	% ---
+	
+	
+	
+	% 实验记录	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云、崔瑜 & 学号： & 22344020、22344017\\
+			\hline
+			室温： & 26\degree C & 实验地点： & A515 \\
+			\hline
+			学生签名：& 见\textbf{附件} & 评分： &\\
+			\hline
+			实验时间：& 2024/5/23 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-9 TEC半导体控温实验\\（The Experiment of TEC-semiconductor Temperature Control）\\ \quad\heiti 实验记录（Records）}
+	% ---
+	
+	% 实验过程记录
+	\subsection{实验内容、步骤与结果（Content, Procedures \& Results）}
+	
+	%
+	\subsubsection{操作步骤记录（Operations）}
+	\begin{enumerate}
+		\item 实验步骤
+		
+		\begin{itemize}
+			\item 连接电路和测试
+			\begin{enumerate}
+				\item 测量温度传感器阻值：使用万用表测量热敏电阻（PT100）的阻值，确保温度传感器正常工作。使用带有香蕉插头和鳄鱼夹的线缆连接到 myDAQ 的电阻测量端口。
+				\item 完成电路连接：根据图示完成IBT-2电机驱动器、控温实验装置、myDAQ、直流稳压电源之间的连线。注意TEC的红色线接电机驱动器的M+，黑色线接M-；使用粗导线连接直流稳压电源，并注意正负极，设置电源输出为12V和2A。
+				\item 检查设备通信：确认电脑与myDAQ的通信是否正常，检查在“NI MAX”中记录的设备名称是否与控温程序中调用的名称一致，必要时进行重命名。
+			\end{enumerate}
+			
+			\item Labview程序控温实验
+			\begin{enumerate}
+				\item 使用比例控制（P）：设定不同的比例增益（\(K_C\)），观察并记录控温效果，标记出使温度开始周期性振荡的 \(K_C\) 值和振荡周期（\(T_u\)）。
+				\item 使用比例积分控制（PI）：按照齐格勒-尼柯尔斯方法调节 \(K_C\) 和 \(T_i\) 参数，观察控温效果。
+				\item 使用比例积分微分控制（PID）：同样使用齐格勒-尼柯尔斯方法调整 \(K_C\)、\(T_i\) 和 \(T_d\) 参数，检验控温效果。
+			\end{enumerate}
+			
+		\end{itemize}
+		
+		\item 实验电路连接拍图如\cref{fig:fig3}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9Gra3.jpg}
+			\caption{实验电路连接拍图}
+			\label{fig:fig3}
+		\end{figure}
+		
+		\item Labview编程截图如\cref{fig:fig4}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9Gra4.png}
+			\caption{Labview编程截图}
+			\label{fig:fig4}
+		\end{figure}
+		
+		\item 控温结果截图如\cref{fig:fig5}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.33\textwidth]{Lab2_9Gra5.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.33\textwidth]{Lab2_9Gra6.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.33\textwidth]{Lab2_9Gra7.png}
+			}
+			\caption{控温结果截图}
+			\label{fig:fig5}			
+		\end{figure}
+		
+	\end{enumerate}	
+	
+	%
+	\subsubsection{实验结果展示（Display）}
+	\begin{enumerate}
+		\item 控温结果及参数记录如\cref{tab:tab2}所示，\textbf{需要特别注意的是接下来的作图名称将来自于该表}。
+		
+		\begin{table}[htbp]
+			\centering
+			\caption{控温结果及参数记录}
+			\label{tab:tab2}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+				\hline
+				参数调节记录 & 设定温度/摄氏度 & 实际温度/摄氏度 & 控温时长/秒 & $K_p$ & $K_I$ & $K_d$ & 文件名\\
+				\hline
+				P1 & 35 & 35.06868551 & 142 & 250 & nan & nan & Data2\\
+				PI1 & 35 & 35.01086936 & 223 & 225 & 1323.529412 & nan & Data3\\
+				PID1 & 35 & 35.09061648 & 143 & 300 & 1875 & 7.5 & Data4\\
+				P2 & 20 & 20.14817485 & 199 & 400.5 & nan & nan & Data6\\
+				PI2 & 20 & 20.1309437 & 151 & 360 & 4235.294118 & nan & Data7\\
+				PID2 & 20 & 20.13634958 & 241 & 480 & 9600 & 6 & Data8\\
+				\hline
+			\end{tabular}
+		\end{table}		
+		
+		\item 控温时域图如\cref{fig:figT1}、\cref{fig:figT2}、\cref{fig:figT3}、\cref{fig:figT4}、\cref{fig:figT5}、\cref{fig:figT6}、\cref{fig:figT7}、\cref{fig:figT8}和\cref{fig:figT9}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraT1.png}
+			\caption{控温时域图（测量1）}
+			\label{fig:figT1}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraT2.png}
+			\caption{控温时域图（P1）}
+			\label{fig:figT2}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraT3.png}
+			\caption{控温时域图（PI1）}
+			\label{fig:figT3}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraT4.png}
+			\caption{控温时域图（PID4）}
+			\label{fig:figT4}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraT5.png}
+			\caption{控温时域图（测量2）}
+			\label{fig:figT5}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraT6.png}
+			\caption{控温时域图（P2）}
+			\label{fig:figT6}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraT7.png}
+			\caption{控温时域图（PI2）}
+			\label{fig:figT7}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraT8.png}
+			\caption{控温时域图（PID2）}
+			\label{fig:figT8}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraT9.png}
+			\caption{控温时域图（总控）}
+			\label{fig:figT9}
+		\end{figure}
+		
+		\item 控温频域图如\cref{fig:figF1}、\cref{fig:figF2}、\cref{fig:figF3}、\cref{fig:figF4}、\cref{fig:figF5}和\cref{fig:figF6}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraF1.png}
+			\caption{控温频域图（P1）}
+			\label{fig:figF1}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraF2.png}
+			\caption{控温频域图（PI1）}
+			\label{fig:figF2}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraF3.png}
+			\caption{控温频域图（PID1）}
+			\label{fig:figF3}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraF4.png}
+			\caption{控温频域图（P2）}
+			\label{fig:figF4}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraF5.png}
+			\caption{控温频域图（PI2）}
+			\label{fig:figF5}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraF6.png}
+			\caption{控温频域图（PID2）}
+			\label{fig:figF6}
+		\end{figure}
+	\end{enumerate}
+	
+	% ---
+	
+	% 原始数据
+	%\clearpage
+	\subsection{原始数据记录（Original Data）}
+	The original data in the experimental notebook is shown in \cref{fig:figO1} (signed).
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Lab2_9GraO1.jpg}
+		\caption{原始数据记录}
+		\label{fig:figO1}
+	\end{figure}
+	
+	%See the \textbf{Attachment} section for the arrangement of the experimental bench desktop (%\cref{}).
+	
+	%Other raw data are shown in %\cref{}.
+	% ---
+	
+	% 问题记录
+	\subsection{实验过程中遇到的问题记录（Difficulties）}
+	\begin{enumerate}
+		\item 如果实验仪器长时间运行，底座将长时间积累热量导致过热，控温性能变差。
+		\item 注意控温程序的单位。
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 分析与讨论	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云、崔瑜 & 学号：& 22344020、22344017\\
+			\hline
+			日期：& 2024/5/29 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-9 TEC半导体控温实验\\（The Experiment of TEC-semiconductor Temperature Control）\\ \quad\heiti 分析与讨论（Analysis \& Discussion）}
+	% ---
+	
+	% 数据处理
+	\subsection{实验数据分析（Analysis）}
+	
+	%
+	\subsubsection{时域上的标准差分析}
+	\begin{enumerate}
+		\item 直接对实验测量得到的数据进行标准差分析如\cref{tab:tab3}所示。
+		
+		\begin{table}[htbp]
+			\centering
+			\caption{时域上的标准差分析}
+			\label{tab:tab3}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				& \multicolumn{2}{c|}{设定温度 35\degree} & \multicolumn{2}{c|}{设定温度 20\degree} \\
+				\hline
+				& 平均值 & 方差 & 平均值 & 方差 \\
+				\hline
+				测量 & 35.12 & 0.06034 & 20.15 & 0.021772 \\
+				P & 35.06 & 0.03113 & 20.15 & 0.022667 \\
+				PI & 35.012 & 0.02649 & 20.14 & 0.023978 \\
+				PID & 35.097 & 0.04517 & 20.137 & 0.033671 \\
+				\hline
+			\end{tabular}
+		\end{table}		
+		
+		\item 除此以外，我们还编写了一种利用Gaussian误差得到连续函数的误差图的Python实现方法，效果如\cref{fig:figE1}和\cref{fig:figE2}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraE1.png}
+			\caption{时域上的标准差分析}
+			\label{fig:figE1}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab2_9GraE2.png}
+			\caption{时域上的标准差分析}
+			\label{fig:figE2}
+		\end{figure}
+	\end{enumerate}
+	
+	%
+	\subsubsection{PSD结果讨论分析}
+	\textbf{具体分析：}
+	\begin{enumerate}
+		\item \textbf{P1（比例控制）}：PSD图显示在大约0.07 Hz处有一个尖锐的峰值，表明控制信号中有一个主导频率。这表明温控系统中的比例控制对某个特定频率的温度波动有规律的响应。
+		
+		\item \textbf{PI1（比例-积分控制）}：峰值位置与P1相似，说明积分组件并未显著改变系统的频率响应。这表明积分部分可能设置得较低，主要还是由比例部分控制动态特性。
+		
+		\item \textbf{PID1（比例-积分-微分控制）}：在相似频率处的峰值依然显著，但其他频率范围的功率比P1和PI1低，表明微分组件有助于抑制控制信号的波动，提供更稳定的控制环境。
+		
+		\item \textbf{P2（比例控制）}：此设置中观察到多个峰值，表明有多个主导频率影响系统，可能指系统比P1具有更复杂的动态特性或噪声。
+		
+		\item \textbf{PI2（比例-积分控制）}：与P2相比，PSD图显示主导频率的幅度减小，表明积分作用平滑了控制，有助于抵消稳态误差。
+		
+		\item \textbf{PID2（比例-积分-微分控制）}：频谱显示较广泛的频率分布，但峰值减小，表明控制行为在不同频率上更为均匀。PID控制似乎有效减少了高频波动的影响，导致更一致的控制表现。
+	\end{enumerate}
+	
+	\textbf{结论：}
+	\begin{itemize}
+		\item \textbf{比例控制(P)}：显示在特定频率处有尖锐的峰值，表明容易受到振荡的影响。
+		\item \textbf{比例-积分控制(PI)}：较比例控制平滑了PSD，减少了振荡的幅度，但仍围绕类似频率。
+		\item \textbf{比例-积分-微分控制(PID)}：提供最有效的控制，显著平滑了频谱并减少了广泛频率范围内的振荡功率。
+	\end{itemize}
+	以上观察表明，当正确调整时，PID控制提供了最有效的方式来管理不同系统条件下的温度波动。控制策略的每次增加（引入I和D组件）逐步帮助稳定并平滑了系统的响应。	
+	
+	%
+	\subsubsection{控温水平评定}
+	\begin{itemize}
+		\item 温度时间序列图分析
+		\begin{enumerate}
+			\item Data2 图显示温度在 35.0\degree 到 35.5\degree 之间波动，波动幅度相对较大，且频繁出现尖峰，表明系统可能在某些时刻对温度变化的响应过度敏感或控制参数设置不当。
+			
+			\item Data3 图中的温度在 34.8\degree 到 35.5\degree 之间波动，尖峰更加频繁，可能指示系统的控制响应过于剧烈或者控制系统存在一定的不稳定性。
+			
+			\item Data4 图的温度波动在 34.8\degree 到 35.5\degree 之间，波动性和尖峰出现频率类似于 Data3，显示系统可能缺乏足够的阻尼来平滑温度变化。
+			
+			\item Data6 和 Data7 图的温度波动在 20\degree 左右，波动更为频繁和剧烈，显示出温度控制的挑战性更大，控制系统可能需要进一步的调整以达到更稳定的控制效果。
+			
+			\item Data8 图的温度波动在 20\degree 左右，与 Data6 和 Data7 类似，同样表现出频繁的尖峰和大幅波动。
+		\end{enumerate}
+		
+		\item 结合 PSD 图的分析
+		
+		从 PSD 图的分析中，我们知道 PID 控制提供了最为平滑和广泛的频率控制。将这一点与时序图对比，如果时序图中的温度波动较为平滑且无频繁的尖峰出现，则表明 PID 控制效果良好。相反，如果波动剧烈，则可能表明 PID 参数需要进一步调整。
+		
+		
+		\item 综合评定：当前系统控温性能的不足，建议通过调整控制参数来优化系统性能。
+		\begin{itemize}
+			\item \textbf{控温稳定性}：从多数数据中可以看出，控温系统存在一定的波动，尤其是在快速变化的部分，表明控温系统的稳定性有待提高。
+			
+			\item \textbf{控温精度}：尽管温度大多保持在设定范围内，但频繁的尖峰和快速变化表明控制精度不足。
+			
+			\item \textbf{调控策略}：建议检查和优化 PID 控制参数，特别是积分和微分部分，以减少过冲和提高响应速度。
+		\end{itemize}
+	\end{itemize}
+	
+	% ---
+	
+	% 实验后思考题
+	\subsection{实验后思考题（Questions）}
+	
+	%思考题1
+	\begin{question}
+		影响控温精度和稳定度的因素都有哪些，如何进行改进？
+	\end{question}
+	\begin{enumerate}
+		\item 电路的复杂性：控温实验中的电路复杂，连接不当容易出错，影响温度控制的稳定性。为了改进，需要保证电路连接的正确和稳固，避免因为松动或接触不良导致的读数不准。
+		\item 程序的编写和调试：在控温过程中，程序的编写和调试非常关键，程序错误或不适应性强的算法会导致控制不准确。改进的方法是在编程时仔细检查逻辑错误，采用适当的算法，并进行充分的测试以确保程序能稳定运行。
+		\item 直流稳压电源的管理：实验中提到需要手动调节直流稳压电源，如果管理不当，会影响实验结果的稳定性和精确度。改进措施是使用自动化软件控制电源输出，确保电源输出的稳定和精确。
+		\item 导线选择：不合适的导线可能导致电流损失或信号干扰，尤其是在电流较大时使用细导线会增加电阻，影响测量精度。应选择合适直径的导线，确保电流和信号的有效传输。
+		\item PID 参数的优化：PID 参数的设置直接影响控温系统的反应速度和稳定性。不恰当的 PID 设置可能导致系统过度响应或响应迟缓。通过实验确定最佳的比例、积分、微分增益，可以显著提高系统的控温精度和稳定性。
+		\item 外部环境因素：环境温度波动、空气流动等都可能影响控温实验的稳定性。改进措施包括在环境温度较稳定的室内进行实验，并尽量减少空气流动对实验的干扰。
+	\end{enumerate}
+	
+	总之，温度传感器的精度，可采用铂电阻和热敏电阻等高精度温度传感器，测量精度高于 $\pm0.01$\degree，可以精确监测温度变化。温度采集器的时间间隔，本实验温度采集非连续有时间间隔，改进方法是缩小时间间隔，或者采用连续采集温度的实验方案。PID 控制算法的参数不同，导致稳定度变化，可手调最适宜参数，或使用具有 24 位 AD、16 位 DA 和 0.01\% 输出百分比的高精度工业用 PID 调节器，通过与设定温度值比较后计算，输出控制信号以实现高精度恒定控制。材料的导热性，导热越慢，温度反应时间越长，温度容易分布不均匀，可考虑高导热材料、外部水冷器和隔热热膨胀匹配，确保长期稳定性。本实验结构设计为方形，为保证温度均匀，可使用对称性结构设计如使用圆筒型标准具基座和均热器，形成均匀的温度分布。还可多个 TEC 片并联结构，增大加热制冷功率，实现标准具温度的均匀性。在均热器上均匀布置温度传感器，一个用作控制传感器，其余用作测温传感器以监视温度均匀性。
+	
+	
+	% 思考题2
+	\begin{question}
+		本实验中直流电源的电流输出建议设置为 2A ，为了减小温度的波动，电流设置应该增大还是减小，为什么？
+	\end{question}
+	为了减小温度的波动，电流设置应该增大。IBT-2电机驱动器通过控制电流方向和大小来控制直流电机的转速和方向。增大直流电流，在电压不变下相当于增加输入功率，IBT-2电机驱动器的输出功率也可以增加，进而增大电机转速，使得TEC加热制冷功率变大，可以在更短的时间内实现标准具温度的均匀性，减小温度波动。
+	
+	总之，本实验中直流电源的电流输出建议设置为 2A。为了减小温度的波动，电流设置应该保持不变或适当减小，而不是增大。原因如下：
+	\begin{enumerate}
+		\item 电流大小与系统响应：电流过大可能会导致系统反应过度，即使是微小的温度偏差也可能引发控制系统的剧烈反应，从而增加温度波动。较大的电流可以快速改变 TEC（热电制冷器）的温度，但同时也增加了控制的不稳定性。
+		\item 过大电流的风险：根据讲义中的说明，直流电源的最大电流设置为 2A 是基于保护 TEC 设备的考虑。增大电流不仅可能导致 TEC 设备过热，还可能缩短设备的使用寿命，甚至损坏控温实验设备。
+		\item 稳定与精确的控制：使用适度或稍低的电流有助于提高控温的精度和稳定性。适当减小电流可以减少因响应过快引起的超调现象（即温度超过设定值），使温度控制更加平稳。
+	\end{enumerate}
+	
+	
+	% 思考题3
+	\begin{question}
+		实验是否达到了控温的目的 还有哪些可以改进的地方？
+	\end{question}
+	实验基本达到了控温效果，适当的PID参数可以将温度波动控制在 $\pm 0.2$\degree 以内。实验的主要目的是利用TEC（热电制冷器）和PID控制策略，实现对温度的精确控制。根据实验讲义的描述，实验设计包括了必要的设备和软件（如LabVIEW），以及合适的控制策略（PID控制）。如果实验能够在设定的参数下维持稳定的温度控制，那么可以认为基本达到了控温的目的。然而，从前文中提到的波动和稳定性问题来看，可能还存在一些未完全达标的地方。
+	
+	\textbf{可以改进的地方：}
+	\begin{enumerate}
+		\item 本实验温度采集非连续有时间间隔，改进方法是缩小时间间隔，或者采用连续采集温度的实验方案。
+		
+		\item 本实验结构设计为方形，为保证温度均匀，可使用对称性结构设计如使用圆筒型标准具基座和均热器，形成均匀的温度分布。
+				
+		\item PID参数优化：实验中如果出现温度控制不稳定或反应过度的情况，可能是由于PID参数未被最佳化。可以通过系统的反复测试，找到最佳的比例、积分、微分参数，以减少超调和增强系统的响应时间。
+		
+		\item 硬件升级：如果当前的仪器和设备限制了控温的精度，考虑升级更高精度的温度传感器或使用更高性能的TEC模块。此外，改进电源管理，确保电源供应的稳定性和可调性，也是提高实验效果的关键。
+		
+		\item 软件和控制算法改进：除了标准的PID控制之外，还可以探索更高级的控制算法，如模糊逻辑控制或者基于机器学习的预测控制策略，这些可能提供更好的控温性能。
+		
+		\item 环境控制：改善实验环境，减少外界环境变化对实验的影响，例如通过增加实验室的环境稳定性，减少空气流动和温度波动。
+		
+		\item 数据分析和反馈机制：加强对实验数据的分析，建立有效的数据反馈机制。利用实时数据监控和后期数据分析，及时调整控温策略，预测并处理可能的问题。
+	\end{enumerate}
+	
+	
+	% 思考题4
+	\begin{question}
+		温度控制程序是否工作正常，是否还有优化的地方？
+	\end{question}
+	实验讲义中提到，使用基于LabVIEW的PID控制模块来执行温度控制任务。如果温度控制程序能够按照预定的参数运行，并能在实验中实现对温度的有效调控，则可以初步判断程序是正常工作的。特别是，如果实验数据显示温度在设定的范围内波动，并且系统响应时间、超调和稳定时间等指标符合预期，那么程序基本上是正常运行的。但是，我们仍可从以下角度考虑优化：
+	
+	\begin{enumerate}
+		\item PID参数调整：
+		\begin{itemize}
+			\item 参数精细调整：通过实验反复调整PID的比例（P）、积分（I）和微分（D）参数，以达到更理想的控温效果。可以使用更高级的参数调整技术，如自动调节算法（如齐格勒-尼科尔斯方法）来优化这些参数。
+		\end{itemize}
+		
+		\item 算法升级：
+		\begin{itemize}
+			\item 采用先进的控制算法：除了传统的PID控制之外，探索采用如模糊控制、自适应控制或机器学习算法等先进控制策略，这些方法可能更适合处理复杂的系统动态和非线性问题。
+		\end{itemize}
+		
+		\item 软件功能增强：
+		\begin{itemize}
+			\item 增加故障诊断和处理功能：在温度控制程序中加入故障检测和诊断功能，以便在出现问题时能够迅速做出响应，提高系统的可靠性。
+			\item 用户界面优化：改进用户界面，使其更直观易用，提供更多实时数据显示和控制选项，方便操作者进行参数调整和监控。
+		\end{itemize}
+		
+		\item 数据处理与反馈：
+		\begin{itemize}
+			\item 实时数据监控与反馈：实现数据的实时监控和分析，根据温度控制的实时效果自动调整控制策略，提高控温的精确度和响应速度。
+			\item 增加日志记录与分析功能：系统地记录实验数据和操作日志，对数据进行深入分析，以指导后续的控温策略优化。
+		\end{itemize}
+	\end{enumerate}
+	
+	
+	% ---
+	
+	
+	% 结语部分
+	\clearpage
+	
+	% 小标题
+	\section{Lab2-9 TEC半导体控温实验\\（The Experiment of TEC-semiconductor Temperature Control）\\ \quad\heiti 结语（The End）}
+	% ---
+	
+	% 总结、杂谈与致谢
+	\subsection{总结、杂谈与致谢（Summary, Thoughts \& Thanks）}
+	\begin{enumerate}
+		\item \textbf{实验分工如下：线路连接：杨舒云、崔瑜；数据记录：崔瑜；软件操控：杨舒云；实验报告整体编写：杨舒云；实验思考题：崔瑜；时序图：崔瑜、杨舒云；PSD：杨舒云；误差分析：崔瑜；控温评定：杨舒云。}
+		\item 感谢老师能阅读这篇还有很多不足的实验报告，希望老师能指出做得不好的地方；祝老师身体健康、生活幸福、工作顺利！
+	\end{enumerate}
+	% ---
+	
+	% 参考文献
+	\subsection{参考文献（References）}
+	[1] 维基百科 https://zh.wikipedia.org
+	
+	[2] 沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4
+	
+	% ---
+	
+	% 附件
+	\subsection{附件（Attachment）}
+	%The arrangement of the experimental bench desktop is shown in %\cref{}.
+	
+	The personal signature of the experimental report is shown in \cref{fig:name} and \cref{fig:name2}.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{name.png}
+		\caption{个人签名}
+		\label{fig:name}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.3\textwidth]{name2.jpg}
+		\caption{个人签名}
+		\label{fig:name2}
+	\end{figure}
+	
+	% ---
+	
+	\textbf{All relevant code (Python and \LaTeX source code) has been uploaded to Github.}
+	
+	
+	
+\end{document}

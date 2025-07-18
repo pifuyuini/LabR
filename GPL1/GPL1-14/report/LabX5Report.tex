@@ -1,0 +1,969 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+
+\begin{document}
+	
+	
+	
+	%实验报告封面	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE20 & & \LARGE30 & & \LARGE30 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 2\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2023/12/21 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{center}
+		\LARGE LabX5 \quad Doppler效应综合实验
+	\end{center}
+	
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（25分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：\textcolor{red}{\textbf{处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。}}\textcolor{red}{\textbf{（25分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\end{enumerate}
+	
+	\textbf{【实验安全注意事项】}	
+	\begin{enumerate}
+		\item 验证Doppler效应实验设备安装时注意事项：
+		\begin{enumerate}
+			\item 安装时要尽量保证红外接收器、小车上的红外发射器和超声接收器、超声发射器三者之间在同一轴线上，以保证信号传输良好；
+			\item 安装时不可挤压连接电缆，以免导线折断；
+			\item 安装时请确认橡胶圈是否套在主动轮上；
+			\item 小车不使用时应立放，避免小车滚轮沾上污物，影响实验进行。
+		\end{enumerate}
+		\item 研究自由落体运动设备安装时注意事项：
+		\begin{enumerate}
+			\item 须将“自由落体接收器保护盒”套于发射器上，避免发射器在非正常操作时受到冲击而损坏；
+			\item 安装时切不可挤压电磁阀上的电缆。
+		\end{enumerate}	
+	\end{enumerate}
+	
+	\textbf{【特别鸣谢及模板说明】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号LabX5}}
+	
+	
+	
+	\clearpage
+	\tableofcontents
+	\clearpage
+	
+	
+	
+	%预习报告	
+	\setcounter{section}{0}
+	\section{LabX5 Doppler效应综合实验 \quad\heiti 预习报告}
+	
+	\subsection{实验目的（2分）}
+	\begin{enumerate}
+		\item 测量超声接收器运动速度与接收频率之间的关系，验证Doppler效应，并由 $f-V$ 关系直线的斜率求声速。
+		\item 利用Doppler效应测量物体运动过程中多个时间点的速度，查看 $V-t$ 关系曲线，或调阅有关测量数据，即可得出物体在运动过程中的速度变化情况，可研究：
+		\begin{enumerate}
+			\item 自由落体运动，并由 $V-t$ 关系直线的斜率求重力加速度。
+			\item 简谐振动，可测量简谐振动的周期等参数，并与理论值比较。
+			\item 匀加速直线运动，测量力、质量与加速度之间的关系，验证Newton第二定律。
+			\item 其它变速直线运动。
+		\end{enumerate}
+	\end{enumerate}
+	
+	\subsection{仪器用具（2分）}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1& Doppler效应综合实验仪 & 1 & ZKY-DPL-3 \\
+			
+			2& 超声发射/接收器 & 1 & 谐振频率 40000-1000Hz \\
+			
+			3& 红外发射/接收器 & 2 & -- \\
+			
+			4& 导轨 & 1 & -- \\
+			
+			5& 运动小车、支架、光电门、电磁铁、弹簧、滑轮、 砝码及电机控制器等 & 1 & -- \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{LabX5GraAD1.png}
+		\caption{实验装置示意图（参考文献[2]）}
+		\label{fig:figAD1}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\subfloat[]{
+			\includegraphics[width=0.2\textwidth]{LabX5GraAD2.png}
+		}
+		\subfloat[]{
+			\includegraphics[width=0.2\textwidth]{LabX5GraAD3.png}
+		}
+		\subfloat[]{
+			\includegraphics[width=0.2\textwidth]{LabX5GraAD4.png}
+		}
+		\caption{实验装置示意图（参考文献[2]）}
+		\label{fig:figAD2}			
+	\end{figure}
+	
+	
+	
+	\subsection{原理概述（15分）}
+	引言：Doppler效应（英语：Doppler effect）是波源和观察者有相对运动时，观察者接受到波的频率与波源发出的频率并不相同的现象。远方急驶过来的火车鸣笛声变得尖细（即频率变高，波长变短），而离我们而去的火车鸣笛声变得低沉（即频率变低，波长变长），就是Doppler效应的现象，同样现象也发生在汽车鸣响与火车的敲钟声。
+	
+	这一现象最初由奥地利物理学家Doppler于1842年发现。荷兰气象学家拜斯·巴洛特在1845年让一队喇叭手站在一辆从荷兰乌德勒支附近疾驶而过的敞篷火车上吹奏，他在站台上测到了音调的改变。
+	
+	Doppler效应从19世纪下半叶起就被天文学家用来测量恒星的视向速度。现已被广泛用来佐证观测天体和人造卫星的运动。
+	\subsubsection{解释超声的Doppler效应}
+	Doppler效应描述了声源和观察者（接收器）之间的相对运动如何导致接收到的声波频率发生变化。当声源朝向观察者移动时，声波的波峰会更密集，因此观察者接收到的声波频率增加；相反，当声源远离观察者时，声波的波峰会更稀疏，所以观察者接收到的声波频率减少。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{LabX5GraAD5.png}
+		\caption{超声的Doppler效应}
+		\label{fig:figAD5}
+	\end{figure}
+	
+	超声Doppler效应的基本公式表达为：
+	
+	\[ f = f_0 \cdot \frac{u}{u + V_1 \cos \alpha_1 - V_2 \cos \alpha_2} \]
+	
+	其中：
+	\begin{itemize}
+		\item \( f \) 是接收器接收到的频率。
+		\item \( f_0 \) 是声源发射的原始频率。
+		\item \( u \) 是声速。
+		\item \( V_1 \) 是接收器的运动速率。
+		\item \( \alpha_1 \) 是声源与接收器连线与接收器运动方向之间的夹角。
+		\item \( V_2 \) 是声源的运动速率。
+		\item \( \alpha_2 \) 是声源与接收器连线与声源运动方向之间的夹角。
+	\end{itemize}
+	
+	对于实验中常见的情形，即声源固定不动，接收器沿着声源与接收器连线方向以速度 \( V \) 运动，公式简化为：
+	
+	\[ f = f_0 \cdot \left( \frac{1}{1 \pm \frac{V}{u}} \right) \]
+	
+	在此方程中，当接收器向声源运动时 \( V \) 取正值，反之取负值。
+	
+	\subsubsection{简述为什么选择超声的红外调制与接收}
+	\begin{enumerate}
+		\item \textbf{减少运动影响：}在早期的超声Doppler实验中，接收器接收的超声信号通过导线传入实验仪器处理。运动体上安装的超声接收器因导线的存在会受到运动状态的影响，导线的移动甚至可能导致测量误差。
+		
+		\item \textbf{操作便利与信号稳定性：}使用红外无线传输技术，将超声信号调制后无线发射，然后由固定装置接收并解调。这种方式去除了导线，使得装置更加方便操作，同时减少了因导线移动或断裂造成的信号不稳定问题。
+		
+		\item \textbf{减小Doppler效应的影响：}在红外传输过程中，由于信号的传输速度是光速，远远大于声速，因此这部分的Doppler效应可以忽略不计。这样做可以确保只有运动体上的接收器与声源之间的相对运动引起的Doppler效应被考虑在内。
+	\end{enumerate}
+	
+	总的来说，选择超声的红外调制与接收是为了提高实验的准确性和便利性，减少运动状态下的干扰和提高信号的稳定性，而这种技术的引入并不改变Doppler效应的基本计算方法。	
+	
+	\subsubsection{简述验证Doppler效应并由测量数据计算声速的方法及步骤}
+	\textbf{实验方法和步骤}
+	
+	\begin{enumerate}
+		\item \textbf{仪器设置：}首先，设置实验装置，确保超声发射器和接收器正确安装。通常，发射器固定在一端，而接收器安装在一个能沿导轨移动的小车上。
+		
+		\item \textbf{输入环境参数：}实验开始前，输入室温等环境参数到实验仪器。这是因为声速会随温度变化。
+		
+		\item \textbf{运动速度测量：}通过光电门等装置测量接收器（或小车）的运动速度。在实验中，小车会以不同的速度通过光电门，仪器记录这些速度。
+		
+		\item \textbf{频率测量：}仪器同步测量和记录接收器在不同速度时接收到的声波频率。
+		
+		\item \textbf{数据记录：}实验完成后，记录所有的速度和对应的频率数据。
+		
+		\item \textbf{数据分析：}通过对测量数据进行分析，绘制声波频率与接收器速度的关系图，通常这会是一条直线。
+	\end{enumerate}
+	
+	\textbf{必要的公式}
+	
+	实验中用到的主要公式是Doppler效应的公式。当接收器沿着声源与接收器连线方向以速度 \( V \) 运动时，接收到的频率 \( f \) 可以通过以下公式计算：
+	
+	\[ f = f_0 \cdot \left( \frac{1}{1 \pm \frac{V}{u}} \right) \]
+	
+	其中，\( f_0 \) 是声源的发射频率，\( u \) 是声速，\( V \) 是接收器的运动速度（朝向声源时取正值，远离时取负值）。
+	
+	为了从实验数据中计算声速 \( u \)，可以使用线性回归方法从 \( f \) 与 \( V \) 的关系中确定斜率 \( k \)，然后利用下面的公式求解：
+	
+	\[ u = \frac{f_0}{k} \]
+	
+	这里，\( k \) 是 \( f \) 与 \( V \) 关系图的斜率，\( f_0 \) 是已知的声源频率。
+	
+	\textbf{实验注意事项}
+	
+	\begin{itemize}
+		\item 确保所有仪器的正确安装和校准。
+		\item 环境温度会影响声速，所以需要准确输入室温。
+		\item 在数据分析时，注意数据的线性关系，这是验证Doppler效应的关键。
+		\item 安全是首要的，遵循实验室的安全规程。
+	\end{itemize}
+	
+	\subsubsection{简述研究自由落体运动，求自由落体加速度的方法及步骤}
+	\textbf{实验方法和步骤}
+	
+	\begin{enumerate}
+		\item \textbf{仪器安装：}首先安装好实验设备。这通常包括将超声发射器固定在适当的位置，并确保它与自由落体接收器组件在一条垂直线上。
+		
+		\item \textbf{充电和检查设备：}确保接收器组件充电完毕并且正常工作。在自由落体实验中，接收器组件会被释放并自由下落。
+		
+		\item \textbf{设置实验参数：}在实验仪器上设置采样点总数和采样步距，这些参数决定了测量的时间间隔和测量点的数量。
+		
+		\item \textbf{进行测量：}启动实验，让接收器组件从静止状态开始自由下落。仪器会在设定的时间间隔内自动记录下落过程中的速度数据。
+		
+		\item \textbf{数据记录：}实验完成后，记录得到的速度与时间数据。
+		
+		\item \textbf{数据分析：}通过分析速度随时间变化的数据，可以得到自由落体加速度。
+	\end{enumerate}
+	
+	\textbf{必要的公式}
+	
+	自由落体运动的基本公式可以表示为：
+	
+	\[ v = gt \]
+	
+	其中，\( v \) 是物体在时间 \( t \) 时的速度，\( g \) 是自由落体加速度。通过测量不同时间点的速度，可以使用线性回归等方法来求出 \( g \)。
+	
+	\textbf{实验注意事项}
+	
+	\begin{itemize}
+		\item 在自由落体实验中，确保所有设备安装正确且稳固。
+		\item 为避免由于声源与接收器不在同一直线上而导致的误差，应仔细校准它们的位置。
+		\item 在分析数据时，注意速度与时间的关系应呈现线性增长，这是自由落体运动的特征。
+		\item 注意安全，确保在实验过程中没有任何物体或人员位于可能的下落区域。
+	\end{itemize}
+	
+	\subsubsection{简述研究简谐振动的方法及步骤}
+	\textbf{实验方法和步骤}
+	
+	\begin{enumerate}
+		\item \textbf{仪器安装：}
+		\begin{itemize}
+			\item 安装弹簧和挂钩，并确保弹簧垂直悬挂。
+			\item 将超声接收器组件固定到弹簧的下端，确保它能自由振荡。
+		\end{itemize}
+		
+		\item \textbf{测量弹簧的静态伸长}：在不振动的状态下，测量弹簧的原始长度和在加挂质量后的长度，以确定弹簧的伸长量。
+		
+		\item \textbf{设置实验参数}：在实验仪器上设置采样点总数和采样步距，这些参数决定了测量的时间间隔和测量点的数量。		
+		
+		\item \textbf{开始振动实验}：
+		\begin{itemize}
+			\item 手动拉动接收器组件使其偏离平衡位置，然后释放，让其自由振荡。
+			\item 实验仪器记录振动过程中的速度或位移数据。
+		\end{itemize}
+		
+		\item \textbf{数据记录}：记录得到的振动数据，特别是速度或位移随时间的变化。
+		
+		\item \textbf{数据分析}：分析数据，特别是振动的周期和频率。
+		
+	\end{enumerate}
+	
+	\textbf{必要的公式}
+	
+	\begin{enumerate}
+		\item 振动周期（T）和频率（f）：简谐振动的周期 \( T \) 是完成一次完整振动所需的时间，频率 \( f \) 是单位时间内振动的次数，二者关系为 \( f = \frac{1}{T} \)。
+		
+		\item \textbf{角频率（ω）}：角频率 \( \omega \) 与周期 \( T \) 的关系为 \( \omega = \frac{2\pi}{T} \)。
+		
+		\item \textbf{振动位移（x）}：简谐振动的位移可以表示为 \( x = A \cos(\omega t + \phi) \)，其中 \( A \) 是振幅，\( \phi \) 是初始相位。
+		
+	\end{enumerate}
+	
+	\textbf{实验注意事项}
+	
+	\begin{itemize}
+		\item 确保弹簧和振动系统的安装是正确且稳固的。
+		\item 振动过程中应避免任何外部干扰，如风或不必要的触摸。
+		\item 数据分析时要注意周期的准确测量，可以通过多次测量取平均值来提高准确度。
+		\item 确保安全，尤其是在挂载重物或进行大幅度振动实验时。
+	\end{itemize}
+	
+	\subsection{实验前思考题（1分）}
+	\begin{question}
+		用Doppler效应来解释你生活中遇到的一些现象。
+	\end{question}
+	\begin{enumerate}
+		\item \textbf{救护车的警笛声}：
+		当救护车向你靠近时，你会听到警笛的声音变得更高。当救护车远离你时，警笛声变得更低。这是因为当救护车接近时，声波的波峰更密集，导致频率增加；相反，当救护车远离时，波峰间距增加，频率降低。
+		
+		\item \textbf{列车鸣笛}：
+		当火车接近并经过你的位置时，你会注意到火车的鸣笛声先是变高然后变低。这与救护车的情况相似，也是Doppler效应的结果。
+		
+		\item \textbf{雷达测速}：
+		交通警察使用的雷达枪利用Doppler效应来测量车辆的速度。雷达波被发射并反射回来，根据反射波与发射波的频率差异，可以计算出车辆的速度。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{LabX5GraAD6.png}
+			\caption{生活中的Doppler效应}
+			\label{fig:figAD6}
+		\end{figure}
+		
+		\item \textbf{天文学观测}：
+		天文学家使用Doppler效应来测量恒星和星系的运动。通过观察光谱线的移动（红移或蓝移），可以推断出天体是正在远离我们还是接近我们，以及它们的速度。
+		
+		\item \textbf{蝙蝠的回声定位}：
+		蝙蝠发出的超声波在遇到障碍物后会反射回来。通过分析返回的声波频率的变化，蝙蝠能够判断出障碍物的位置和大小，这对于它们在黑暗中导航和捕食至关重要。
+		
+		\item \textbf{光的Doppler效应}：具有波动性的光也会出现这种效应，它又被称为Doppler-斐索效应。因为法国物理学家斐索于1848年独立地对来自恒星的波长偏移做了解释，指出了利用这种效应测量恒星相对速度的办法。光波频率的变化使人感觉到是颜色的变化。如果恒星远离我们而去，则光的谱线就向红光方向移动，称为红移；如果恒星朝向我们运动，光的谱线就向紫光方向移动，称为蓝移。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.35\textwidth]{LabX5GraAD7.jpg}
+			\caption{光的Doppler效应（参考文献[1]）}
+			\label{fig:figAD7}
+		\end{figure}
+		
+		\item \textbf{医学诊断}：声波的Doppler效应也可以用于医学的诊断，也就是我们平常说的彩色超声波。彩超简单的说就是高清晰度的黑白B超再加上彩色Doppler。超声频移诊断法（即D超）应用Doppler效应原理，当声源与接收体（即探头和反射体）之间有相对运动时，回声的频率有所改变，此种频率的变化称之为频移。D超包括脉冲Doppler、连续Doppler和彩色Doppler血流图像。彩色Doppler超声一般是用自相关技术进行Doppler信号处理，把自相关技术获得的血流信号经彩色编码后实时地叠加在二维图像上，即形成彩色Doppler超声血流图像。由此可见，彩色Doppler既具有二维超声结构图像的优点，又同时提供了血流动力学的丰富信息，实际应用受到了广泛的重视和欢迎，在临床上被誉为“非创伤性血管造影”。
+		
+		\item \textbf{心血管检查}：为了检查心脏、血管的运动状态，了解血液流动速度，可以通过发射超声来实现。由于血管内的血液是流动的物体，所以超声波振源与相对运动的血液间就产生Doppler效应。血液向着超声源运动时，反射波的波长被压缩，因而频率增加。血液离开声源运动时，反射波的波长变长，因而在单位时间内频率减少。反射波频率增加或减少的量，是与血液流运速度成正比，从而就可根据超声波的频移量，测定血液的流速。
+		血管内血流速度和血液流量对心血管的疾病诊断具有一定的价值，特别是对循环过程中供氧情况、闭锁能力、有无紊流、血管粥样硬化等均能提供有价值的诊断信息。
+		超声Doppler法诊断心脏过程是：超声振荡器产生一种高频的等幅超声信号，激励发射换能器探头，产生连续不断的超声波，向人体心血管器官发射，当超声波束遇到运动的脏器和血管时，便产生Doppler效应，反射信号就为换能器所接受，就可以根据反射波与发射的频率差异求出血流速度，根据反射波以频率是增大还是减小判定血流方向。为了使探头容易对准被测血管，通常采用一种板形双叠片探头。
+		
+		\item \textbf{衰减理论}：Doppler效应也可以用波在介质中传播的衰减理论解释。波在介质中传播，会出现频散现象，随距离增加，高频向低频移动。
+	\end{enumerate}
+	
+	
+	
+	
+	%实验记录	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 17摄氏度 & 实验地点： & 实验室511 \\
+			\hline
+			学生签名：& 杨舒云 & 评分： &\\
+			\hline
+			实验时间：& 2023/12/21 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{LabX5 Doppler效应综合实验 \quad\heiti 实验记录}
+	\subsection{实验内容、步骤与结果}
+	\subsubsection{验证Doppler效应并由测量数据计算声速}
+	\begin{enumerate}
+		\item 简述本次实验方法及过程
+		
+		\textbf{本次实验的方法及过程如下}：
+		
+		\begin{enumerate}
+			\item 首先，安装实验仪器，将小车置于导轨上，使其能沿导轨自由滑动，连接水平超声发射器、超声接收器组件和红外接收器，给小车上的传感器充电，调节皮带的松紧度，保证小车的正常运动。
+			
+			\item 其次，开启实验仪，输入室温，调谐超声发生器的驱动频率，记录调谐频率 \( f_0 \)，选择“Doppler效应验证实验”模式，设置测试总次数和采样步距。
+			
+			\item 然后，用电机控制器上的“变速”按钮选定一个速度，按“确认”和“启动”键，让小车通过光电门，仪器自动记录小车的平均运动速度 \( V \) 和接收器的平均接收频率 \( f \)，重复这一步骤，改变小车的运动速度，直到完成设定的测量次数。
+			
+			\item 最后，仪器自动存储数据，并显示 \( f-V \) 关系图及测量数据，用键翻阅数据并记入表1中，用作图法或线性回归法计算 \( f-V \) 关系直线的斜率 \( k \)，由 \( k \) 计算声速 \( u = \frac{f_0}{k} \)，并与声速的理论值 \( u_0 = 331(1+\frac{t_c}{273})^{\frac{1}{2}} \) 比较，计算其百分误差。
+		\end{enumerate}				
+		
+		\clearpage
+		\item 实验数据记录（\cref{tab:tab1}）
+		
+		\begin{table}[h]
+			\centering
+			\caption{Doppler效应的验证与声速的测量$T_c=17^\circ C$，$f_0=40001Hz$}
+			\label{tab:tab1}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				组1/序号i & 1 & 2 & 3 & 4 & 5 \\
+				$v_{1i}(m/s)$ & 1.26 & 1.08 & 1.00 & 0.75 & 0.38 \\
+				$f_{1i}(Hz)$ & 40073 & 40127 & 40105 & 40088 & 40066 \\
+				\hline
+				组2/序号i & 1 & 2 & 3 & 4 & 5 \\
+				$v_{2i}(m/s)$ & 1.21 & 1.06 & 0.99 & 0.52 & 0.57 \\
+				$f_{2i}(Hz)$ & 40143 & 40125 & 40084 & 40080 & 40067 \\
+				\hline
+				组3/序号i & 1 & 2 & 3 & 4 & 5 \\
+				$v_{3i}(m/s)$ & 1.15 & 0.98 & 0.78 & 0.59 & 0.36 \\
+				$f_{3i}(Hz)$ & 40135 & 40115 & 40092 & 40070 & 40044 \\
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		
+		\item 实验现象描述
+		\begin{enumerate}
+			\item \textbf{声频率的变化：}
+			当超声接收器以不同速度通过光电门时，实验参与者会观察到接收器接收到的声波频率发生变化。具体体现为当小车以不同速度通过光电门时，观察到接收器接收到的声波频率发生变化，这是由于Doppler效应造成的。
+			
+			\item \textbf{f-V关系的直观展示：}
+			实验仪器会自动记录小车的平均运动速度和对应的平均接收频率。这些数据将被用来生成一个f-V（频率-速度）关系图。在这个图表中，参与者通常会观察到一条直线，显示频率与速度之间的线性关系。
+			
+			\item \textbf{声速的计算：}
+			通过分析f-V关系图，可以计算出斜率。这个斜率（记为k）与声速有直接关系，即 \( k = \frac{f_0}{u} \)，其中 \( f_0 \) 是声源的发射频率，\( u \) 是声速。从而，通过实验数据，参与者能够计算出声速的值。
+		\end{enumerate}		
+		
+	\end{enumerate}
+	
+	\subsubsection{研究自由落体运动，求自由落体加速度}
+	\begin{enumerate}
+		\item 简述本次实验方法及过程
+		
+		\textbf{本次实验的方法及过程如下}：
+		
+		\begin{enumerate}
+			\item 首先，安装实验仪器，将带有超声接收器的接收组件用细绳栓住，使其能与超声发射器对齐，然后给接收组件充电，充满电后将其吸附在电磁铁上。
+			
+			\item 其次，开启实验仪，设置测量点总数和采样步距，选择“变速运动测量实验”模式，检查是否“锁定”。
+			
+			\item 然后，按“确认”按钮，让电磁铁断电，接收组件自由下落，利用Doppler效应测量物体运动过程中多个时间点的速度，显示屏上显示 \( V-t \) 图和测量数据。
+			
+			\item 最后，记录测量数据，用线性回归法计算 \( V-t \) 直线的斜率，即为重力加速度 \( g \)，与理论值比较，求百分误差，重复测量几次，取平均值作为最终结果。
+		\end{enumerate}
+		
+		\clearpage				
+		\item 实验数据记录（\cref{tab:tab2}）
+		
+		\begin{table}[h]
+			\centering
+			\caption{自由落体运动的测量（$t_{1i}≠t_{2i}≠t_{3i}≠t_{4i}$）}
+			\label{tab:tab2}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+				\hline
+				测量组 & 采样序号i & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+				\hline
+				组1 & $t_{1i}(ms)$ & 0.025 & 0.050 & 0.075 & 0.100 & 0.125 & 0.150 & 0.175 & 0.200 & & \\
+				8/25ms & $v_{1i}(m/s)$ & 0.16 & 0.40 & 0.65 & 0.89 & 1.17 & 1.40 & 1.64 & 1.89 & & \\
+				\hline
+				组2 & $t_{2i}(ms)$ & 0.015 & 0.030 & 0.045 & 0.060 & 0.075 & 0.090 & 0.105 & 0.120 & 0.135 & 0.150 \\
+				10/15ms & $v_{2i}(m/s)$ & 0.16 & 0.35 & 0.47 & 0.61 & 0.77 & 0.91 & 1.05 & 1.17 & 1.31 & 1.48 \\
+				\hline
+				组3 & $t_{3i}(ms)$ & 0.025 & 0.050 & 0.075 & 0.100 & 0.125 & 0.150 & 0.175 & 0.200 & 0.225 & 0.250 \\
+				10/25ms & $v_{3i}(m/s)$ & 0.16 & 0.40 & 0.65 & 0.91 & 1.17 & 1.41 & 1.62 & 1.85 & 2.13 & 2.36 \\
+				\hline
+				组4 & $t_{4i}(ms)$ & 0.020 & 0.040 & 0.060 & 0.080 & 0.100 & 0.120 & 0.140 & 0.160 & & \\
+				8/20ms & $v_{4i}(m/s)$ & 0.18 & 0.37 & 0.54 & 0.74 & 0.94 & 1.15 & 1.31 & 1.52 & & \\
+				\hline
+			\end{tabular}
+		\end{table}		
+		
+		\item 实验现象描述
+		\begin{enumerate}
+			\item \textbf{自由落体运动的观察：}实验中，装有超声接收器的接收组件被释放，随后开始自由下落。观察者可以看到接收组件从静止状态开始，逐渐加速向下运动，直到砸入缓冲物当中。
+			
+			\item \textbf{声频率的变化：}由于Doppler效应，随着接收组件的下落，其接收到的声波频率会发生变化。这一变化通过实验仪器被记录下来。
+			
+			\item \textbf{速度数据的记录：}实验设备会自动记录接收组件在下落过程中不同时间点的速度。这些数据通常显示为速度随时间逐渐增加的趋势。
+			
+			\item \textbf{自由落体加速度的计算：}通过分析记录的速度与时间数据，实验者可以计算出接收组件下落过程中的平均加速度，即自由落体加速度。
+			
+		\end{enumerate}
+	\end{enumerate}
+	
+	\subsubsection{研究简谐振动}
+	\begin{enumerate}
+		\item 简述本次实验方法及过程
+		
+		\textbf{本次实验的方法及过程如下}：
+		
+		\begin{enumerate}
+			\item 首先，安装实验仪器，将弹簧悬挂于电磁铁上方的挂钩孔中，接收器组件的尾翼悬挂在弹簧上，测量弹簧长度，加挂不同质量的砝码，测量弹簧的伸长量，根据胡克定律计算弹簧的劲度系数 \( k \)，用天平称量接收器组件的质量 \( M \)，根据公式 \( \omega_0 = \sqrt{\frac{k}{m}} \) 计算振动系统的固有角频率 \( \omega_0 \)。
+			
+			\item 其次，设置实验仪的测量点总数和采样步距，将接收器从平衡位置垂直向下拉一定距离，松手让接收器自由振荡，利用Doppler超声测量物体运动过程中多个时间点的速度，显示屏上显示 \( V-t \) 图和测量数据。
+			
+			\item 最后，记录测量数据，用线性回归法计算 \( V-t \) 直线的斜率，即为振动系统的实际角频率 \( \omega \)，并与理论值 \( \omega_0 \) 比较，求百分误差，重复测量几次，取平均值作为最终结果。
+		\end{enumerate}		
+		
+		\clearpage
+		\item 实验数据记录（\cref{tab:tab2}）
+		
+		\begin{table}[h]
+			\centering
+			\caption{简谐振动的测量}
+			\label{tab:tab3}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				弹簧原长$l_0 (\text{cm})$ & 伸长长度$l (\text{cm})$ & 伸长量$\Delta l (\text{cm})$ \\
+				\hline
+				11.5 & 28.5 & 17.0 \\
+				\hline
+			\end{tabular}
+			
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				重物测量序号 & 1 & 2 & 3 & 4 & 5 & 均值 \\
+				\hline
+				重物质量/g & 44.31 & 44.31 & 44.32 & 44.32 & 44.32 & 44.32 \\
+				\hline
+			\end{tabular}
+			
+			\begin{tabular}{|c|c|c|}
+				\hline
+				劲度系数(N/m) & 2.550 & $g=9.7833(m/s^2)$  \\
+				\hline
+				若用实验2中测得的g & 2.547 & $g=9.7698(m/s^2)$ \\
+				\hline
+			\end{tabular}
+			
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+				\hline
+				组件质量/g & 弹簧质量/g & N1 & N11 & N2 & N12 & N3 & N13 \\
+				\hline
+				102.24 & 10.38 & 8 & 111 & 20 & 122 & 31 & 133 \\
+				\hline
+			\end{tabular}						
+		\end{table}						
+		
+		\item 实验现象描述
+		\begin{enumerate}
+			\item \textbf{振动的起始和持续}：
+			振动开始时，观察者会看到悬挂在弹簧上的接收器组件（或砝码）从其初始位置拉开后释放，开始上下振动。这个振动会持续一段时间，直到由于空气阻力和内部摩擦逐渐减弱停止。
+			
+			\item \textbf{周期性运动}：
+			接收器组件的运动是周期性的，即它在相等的时间间隔内重复相同的运动路径。这种运动是简谐运动的典型特征。
+			
+			\item \textbf{振幅的减小}：
+			随着时间的推移，如果没有外部力的补充，振幅（即振动的最大偏移量）会逐渐减小，这是由于阻尼效应造成的。
+			
+			\item \textbf{振动数据的记录}：
+			实验过程中，实验仪器会记录振动的速度或位移随时间的变化，这些数据可以用来计算振动的周期和频率。
+			
+			\item \textbf{理论与实际的对比}：
+			实验中测得的周期和频率可以与理论值进行比较，理论值基于弹簧的劲度系数和挂载物的质量计算得出。
+		\end{enumerate}
+		
+	\end{enumerate}
+	
+	\subsubsection{研究匀变速直线运动，验证Newton第二运动定律}
+	\begin{enumerate}
+		\item 简述本次实验方法及过程
+		
+		本次实验的方法及过程如下：
+		
+		\begin{enumerate}
+			\item 首先，安装实验仪器，将滑轮固定在桌边，将接收器组件和砝码组件用细绳悬挂在滑轮的两端，使接收器组件的质量 \( M \) 大于砝码组件的质量 \( m \)，用电磁铁吸住接收器组件，用天平称量接收器组件和砝码组件的质量，记录每次实验对应的 \( m \)。
+			
+			\item 其次，设置实验仪的测量点总数和采样步距，按“确认”按钮，让电磁铁断电，接收器组件拉动砝码组件作垂直方向的运动，利用红外传感器测量物体运动过程中多个时间点的速度，显示屏上显示 \( V-t \) 图和测量数据。
+			
+			\item 最后，记录测量数据，用线性回归法计算 \( V-t \) 直线的斜率，即为物体的加速度 \( a \)，改变砝码组件的质量 \( m \)，重复测量几次，取平均值作为最终结果。
+			
+			\item 然后，根据实验数据，用公式 \( a = g\left[(1-C)M-m\right]/\left[(1-C)M+m+\frac{J}{R^2}\right] \)，计算理论值 \( a' \)，并与实验值 \( a \) 比较，求百分误差，画出 \( a \) 与 \(\left[(1-C)M-m\right]/\left[(1-C)M+m+\frac{J}{R^2}\right]\) 的关系图，观察是否为线性关系，验证Newton第二运动定律，其中 \( g \) 为重力加速度， \( C \) 为摩擦系数， \( J \) 为滑轮的转动惯量， \( R \) 为滑轮绕线槽半径。
+		\end{enumerate}		
+		
+		\item 实验数据记录（\cref{tab:tab4}）
+		
+		\begin{table}[h]
+			\centering
+			\caption{匀变速直线运动的测量$C=0.07$，$J/R^2=0.014kg$}
+			\label{tab:tab4}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+					\hline
+					采样序号i & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\
+					\hline
+					$t_i(s)$ & 0.05 & 0.10 & 0.15 & 0.20 & 0.25 & 0.30 & 0.35 & 0.40 & 0.45 & 0.50 & 0.55 & 0.60 & 0.65 & 0.70 & 0.75 \\
+					$(M_1=68.79g)v_{1i}(m/s)$ & 0.00 & 0.02 & 0.04 & 0.07 & 0.11 & 0.14 & 0.16 & 0.21 & 0.25 & 0.27 & 0.30 & 0.35 & 0.35 & 0.37 & 0.39 \\
+					$(M_2=56.04g)v_{2i}(m/s)$ & 0.00 & 0.06 & 0.07 & 0.11 & 0.13 & 0.13 & 0.16 & 0.18 & 0.2 & 0.23 & 0.27 & 0.28 & 0.33 & 0.37 & 0.42 \\
+					$(M_3=80.23g)v_{3i}(m/s)$ & 0.02 & 0.06 & 0.11 & 0.13 & 0.16 & 0.21 & 0.25 & 0.32 & 0.37 & 0.42 & 0.47 & 0.53 & 0.54 & 0.60 & 0.65 \\
+					$(M_4=57.14g)v_{4i}(m/s)$ & 0.06 & 0.13 & 0.21 & 0.28 & 0.39 & 0.47 & 0.58 & 0.68 & 0.79 & 0.86 & 0.91 & 1.00 & 1.08 & 1.15 & 1.24 \\
+					\hline
+				\end{tabular}				
+			}%
+		\end{table}
+		
+		\item 实验现象描述
+		\begin{enumerate}
+			\item \textbf{接收器组件的加速运动}：
+			实验中，接收器组件向下掉落，绳子另一端的砝码被牵扯着向上运动，直到接收器组件砸入地面上的缓冲物中。
+			
+			\item \textbf{速度的变化}：
+			随着时间的推移，接收器组件的速度会逐渐增加，显示出匀变速直线运动的特点。
+			
+			\item \textbf{不同质量下的运动差异}：
+			改变悬挂的砝码质量，观察者可以看到，不同质量下接收器组件的加速度有所不同。这是因为不同的质量导致了不同的牵引力。
+			
+			\item \textbf{数据记录和分析}：
+			实验过程中，速度和时间数据被仪器记录下来。这些数据用于计算不同条件下接收器组件的加速度，并与理论加速度进行比较。
+			
+			\item \textbf{验证Newton第二定律}：
+			通过对比实验数据和理论计算值，可以验证力与质量和加速度之间的关系，即Newton第二运动定律（$F=ma$）。
+		\end{enumerate}
+		
+	\end{enumerate}
+	
+	\clearpage
+	\subsection{原始数据记录}
+	实验记录本上原始数据见\cref{fig:figA1}和\cref{fig:figA2}。
+	
+	\begin{figure}[htbp]
+		\centering
+		\subfloat[]{
+			\includegraphics[width=0.4\textwidth]{LabX5GraA1.jpg}
+		}
+		\subfloat[]{
+			\includegraphics[width=0.4\textwidth]{LabX5GraA2.jpg}
+		}
+		\caption{实验操作界面}
+		\label{fig:figA1}			
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\subfloat[]{
+			\includegraphics[width=0.4\textwidth]{LabX5GraA3.jpg}
+		}
+		\subfloat[]{
+			\includegraphics[width=0.4\textwidth]{LabX5GraA4.jpg}
+		}
+		\caption{实验操作界面}
+		\label{fig:figA2}			
+	\end{figure}
+	
+	环境情况见\cref{fig:figA5}。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.45\textwidth]{LabX5GraA5.jpg}
+		\caption{环境情况}
+		\label{fig:figA5}
+	\end{figure}
+	
+	实验过程中的操作界面见\cref{fig:figA6}。
+	
+	\begin{figure}[htbp]
+		\centering
+		\subfloat[]{
+			\includegraphics[width=0.33\textwidth]{LabX5GraA6.jpg}
+		}
+		\subfloat[]{
+			\includegraphics[width=0.33\textwidth]{LabX5GraA7.jpg}
+		}
+		\caption{实验操作界面}
+		\label{fig:figA6}			
+	\end{figure}
+	
+	实验台桌面整理见\textbf{附件}部分(\cref{fig:figA8})。
+	
+%	\subsection{实验过程中遇到的问题记录}
+%	光电门和电机疑似有故障。
+	
+	
+	
+	%分析与讨论	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2023/12/21 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{LabX5 Doppler效应综合实验 \quad\heiti 分析与讨论}
+	\subsection{实验数据分析与讨论}
+	\subsubsection{验证Doppler效应并由测量数据计算声速}
+	\begin{enumerate}
+		\item 实验数据处理
+		根据原始数据（\cref{tab:tab1}）做出$f-v$曲线如\cref{fig:figD1}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.33\textwidth]{LabX5GraD1.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.33\textwidth]{LabX5GraD2.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.33\textwidth]{LabX5GraD3.jpg}
+			}
+			\caption{$f-v$曲线}
+			\label{fig:figD1}			
+		\end{figure}
+		
+		事实上，从\cref{fig:figD1}中可以看出，组1和组2的数据效果太差，推测原因是小车电量不足或光电门有故障导致的。
+		
+		接下来将主要以\textbf{组3}的数据进行分析。
+		
+		\item 实验结果计算
+		
+		由线性拟合结果，直线斜率为$k=115.19\pm0.44(1/m)$，而中心频率$f_0=40001Hz$，由此计算出声速的测量值：
+		
+		\[u=\dfrac{f_0}{k}=\dfrac{40002Hz}{115.19(1/m)}=347.27m/s\]
+		
+		\item 实验数据分析
+		
+		空气中的声速理论公式为$u_0=\sqrt{\gamma R T}$；其中比热比$\gamma=1.4$，因为空气的主要成分是氮气和氧气这两种双原子分子气体；气体常数$R=287J/(kg*K)$；T是绝对温度。
+		
+		由此计算得到$u_0=341.44m/s$
+		
+		而从经验公式考虑，声速（音速）在空气中的传播受温度、湿度等因素的影响。一般来说，声速（\(v\)）在空气中的传播可以用以下公式表示：
+		$u_0 = 331.4 + 0.6T = 341.6$。
+		其中，\(T\) 是摄氏温度。这个公式是在常温（20摄氏度）和干燥条件下得出的，不过在实际中，温度和湿度会对声速产生影响。对于湿度，一般来说，较高的湿度会使声速稍微减小。
+		
+		接下来计算相对误差：$\eta=\dfrac{u_0-u}{u_0}=1.66\%$。这个结果验证了Doppler效应，也表面声速测量值较好。
+		
+		\item 可能的误差来源：
+		\begin{itemize}
+			\item 仪器误差：例如导轨的摩擦力、超声发射器和接收器的灵敏度、红外接收器的精度等。这些误差会影响测量的$f$和$V$的值，从而影响计算的$u$的值。可以通过检查和校准仪器，或者使用更精密的仪器，来减小这种误差。
+			\item 方法误差：实验方法可能有一定的局限性，例如假设小车的运动速度是恒定的，但是实际上可能有加速度或者减速度的情况。这些情况会导致$V$的值不准确，从而影响计算的$u$的值。可以通过改进实验方法，如使用更多的光电门或者更小的采样步距，来减小这种误差。
+			\item 操作误差：在操作实验过程中可能有一定的误差，例如输入的室温、调谐的频率、选择的速度等。这些误差会影响$f_0$、$f$和$V$的值，从而影响计算的$u$的值。
+		\end{itemize}
+		
+	\end{enumerate}
+	
+	\subsubsection{研究自由落体运动，求自由落体加速度}
+	\begin{enumerate}
+		\item 实验数据处理
+		
+		对实验数据（\cref{tab:tab2}）进行拟合，得到如\cref{fig:figD4}和\cref{fig:figD6}所示结果。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{LabX5GraD4.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{LabX5GraD5.jpg}
+			}
+			\caption{自由落体$v-t$曲线}
+			\label{fig:figD4}			
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{LabX5GraD6.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{LabX5GraD7.jpg}
+			}
+			\caption{自由落体$v-t$曲线}
+			\label{fig:figD6}			
+		\end{figure}
+		
+		综合四组数据，得到并置拟合的结果如\cref{fig:figD8}所示，可以发现效果不好，因此考虑其它的数据处理方式。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{LabX5GraD8.jpg}
+			\caption{并置拟合结果}
+			\label{fig:figD8}
+		\end{figure}
+		
+		这里采用不等精度测量的均值和标准差来表示测量结果：
+		\[\bar{g}=\dfrac{\frac{\bar{g_1}}{\sigma^2_1}+\frac{\bar{g_2}}{\sigma^2_2}+\frac{\bar{g_3}}{\sigma^2_3}+\frac{\bar{g_4}}{\sigma^2_4}}{\frac{1}{\sigma^2_1}+\frac{1}{\sigma^2_2}+\frac{1}{\sigma^2_3}+\frac{1}{\sigma^2_4}}=9.7698m/s^2\]
+		
+		\[\bar{\sigma}=\sqrt{\dfrac{1}{\frac{1}{\sigma^2_1}+\frac{1}{\sigma^2_2}+\frac{1}{\sigma^2_3}+\frac{1}{\sigma^2_4}}}
+		=0.0412m/s^2\]
+		
+		即最终结果为$g\approx \bar{g} \pm \bar{\sigma} = 9.7698 \pm 0.0412 (m/s^2)$。
+		
+		\item 实验数据分析
+		
+		查询到广州的重力加速度值为$g_0 = 9.7833m/s^2$。
+		
+		计算相对误差$\eta=\dfrac{\bar{g}-g_0}{g_0}=-0.14\%$。
+		
+		\item 可能误差来源
+		\begin{itemize}
+			\item 低纬度的重力加速度小，高纬度的重力加速度大。而珠海纬度比广州低，因此重力加速度较小是合理的。
+			\item 实验过程中没有考虑空气阻力的影响。空气阻力会使得实验测量值偏低，这也是合理的。
+			\item 仪器误差：超声波信号源、声速测定仪等仪器的精度和稳定性，以及导线的分布电容、温度变化等因素的影响。
+			\item 组件在释放的瞬间并未完全进入自由落体的状态带来的误差。
+		\end{itemize}		
+		
+	\end{enumerate}
+	
+	\subsubsection{研究简谐振动}
+	\begin{enumerate}
+		\item 实验数据处理与结果表达
+		\begin{enumerate}
+			\item 根据原始测量数据（\cref{tab:tab3}），计算弹簧的振动角频率：
+			周期$T=\dfrac{(N_{i+10}-N_i)\times0.1s}{10}=1.02s$，则测得$\omega=6.1399rad/s$。
+			\item 根据弹簧的参数，计算机固有角频率：$k\dfrac{mg}{\Delta l}=2.550N/m$，误差很大，推测是记录数据时记错了，将$17.5cm$记为了$11.5cm$，
+			现将它改正过来。重新计算得到$k\dfrac{mg}{\Delta l}=3.942N/m$，则理论值$\omega_0=\sqrt{\dfrac{k}{M}}=6.2092N/m$。
+			弹簧质量实际上较大，不可忽略，若将它计入$\dfrac{M'}{3}$的修正，则计算得到$\omega'_0=\sqrt{\dfrac{k}{M+\dfrac{M'}{3}}}=6.1068N/m$。						
+		\end{enumerate}
+		
+		\item 实验数据分析
+		
+		计算相对误差：$\eta=\dfrac{\omega-\omega_0}{\omega_0}=-1.12\%$。
+		
+		正如前文所述，弹簧质量不可忽略是一大误差来源，将其计入修正后，
+		相对误差变为$\eta'=\dfrac{\omega-\omega'_0}{\omega'_0}=0.54\%$。
+		
+		除此之外，空气阻力会导致运动并不是标准的简谐振动，周期会有一定的变化，从而为测量值带来误差。
+		
+	\end{enumerate}
+	
+	\subsubsection{研究匀变速直线运动，验证Newton第二运动定律}
+	\begin{enumerate}
+		\item 实验数据处理与结果表达
+		
+		将实验数据绘图并作拟合，得到如\cref{fig:figD9}所示结果，观察图像可知，第四组和第二组质量相近但加速度差异过大，故对比后舍掉第二组数据进行分析。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.8\textwidth]{LabX5GraD9.jpg}
+			\caption{匀变速直线运动$v-t$曲线}
+			\label{fig:figD9}
+		\end{figure}
+		
+		由此得到如\cref{tab:tab5}所示数据。
+		
+		\begin{table}[h]
+			\centering
+			\caption{$a$与$\left[(1-C)M-m\right]/\left[(1-C)M+m+\frac{J}{R^2}\right]$关系表}
+			\label{tab:tab5}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				$m(g)$ & $a(m/s^2)$ & 系数 \\
+				\hline
+				68.79 & 1.2014 & 0.147819908 \\
+				57.14 & 1.7257 & 0.228266572 \\
+				80.23 & 0.9193 & 0.078458343 \\
+				45.06 & 3.3617 & 0.324524209 \\
+				\hline
+			\end{tabular}
+		\end{table}		
+		
+		对以上数据作图并拟合，得到如\cref{fig:figD10}所示结果。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{LabX5GraD10.jpg}
+			\caption{$a$与$\left[(1-C)M-m\right]/\left[(1-C)M+m+\frac{J}{R^2}\right]$关系图}
+			\label{fig:figD10}
+		\end{figure}		
+		
+		\item 实验数据分析
+		
+		由\cref{fig:figD10}中拟合直线的相关系数$r=0.9524$知，该关系是线性关系。
+		
+		同样由拟合结果知，斜率即为重力加速度$g'= 9.81536 \pm 2.22147 (m/s^2)$。
+		
+		这样就验证了Newton第二定律。
+		
+	\end{enumerate}
+	
+
+	\subsection{实验后思考题}
+	\begin{question}
+		根据上面几个实验内容，参考其测量方法和步骤，以测量的结果与理论值比较，研究物理运动的规律。请学生根据学过的原理自行设计一个实验内容及方案(如研究摩擦力与运动速度的关系，或与摩擦介质的关系)。
+	\end{question}
+	\begin{itemize}
+		\item 实验目的：利用多普勒效应探究摩擦力与运动速度之间的关系。
+		
+		\item 实验原理
+		\begin{itemize}
+			\item 多普勒效应：当波源和观察者之间存在相对运动时，观察者接收到的波频率与波源发射频率之间的关系。
+			\item 摩擦力与速度关系：摩擦力可能会随物体的运动速度而改变。
+		\end{itemize}
+		
+		\item 实验设备
+		\begin{itemize}
+			\item 发射和接收超声波的设备。
+			\item 可以在不同表面材质上运动的小车。
+			\item 测速仪或者高速摄像机记录小车速度。
+		\end{itemize}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{LabX5GraAD8.jpg}
+			\caption{利用多普勒效应探究摩擦力与运动速度之间的关系}
+			\label{fig:figAD8}
+		\end{figure}
+		
+		\item 实验步骤
+		\begin{enumerate}
+			\item 准备实验装置：设置超声波发射器和接收器，确保它们能够准确记录多普勒效应产生的频率变化。小车应能够在不同材质的表面上运动（例如：光滑表面和粗糙表面）。
+			
+			\item 测量静止摩擦力：在不同的表面材质上，测量小车开始运动所需的最大静摩擦力。
+			
+			\item 测量动摩擦力与速度：使用超声波发射器和接收器记录小车在不同速度下的多普勒频移。同时，用高速摄像机或测速仪记录小车的速度。
+			
+			\item 数据记录：收集不同速度下的多普勒频移数据以及对应的摩擦力数据。
+			
+			\item 数据分析：分析多普勒频移与小车速度的关系，进而推断摩擦力如何随速度变化。
+		\end{enumerate}
+		
+		\item 注意事项
+		\begin{itemize}
+			\item 确保超声波发射器和接收器的对准和稳定。
+			\item 在进行实验时，应考虑环境因素，如温度、湿度等，可能对实验结果产生影响。
+			\item 实验中应保证小车的运动路径直线且平稳，避免因路径弯曲或不平造成数据误差。
+		\end{itemize}
+		
+		\item 实验分析
+		\begin{itemize}
+			\item 通过实验数据，我们可以分析摩擦力是否与速度有明显的相关性，如果有，这种关系是线性还是非线性。
+			\item 实验数据也可以用来验证理论模型，如摩擦力模型是否能够准确预测不同速度下的摩擦力。
+		\end{itemize}		
+		
+	\end{itemize}
+	
+	
+	
+	\clearpage
+	\section{LabX5 Doppler效应综合实验 \quad\heiti 参考文献与附件}
+	\subsection{参考文献}
+	[1] 维基百科 https://zh.wikipedia.org
+	
+	[2]	实验讲义
+	
+	\subsection{附件}
+	实验台桌面整理如\cref{fig:figA8}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{LabX5GraA8.jpg}
+		\caption{实验台桌面整理}
+		\label{fig:figA8}
+	\end{figure}
+	
+	实验报告个人签名如\cref{fig:name}。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{name.png}
+		\caption{个人签名}
+		\label{fig:name}
+	\end{figure}
+	
+\end{document}

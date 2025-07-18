@@ -1,0 +1,375 @@
+% !TEX root = ../main.tex
+
+% 实验记录	
+\begin{table}
+	\renewcommand\arraystretch{1.7}
+	\centering
+	\begin{tabularx}{\textwidth}{|X|X|X|X|}
+		\hline
+		Major： & Physics & Grade： & 2022 \\
+		\hline
+		Name： & 杨舒云 & Student number： & 22344020\\
+		\hline
+		Room temperature： &30 \degree C & Experimental location： &  A101\\
+		\hline
+		Student's Signature：& \textbf{In Attachment} & Score： &\\
+		\hline
+		Experiment time：& 2024/9/20 & Teacher's Signature：&\\
+		\hline
+	\end{tabularx}
+\end{table}
+\section{锁相放大器工作原理、基本参数与基本操作  \\ Experimental Record}
+
+
+%---------------------------------------------------------------------
+% 实验过程记录
+\subsection{Content, Procedures \& Results}
+
+% 操作步骤
+\subsubsection{Operations}
+实验全过程与戴鹏辉（22344016）合作完成，\textbf{以下操作步骤记录主要来自他的攥写}。
+\begin{enumerate}
+	\item 实验1.1 \quad 用示波器观察内部信号输出（与参考信号同频同相）
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{D1-1-1.jpg}
+		\caption{用示波器观察内部信号输出}
+		\label{fig:D1-1-1}
+	\end{figure}
+	
+	在锁相放大器的“SineOutput”中设置“Voltage = 80mVrms”，频率设置为1kHz，即可通过SINE OUT 功能输出一个正弦信号，如\cref{fig:D1-1-1}所示。需要注意，当用三通分信号至示波器时，注意在示波器输入通道设置中选择输入阻抗$1\mathrm{M}\Omega$。通过示波器测量到的信号确实为正弦波，测量信号的峰峰值$V_{pp} = 240.0 \text{mV}$，频率$f = 1.000 \text{kHz}$。
+	
+	\item 实验1.2 \quad 测量信号 $R$、$\theta$、$X$以及$Y$值，并验证它们之间的关系
+	
+	在实验一的基础上，用一条BNC-BNC 信号线连接 OE1022 前面板 SINE OUT 输出接口和 SIGNAL IN 的 A/I接口，并设置合适的数字信号发生器输出幅值和量程灵敏度值，确保不会发生前级输出溢出和放大溢出的情况。具体实验时，设置量程灵敏度为100mV。
+	
+	\item 实验1.3 \quad 相敏检波器工作原理——乘法器
+	
+	将锁相放大器设置为内部参考信号，耦合方式设置为DC，将滤波器带宽调至最大（即$TC = 10 \mu\text{s}, \text{Slope} = 6 \text{dB/cot}$）。设置一个幅值为320mVrms，频率为1kHz的正弦波信号输入锁相放大器，量程灵敏度设置为500mV。通过示波器观察锁相放大器的模拟输出的$R$信号的波形，如\cref{fig:D1-3-1}所示；同时观察$X$，$Y$信号的波形，如\cref{fig:D1-3-3}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.45\textwidth]{D1-3-1.jpg}
+		\caption{乘法器输出的$R$的图像}
+		\label{fig:D1-3-1}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{D1-3-3.jpg}
+		\caption{乘法器输出的$X$，$Y$的图像}
+		\label{fig:D1-3-3}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{APL1_1_question5_phase.jpg}
+		\caption{X、Y相位测量}
+		\label{fig:APL1_1_question5_phase}
+	\end{figure}
+	
+	\item 实验1.4 \quad 相敏检波器工作原理——乘法器+低通滤波器
+	
+	对锁相放大器的滤波器设置不同的时间常数和陡降，通过示波器观察锁相放大器的输入信号波形、乘法器输出的$R$，$X$，$Y$波形（分别是1ms、1s、10ms、100ms和100$\mu$s，按照R、X、Y的顺序），如\cref{fig:apl1_question7}所示；同时记录锁相放大器的$R$，$X$，$Y$读数，如\cref{tbl:D1-4-1}所示。
+	
+	\begin{figure}[H]
+		\centering
+		% 第一行
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_1ms_R.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_1ms_X.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_1ms_Y.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_1s_R.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_1s_X.jpg}
+		\end{minipage}
+		
+		% 第二行
+		\vskip\baselineskip
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_1s_Y.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_10ms_R.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_10ms_X.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_10ms_Y.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_100ms_R.jpg}
+		\end{minipage}
+		
+		% 第三行
+		\vskip\baselineskip
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_100ms_X.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_100ms_Y.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_100mus_R.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_100mus_X.jpg}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.12\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question7_100mus_Y.jpg}
+		\end{minipage}
+		
+		\caption{不同时间常数下的波形}
+		\label{fig:apl1_question7}
+	\end{figure}
+
+	不断增大陡降，观察输出的滤波波形，图像如\cref{fig:D1-4-1-1}、\cref{fig:D1-4-1-2}、\cref{fig:D1-4-1-3}、\cref{fig:D1-4-1-4}所示
+	
+	\begin{figure}[htbp]
+		\centering
+		% 第一行左图
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question8_slope6.jpg} % 替换为你的图片路径
+			\caption{$Slope = 6 \mathrm{dB/oct}$}
+			\label{fig:D1-4-1-1}
+		\end{minipage}
+		\hspace{0.05\textwidth} % 两列之间的水平间距
+		% 第一行右图
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question8_slope12.jpg} % 替换为你的图片路径
+			\caption{$Slope = 12 \mathrm{dB/oct}$}
+			\label{fig:D1-4-1-2}
+		\end{minipage}
+		
+		\vspace{0.01\textwidth} % 两行之间的垂直间距
+		
+		% 第二行左图
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question8_slope18.jpg} % 替换为你的图片路径
+			\caption{$Slope = 18 \mathrm{dB/oct}$}
+			\label{fig:D1-4-1-3}
+		\end{minipage}
+		\hspace{0.05\textwidth} % 两列之间的水平间距
+		% 第二行右图
+		\begin{minipage}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{APL1_1_question8_slope24.jpg} % 替换为你的图片路径
+			\caption{$Slope = 24 \mathrm{dB/oct}$}
+			\label{fig:D1-4-1-4}
+		\end{minipage}
+		\caption*{不同陡降的滤波效果}
+		\label{fig:D1-4-1}
+	\end{figure}
+	
+	\item 实验1.8 \quad 强噪声背景下的弱信号检测
+	\begin{enumerate}
+		\item 用示波器观察教学实验箱噪声发生器输出的噪声是否为白噪声，记录时域和频域图谱以说明。
+		\item 比较 OE1022 与示波器对不同信号强度和信噪比的测量结果，设计如下：
+		\begin{enumerate}
+			\item 用非市电倍频的频率（ 986 Hz），幅值自定的正弦波信号与噪声信号叠加；
+			\item 调节锁相放大器的量程灵敏度和 LPF 带宽，获得至少两组稳定的数字读数（3 位有效数字），记录的 \( R \) 值和对应的锁相放大器参数；
+			\item 同时在示波器中通过“Math”选项带通滤波器，设置信号频段（通带频率范围），并在滤波后的信号中读取有效值；截录滤波前后的波形图，分别记录所测信号值以及波形图；
+			\item 改变 OE1022 产生正弦波有效值，在不同信噪比下重复上述测量；仅要求测量 3 种信噪比的情况，其中必须包括信噪比为 -60 dB 的情况；
+			\item 观察滤波效果，分析实验结果。
+		\end{enumerate}
+	\end{enumerate}
+	
+	实验电路接线方式如\cref{fig:jiexian}所示。
+	
+	\begin{figure}[{H}]
+		\centering
+		\includegraphics[width=0.8\linewidth]{jiexian.png}
+		\caption{实验接线示意图}
+		\label{fig:jiexian}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{D1-8-1.jpg}
+		\caption{噪声发生器的噪声信号测量}
+		\label{fig:D1-8-1}
+	\end{figure}
+	
+	通过白噪声发生器产生约100mVrms的白噪声，将其与不同幅值的正弦信号相加，得到不同信噪比的待测信号。实验过程中，首先测量噪声发生器的噪声信号有效值，通过拉长时间轴的方法，让噪声幅值在长时间下取平均，使有效值的数值稳定，如\cref{fig:D1-8-1}所示。然后基于测量得到的噪声有效值，设置不同的信号幅值，得到不同的输入信号信噪比。信噪比为0的情况，即设置正弦波幅值$V_{in} = V_{noise}$；信噪比-30的情况，即通过理论计算得到，在噪声有效值一定的情况下，所需的正弦波幅值；信噪比-80的情况，可通过噪声发生器的衰减功能直接在信噪比为0的情况的基础上得到。测量数据如\cref{tbl:D1-8-1}所示。
+	
+\end{enumerate}	
+
+% 实验结果
+\clearpage
+\subsubsection{Display}
+以下是实验结果。
+\begin{enumerate}
+	\item 实验1.2 \quad 测量信号 $R$、$\theta$、$X$以及$Y$值，并验证它们之间的关系
+	
+	通过前面板DISPLAY按键，测量实时显示的$R$、$\theta$、$X$、$Y$值，结果如\cref{tbl:D1-2-1}。
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|l|l|l|l|} 
+			\hline
+			$R/\text{mV}$  & $X/\text{mV}$   & $Y/\text{mV}$ & $\theta/degree$  \\ 
+			\hline
+			81.43 & -81.34 & 3.79 & 177.33   \\
+			\hline
+		\end{tabular}
+		\caption{测量信号的 $R$、$\theta$、$X$、$Y$值}
+		\label{tbl:D1-2-1}
+	\end{table}
+	
+	\item 实验1.3 \quad 相敏检波器工作原理——乘法器
+	
+	在相同的陡降（$Slope=6dB/oct$）下，设置不同的时间常数，观察其对$X$、$Y$信号平均值的影响，结果如\cref{tbl:D1-3-1}所示。
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|cc|} 
+			\hline
+			\diagbox{时间常数}{平均值}{信号} & $X/ \mathrm{mV}$     & $Y/ \mathrm{mV}$      \\ 
+			\hline
+			10$\mu$s                           & 1.692 & 50.07  \\
+			100us                              & 1.692 & 53.59  \\
+			1ms                                & 1.690 & 51.13  \\
+			10ms                               & 1.690 & 48.65  \\
+			100ms                              & 1.692 & 49.82  \\
+			1s                                 & 1.691 & 49.47  \\
+			\hline
+		\end{tabular}
+		\caption{相同的陡降、不同的时间常数对$X$、$Y$信号平均值的影响}
+		\label{tbl:D1-3-1}
+	\end{table}
+	
+	\item 实验1.4 \quad 相敏检波器工作原理——乘法器+低通滤波器
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tblr}{
+				cells = {c},
+				cell{1}{1} = {r=2}{},
+				cell{1}{2} = {r=2}{},
+				cell{1}{3} = {c=3}{},
+				cell{1}{6} = {c=3}{},
+				cell{3}{1} = {r=6}{},
+				vline{1,2,3,6,9} = {1,2}{},
+				%   vline{1,2,3,6,9} = {2}{},
+				%   vline{1-3,9} = {3}{},
+				vline{1,2,3,6,9} = {3-8}{},
+				hline{1,3,9} = {-}{},
+				hline{2} = {3-8}{},
+			}
+			陡降(dB/oct) & 时间常数   & 示波器读数  &         &         & 锁相放大器读数 &         &        \\
+			&        & $R$      & $X$       & $Y$       & $R$       & $X$       & $Y$      \\
+			6  & 10$\mu$s  &    NAN    &    NAN     &    NAN     &     56.7mV    &     51.2mV    &     3.0mV   \\
+			& 100$\mu$s & 2.11V  & 2.17V   & 2.15V   & 55.0mV  & 50.0mV  & 3.0mV  \\
+			& 1ms    & 278mV  & 222.0mV & 280.0mV & 50.0mV  & 49.0mV  & 2.0mV  \\
+			& 10ms   & 28.0mV & 27.0mV  & 28.0mV  & 50.0mV  & 50.0mV  & 1.6mV  \\
+			& 100ms  & 5V     & 5V      & 160mV   & 50.16mV & 50.13mV & 1.67mV \\
+			& 1s     & 5.04V  & 5.03mV  & 158mV   & 50.16mV & 50.13mV & 1.67mV 
+		\end{tblr}
+		\caption{不同时间常数下的示波器和锁相放大器读数}
+		\label{tbl:D1-4-1}
+	\end{table}
+	
+	\item 实验1.8 \quad 强噪声背景下的弱信号检测
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tblr}{
+				cells = {c},
+				cell{2}{1} = {r=6}{},
+				cell{8}{1} = {r=7}{},
+				vline{1-2,4,7} = {-}{},
+				vline{4,7} = {3-7,9-14}{},
+				hline{1-2,8,15} = {-}{},
+			}
+			仪器    & 输入信号信噪比    & dB     & 0            & -30          & -80      \\
+			示波器   & 正弦波$V_{in}$幅值 & mVrms  & 119.2        & 3.8          & -        \\
+			& 噪声信号大小     & mVrms  & 120.7        & 120.7        & 120.7    \\
+			& SNRi       & dB     & -0.11 & -30.04 & -80 \\
+			& 滤波器带宽      & Hz     & 1000         & 1000         & 1000     \\
+			& 滤波后信号有效值   & mVrms  & 135          & 4.8          & -        \\
+			& SNRo,os   & dB     & 0.97  & -28.01 & - \\
+			锁相放大器 & 量程灵敏度      & mV     & 200          & 20           & 20       \\
+			& 时间常数       & ms     & 10           & 300          & 300      \\
+			& 陡降         & dB/oct & 24           & 24           & 24       \\
+			& LPF带宽      & Hz     &       7.81      &       0.26       &      0.26    \\
+			& 信号有效值R     & mVrms  & 120.1        & 3.77         & 12.1     \\
+			& 噪声有效值N     & mVrms  & 0.02         & 0.028        & 0.106    \\
+			& SNRo,lo    & dB     & 75.57  & 42.58  & 41.15  
+		\end{tblr}
+		\caption{强噪声背景下的弱信号检测数据}
+		\label{tbl:D1-8-1}
+	\end{table}
+\end{enumerate}
+
+
+%---------------------------------------------------------------------
+% 原始数据
+\clearpage
+\subsection{Original Data}
+The original data in the experimental notebook is shown in \cref{fig:O1} and \cref{fig:O2} (signed).
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{APL1-1-OriData1.jpg}
+	\caption{原始数据1}
+	\label{fig:O1}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{APL1-1-OriData2.jpg}
+	\caption{原始数据2}
+	\label{fig:O2}
+\end{figure}
+
+%See the \textbf{Attachment} section for the clean of the experimental bench desktop (%\cref{}).
+
+%Other raw data are shown in %\cref{}.
+
+
+%---------------------------------------------------------------------
+%% 问题记录
+%\subsection{Difficulties}
+%\begin{enumerate}
+%	\item 
+%\end{enumerate}
+%% ---

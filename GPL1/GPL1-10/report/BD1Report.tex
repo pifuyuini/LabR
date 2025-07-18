@@ -1,0 +1,927 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+\usepackage{adjustbox}
+
+\begin{document}
+	
+	
+	
+	%实验报告封面	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE20 & & \LARGE30 & & \LARGE30 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 2\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2023/11/23 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{center}
+		\LARGE BD1 \quad 复摆与混沌
+	\end{center}
+	
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（20分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。\textcolor{red}{\textbf{（30分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\end{enumerate}
+	
+	\textbf{【实验安全注意事项】}	
+	\begin{enumerate}
+		\item 硬件连接检查：开启电脑，点击“开始”，找到 NI MAX 并启动，在“设备和接口”下查看电脑给 myDAQ 分配的名称是否为“myDAQ1”。如果出现下图左边的情况，请右键点击“myDAQ1”并把它删除，然后把“myDAQ2”的名称修改为“myDAQ1”并保存。（注：这是因为程序编写时使用的设备名称为“myDAQ1”）
+		\item 角度零点校正：转动电机指向 0°位置，双击桌面的“玻尔机械混沌摆”启动程序后，软件会实时显示摆轮角度， 用手拨动摆轮，使白色箭头从负 140°至正 140°摆动一次，然后使箭头对准 0°。此时观察软件实时显示的摆轮角度是否正确。如不正确，需在“零点校正”中输入符号相反的数值，之后再次转动摆轮检查角度显示是否正确。
+		（注：每次启动程序，都需要进行角度校正。如果在程序运行过程中，中途点击过“角度采集”按钮，“零度校正”一般不需要重新设置，只需手动让摆轮从左到右大幅摆动一次，角度显示即可恢复正常。）
+		\item 安装重物后，转动电机指向 0°位置，调节重物离转轴的距离，使摆轮偏转后稳定在 35～50°之间。
+		\item 用于电机供电的电源，电压设置为 15V；点击“电机开关”，电机才会启动；点击“设置频率”，电机频率才会更新。（注：用于电机供电的电源打开时，转动电机时的阻力会增大）
+		\item 数据保存：软件保存的数据都是保存时刻前 240 秒的数据。软件在“保存间隔”和“稳定时间”均会自动保存一次数据，可以根据“已用时间”和文件名进行区分（也可以设置“保存间隔”和“稳定时间”相等，这样软件在达到“稳定时间”时保留一次数据）。点击“保存数据”，软件会即刻保存数据一次。
+				
+	\end{enumerate}
+	
+	\textbf{【特别鸣谢及模板说明】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。
+	
+	\textbf{【注意！！！】}	
+	
+	\textcolor{red}{\textbf{\Huge 特别说明：由于本实验报告中插入图片太多，超过了允许上传的最大大小，因此上传的文件是被压缩的，清晰度会有不可避免的损失；强烈建议批改这份实验报告的老师联系我获得原版实验报告}}
+	
+	
+	
+	
+	
+		
+	
+	\clearpage
+	\tableofcontents
+	\clearpage
+	
+	
+	
+	%预习报告	
+	\setcounter{section}{0}
+	\section{BD1 复摆与混沌 \quad\heiti 预习报告}
+	
+	\subsection{实验目的}
+	\begin{enumerate}
+		\item 观察复摆的振动现象， 学习复摆的运动方程。
+		
+		\item 了解混沌的基本特征，理解非线性方程解的稳定性与混沌的关系。
+		
+		\item 设置不同的参数， 测量角度时序图、相图、 功率谱， 探索产生混沌的条件。
+		
+		\item 熟悉基于 LabVIEW 对实验过程进行控制及数据处理。
+	\end{enumerate}
+	
+	\subsection{仪器用具}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1& 玻尔振动混沌实验仪 & 1 & COC-JCHD \\
+			
+			2& myDAQ & 1 & -- \\
+			
+			3& 直流电源 & 2 & RXN-1502D \\
+			
+			4& 物理天平 & 20 & -- \\
+			
+			5& 钢尺 & 1 & -- \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\subsection{实验前思考题}
+	\begin{question}
+		混沌的基本特征是什么？如何认定一个系统进入了混沌状态？（4分）（各2分）
+	\end{question}
+	混沌，又写作浑沌，指混乱而没有秩序的状态。在哲学中，混沌指虚空，或者没有结构的均匀状态。在非线性科学中，“混沌”这个词的含义和本意相似但又不完全一致，非线性科学中的混沌现象指的是一种确定的但不可预测的运动状态。它的外在表现和纯粹的随机运动很相似，即都不可预测。但和随机运动不同的是，混沌运动在动力学上是确定的，它的不可预测性是来源于运动的不稳定性。或者说混沌系统对无限小的初值变动和微扰也具有敏感性，无论多小的扰动在长时间以后，也会使系统彻底偏离原来的演化方向。混沌现象是自然界中的普遍现象，天气变化就是一个典型的混沌运动。混沌现象的一个著名表述就是蝴蝶效应：南美洲一只蝴蝶扇一扇翅膀，就可能会在佛罗里达引起一场飓风。混沌有三个关键要素：对初始条件的敏感依赖性；
+	临界水平，这里是非线性事件的发生点；分形维，它表明有序和无序的统一。
+	
+	混沌的基本特征：
+	\begin{enumerate}
+		\item 混沌系统是确定性的。这意味着混沌系统的运动是由一些确定的方程或规则所控制的，而不是随机的或无规律的。¹²³⁴⁵⁶
+		\item 混沌系统对初始条件非常敏感。这意味着混沌系统的运动轨迹会因为初始状态的微小变化而产生巨大的差异，导致长期的不可预测性。
+		\item 混沌系统具有隐藏的确定性和秩序。这意味着混沌系统的运动虽然看起来是无序的，但实际上是有一定的结构和规律的，例如奇异吸引子、分形维数、李雅普诺夫指数等。
+	\end{enumerate}
+	
+	进入混沌状态的判据：
+	\begin{enumerate}
+		\item 系统是否是确定性的。这意味着系统的运动是否由一些确定的方程或规则所控制的，而不是随机的或无规律的。
+		\item 系统是否对初始条件非常敏感。这意味着系统的运动轨迹是否会因为初始状态的微小变化而产生巨大的差异，导致长期的不可预测性。
+		\item 系统是否具有隐藏的确定性和秩序。这意味着系统的运动虽然看起来是无序的，但实际上是有一定的结构和规律的，例如奇异吸引子、分形维数、李雅普诺夫指数等。
+		如果一个系统满足以上三个条件，那么它就可以被认为是一个混沌系统，它的运动状态就是混沌状态。
+	\end{enumerate}
+	
+	综上所述，混沌的基本特征有以下几点：非线性：混沌系统是一种非线性系统，即系统的输出与输入之间没有简单的比例关系，而是受到多种因素的复杂影响。初始条件敏感性：混沌系统对初始条件非常敏感，即系统的初始状态发生微小的变化，会导致系统的长期行为出现巨大的差异。这就是著名的“蝴蝶效应”，即一只蝴蝶在巴西某地扇动翅膀，可能会引起德克萨斯州的一场飓风。长期不可预测性：混沌系统的行为虽然是确定性的，但由于初始条件敏感性，使得系统的长期行为难以预测，只能在一定的时间范围内进行有效的预测。这就是混沌系统的不可预测性，即系统的未来状态不能由过去的状态唯一确定。分形结构：混沌系统的运动轨迹在相空间中呈现出一种复杂的几何形态，称为分形。分形是一种具有自相似性的图形，即分形的任意一部分都与整体具有相似的形状。分形的维数是一个非整数，称为分维，它可以用来描述混沌系统的复杂度。
+	
+	要判断一个系统是否进入了混沌状态，可以使用一些定性或定量的方法，例如：Poincare映射：Poincare映射是一种将连续的动力学系统转化为离散的映射的方法，它可以用来观察系统的周期性和稳定性。如果Poincare映射的结果是一系列散乱的点，而不是有序的环或点，那么系统可能是混沌的²。功率谱方法：功率谱方法是一种将信号的时间域信息转化为频域信息的方法，它可以用来分析信号的频率成分和能量分布。如果功率谱的结果是一条连续的曲线，而不是有限的峰值，那么系统可能是混沌的。Lyapunov指数：Lyapunov指数是一种衡量系统对初始条件敏感性的量化指标，它可以用来判断系统的稳定性和混沌性。如果Lyapunov指数的最大值是正数，那么系统是混沌的；如果Lyapunov指数的最大值是零，那么系统是边缘混沌的；如果Lyapunov指数的最大值是负数，那么系统是稳定的。
+	
+	\begin{question}
+		请求出方程$\frac{d^2\theta}{dt^2}+\frac r{I+md^2}\frac{d\theta}{dt}-\frac{\mathrm{mgd-c}}{I+md^2}\theta+\frac{\mathrm{mgd}}{6(I+md^2)}\theta^3=\frac{M_0}{I+md^2}\cos\omega t$的稳定解$\theta_0$，并推导出方程$\frac{d^2x}{d\tau^2}+\mu\frac{dx}{d\tau}-x+x^3=\eta\mathrm{cos}\Omega\tau$。
+	\end{question}
+	对于稳定解$\theta_0$，按讲义上的理解是稳定的平衡位形，满足：
+	\[-\dfrac{mgd-c}{I+md^2}\theta+\dfrac{mgd}{6(I+md^2)}\theta^3=0\]
+	
+	解得$\theta_0=0$，或$\theta_0=\pm\sqrt{6(1-\dfrac{c}{mgd})}$。当$\theta_0=0$，按微扰展开，可发现$\frac{\mathrm{d}^2V }{\mathrm{d} \theta^2}<0$，即并不是平衡位形，因此所求$\theta_0=\pm\sqrt{6(1-\dfrac{c}{mgd})}$。
+	
+	对于原始方程，我们可以作变量替换，令$\Omega_0=\sqrt{\dfrac{mgd-c}{I+md^2}}$，$T=\dfrac{1}{\Omega_0}$，$\mu=\dfrac{r}{\sqrt{(mgd-c)(I+md^2)}}$，$\eta=\dfrac{M_0\sqrt{mgd}}{\sqrt{6}(mgd-c)^{\frac{3}{2}}}$，再替换$x=\dfrac{\theta}{\theta_0}$，$\tau=\dfrac{t}{t_0}$，$\Omega=\dfrac{\omega}{\Omega_0}$，对方程作无量纲化处理：
+	\[\frac{\mathrm{d}^2x }{\mathrm{d} \tau^2}+\mu\frac{\mathrm{d}x }{\mathrm{d} \tau}-x-x^3=\eta\cos\Omega\tau\]
+	
+	\begin{question}
+		自编计算机程序或根据附录一提供的模拟程序，设置几组不同的参数，模拟摆轮的角度时序图、相图、功率谱，探索产生混沌现象的条件。	
+	\end{question}
+	由于讲义上的代码并不能正常使用，我自己用Mathematica编写了交互式模拟程序，可以在各个参数连续变化的情况下探究复摆的运动情况。若老师想要查看代码，可以联系我。以下展示一些模拟结果。
+	\begin{enumerate}
+		\item 首先，当$\mu=0.75$，$\eta=1$，$x[0]=0$，$x'[0]=1$和$\Omega=1.6$时，摆轮的角度时序图、相图、功率谱如\cref{fig:fig1}、\cref{fig:fig2}和\cref{fig:fig3}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{BD1Gra1.jpeg}
+			\caption{时序图（$\mu=0.75$，$\eta=1$，$x[0]=0$，$x'[0]=1$和$\Omega=1.6$）}
+			\label{fig:fig1}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1Gra2.jpg}
+			\caption{相图（$\mu=0.75$，$\eta=1$，$x[0]=0$，$x'[0]=1$和$\Omega=1.6$）}
+			\label{fig:fig2}
+		\end{figure}
+		
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{BD1Gra3.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{BD1Gra4.jpg}
+			}
+			\caption{功率谱（$\mu=0.75$，$\eta=1$，$x[0]=0$，$x'[0]=1$和$\Omega=1.6$）}
+			\label{fig:fig3}			
+		\end{figure}
+		
+		\item 接下来，我探究了$\Omega$从0.1到1.8变化时，相图的变化情况（\cref{fig:fig5}）。正如讲义所述，从模拟的结果可以看到，在驱动力频率较低时，如$\Omega =0.8 $所示， 圆盘和重物组成的摆动系统会在初始位置两侧来回摆动，而且摆动的振幅和频率较为规则，具有周期性振动的特征； 当频率增加到$\Omega =0.9 $时，系统的摆动变得复杂起来，除了在两侧摆动之外，还随机地在一侧连续摆动几次，之后再摆动到另一侧，这些摆动的振幅和频率没有规律可循，符合非周期振动的特征，可以认为摆动进入了混沌状态。当外力驱动频率继续升高至$\Omega =1.2 $时， 摆动又出现了周期运动的特征。驱动频率再增加到$\Omega =1.6 $和到$\Omega =1.7 $时，系统再次进入混沌状态。 当驱动频率达到$\Omega =1.8 $时，经过一定时间的振动，系统的摆动又变得规则起来。 
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.24\textwidth]{BD1Gra5.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.24\textwidth]{BD1Gra6.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.24\textwidth]{BD1Gra7.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.24\textwidth]{BD1Gra8.jpg}
+			}
+			\caption{相图随$\Omega$变化情况}
+			\label{fig:fig5}			
+		\end{figure}
+		
+		随着外力驱动频率增大，系统的动力学行为表现为从周期性振动进入混沌态，再突变为周期性振动，再变为混沌状态，即系统随着参数的变化会交替出现周期性和混沌的运动状态，而且这种变化多为突变的。这分别对应于非线性方程的解是否具有稳定性。
+		
+		\clearpage
+		\item 然后我探究了方程$\frac{\mathrm{d}^2x }{\mathrm{d} \tau^2}+\mu\frac{\mathrm{d}x }{\mathrm{d} \tau}-x-x^3=\eta\cos\Omega\tau$中其它参数变化引起相图的变化。以$\mu=0.75$，$\eta=1$，$x[0]=0$，$x'[0]=1$和$\Omega=1.6$作为变化的起点。
+		
+		分别得到$\mu=0.6$，$\eta=1.1$，$\mu=0.49$且$\eta=1.065$的相图，如\cref{fig:fig9}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{BD1Gra9.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{BD1Gra10.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{BD1Gra11.jpg}
+			}
+			\caption{相图随方程参数变化情况}
+			\label{fig:fig9}			
+		\end{figure}
+		
+		\item 最后我尝试利用思考题1中提到的功率谱方法探究混沌产生的条件，分别取$\Omega=$0.7,0.9,1.3，得到如\cref{fig:fig13}所示结果。可以发现，$\Omega=0.9$时，系统可能进入了混沌状态。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{BD1Gra13.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{BD1Gra14.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{BD1Gra15.jpg}
+			}
+			\caption{功率谱方法探究混沌条件}
+			\label{fig:fig13}			
+		\end{figure}
+		
+	\end{enumerate}
+	
+	\begin{question}
+		在振动不稳定区域，选取两个不同的初始值 x(0)，利用计算机模拟并比较系统的振动状态。（2分）（在振动稳定区域选取-1分）
+	\end{question}
+	根据上一个思考题探究的结果，$\Omega=1.6642$时是混沌。我模拟了$x[0]=0$，$x[0]=-0.1$和$x[0]=-0.3$时运动情况，如以下相图（\cref{fig:fig16}、\cref{fig:fig17}和\cref{fig:fig18}）所示，可以发现，系统对初始条件非常敏感，可谓是“失之毫厘、谬以千里”。需要强调的是，这类运动的每一步都服从牛顿运动定律，都是确定的。仅就实验中观察到的对应于“相同”的初值会有不同的运动而言，他们呈现不确定性，表现出混沌行为。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{BD1Gra16.jpg}
+		\caption{混沌相图：$x[0]=0$}
+		\label{fig:fig16}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{BD1Gra17.jpg}
+		\caption{混沌相图：$x[0]=-0.1$}
+		\label{fig:fig17}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{BD1Gra18.jpg}
+		\caption{混沌相图：$x[0]=-0.3$}
+		\label{fig:fig18}
+	\end{figure}
+	
+	混沌研究表明，运动对初值的依赖应分为两类：一类是一般地依赖初值；另一类是敏感地依赖初值。前一类运动给定初值后的运动是完全确定的，这类运动是可以“重现”可“预报”的。 例如线性单摆、玻尔振动等。另一类更为普遍，它们对初值非常敏感。由于物理量的测量精度是有限的，对于敏感依赖初值的运动，即使在实验中给予相同的“初值”（两次初值相差很小， 测量不出两次初值的不同），两次的运动并不重复，也就是说不可重现，不可预测。前面讨论的复摆运动，当未出现混沌现象时，它是一般地依赖初值；当系统进入混沌态时，复摆就做“敏感依赖初值”的运动，即使初值只有微小的改变，随后的运动表现出明显的“随机性”。
+	
+	事实上我还用\textbf{Python}语言和\textbf{Julia}语言分别写了代码来进行模拟，代码和运行结果附在实验报告最后\textbf{附件}部分。
+	
+	
+	%实验记录	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 23摄氏度 & 实验地点： & 实验室507 \\
+			\hline
+			学生签名：& 杨舒云 & 评分： &\\
+			\hline
+			实验时间：& 2023/11/23 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{BD1 复摆与混沌  \quad\heiti 实验记录}
+	\subsection{实验内容、步骤与结果}
+	\subsubsection{操作步骤记录}
+	\begin{enumerate}
+		\item 检查混沌摆装置的连线是否正确。运行程序，检查程序显示的实时摆轮角度是否正确，如不正确需要先做零点校正。
+		\item 取下重物，利用天平测量重物的质量 m。
+		\item 测量一次阻尼振动，方法为：手动使摆轮转到140度，松手后尽快点击软件的“清除数据”按钮，重新开始记录数据，直到摆轮角度逐渐衰减至零，停止采集并保存实验数据和图像。（注：此步骤时，给电机供电的直流电源的开关不能打开）
+		\item 打开电机供电的电源，设置驱动电压 15V，设置驱动电机频率 0.5Hz，观察受迫振动，并保存数据。
+		\item 关闭给电机供电的电源，电机转到0度位置，安装重物，调整重物离轴心的距离使摆轮偏转40度左右，并用直尺测量重物中心离转轴的距离 d。记录此时的稳定平衡位置（注： 重物偏向左和右的角度很难做到完全一致，需仔细测量，并取两者的平均值。）
+		\item 再次打开电机供电电源，利用“保持频率”模式（此模式下系统频率一直保持不变，每隔“稳定时间”系统自动保存实验数据）。设置驱动频率为 0.6Hz，打开软件的电机开关，电机开始转动。等系统稳定后（大约需要 5 分钟），观察摆轮角度的时序图、频谱图和角速度-速度相图，确定系统此时的状态，并保存实验数据。 
+		\item 设置驱动频率为 0.3Hz，保存系统稳定后的状态和实验数据。然后再观察 0.45Hz（0.3 和 0.6 的平均值） 时的状态。根据 0.45Hz 时的状态，再选择观察 0.375 和 0.525Hz 的状态。
+		\item 判断以上频率点属于哪种运动状态（周期一，周期二，周期四、单吸引子和双吸引子等）。初步确定出现混沌现象的电机驱动频率范围，在出现混沌状态的频率附近，仔细改变频率，观察运动状态并保存数据。 
+		\item （选做）在出现混沌现象的电机驱动频率下，改变摆轮初始角度，观察不同初始值下摆轮的运动状态，在分析讨论部分比较实验数据。（注：如果摆轮运动在周期态，系统稳定后，相图会是闭合的曲线，“稳定时间” 可以设置的短一些，默认值 360 秒；如果摆轮运动在混沌态，则需要观察记录的时间长一些，建议“稳定时间”设置为 600 秒。请注意软件自动保存的数据仍是最后 240 秒的数据）
+	\end{enumerate}	
+	
+	\subsubsection{阻尼振动、受迫振动（6分）（每张相图2分）}
+	说明：这一节实验数据将以导出的txt用Origin作图以及附上的界面截图（原始数据）的形式给出。
+	\begin{enumerate}
+		\item 初始角度 140°时的阻尼振动相图如\cref{fig:figB1}所示。附：原始数据如\cref{fig:figAA1}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraB1.jpg}
+			\caption{初始角度 140°时的阻尼振动相图}
+			\label{fig:figB1}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA1.jpg}
+			\caption{原始数据：初始角度 140°时的阻尼振动相图}
+			\label{fig:figAA1}
+		\end{figure}
+		
+		\item 驱动电压 15V，电机频率 0.5Hz 的受迫振动，实验数据记录如\cref{fig:figB2}和\cref{fig:figB3}所示。
+		附：原始数据如\cref{fig:figAA2}、\cref{fig:figAA3}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraB2.jpg}
+			\caption{驱动电压 15V，电机频率 0.5Hz 的受迫振动开始时相图}
+			\label{fig:figB2}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraB3.jpg}
+			\caption{驱动电压 15V，电机频率 0.5Hz 的受迫振动稳定时相图}
+			\label{fig:figB3}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA2.jpg}
+			\caption{原始数据：驱动电压 15V，电机频率 0.5Hz 的受迫振动开始时相图}
+			\label{fig:figAA2}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA3.jpg}
+			\caption{原始数据：驱动电压 15V，电机频率 0.5Hz 的受迫振动稳定时相图}
+			\label{fig:figAA3}
+		\end{figure}
+		
+	\end{enumerate}
+		
+	数据分析见\textbf{实验数据分析}部分。
+	
+	\subsubsection{增加重物的混沌摆（12分）（重物质量1分，中心离转轴的距离1分，每张相图2分）}
+	这一节的数据将直接以界面截图（原始数据）的形式给出。
+	\begin{enumerate}
+		\item 重物质量如\cref{tab:tab1}所示。
+		
+		\begin{table}[h]
+			\centering
+			\caption{重物质量测量数据表}
+			\label{tab:tab1}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+				\hline
+				测量序号 & 1 & 2 & 3 & 4 & 5 & 均值 & 实验标准差 \\
+				\hline
+				重物质量/g & 45.94 & 45.96 & 45.95 & 45.07 & 45.96 & 45.78 & 0.18 \\
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\item 重物中心离转轴的距离：\textbf{d=6cm}。
+		
+		\item （\textbf{混沌}）驱动频率为 \textbf{0.3425Hz} 时的时序图、频谱图、相图。附：原始数据如\cref{fig:figAA3425}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA3425.jpg}
+			\caption{原始数据：（\textbf{混沌}）驱动频率为 \textbf{0.3425Hz} 时的时序图、频谱图、相图}
+			\label{fig:figAA3425}
+		\end{figure}
+		
+		\item （\textbf{混沌}）驱动频率为 \textbf{0.3750Hz} 时的时序图、频谱图、相图。附：原始数据如\cref{fig:figAA3750}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA3750.jpg}
+			\caption{原始数据：（\textbf{混沌}）驱动频率为 \textbf{0.3750Hz} 时的时序图、频谱图、相图}
+			\label{fig:figAA3750}
+		\end{figure}
+		
+		\item 驱动频率为 \textbf{0.3800Hz} 时的时序图、频谱图、相图。附：原始数据如\cref{fig:figAA3800}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA3800.jpg}
+			\caption{原始数据：驱动频率为 \textbf{0.3800Hz} 时的时序图、频谱图、相图}
+			\label{fig:figAA3800}
+		\end{figure}
+		
+		\item 驱动频率为 \textbf{0.4500Hz} 时的时序图、频谱图、相图。附：原始数据如\cref{fig:figAA4500}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA4500.jpg}
+			\caption{原始数据：驱动频率为 \textbf{0.4500Hz} 时的时序图、频谱图、相图}
+			\label{fig:figAA4500}
+		\end{figure}
+		
+		\item 驱动频率为 \textbf{0.4600Hz} 时的时序图、频谱图、相图。附：原始数据如\cref{fig:fiAA4600}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA4600.jpg}
+			\caption{原始数据：驱动频率为 \textbf{0.4600Hz} 时的时序图、频谱图、相图}
+			\label{fig:figAA4600}
+		\end{figure}
+		
+		\item 驱动频率为 \textbf{0.5200Hz} 时的时序图、频谱图、相图。附：原始数据如\cref{fig:figAA5200}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA5200.jpg}
+			\caption{原始数据：驱动频率为 \textbf{0.5200Hz} 时的时序图、频谱图、相图}
+			\label{fig:figAA5200}
+		\end{figure}
+		
+		\item 驱动频率为 \textbf{0.5500Hz} 时的时序图、频谱图、相图。附：原始数据如\cref{fig:figAA5500}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA5500.jpg}
+			\caption{原始数据：驱动频率为 \textbf{0.5500Hz} 时的时序图、频谱图、相图}
+			\label{fig:figAA5500}
+		\end{figure}
+		
+		\item 驱动频率为 \textbf{0.7000Hz} 时的时序图、频谱图、相图。附：原始数据如\cref{fig:figAA7000}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA7000.jpg}
+			\caption{原始数据：驱动频率为 \textbf{0.7000Hz} 时的时序图、频谱图、相图}
+			\label{fig:figAA7000}
+		\end{figure}
+		
+	\end{enumerate}
+	
+	数据分析见\textbf{实验数据分析}部分。
+	
+	\subsubsection{（选做）改变摆轮初始角度下摆轮运动状态（2分）}
+	这一节的数据将直接以界面截图（原始数据）的形式给出。
+	\begin{enumerate}
+		\item 平衡位置：测量加上重物后的平衡位置：左（两次测量）-47度、-48度；右（两次测量）+40度、+39度
+		\item 选择驱动频率为0.3425Hz，此时出现混沌，然后设定不同的初始摆角，如下所示。
+		\item 初始摆角1：0度
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{BD1GraAA0d.jpg}
+			\caption{原始数据：初始摆角1：0度}
+			\label{fig:figAA0d}
+		\end{figure}
+		
+		\item 初始摆角2：+65度
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.45\textwidth]{BD1GraAA65d.jpg}
+			\caption{原始数据：初始摆角2：+65度}
+			\label{fig:figAA65d}
+		\end{figure}
+		
+		\item 初始摆角3：-20度
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.45\textwidth]{BD1GraAA20d.jpg}
+			\caption{原始数据：初始摆角3：-20度}
+			\label{fig:figAA20d}
+		\end{figure}
+		
+		\item 初始摆角4：-47度
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.45\textwidth]{BD1GraAA47d.jpg}
+			\caption{原始数据：初始摆角4：-47度}
+			\label{fig:figAA47d}
+		\end{figure}
+		
+	\end{enumerate}
+	
+	\clearpage
+	\subsection{原始数据记录}
+	实验记录本上的原始数据见\cref{fig:figA2}（签字）。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{BD1GraA2.jpg}
+		\caption{实验记录本上的原始数据及签字}
+		\label{fig:figA2}
+	\end{figure}
+	
+	实验台桌面整理见\textbf{附件}部分(\cref{fig:figA1})。
+	
+	其它原始数据见\cref{fig:figAA1}、\cref{fig:figAA2}、\cref{fig:figAA3}、\cref{fig:figAA3425}、\cref{fig:figAA3750}、\cref{fig:figAA3800}、\cref{fig:figAA4500}、\cref{fig:figAA5200}、\cref{fig:figAA5500}、\cref{fig:figAA7000}、\cref{fig:figAA0d}、\cref{fig:figAA65d}、\cref{fig:figAA20d}和\cref{fig:figAA47d}。
+	
+	\subsection{实验过程中遇到的问题记录}
+	\begin{enumerate}
+		\item 混沌现象较难以调出，有很大随机性；
+		\item 重物中心到转轴距离难以测量。
+	\end{enumerate}
+	
+	
+	
+	%分析与讨论	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2023/11/23 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{BD1 复摆与混沌 \quad\heiti 分析与讨论}
+	\subsection{实验数据分析}
+	\subsubsection{阻尼振动、受迫振动（结合实验记录数据及图片分析每次实验的特征（6分）（阻尼振动、受迫振动各3分）}
+	\begin{enumerate}
+		\item 阻尼振动
+		
+		阻尼振动相图如\cref{fig:figB1}所示。阻尼振动是耗散系统，相空间是收缩的。从相图中可以看出，随着振幅的指数衰减，相轨向内卷缩，呈螺线状。如果我们在相平面上任意划出一个区域来，这个区域的大小也将按指数律收缩，最后趋于中心的不动点（稳定平衡位置）。我们说，在这里中心点是动力学系统的一个吸引子(attractor)。
+		
+		该阻尼振动具有周期性，因此是弱阻尼（\textbf{阻尼电压设置的是6.6V}）。根据先前的实验（实验报告：ME4基于转动传感器的波尔振动综合实验By杨舒云也就是我本人），阻尼系数$\beta$会随阻尼电压和初始摆角变化，如\cref{fig:figME4}所示。本实验中初始摆角选择的是\textbf{140度}。
+		
+		我们可用测得的数据计算出阻尼系数，详见思考题。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{ME4Graph5.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{ME4Graph1.jpg}
+			}
+			\caption{阻尼系数随阻尼电压、初始摆角变化关系}
+			\label{fig:figME4}			
+		\end{figure}
+		
+		\item 受迫振动
+		
+		我们将受迫振动的时序图作出来（\cref{fig:figC1}），可以观察到不太明显的\textbf{“拍”的现象}。
+		
+		而根据受迫振动的相图（\cref{fig:figB2}和\cref{fig:figB3}），受迫振动\textbf{最终会趋于一个稳定的半径}是因为在那个半径上，策动力对扭摆做功的功率刚好与阻力耗散机械能的功率相等。若是直接将初始振幅选为稳定振幅，可以预料它直接就是稳定运动状态了。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{BD1GraC1.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{BD1GraC2.jpg}
+			}
+			\caption{受迫振动时序图（左）与时序图对比（右）}
+			\label{fig:figC1}			
+		\end{figure}
+		
+		\item 对比分析
+		
+		首先观察相图（\cref{fig:figB1}、\cref{fig:figB2}和\cref{fig:figB3}），引用先前的实验的结论，自由振动时因所受外界阻尼相对较小，近似地做简谐振动，但振动慢慢衰减，曲率半径慢慢变小。自由振动的相图与受迫振动的相图相似，受迫振动由于有比较大的阻尼存在，振动较自由振动时哀减得快，相邻两个圈之间的间隔比较大，圆圈数比较稀硫，且所受阻尼越大，衰减得越厉害；阻尼振动、自由振动的频率等于固有频率.做受迫振动的扭摆的振动频率与驱动力频率一致，当振动频率等于固有的振动频率时，扭摆达到共振状态，相点几乎在同一圆周上往复运动，相图与理想自由振动的相图基本一致。另外，三种振动的相图都反映了周期运动的特性。
+		
+		将二者时序图作于同一幅图，如\cref{fig:figC1}所示。阻尼振动是指在存在阻力或摩擦力的情况下发生的振动，振幅逐渐减小；而受迫振动是指在外力作用下发生的振动，振幅随时间的变化而发生周期性变化。图中的蓝线表示受迫振动，红线表示阻尼振动。受迫振动的振幅和频率由外力决定，而阻尼振动的振幅和频率由阻力系数和固有角频率决定。当外力的频率接近系统的固有角频率时，会发生共振现象，振幅达到最大值。图中的受迫振动可能处于共振状态，因为它的振幅比阻尼振动的振幅大得多。
+		
+	\end{enumerate}
+	
+	\clearpage
+	\subsubsection{增加重物的混沌摆（6分）（受迫振动周期运动、受迫振动混沌态各2分，分析讨论2分）}
+	\begin{enumerate}
+		\item 将实验得到的数据利用Origin作图，如\cref{fig:figC3}和\cref{fig:figC5}所示（这里选的是周期运动为\textbf{0.7000Hz}，混沌为\textbf{0.3425Hz}）。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{BD1GraC3.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{BD1GraC4.jpg}
+			}
+			\caption{周期运动（左）与混沌（右）时序图对比}
+			\label{fig:figC3}			
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{BD1GraC5.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.5\textwidth]{BD1GraC6.jpg}
+			}
+			\caption{周期运动（左）与混沌（右）相图对比}
+			\label{fig:figC5}			
+		\end{figure}
+		
+		\item 分析讨论
+		
+		观察图像可知：驱动频率越大，振动会呈现受迫振动周期运动状态，这主要是因为驱动力频率与振动的频率正相关，而较 大频率会使得系统很快进入一个稳定的周期运动状态。而混沌态无明显周期，其往往是处于较低频率下方可实现。		
+		
+	\end{enumerate}
+	
+	\subsubsection{（选做）改变摆轮初始角度下摆轮运动状态（2分）}
+	在\textbf{实验记录}部分，我给出了不同初始角度下摆轮运动状态的实验数据记录，下面进行分析。对比相图，我们可以发现虽然没有模拟中那么大的变化，但不同初始摆角下的相图，均有差异，这说明了当系统进入混沌态时，复摆就做“敏感依赖初值”的运动，即使初值只有微小的改变，随后的运动表现出明显的“随机性”。
+	
+	
+	\clearpage
+	\subsection{实验后思考题}
+	\begin{question}
+		比较玻尔振动仪的动力学方程与混沌实验仪的动力学方程，叙述它们的物理意义以及产生混沌的条件。（6分）（方程各1分，物理意义2分，产生混沌条件2分）
+	\end{question}
+	玻尔振动仪的动力学方程（这里我们做了较小摆角的近似，即可理解为稳定平衡位形附近的一阶微扰展开）：
+	\[I\frac{\mathrm{d}^2\theta }{\mathrm{d} t^2}=-C\theta-r\frac{\mathrm{d}\theta}{\mathrm{d} t}+M_0\cos\omega t\]
+	
+	混沌实验仪的动力学方程：
+	\[I\frac{\mathrm{d}^2\theta }{\mathrm{d} t^2}=-C\theta-r\frac{\mathrm{d}\theta}{\mathrm{d} t}+M_0\cos\omega t+mgd\sin\theta\]
+	
+	相比之下，混沌实验仪动力学方程多出一个非线性项，因此方程没有解析解，只能求出近似解。 
+	
+	该非线性项的物理意义是所加重物带来的随转动而改变的力矩。 
+	
+	产生混沌的条件：非线性的动力学方程以及初始条件，同时也要有非周期性的行为，在混沌中，没有明显的、可预测的周期性行为。
+	
+	\begin{question}
+		比较分析不加重物时的相图与加重物后混沌摆的相图，理解用相图分析非线性运动规律的优越性。（6分）（不加重物相图、加重物周期态相图、加重物混沌态相图各1分，比较分析1分，优越性2分）
+	\end{question}
+	\begin{itemize}
+		\item 在没有加重物的情况下，复摆系统表现出周期性或准周期性的运动。相图呈现出明确的椭圆周期曲线，这些闭合的曲线反映了系统的周期性运动。 
+		
+		\item 添加重物后，即使是周期态的相图，也呈现出与不加重物情况下的不同（如0.4500Hz和0.4600Hz的情况下，二者的相图均不是椭圆形的）。
+		
+		\item 加重物后，复摆系统在某些条件下表现出混沌。在相图中，这种混沌运动表现为不闭合的曲线， 没有明显的周期性结构。可能会出现单吸引子和双吸引子等情况。
+		
+		\item 比较分析：
+		
+		\item 相图分析非线性运动具有以下优越性：
+		
+		\begin{itemize}
+			\item 相空间中坐标和动量是始终独立且平等的。将相空间坐标区分为“坐标”和“动量”完全是人为的，其中的“坐标”部分未必是系统位形的刻画，“动量”部分也未必是物理动量的衡量。正确的理解是将广义坐标和广义动量视为一个整体，共同描述系统的状态。哈密顿正则方程所描述的正是相空间坐标、即系统状态的演化。更一般地，系统的力学量或者说可观测量（observable）由状态决定，即相空间坐标的函数。
+			\item 物理系统在任意时刻的状态可以用其相空间中的一个点来表示，称为这个系统在其相空间中的代表点。
+			随着时间的演化，系统的代表点也会在相空间中移动、从而划出一条条轨迹，称为系统的相轨迹（phase trajectory）或者相流（phas flow）。对于不含时系统，相空间中的点代表系统完整的状态。从相空间中一个给定的点出发，物理系统的相流完全由其哈密顿正则方程所唯一确定。换句话说，不含时系统的相流是永不相交的。这一点和位形空间中的演化不同，因为位形空间中的轨迹、包括世界线可以相交。相空间中相流的图示也被称作相图（phase diagram 或 phase portrait）。通过分析相图，可以直接得到系统演化的很多性质，而不需要具体求解运动方程。
+			\item “相图”的概念是庞加莱首先提出的。由“相图”的概念还延伸出“极限环”、“吸引子”、“庞加莱截面”、“混沌”等概念。由此发展出一门新的数学分支，即“微分方程的定性理论”。
+			\item 如果系统一开始处于平衡点，那么就会一直保持不动，因此也被称作不动点（ fixed point）。但是实际的状态总是很难精确地处于平衡点上，所以对平衡点的小偏离会如何演化，就是系统重要的性质。简言之，如果平衡状态小的偏离不会被无限放大，那么就称之是稳定的。表现在相流上，就是不动点附近的点，不会随着相流远离平衡点跑得越来越远。由以上两个例子可以看出，在平衡点附近的行为定性可分为两类。一类是如谐振子那样，绕平衡点沿着椭圆轨道做周期运动，相应的平衡点也被称作椭圆点（ ellipic point），是稳定的，对应势能的极小值点。另一类是如线性排斥力场那样，相流为双曲线，相应的平衡点也被称作双曲点（ hyperbolic point），是不稳定的，对应势能的极大值点。其中过双曲不动点的相流也被称作分界线（ separatrix）。顾名思义，分界线两边的相流对应不同的行为。
+		\end{itemize}
+		
+		综上所述，相图是对系统动力学行为的直观表示，能够直观地观察系统轨迹。相图分析能够明显显示出系统中的混沌现象。相图分析使我们能够研究系统的非线性特性，如初始条件敏感性、吸引子等等。		
+	\end{itemize}
+		
+	\begin{question}
+		（选做）对实验步骤 3 采集的数据进行处理，测量系统的固有圆频率$\omega_0$和阻尼系数$\beta$。（1分）
+	\end{question}
+	利用实验所得到数据（时序数据），我用Python语言写了程序对实验数据进行了拟合，实验结果展示如\cref{fig:figD1}，代码详见附录。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{BD1GraD1.jpg}
+		\caption{测量系统的固有圆频率$\omega_0$和阻尼系数$\beta$}
+		\label{fig:figD1}
+	\end{figure}
+	
+	从中可以看出，$\omega_0=3.692 rad/s$，$\beta=0.083$。
+	
+	\begin{question}
+		（选做）对实验步骤 4 采集的数据进行处理，求出电机施加的外力矩幅度 $M_0$ 。（1分）
+	\end{question}
+	利用实验得到的受迫振动稳定状态下的数据，导入Origin中并进行拟合，得到结果如\cref{fig:figD2}所示，再利用$M_0=A\sqrt{(\omega_0^2-\omega^2)^2+4\beta^2\omega^2}$，计算得到$M_0=80.29/N\times m$（归一化后）。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{BD1GraD2.jpg}
+		\caption{电机施加的外力矩幅度 $M_0$}
+		\label{fig:figD2}
+	\end{figure}
+	
+	\begin{question}
+		（选做）对实验步骤 5 采集的数据进行处理，计算出扭转恢复力系数c ，并求出扭摆的转动惯量 I ，阻力矩系数r 。（1分）
+	\end{question}
+	利用数据$m=45.78g$，$d=6cm$，稳定平衡位置$\theta_0=44degree$，满足$c\theta_0=mgd\sin\theta_0$，计算得到$c=0.0244$（数值上），利用$I=\dfrac{c}{\omega_0^2}$，计算得到$I=0.00179$（数值上），然后得到$r=2I\beta=0.000297$（数值上）。
+	
+	还需要对$M_0$进行逆归一化，即$M_0=0.143487732$（数值上）。
+	
+	\begin{question}
+		（选做）根据实测的系统参数 I、m、d、c、r、M0、ω 等，利用程序模拟系统的运动状态，并和实测的数据进行分析比较，检验理论和实验结果是否相符。
+	\end{question}
+	将思考题3.3、3.4和3.5算得的数据代入思考题1.2所得表达式，在数值上求出$\Omega_0=1.1449$，取驱动力频率为0.3425Hz，则$\Omega=0.2991$，然后分别得到$\mu=0.1327$，$\eta=74.258$。将这些数值代入思考题1.3所写的Python代码中，得到如\cref{fig:figE1}、\cref{fig:figE2}和\cref{fig:figE3}所示的模拟结果。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{BD1GraE1.jpg}
+		\caption{时序图：实测数据的模拟结果}
+		\label{fig:figE1}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{BD1GraE2.jpg}
+		\caption{相图：实测数据的模拟结果}
+		\label{fig:figE2}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{BD1GraE3.jpg}
+		\caption{功率谱：实测数据的模拟结果}
+		\label{fig:figE3}
+	\end{figure}
+	
+	我们可以发现，计算机模拟结果正如实验中所得到的，再0.3425Hz时出现了混沌现象，且从相图中我们可以看出，二者的混沌现象较为相似，而差别主要来源于混沌现象对初值的敏感性。因此，我认为理论和实验结果符合程度比较好。
+	
+	
+	
+	\clearpage
+	\section{BD1 复摆与混沌 \quad\heiti 参考文献与附件}
+	\subsection{其他（20分）}
+	1、作业整洁2分；
+	2、实验后整理桌面3分；
+	3、实验报告信息填写1分；
+	4、现场实验表现14分：注意在现场实验中，经老师二次以上提示未能顺利完成实验的扣3分，违规操作造成仪器损坏的扣8分，违规操作造成安全事故的得0分。
+	
+	\subsection{参考文献}
+	[1] 维基百科
+	
+	[2] 经典力学By高显
+	
+	[3] BD1实验讲义
+	
+	[4] 我的ME4实验报告
+	
+	\subsection{附件}
+	试验台桌面整理如\cref{fig:figA1}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{BD1GraA1.jpg}
+		\caption{实验台桌面整理}
+		\label{fig:figA1}
+	\end{figure}
+	
+	\begin{lstlisting}[style=pythonstyle,caption=代码记录（Python）]
+		# 导入所需的库
+		import numpy as np
+		import matplotlib.pyplot as plt
+		from scipy.integrate import odeint
+		from scipy import fft
+		
+		# 定义微分方程(需要化为一个微分方程组)
+		def f(x, t, mu, eta, omega):
+		x1, x2 = x
+		dx = x2
+		ddx = -mu * x2 + x1 - x1**3 + eta * np.cos(omega * t)
+		return [dx, ddx]
+		
+		# 时间序列（采样点）
+		t = np.linspace(0, 500, 500000)
+		dt = t[1] - t[0]
+		
+		# 设定初始条件，分别为x[0]和x'[0]
+		x0 = [0, 1]
+		
+		# 设定参数，分别是mu,eta和Omega
+		params = (0.75, 1, 1.6)
+		
+		# 解方程（调用Scipy的odeint()函数，分别传入f为微分方程，x0初始条件，t为时间序列，params传入了微分方程f所依赖的参数）
+		sol = odeint(f, x0, t, args=params)
+		
+		# 微分方程的解，分别是角度（也就是x[t]），角速度（也就是x'[t]）
+		theta = sol[:, 0]
+		omega = sol[:, 1]
+		
+		# 作时序图
+		fig1, ax1 = plt.subplots(figsize=(14,5))
+		ax1.plot(t, theta)
+		ax1.set_xlabel('t', fontsize=18)
+		ax1.set_ylabel('x', fontsize=18)
+		
+		# 作相图
+		fig2, ax2 = plt.subplots(figsize=(14,7))
+		ax2.plot(theta, omega)
+		ax2.set_xlabel('x', fontsize=18)
+		ax2.set_ylabel('dx/dt', fontsize=18)
+		
+		# 用FFT计算功率谱
+		power = np.abs(fft.fft(omega))**2
+		freq = fft.fftfreq(len(omega), dt)
+		
+		# 作功率谱（这一部分作图不尽如人意，Mathematica作得更好）
+		fig3, ax3 = plt.subplots(figsize=(14,7))
+		ax3.plot(freq, power)
+		ax3.set_xlabel('f', fontsize=18)
+		ax3.set_ylabel('Power', fontsize=18)
+		ax3.set_xlim(0,0.7)
+		ax3.set_ylim(0,1e9)
+	\end{lstlisting}
+	
+	\begin{lstlisting}[style=pythonstyle,caption=代码记录（Julia）]
+		#导入所需的库
+		using DifferentialEquations, Plots, FFTW
+		
+		#定义微分方程(需要化为一个微分方程组)
+		function f(x, t, mu, eta, omega) x1, x2 = x dx = x2 ddx = -mu * x2 + x1 - x1^3 + eta * cos(omega * t) return [dx, ddx] end
+		
+		#时间序列（采样点）
+		t = range(0, 500, length=500000) dt = t[2] - t[1]
+		
+		#设定初始条件，分别为x[0]和x’[0]
+		x0 = [0, 1]
+		
+		#设定参数，分别是mu,eta和Omega
+		params = (0.75, 1, 1.6)
+		
+		#解方程（调用DifferentialEquations的solve()函数，分别传入f为微分方程，x0初始条件，t为时间序列，params传入了微分方程f所依赖的参数）
+		prob = ODEProblem(f, x0, t, params) sol = solve(prob)
+		
+		#微分方程的解，分别是角度（也就是x[t]），角速度（也就是x’[t]）
+		theta = sol[1, :] omega = sol[2, :]
+		
+		#作时序图
+		plot(t, theta, xlabel=“t”, ylabel=“x”, size=(1400, 500))
+		
+		#作相图
+		plot(theta, omega, xlabel=“x”, ylabel=“dx/dt”, size=(1400, 700))
+		
+		#用FFT计算功率谱
+		power = abs.(fft(omega)).^2 freq = fftfreq(length(omega), dt)
+		
+		#作功率谱（这一部分作图不尽如人意，Mathematica作得更好）
+		plot(freq, power, xlabel=“f”, ylabel=“Power”, xlim=(0, 0.7), ylim=(0, 1e9), size=(1400, 700))
+		
+	\end{lstlisting}
+	模拟结果如\cref{fig:figAD1}、\cref{fig:figAD2}和\cref{fig:figAD3}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{BD1GraAD1.jpg}
+		\caption{时序图（$\mu=0.75$，$\eta=1$，$x[0]=0$，$x'[0]=1$和$\Omega=1.6$）}
+		\label{fig:figAD1}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{BD1GraAD2.jpg}
+		\caption{相图（$\mu=0.75$，$\eta=1$，$x[0]=0$，$x'[0]=1$和$\Omega=1.6$）}
+		\label{fig:figAD2}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{BD1GraAD3.jpg}
+		\caption{功率谱（$\mu=0.75$，$\eta=1$，$x[0]=0$，$x'[0]=1$和$\Omega=1.6$）}
+		\label{fig:figAD3}
+	\end{figure}
+	
+	\begin{lstlisting}[style=pythonstyle,caption=代码记录（Python：思考题中的拟合）]
+		# 导入所需的库
+		import numpy as np
+		import scipy.optimize as opt
+		import matplotlib.pyplot as plt
+		import pandas as pd # 用于读取Excel文件
+		
+		# 定义指数衰减函数
+		def exp_decay(t, A, b, w, phi):
+		return A * np.exp(-b * t) * np.cos(w * t + phi)
+		
+		# 读取Excel文件中的数据
+		data = pd.read_excel("BD1DataUse.xlsx") # 假设文件名为data.xlsx，你可以根据实际情况修改
+		t = data["Time"].to_numpy() # 时间数据
+		x = data["Displacement"].to_numpy() # 位移数据
+		
+		# 对数据进行拟合，得到参数的估计值
+		popt, pcov = opt.curve_fit(exp_decay, t, x)
+		A, b, w, phi = popt # 振幅，阻尼系数，振动频率，相位
+		print("The estimated parameters are:")
+		print("Amplitude: {:.3f}".format(A))
+		print("Damping coefficient: {:.3f}".format(b))
+		print("Vibration frequency: {:.3f}".format(w))
+		print("Phase: {:.3f}".format(phi))
+		
+		# 绘制原始数据和拟合曲线的图像
+		plt.plot(t, x, "bo", label="Original data")
+		plt.plot(t, exp_decay(t, *popt), "r-", label="Fitted curve")
+		plt.xlabel("Time")
+		plt.ylabel("Displacement")
+		plt.legend()
+		plt.show()
+		
+		# 计算固有频率
+		w0 = np.sqrt(w**2 + b**2) # 固有频率的公式
+		print("The natural frequency is: {:.3f} rad/s".format(w0))
+	\end{lstlisting}
+	
+	
+\end{document}

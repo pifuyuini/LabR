@@ -1,0 +1,99 @@
+% !TEX root = ../main.tex
+
+% 结语部分
+\section{APL1-3 Quantum Key Distribution \\ The End}
+
+
+%---------------------------------------------------------------------
+% 总结、杂谈与致谢
+\subsection{Summary, Thoughts \& Acknowledgments}
+\begin{enumerate}
+	\item Thank you, teacher, for taking the time to read this experimental report, which still has many shortcomings. I hope you can point out the areas that need improvement. I wish you good health, happiness in life, and success in your work!
+	
+	\item 实验过程由实验组成员杨舒云、戴鹏辉、朱政鑫和马万成，其中实验操作由四人协力完成（1-2：朱政鑫、马万成和戴鹏辉，3-4：杨舒云、戴鹏辉），实验记录由杨舒云（1）和马万成（2-4）完成，理论分析由朱政鑫主导完成，代码编写及数据整理由杨舒云和戴鹏辉完成。以下是我们的经验教训总结：
+	\begin{enumerate}
+		\item 由于使用的是高功率激光，一定要佩戴对应波长（404nm）的护目镜。
+		\item 在调整光路时，注意所有光学元件应当保持等高共轴。
+		\item 在使用手持功率探测器时，注意要让激光完全打在感光区域。
+	\end{enumerate}
+	
+	\item 这个实验让我非常有收获（小组成员也在这一点达成了共识），点睛之笔是老师在实验后对每个实验组的提问，这些问题帮助我们很好地去理解这个实验。此外，感谢老师精彩的讲解和助教认真的翻译，也感谢老师和助教在实验过程中提供的帮助和指导。
+\end{enumerate}
+
+
+%---------------------------------------------------------------------
+% 附件
+\subsection{Attachment}
+The arrangement of the experimental bench desktop is shown in %\cref{}.
+
+The personal signature of the experimental report is shown in \cref{fig:name}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{name.png}
+	\caption{signature}
+	\label{fig:name}
+\end{figure}
+
+\textbf{All relevant code (Python and LaTex source code) has been uploaded to Github.}
+
+\begin{lstlisting}[style=pythonstyle,caption=代码记录]
+	# hex2bin.py
+	# copyright@pifuyuini
+	# 仅供实验组成员 杨舒云、戴鹏辉、朱政鑫和马万成使用
+	
+	def hex_to_binary_file(hex_file, binary_file):
+	"""
+	将16进制的二进制文件转换为二进制文件
+	"""
+	with open(hex_file, 'rb') as hex_f, open(binary_file, 'wb') as bin_f:
+	hex_data = hex_f.read()  # 读取二进制文件
+	# 将字节数据转换为16进制字符串，再转换为2进制表示
+	bin_data = ''.join(format(byte, '08b') for byte in hex_data)  # 每个字节转换为8位的二进制
+	bin_f.write(bin_data.encode())  # 将2进制数据写入文件
+	
+	def calculate_ber(sent_binary_file, received_binary_file):
+	"""
+	计算误码率
+	"""
+	with open(sent_binary_file, 'rb') as sent_f, open(received_binary_file, 'rb') as recv_f:
+	sent_bits = sent_f.read()
+	recv_bits = recv_f.read()
+	
+	# 确保两个文件长度一致
+	if len(sent_bits) != len(recv_bits):
+	raise ValueError("发送端和接收端的二进制文件长度不一致，无法计算误码率。")
+	
+	# 计算误码率
+	total_bits = len(sent_bits)  # 这里每个字符代表1位，因为我们已经处理为二进制表示
+	error_bits = sum(c1 != c2 for c1, c2 in zip(sent_bits, recv_bits))
+	
+	ber = error_bits / total_bits
+	return ber
+	
+	# 文件路径
+	sent_hex_file = "transmitter_sift.bin"   # 发出端的16进制二进制文件路径
+	received_hex_file = "receiver_sift.bin"  # 接收端的16进制二进制文件路径
+	
+	sent_binary_file = "transmitter_sift_binary.bin"  # 发出端的二进制文件路径
+	received_binary_file = "receiver_sift_binary.bin"  # 接收端的二进制文件路径
+	
+	# 转换16进制文件为二进制文件
+	hex_to_binary_file(sent_hex_file, sent_binary_file)
+	hex_to_binary_file(received_hex_file, received_binary_file)
+	
+	# 计算误码率
+	ber = calculate_ber(sent_binary_file, received_binary_file)
+	print(f"误码率为: {ber}")
+\end{lstlisting}
+
+
+%---------------------------------------------------------------------
+% 参考文献
+% \bibitem{a}作者. \emph{文献}[M]. 地点:出版社,年份.\cite{ref1}
+\renewcommand{\refname}{Reference}
+\begin{thebibliography}{99}	
+	\bibitem{a} 维基百科. \emph{维基百科}[M]. https://zh.wikipedia.org
+	\bibitem{b} 沈韩. \emph{基础物理实验}[M]. 北京: 科学出版社, 2015.	
+	\bibitem{c} Hecht E. \emph{Optics}[M]. Boston: Pearson, 2017.
+\end{thebibliography}

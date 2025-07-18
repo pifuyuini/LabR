@@ -1,0 +1,560 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+
+\begin{document}
+	
+	
+	
+	%实验报告封面	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			& & & & & & & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 &年级： & 2022级\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2023/9/28 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{center}
+		\LARGE CB1 \quad Michelson干涉实验
+	\end{center}
+	
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：（提前一周）认真研读\underline{\textbf{实验讲义}}，弄清实验原理；实验所需的仪器设备、用具及其使用（强烈建议到实验室预习），完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（第一循环实验已由教师提供模板，可以打印）。预习成绩低于10分（共20分）者不能做实验。
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。
+			\item 分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+		\item 除实验记录外，实验报告其他部分建议双面打印。
+	\end{enumerate}
+	
+	\textbf{【实验安全注意事项】}	
+	
+	实验中使用激光，请注意激光安全，不可直视激光；转动激光器时，可用遮挡物挡住激光，防止对他人
+	
+	造成伤害。
+	
+	\textbf{【特别鸣谢】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。
+	
+	
+	
+	\clearpage
+	\tableofcontents
+	\clearpage
+	
+	
+	
+	%预习报告	
+	\setcounter{section}{0}
+	\section{CB1 Michelson干涉实验 \quad\heiti 预习报告}
+	
+	\subsection{实验目的}
+	\begin{enumerate}
+		\item 了解Michelson干涉仪的构造、原理和调节方法；
+		\item 学习用Michelson干涉仪测量单色光波长的方法；
+		\item 学习用Michelson干涉仪测量透明薄片折射率的方法。
+	\end{enumerate}
+	
+	\subsection{仪器用具}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1& 精密干涉仪 &1 & SGM-3 \\
+			
+			2& He-Ne激光器 &1 & GY-10 \\
+			
+			3& 透明薄片 & 1 & -- \\
+			
+			4& 螺旋测微计 & 1 & 0-25mm，0.001mm \\
+			
+			5& 激光护目镜 & 1 & -- \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+
+	
+	\subsection{原理概述}	
+	\begin{enumerate}
+		\item Michelson干涉仪工作原理
+		
+		基本构造和原理：
+		
+		如\cref{fig:cite1}所示，Michelson干涉仪的构造包括一个点光源Source、一个扩束器、一个分束镜O、两个平面镜M1和M2，以及一个观察屏Detector。实验的关键是在分束镜O处，光束被分成两部分：一部分经O的半透半反射膜反射，射向M1，另一部分透过O，射向M2。由于O、M1和M2的相对角度都是45度，两束光线垂直射到M1和M2上，然后再在观察屏Detector处交汇。此时，干涉现象发生。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{CB1Graph1.png}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{CB1Graph2.png}
+			}
+			\caption{Michelson干涉仪基本构造与工作示意图（参考文献[2]）}
+			\label{fig:cite1}			
+		\end{figure}
+		
+		当没有补偿镜C时，光线1共经过O三次，而光线2只经过O一次。在加入与O具有相同材质和厚度的补偿镜C后，光线2也经过了三次透射。因此，两束光线的光程差只需要考虑在空气中的光程差即可。
+		
+		如\cref{fig:cite3}所示，在光路中，M1'是M1在O半透半反射膜处反射所形成的虚像。在观察屏Detector上，我们观察到的干涉条纹实际上等效于在M2和M1'之间的空气薄膜（厚度为d）所产生的干涉条纹图案。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{CB1Graph3.png}
+			\caption{Michelson干涉仪成像原理图（参考文献[2]）}
+			\label{fig:cite3}
+		\end{figure}
+		
+		当点光源S发出球面波时，经过M1和M2的反射，相当于来自虚光源S1'和S2'的光线，其中S1'和S2'的距离是d的两倍。如果使用激光作为光源，那么S1'和S2'发出的球面波在它们相交的空间中处处相干。在观察屏上，可以看到不同位置和方向上的干涉图案，包括圆、椭圆、双曲线和直线等条纹。这种干涉现象被称为“非定域干涉”。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{CB1Graph4.png}
+			\caption{Michelson干涉仪干涉图像（参考文献[2]）}
+		\end{figure}
+		
+		干涉条纹的形成：
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{CB1Graph5.png}
+			\caption{Michelson干涉仪光路图（参考文献[2]）}
+			\label{fig:cite5}
+		\end{figure}
+		
+		如\cref{fig:cite5}所示，观察屏上，离中心E点较远的某一点P，EP的距离为R，那么两束光线的光程差可以表示为：
+		
+		\[2d\cos\theta = m\lambda\]
+		
+		其中，d是M1'和M2之间的距离，m是干涉级数，$\lambda$是光的波长。这个式子表明，不同的干涉级数对应于不同的R值，因此在观察屏上我们观察到一系列同心圆。这些圆的半径取决于波长$\lambda$和光程差2d的乘积。
+		
+		这表明，对于同一级的干涉条纹，当光程差d逐渐减小时，$\cos\theta$将增大，即$\theta$逐渐减小。因此，同一级的圆环将逐渐向观察屏中心收缩，最终“消失”。相反，当d逐渐增大时，圆环将向外扩展，新的圆环将从观察屏中心“出现”。
+		
+		测量波长和折射率：
+		
+		通过移动M1以改变d的值，我们可以测量光程差的变化，从而测量光的波长λ。
+		例如，如果我们知道d的变化量$\Delta d$和干涉级数m的变化量$\Delta m$，那么可以使用以下公式计算$\lambda$的值：
+		
+		\[\lambda = \frac{2\Delta d}{\Delta m}\]
+		
+		此外，Michelson干涉实验还可用于测量透明薄片的折射率。通过观察干涉条纹的变化，可以确定薄片的折射率。这个过程涉及等倾干涉和等厚干涉的原理，通过调整薄片的位置和倾角，可以获得有关薄片折射率的重要信息。
+		
+		\item 定域干涉——等倾干涉条纹：在Michelson干涉仪中，当反射镜M1和M2严格平行时，会产生等倾干涉条纹。这是因为两束相干光在空间相遇并产生干涉，通过望远镜或人眼可以观察到干涉条纹。在观察者看来，两相干光束好像是由同一束光分别经反射镜M1和M2反射而来的。因此，Michelson干涉仪的干涉情况（干涉图样）是由光源及反射镜M1、M2和观察屏的相对位置决定的。当反射镜M1和M2严格互相垂直时，干涉条纹为一系列同心圆环状的等倾条纹。
+		
+		\item 定域干涉——等厚干涉条纹：当反射镜M1和M2不完全垂直时，会产生等厚干涉条纹。这是因为反射镜M1和M2之间的“空气膜”形成劈尖状，形成的干涉条纹将近似为平行的等厚条纹。干涉条纹是几何距离相等的点的轨迹。因此，这种干涉条纹称为等厚干涉条纹，干涉条纹定域于空气膜表面附近。
+		
+		\item 利用等倾干涉条纹（旋转样品法）测量透明薄片的折射率：在Michelson干涉仪中，当白光的中央条纹出现在视场的中央后，若在光路中加入一块折射率为n、厚度为l的均匀薄玻璃片，则由于光束的往返，光束在相遇时所获得的附加光程差为2l(n-1)。
+		此时，若将反射镜向分束镜方向移动一段距离$\Delta d=\theta’/2$，则两束光在相遇时的光程差又恢复至原样。这样，白光干涉的中央条纹将重新出现在视场中央。
+		这时，$\Delta d=\theta’/2=l$。根据这个公式，测出反射镜前移的距离$\Delta d$，若已知薄玻璃片的折射率n，则可求其厚度$l$；反之，若已知玻璃片的厚度$l$，则可求其折射率n。
+	\end{enumerate}
+	
+	\subsection{实验前思考题}
+	\begin{question}
+		什么是光的相干性？怎样才能获得相干光？
+	\end{question}	
+	光的相干性是指光波的一种性质，用于描述光波的波动性质以及不同部分之间的相对关系。相干光具有一致的波动性质，因此可以表现出明显的干涉和衍射效应。
+	
+	要获得相干光，有两个关键条件需要满足：相干光源，这通常是一个单色光源（如激光器或单色LED）。单色光源发出具有相同波长和频率的光子，这是实现相干性的第一步。
+	光的时间相干性，光的相干性可以分为时间相干性和空间相干性。时间相干性指的是光波在时间上的一致性。为了获得时间相干光，需要确保光源发出的光波在时间上保持一致，这意味着光波的相位应保持稳定。这通常要求使用稳定的光源和光学元件，以防止相位随时间而变化。
+	除了时间相干性，还有空间相干性，这涉及到光波的波前之间的关系。获得空间相干光需要考虑光源的几何形状以及光线传播的方式。例如，激光光源通常具有较小的发散角，这有助于保持光线的空间相干性。
+	
+	具体来说，作如下考虑：
+	\begin{enumerate}
+		\item 空间相干性：空间相干性意味着横截面上不同位置的电场之间存在强相关性（固定的相位关系）。例如，来自具有衍射极限光束质量的激光器的光束内，不同位置的电场以完全相关的方式振荡，即使时间结构由不同频率分量的叠加而变得复杂。空间相干性是激光束强方向性的基本先决条件。
+		\item 时间相干性：时间相干性意味着在一个位置但不同时间的电场之间存在强相关性。例如，单频激光器的输出可以表现出非常高的时间相干性，因为电场在时间上以高度可预测的方式演变：它在扩展的时间段内展示出清晰的正弦振荡。
+	\end{enumerate}
+	
+	\begin{question}
+		什么是“相干长度”和“相干时间”？如何计算光的相干长度和相干时间？
+	\end{question}
+	相干长度和相干时间是用来描述光的相干性的重要参数。
+	
+	相干长度（Coherence Length）：
+	相干长度是指光波在时间上或空间上保持相干性的距离或时间间隔。它表示了光波的相干性延伸的范围。在时间上，相干长度表示光波在时间轴上保持相干性的时间段；在空间上，它表示光波在传播方向上保持相干性的距离。
+	
+	相干时间（Coherence Time）：相干时间是指光波在时间上保持相干性的时间间隔。它表示了光波的相干性持续的时间。相干时间通常与相干长度相关，因为它们之间存在关系：相干时间等于相干长度除以光速。这可以表示为：
+	
+	\[T_{c} = \frac{L_{c}}{c}\]
+	
+	其中，$T_{c}$是相干时间，$L_{c}$是相干长度，c是光速。
+	
+	计算相干长度和相干时间：
+	
+	
+	单色光源的相干长度和相干时间： 对于单色光（波长$\lambda$的激光或单色LED），相干长度$L_{c}$和相干时间$T_{c}$可以通过以下关系计算：
+	
+	\[L_{c} = \frac{\lambda^{2}}{\Delta\lambda}\]
+	
+	\[T_{c} = \frac{L_{c}}{c}\]
+	
+	其中，$\lambda$是光的波长，$\Delta\lambda$是光谱线宽度。
+	
+	非单色光源的相干长度和相干时间： 对于宽谱的光源，例如自然光，其相干长度和相干时间通常较短。它们可以通过光谱宽度$\Delta\lambda$来估算，但通常需要使用更复杂的方法，如Michelson干涉仪进行实验测量。
+	
+	干涉仪的使用： Michelson干涉仪等光学实验设备可以用于测量相干长度和相干时间。通过观察干涉条纹的消失与重现，可以确定相干时间；通过改变光程差并观察条纹的变化来测量相干长度。
+	
+	\begin{question}
+		Michelson干涉仪能观察到干涉条纹的条件是什么？
+	\end{question}	
+	
+	\begin{enumerate}
+		\item 相干光源:首先，光源必须是相干的，这意味着光波必须具有一致的波动性质。通常使用激光光源或单色光源来获得高度相干的光。相干光源是产生干涉条纹的基本前提。
+		\item 分束镜和平面镜的正确布置：Michelson干涉仪中的分束镜和平面镜必须正确布置。分束镜通常是一个半透半反射镜，将光分成两束，一束反射，一束透射。平面镜M1和M2用于反射这两束光线。分束镜和平面镜之间的角度和位置关系必须使光线正确相遇。
+		\item 光程差控制:干涉条纹的位置和性质取决于光程差（Optical Path Difference，OPD）。通过调整平面镜M1或M2的位置，可以改变光程差。光程差的控制是产生干涉条纹的关键，它决定了明暗条纹的位置和间距。
+		\item 观察屏幕：干涉条纹在观察屏上形成。观察屏通常放置在光程差产生干涉的区域，以便观察条纹。屏幕上必须有足够的敏感度来检测明暗条纹的变化。
+		\item 足够的相干长度：干涉条纹的性质还取决于相干长度（Coherence Length）和光源的波长。如果相干长度太短，将无法观察到明显的条纹。因此，相干长度必须足够长以支持条纹的形成。
+	\end{enumerate}
+	总之，为了在Michelson干涉仪中观察到干涉条纹，需要满足干涉源必须足够近，以产生宽的条纹；源和屏幕必须足够远，以产生宽的条纹；源必须在相同的偏振状态下发射光；源必须是单色的。
+	
+	
+	%实验记录	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 26摄氏度 & 实验地点： & 实验室505 \\
+			\hline
+			学生签名：& 杨舒云 & 评分： &\\
+			\hline
+			实验时间：& 2023/9/28 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{CB1 Michelson干涉实验 \quad\heiti 实验记录}
+	\subsection{实验内容、步骤与结果}
+	\subsubsection{调节Michelson干涉仪，使产生定域等倾干涉条纹}
+	\begin{enumerate}
+		\item 安装并打开 He-Ne 或半导体激光器（注意不要直射眼睛），但先不安装扩束镜，
+		调节出射激光束平行于光学平台，并使激光束从分束镜P1的中心附近入射；
+		\item 调节可调反射镜M2背面的三个螺钉，使得M1和M2反射的光点的最亮处在
+		观察屏E上重合；
+		\item 装上扩束镜（ 以获得点光源），此时应能在观察屏上看到等倾干涉条纹（如观
+		察不到，则可微调固定激光器的螺钉，使得光束能顺利通过扩束镜）。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{CB1Graph6.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.4\textwidth]{CB1Graph7.jpg}
+			}
+			\caption{观察屏上的干涉条纹}
+			\label{fig:cite6}			
+		\end{figure}
+		
+		观察屏上的干涉条纹如\cref{fig:cite6}所示（分别来自实验台4和实验台1）。
+	\end{enumerate}
+	
+	\subsubsection{测量He-Ne激光器激光的波长}
+	\begin{enumerate}
+		\item 记录此时M1处精密测微头的读数di；
+		\item 旋转M1处精密测微头来移动M1，使得观察屏上的圆环数目发生变化，中心
+		处每“出现”（或“消失”）50个圆环时记录一次精密测微头的读数di，共记录5组di；
+		
+		实验数据记录及初步计算结果如\cref{fig:cite8}、\cref{fig:cite9}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{CB1Graph8.png}
+			\caption{测量He-Ne激光器激光的波长 实验数据}
+			\label{fig:cite8}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{CB1Graph9.png}
+			\caption{测量He-Ne激光器激光的波长 初步计算结果}
+			\label{fig:cite9}
+		\end{figure}
+		
+		\item 用逐差法求出M1移动的距离d，结合N=50，利用（ 5）式求得He-Ne激光
+		器激光的波长$\lambda$（理论值是$\lambda = 632.8nm$）。
+		
+		最终结果为$\lambda=\bar{\lambda}\pm U_{\lambda}\approx( 638.3 \pm  23.2 )nm$，详细计算过程见\textbf{数据分析}部分。
+	\end{enumerate}
+	
+	\subsubsection{用旋转样品法测量透明薄片的折射率n}
+	\begin{enumerate}
+		\item 重复步骤1，调节干涉仪并使之产生等倾干涉条纹；
+		\item 在分束镜P1和反射镜M1之间的可旋转底座上放置一块透明薄片（玻璃或有机片），薄片与光路垂直；
+		\item 旋转底座，记录旋转角度$\theta$与干涉条纹（圆环）的变化数目 N（每隔 N = 10-15个圆环时记录一次旋转角度$\theta_{i}$，共记录3组$\theta_{i}$）；
+		
+		实验数据如\cref{fig:cite10}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{CB1Graph10.png}
+			\caption{用旋转样品法测量透明薄片的折射率n 实验数据}
+			\label{fig:cite10}
+		\end{figure}
+		
+		\item 用螺旋测微计测量三次透明薄片的厚度t，利用《基础物理实验（沈韩主编）》中第227页式（A7.8） 求得透明薄片的折射率n（对于玻璃，理论值是n =1.51左右）。
+		
+		最终结果为$n=\bar{n}\pm U_{n}\approx( 1.45 \pm  0.74 )$，详细计算过程见\textbf{数据分析}部分。
+	\end{enumerate}
+	
+	\clearpage
+	\subsection{原始数据记录}
+	预习报告签字、实验台桌面整理及实验记录本上的原始数据详见\textbf{附件}部分(\cref{fig:citeA1}、 \cref{fig:citeA2})。
+	
+	\subsection{实验过程中遇到的问题记录}
+	\begin{enumerate}
+		\item 在进行“调节Michelson干涉仪，使产生定域等倾干涉条纹”这一实验时，按照实验步骤先调好平面镜位置再装上扩束镜会影响透镜位置，需要再次调节平面镜位置才能观察到干涉条纹。
+		\item 来自实验台4的条纹的清晰程度完全不及实验台1，我在实验结束前都没有找到这一现象的合理解释。
+		\item 在调试光路的过程中，需要直视扩束镜使得光线通过中心，在某一角度会明显感受到激光的反射进入眼睛，这时需要注意佩戴护目镜。
+		\item 当使用精密测微头进行测量时，当使用较小读数时，会明显发现测量结果与实际值存在较大偏差，这是因为当使用小读数的时候，由于仪器本身的问题可能会存在极大的系统误差，故采用中间读数进行测量。但我在做第一组实验时并没有意识到这一点，这导致第一组数据与理论值偏差过大。
+		\item 对于测折射率这个实验，由于是单人实验，故当对干涉圆环的变化进行计数时，视角很难同时读取对应角度，又因为最大调整角度
+		为25degree，所以容易超出量程。事实上，从实验数据可以看出，第三组数据便是超了量程的。
+	\end{enumerate}
+	
+	
+	
+	%分析与讨论	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2023/9/28 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{CB1 Michelson干涉实验 \quad\heiti 分析与讨论}
+	\subsection{实验数据分析}
+	\subsubsection{调节Michelson干涉仪，使产生定域等倾干涉条纹}
+	如\cref{fig:cite11}所示，动镜M2的像为M2’。在观察者的眼中中，两束光好像分别来自M1和M2’。而干涉图样就是由M1和M2’之间薄薄的一层空气膜干涉引起的。 M1和M2’之间有一定距离，二者距离、夹角不同，干涉图样也不尽相同。 当两者平行时，等倾干涉就产生了。
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{CB1Graph11.png}
+		\caption{定域等倾条纹的观测原理}
+		\label{fig:cite11}
+	\end{figure}
+	
+	\subsubsection{测量He-Ne激光器激光的波长}
+	\begin{enumerate}
+		\item 对三组测量结果进行加权平均
+		
+		由实验数据知，第三组的测量结果为$\bar{\lambda_{3}}=635.6nm$，与理论值632.8nm的偏差已经较小了。而第一组偏差过大的原因已经在\textbf{问题记录}部分讨论了，这里不做过多叙述。在这三组数据的基础上，我们采用等精度测量下的加权平均来进一步处理数据。计算得到
+		\[\bar{\lambda_{1}}=541.5nm, \sigma_{\bar{\lambda_{1}}}=22.3nm\]
+		\[\bar{\lambda_{2}}=682.0nm, \sigma_{\bar{\lambda_{2}}}=12.3nm\]
+		\[\bar{\lambda_{3}}=635.6nm, \sigma_{\bar{\lambda_{3}}}=5.4nm\]
+		取
+		\[\bar{\lambda}=\frac{\bar{\lambda_{1}}/\sigma_{\bar{\lambda_{1}}}^{2}+\bar{\lambda_{2}}/\sigma_{\bar{\lambda_{2}}}^{2}+\bar{\lambda_{3}}/\sigma_{\bar{\lambda_{3}}}^{2}}{1/\sigma_{\bar{\lambda_{1}}}^{2}+1/\sigma_{\bar{\lambda_{2}}}^{2}+1/\sigma_{\bar{\lambda_{3}}}^{2}}=638.3nm\]
+		与真实值的相对偏差为：
+		\[\frac{\bar{\lambda}-\lambda}{\lambda}=0.87\%\]
+		这已经说明，实验结果较为可信。
+		\item 不确定度分析
+		
+		首先考虑误差来源：上述实验结果与真实值632.8𝑛𝑚进行比较偏大，这是因为当实验者通过肉眼对干涉圆环的变化进行计数时，会由于视疲劳等原因导致计数结果少于真实圆环变化数目，这就代表着需要精密测微头变化的距离更长来达到N=50的要求，由此，实际测量的$\Delta d$要更大，所以计算结果偏大。
+		（解决本误差来源的方法可为由两人共同对干涉圆环变化进行计数，从而使得变化距离更加接近真实值，从而减少误差。）
+		
+		首先按照前述分析，A类不确定度直接取各测量组的实验标准差。下面重点考察B类不确定度。
+		
+		注意到最大误差来源应当是已讨论过的圈数可能不能准确为N=50所带来的误差，这一误差应体现于A类不确定度中。因此，B类不确定度主要来源于精密测微头，考虑其分辨率后取$U=0.01/\sqrt{3}, v=1$。按照不确定度公式及系数表，得到以下结果。
+		\item 最终结果报告
+		
+		\begin{equation*}
+			\lambda=\bar{\lambda}\pm U_{\lambda}\approx( 638.3 \pm  23.2 )nm
+		\end{equation*} 
+		其中展伸不确定度$U_{\lambda}={k}\times{u_{\lambda}}\approx 23.20 $ 是由合成标准不确定度$u_{\lambda}\approx 17.73 $ 和$k\approx3.59$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx15.00$查t分布表得到的。		
+	\end{enumerate}
+	
+	\subsubsection{用旋转样品法测量透明薄片的折射率n}
+	\begin{enumerate}
+		\item 取3$\sigma$以内的数据计算均值
+		计算结果如\cref{fig:cite12}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{CB1Graph12.jpg}
+			\caption{旋转样品法计算结果}
+			\label{fig:cite12}
+		\end{figure}
+		
+		\item 不确定度分析
+		
+		首先分析误差来源。最大误差来源同样为已在\textbf{实验问题记录}部分讨论的观察计数带来的误差。其次，应当考虑测量时读数的误差，即对仪器螺旋测微计和量角器分别考虑。
+		
+		基于上述考虑，前者归为A类不确定度，取实验标准差；后者则按B类不确定度处理。
+		
+		最终处理结果如下。
+		\item 最终结果报告
+		
+		\begin{equation}
+			n=\bar{n}\pm U_{n}\approx( 1.45 \pm  0.74 )
+		\end{equation} 
+		其中展伸不确定度$U_{n}={k}\times{u_{n}}\approx 0.74 $ 是由合成标准不确定度$u_{n}\approx 0.13 $ 和$k\approx5.51$确定的，k是依据置信概率$P=99.73\%$和自由度$\nu\approx5.00$查t分布表得到的。
+		
+	\end{enumerate}
+	
+	\clearpage
+	\subsection{实验后思考题}
+	\begin{question}
+		什么是非定域干涉？什么是定域干涉？什么是等倾干涉？什么是等厚干涉？
+	\end{question}
+	总的来说，非定域干涉是指光波在空间上的相干性不受限制的干涉现象。定域干涉是指光波在空间上的相干性受限制的干涉现象。等倾干涉是指光线以相等的倾角入射到一个透明薄膜上，从而产生的干涉现象。等厚干涉是指光线以相等的厚度通过一个透明薄膜，从而产生的干涉现象。
+	具体来看：
+	
+	非定域干涉:
+	非定域干涉是指波源的波相互作用覆盖广泛区域，产生干涉图案。它没有明显的具有规律的最大值和最小值的图案。
+	
+	定域干涉:
+	定域干涉又称为“局域干涉”，是指波源的波在有限或局部区域内相互作用，形成清晰明显的最大值和最小值的干涉图案。
+	
+	等倾干涉:
+	等倾干涉是指光波通常来自点光源，落在薄膜或楔形介质上，产生以入射和反射角度相等为特征的干涉图案，形成干涉条纹。
+	
+	等厚干涉:
+	等厚干涉发生在光波通常来自点光源，落在具有均匀厚度的薄膜上时。干涉图案是由薄膜顶部和底部表面的反射波之间的相位差引起的，形成依赖于薄膜厚度的干涉条纹。
+	
+	\begin{question}
+		如何测量透明溶液的折射率？请自行就相关实验原理进行调研，并设计具体实验方案。
+	\end{question}
+	方案一：实验方案：用Snell定律测量透明溶液折射率
+	
+	1.实验原理:
+	Snell定律描述了光在两种不同介质中传播时的折射行为。公式为：\[ n_1 \cdot \sin(\theta_1) = n_2 \cdot \sin(\theta_2) \]
+	$n_1 $ 是第一种介质（空气）的折射率，$ \theta_1 $ 是光线入射角，$ n_2 $ 是第二种介质（透明溶液）的折射率，$ \theta_2 $ 是光线折射角。
+	
+	2.实验装置:
+	光源，例如激光器或白光源。
+	透明容器，装有要测量折射率的透明溶液。
+	透明平台用于支撑容器和测量角度。
+	
+	3.实验步骤:
+	将光源对准透明容器的一侧，使光线射入容器内。
+	通过旋转容器，改变光线入射角 \( \theta_1 \) 并测量每个角度下的光线折射角 \( \theta_2 \)。
+	记录相应的入射角 \( \theta_1 \) 和折射角 \( \theta_2 \) 的数值。
+	
+	4. 数据处理:
+	使用Snell定律计算每个角度下的折射率 \( n_2 \)：\[ n_2 = \frac{n_1 \cdot \sin(\theta_1)}{\sin(\theta_2)} \]
+	取多组 $ n_2 $的平均值，得到透明溶液的平均折射率。
+	
+	方案二：可以采用旋转法进行测量，类比用旋转样品法测量透明薄片的折射率n。
+	
+	将透明液体置于薄薄的透明容器中（最好选择折射率接近空气的容器壁），容器壁的厚度应远小于液体的厚度。旋转容器，在这种情况下容器壁引入的光程差变化可以忽略不计。液体的薄层表现为透明薄片。记录容器旋转一定角度后条纹变化的数量，即可计算出液体的折射率。实验步骤和数据处理方法与之前的实验类似。
+
+	\begin{question}
+		尝试根据下图推导《基础物理实验（沈韩主编）》中第227页透明薄片的折射率公式（A7.8）（设转动$\theta$角时干涉圆环变化数为N个）。
+	\end{question}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{CB1GraphAD1.jpg}
+		\caption{思考题示意图}
+		\label{fig:citeAD1}
+	\end{figure}
+	
+	根据示意图（\cref{fig:citeAD1}），薄膜的相位差（𝛥𝜑）可以用以下公式表示：
+	
+	\[ \Delta\varphi = \left(\frac{2\pi}{\lambda}\right) 2t n \cos(\theta) \]
+	
+	其中：
+	\begin{align*}
+		\lambda & \text{是入射光的波长。} \\
+		t & \text{是薄膜的厚度。} \\
+		n & \text{是薄膜的折射率。} \\
+		\theta & \text{是入射角。}
+	\end{align*}
+	
+	这表示了光线在薄膜内传播并经过两次反射时，入射角为𝜃时的相位差。接着，基于薄膜的反射和折射规律，入射角为𝜃时，反射光和折射光的相位差可以表示为：
+	
+	\[ \Delta\varphi_1 = -2\pi t \left(\frac{n \cos(\theta)}{\lambda}\right) \]
+	
+	\[ \Delta\varphi_2 = -2\pi t \left[\frac{1 - n^2 \sin^2(\theta)}{\lambda}\right] \]
+	
+	\[ L = N\lambda = \lambda\Delta\varphi \cdot 2\pi \]
+	
+	其中，𝛥𝜑1是反射光的相位差，𝛥𝜑2是折射光的相位差，L是光程差。最后，根据菲涅尔公式，反射系数（R）和透射系数（T）可以表示为：
+	
+	\[ R = \left|r\right|^2 = \left|\frac{n_1 \cos(\theta) - n_2 \cos(\varphi)}{2 (n_1 \cos(\theta) + n_2 \cos(\varphi))}\right|^2 \]
+	
+	\[ T = \left|t\right| = \left|\frac{4n_1n_2 \cos(\theta)\cos(\varphi)}{n_1 \cos(\theta) + n_2 \cos(\varphi)}\right| \]
+	
+	其中，\(n_1\)和\(n_2\)分别是入射介质（空气）和薄膜的折射率，𝜑是折射角。将反射和折射的相位差代入反射和透射系数的公式中，然后进行适当的代数运算，最终可以得到：
+	
+	\[ n = 1 - \cos(\theta) - N\lambda + \frac{t\sin^2(\theta)}{2t(1 - \cos(\theta)) - N\lambda} \]
+	
+	
+	
+	\clearpage
+	\section{CB1 Michelson干涉实验 \quad\heiti 参考文献与附件}
+	\subsection{参考文献}
+	[1]沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4 
+	
+	[2]Eugene Hecht - Optics, Global Edition-Pearson Higher Education (2017) 5th Chapter 9 
+	
+	\clearpage
+	\subsection{附件}
+	\begin{figure}[htbp]
+		\centering
+		\subfloat[]{
+			\includegraphics[width=0.4\textwidth]{CB1GraphA1.jpg}
+		}
+		\subfloat[]{
+			\includegraphics[width=0.4\textwidth]{CB1GraphA2.jpg}
+		}
+		\caption{预习报告签字与实验台桌面整理}
+		\label{fig:citeA1}			
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\subfloat[]{
+			\includegraphics[width=0.4\textwidth]{CB1GraphA3.jpg}
+		}
+		\subfloat[]{
+			\includegraphics[width=0.4\textwidth]{CB1GraphA4.jpg}
+		}
+		\caption{原始数据记录}
+		\label{fig:citeA2}			
+	\end{figure}
+	
+	
+	
+\end{document}

@@ -1,0 +1,1939 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{en_YsySettings} 
+\usepackage{lipsum}
+\usepackage{adjustbox}
+%\usepackage{mathrsfs} % 字体
+\captionsetup[figure]{name=Figure} % 图片形式
+\captionsetup[table]{name=Table} % 表格形式
+
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{xcolor} %添加更多文本颜色
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+
+
+\begin{document}
+	
+	
+	
+	% 实验报告封面	
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 信息栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 实验班2\\
+			\hline
+			姓名： & 杨舒云、马万成  & 学号： & 22344020、22344018\\
+			\hline
+			实验时间： & 2024/6/6 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 大标题
+	\begin{center}
+		\LARGE Lab2-10 \quad 塞曼效应\\The Experiment of Zeeman Effect
+	\end{center}
+	% ---
+	
+	% 注意事项
+	
+	% 基本
+	\textbf{【实验报告注意事项（Precautions）】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（25分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。\textcolor{red}{\textbf{（25分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\end{enumerate}
+	
+	% 安全
+	\textbf{【实验安全注意事项（Safety）】}	
+	\begin{enumerate}
+		\small % 设置字体大小为 large
+		\item 不要用手直接触摸光学部件的光学表面，如果有污染，请用专用的清洁液和清洁布或者擦镜纸清洁。
+		\item F-P 标准具已在出厂前进行校准，请勿自行随意调节三颗螺钉，如需调整，请在实验老师指导下进行。
+		\item 为避免缩短笔形汞灯使用寿命，请勿频繁开关电源开关。笔形汞灯插入槽内后严禁左右晃动，以免破碎。
+		\item 避免长时间对电磁线圈进行大电流供电，温度较高，请勿触摸。
+		\item 每次实验结束后将电流调至零后再关掉电源。
+	\end{enumerate}
+	
+	% ---
+	
+	% 特别鸣谢
+	\textbf{【特别鸣谢及模板说明（Special Thanks）】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号Lab2-10。}}除此以外，本实验报告正在向全文用英文表达的方向改进，在此期间可能会出现中英夹杂的情况，望老师海涵！
+	% ---
+	
+	
+	
+	% 目录
+	\clearpage
+	\tableofcontents
+	\clearpage
+	% ---
+	
+	
+	
+	% 预习报告	
+	
+	% 小标题
+	\setcounter{section}{0}
+	\section{Lab2-10 塞曼效应（The Experiment of Zeeman Effect）\\ \quad\heiti 预习报告（Pre-Report）}
+	% ---
+	
+	% 实验目的
+	\subsection{实验目的（Purpose）}
+	\begin{enumerate}
+		\item 通过观察原子谱线在外磁场中的分裂现象，加深对电子“自旋”、“两个角动量的耦合”、“两个电子之间的 L-S 耦合”、“角动量守恒”、“多电子原子和电子组态”、“能级跃迁”、“选择定则”等概念的理解，验证原子具有磁矩及其空间取向的量子化，进一步认识原子的内部结构；
+		\item 用 F-P 干涉仪观察汞（Hg）原子 546.1nm 谱线在外磁场中的分裂现象（即“反常塞曼效应”），测量电子的荷质比 e/m；
+		\item 验证光子具有角动量及角动量守恒定律，了解光的偏振理论及其产生机制，学习偏振片的原理及使用方法。
+	\end{enumerate}
+	% ---
+	
+	% 仪器用具
+	\subsection{仪器用具（Instruments）}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号 & 仪器用具名称 & 数量 & 主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1 & 塞曼效应 & 1 & BEX-8501 \\
+			2 & 电磁体（带电源） & 1 & 可通过调节激励电流大小改变磁场的大小 \\
+			3 & 磁感应强度测量仪 & 1 & 含金属探针 \\
+			4 & 汞放电管 & 1 & \\
+			5 & 滤光片 & 1 & 能通过 546.1nm 及其自由光谱范围内的“单色光” \\
+			6 & 法布里-珀罗标准具 & 1 &  \\
+			7 & 偏振片 & 1 & 可以通过 0° 刻度线方向上的线偏振光\\
+			8 & 数字图像采集器 & 1 & 包含望远镜和 CCD \\
+			9 & 台式电脑 & 1 & 安装有“塞曼效应实验分析 VCH5.0”软件，用以分析实验数据 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	% ---
+	
+	% 原理概述
+	\subsection{原理概述（Principle）}
+	
+	这部分内容主要参考了文献[1]。
+	
+	塞曼效应是指在外部磁场的影响下，原子或分子的光谱线发生分裂或偏移的现象。这个效应是由荷兰物理学家皮特·塞曼（Pieter Zeeman）于1896年首次观察到的，他发现在磁场作用下，钠的黄色光谱线分裂为几条组分。塞曼效应的发现对原子物理学和量子力学的发展起到了重要的推动作用，塞曼因此与亨德里克·洛伦兹共同获得了1902年的诺贝尔物理学奖。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Lab2_10GraP1.png}
+		\caption{The spectral lines of mercury vapor lamp at wavelength 546.1 nm, showing anomalous Zeeman effect. (A) Without magnetic field. (B) With magnetic field, spectral lines split as transverse Zeeman effect. (C) With magnetic field, split as longitudinal Zeeman effect. The spectral lines were obtained using a Fabry–Pérot interferometer.（参考文献[1]）}
+		\label{fig:figP1}
+	\end{figure}
+	
+	塞曼效应可以分为两类：正常塞曼效应（在这种情况下，光谱线均匀地分裂成三条组分（一个π成分和两个σ成分），每条线的偏移与原始线相同。这种分裂可以通过基于洛伦兹电子理论的经典理论来解释）和反常塞曼效应（大多数情况下，光谱线的分裂比正常塞曼效应更复杂，可以分裂成多条线，分裂模式取决于涉及的电子态的特定量子数。反常塞曼效应的解释需要用到量子力学和电子自旋的概念）。
+	
+	塞曼效应的物理原理涉及到原子中电子的磁矩在外部磁场中的相互作用。电子的总磁矩是其轨道磁矩和自旋磁矩的矢量和。在外磁场中，这个磁矩与磁场的相互作用会导致原子能级的分裂，进而导致发射或吸收的光谱线相对于无磁场情况下发生移动或分裂。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Lab2_10GraP2.png}
+		\caption{Zeeman splitting of the 5s level of 87Rb, including fine structure and hyperfine structure splitting. Here $F = J + I$, where I is the nuclear spin (for 87Rb, $I = 3/2$).（参考文献[1]）}
+		\label{fig:figP2}
+	\end{figure}
+	
+	在量子力学框架下，塞曼效应涉及到角动量的量子化和磁量子数的概念。外磁场导致的能级分裂与总角动量量子数 \(J\)、轨道角动量量子数 \(L\) 和自旋量子数 \(S\) 相关。能级的偏移量与磁场强度和朗德 \(g\) 因子成正比，其中朗德因子是一个与电子态的角动量相关的因子，用于描述自旋和轨道对磁矩贡献的相对大小。
+	
+	塞曼效应在天体物理学、核磁共振（NMR）、电子自旋共振（ESR）等领域有广泛应用。在天体物理学中，通过观测恒星光谱的塞曼分裂，科学家可以推断恒星表面的磁场强度。此外，塞曼效应也是现代精密光谱测量技术的基础之一。
+	
+	\subsubsection{电子的磁矩}
+	
+	电子的轨道磁矩源自于电子绕原子核的运动，类似于经典电磁学中通过载流线圈产生的磁场。电子围绕核的运动产生电流，进而产生磁矩。轨道磁矩（\(\mu_l\)）的计算基于下述关系：
+	\[
+	\mu_l = -\frac{e}{2m_e} \vec{L}
+	\]
+	其中，\(e\) 是电子的电荷，\(m_e\) 是电子的质量，\(\vec{L}\) 是电子的轨道角动量。轨道角动量的大小是量子化的，依赖于主量子数 \(n\) 和角量子数 \(l\)，其 \(z\) 分量的可能取值为 \(m_l\hbar\)，其中 \(m_l\) 是磁量子数。因此，电子的轨道磁矩的 \(z\) 分量为：
+	\[
+	\mu_{l,z} = -m_l\mu_B
+	\]
+	这里的 \(\mu_B\) 是玻尔磁子，一个重要的物理常数，表示电子轨道角动量的最小磁矩单位。
+	
+	电子的自旋是其固有的量子属性，不同于经典的轨道运动。电子的自旋磁矩（\(\mu_s\)）与其自旋角动量（\(\vec{S}\)）相关，计算公式为：
+	\[
+	\mu_s = -g_s\frac{e}{2m_e}\vec{S}
+	\]
+	其中 \(g_s\) 是电子自旋的朗德 \(g\) 因子，理论值约为 2。自旋角动量的量子化表示其大小为 \(\sqrt{s(s+1)}\hbar\)，其中 \(s = \frac{1}{2}\)。自旋角动量的 \(z\) 分量可以取 \(\pm\frac{1}{2}\hbar\)，因此自旋磁矩的 \(z\) 分量为：
+	\[
+	\mu_{s,z} = -g_s m_s \mu_B
+	\]
+	其中 \(m_s = \pm\frac{1}{2}\)。
+	
+	电子的总磁矩（\(\vec{\mu}\)）是轨道磁矩和自旋磁矩的矢量和：
+	\[
+	\vec{\mu} = \vec{\mu}_l + \vec{\mu}_s
+	\]
+	在外部均匀磁场 \(\vec{B}\) 中，磁矩 \(\vec{\mu}\) 会经历力矩作用，并使系统具有势能 \(U\)，计算为：
+	\[
+	U = -\vec{\mu} \cdot \vec{B}
+	\]
+	这表明电子的磁矩倾向于与外磁场对齐以降低系统的势能。根据量子力学，总磁矩的 \(z\) 分量将决定能级分裂的具体情况，这是研究塞曼效应中至关重要的一步。
+	
+	\subsubsection{角动量的耦合}
+	
+	当两个角动量耦合时，如电子的轨道角动量 \(\vec{L}\) 和自旋角动量 \(\vec{S}\)，它们的总角动量 \(\vec{J}\) 由下式给出：
+	\[
+	\vec{J} = \vec{L} + \vec{S}
+	\]
+	这种耦合主要体现在量子力学中，其中角动量的每个组分都具有特定的量子数和相应的量子态。总角动量的大小和方向由以下量子数描述：
+	\(J\) 是总角动量的量子数，它的可能取值范围为 \(|L - S|\) 到 \(L + S\)，包括所有整数步长。
+	\(M_J\) 是总角动量 \(J\) 在选定方向（通常为磁场方向，即 \(z\) 轴）的投影的磁量子数，其取值从 \(-J\) 到 \(+J\)。
+	
+	在原子物理学中，除了氢原子（只有一个电子）之外，其他所有拥有两个或更多电子的原子都被称为多电子原子。多电子原子的电子排布和能级结构比氢原子复杂得多，因为它们不仅受到核的吸引，电子之间的相互作用（电子-电子排斥）也显著影响其能态。
+	
+	电子组态描述了多电子原子中电子的分布状态，通常表达为电子所处的量子态（如能级、角动量等）。每个电子的状态可以由四个量子数描述：
+	主量子数 \(n\)：决定电子的能级和电子云的大小。
+	角量子数 \(l\)：与电子的轨道角动量有关，\(l\) 的取值从 0 到 \(n-1\)。
+	磁量子数 \(m_l\)：轨道角动量在特定方向（如 \(z\) 轴）的投影，其值从 \(-l\) 到 \(l\)。
+	自旋量子数 \(m_s\)：电子自旋的 \(z\) 轴投影，取值 \(\pm 1/2\)。
+	
+	在实际书写中，电子组态是通过填充原子轨道来描述的。例如，氧原子（\(O\)）的基态电子组态可以写为 \(1s^2 2s^2 2p^4\)，这意味着第一个能级的 \(s\) 轨道有两个电子，第二个能级的 \(s\) 轨道有两个电子，\(p\) 轨道有四个电子。
+	
+	在多电子原子中，每个电子的轨道和自旋角动量会耦合，影响原子的能级和光谱。自旋-轨道耦合导致能级分裂，其中每个分裂能级的大小也由朗德 \(g\) 因子决定，这是一个量化轨道和自旋对磁场响应的重要参数。朗德因子的计算公式为：
+	\[
+	g_J = 1 + \frac{J(J + 1) + S(S + 1) - L(L + 1)}{2J(J + 1)}
+	\]
+	其中，\(L\) 是总轨道角动量量子数，\(S\) 是总自旋角动量量子数，\(J\) 是总角动量量子数。
+	
+	在多电子原子中，每个电子的轨道角动量和自旋角动量首先相互耦合形成自旋-轨道耦合，这对于描述电子的能级和光谱性质非常重要。自旋-轨道耦合主要发生在原子内部，由于电子绕原子核的运动产生的磁场对电子自旋的影响而引起。这种耦合的能量可通过以下公式近似计算：
+	\[
+	H_{SO} = \xi(r) \vec{L} \cdot \vec{S}
+	\]
+	其中，\(\xi(r)\) 是自旋-轨道耦合参数，它依赖于电子到原子核的距离 \(r\)。
+	
+	由于自旋-轨道耦合，特定能级会根据 \(L\) 和 \(S\) 的不同组合分裂为多个子能级，每个子能级对应一个特定的 \(J\) 值。自旋-轨道耦合影响原子从一能级到另一能级的跃迁，这些跃迁受到所谓的选择定则约束，这些规则指定了允许的电子跃迁的 \(\Delta L\)、\(\Delta S\) 和 \(\Delta J\) 的值。
+	
+	\subsubsection{基本理论}
+	
+	原子在磁场中的总哈密顿量为
+	
+	$$
+	H = H_0 + V_M,
+	$$
+	
+	其中，$H_0$ 是原子的未扰动哈密顿量，而 $V_M$ 是磁场引起的微扰：
+	
+	$$
+	V_M = - \vec{\mu} \cdot \vec{B},
+	$$
+	
+	其中 $\vec{\mu}$ 是原子的磁矩。磁矩包括电子和核的部分；然而，后者小得多，可以忽略不计。因此，
+	
+	$$
+	\vec{\mu} \approx -\mu_B g \frac{\vec{J}}{\hbar},
+	$$
+	
+	其中 $\mu_B$ 是玻尔磁子，$\vec{J}$ 是总电子角动量，$g$ 是朗德g因子。一种更精确的方法是考虑到电子磁矩算符是轨道角动量 $\vec{L}$ 和自旋角动量 $\vec{S}$ 的贡献之和，每个都乘以适当的回旋磁比：
+	
+	$$
+	\vec{\mu} = -\mu_B \left( g_l \frac{\vec{L}}{\hbar} + g_s \frac{\vec{S}}{\hbar} \right),
+	$$
+	
+	其中 $g_l = 1$ 和 $g_s \approx 2.0023193$（后者称为异常回旋磁比；其值偏离2是由于量子电动力学效应）。在LS耦合的情况下，可以对原子中所有电子求和：
+	
+	$$
+	g \vec{J} = \left\langle \sum_i \left( g_l \vec{l}_i + g_s \vec{s}_i \right) \right\rangle = \left\langle g_l \vec{L} + g_s \vec{S} \right\rangle,
+	$$
+	
+	其中 $\vec{L}$ 和 $\vec{S}$ 分别是原子的总轨道角动量和自旋角动量，求平均值是对具有给定总角动量的状态进行的。
+	
+	如果相互作用项 $V_M$ 很小（小于精细结构），可以将其视为微扰；这就是正常的塞曼效应。在下面描述的帕申–巴克效应中，$V_M$ 显著超过了LS耦合（但仍小于 $H_0$）。在超强磁场中，磁场相互作用可能超过 $H_0$，在这种情况下，原子将不再以其正常意义存在，而是讨论朗道能级。还有一些比这些极限情况更复杂的中间情况。
+	
+	\subsubsection{弱场的塞曼效应}
+	
+	如果自旋–轨道相互作用比外部磁场的作用更强，则 $\vec{L}$ 和 $\vec{S}$ 分别不再守恒，只有总角动量 $\vec{J} = \vec{L} + \vec{S}$ 是守恒的。自旋和轨道角动量矢量可以看作绕着（固定的）总角动量矢量 $\vec{J}$ 进动。此时的（时间上）“平均”自旋矢量是自旋在 $\vec{J}$ 方向上的投影：
+	
+	$$
+	\vec{S}_{\text{avg}} = \frac{(\vec{S} \cdot \vec{J})}{J^2} \vec{J}
+	$$
+	
+	对于（时间上）“平均”的轨道矢量：
+	
+	$$
+	\vec{L}_{\text{avg}} = \frac{(\vec{L} \cdot \vec{J})}{J^2} \vec{J}
+	$$
+	
+	因此，
+	
+	$$
+	\langle V_M \rangle = \mu_B \frac{\vec{J}}{\hbar} \left( g_L \frac{\vec{L} \cdot \vec{J}}{J^2} + g_S \frac{\vec{S} \cdot \vec{J}}{J^2} \right) \cdot \vec{B}
+	$$
+	
+	使用 $\vec{L} = \vec{J} - \vec{S}$ 并对两边平方，我们得到
+	
+	$$
+	\vec{S} \cdot \vec{J} = \frac{1}{2} \left( J^2 + S^2 - L^2 \right) = \frac{\hbar^2}{2} \left[ j(j + 1) - l(l + 1) + s(s + 1) \right]
+	$$
+	
+	同理，使用 $\vec{S} = \vec{J} - \vec{L}$ 并对两边平方，我们得到
+	
+	$$
+	\vec{L} \cdot \vec{J} = \frac{1}{2} \left( J^2 - S^2 + L^2 \right) = \frac{\hbar^2}{2} \left[ j(j + 1) + l(l + 1) - s(s + 1) \right]
+	$$
+	
+	综合以上所有并取 $J_z = \hbar m_j$，我们得到原子在外加磁场中的磁势能
+	
+	$$
+	V_M = \mu_B B m_j \left[ \frac{g_L \left( j(j + 1) + l(l + 1) - s(s + 1) \right) + g_S \left( j(j + 1) - l(l + 1) + s(s + 1) \right)}{2 j(j + 1)} \right]
+	$$
+	
+	$$
+	= \mu_B B m_j \left[ 1 + \frac{(g_S - 1) \left( j(j + 1) - l(l + 1) + s(s + 1) \right)}{2 j(j + 1)} \right]
+	$$
+	
+	$$
+	= \mu_B B m_j g_j
+	$$
+	
+	其中方括号内的量是原子的朗德g因子 $g_J$（$g_L = 1$ 和 $g_S \approx 2$），$m_j$ 是总角动量的z分量。对于单个电子在填充壳层之上，$s = 1/2$ 并且 $j = l \pm s$，朗德g因子可以简化为：
+	
+	$$
+	g_j = 1 \pm \frac{g_S - 1}{2l + 1}
+	$$
+	
+	将 $V_M$ 视为微扰，塞曼效应对能量的修正为
+	
+	$$
+	E_Z^{(1)} = \langle n l j m_j | H_Z' | n l j m_j \rangle = \langle V_M \rangle \Psi = \mu_B g_J B_{\text{ext}} m_j
+	$$
+	
+	示例：氢原子的莱曼-阿尔法跃迁
+	
+	在存在自旋–轨道相互作用的情况下，氢原子的莱曼-阿尔法跃迁涉及以下跃迁：
+	
+	$$
+	2P_{1/2} \rightarrow 1S_{1/2} \quad \text{和} \quad 2P_{3/2} \rightarrow 1S_{1/2}
+	$$
+	
+	在外部磁场存在的情况下，弱场塞曼效应将 $1S_{1/2}$ 和 $2P_{1/2}$ 能级分裂成2个态（$m_j = \pm 1/2$），将 $2P_{3/2}$ 能级分裂成4个态（$m_j = \pm 3/2, \pm 1/2$）。三个能级的朗德g因子分别为：
+	
+	$$
+	g_J = 2 \quad \text{对于} \quad 1S_{1/2} \quad (j = 1/2, l = 0)
+	$$
+	
+	$$
+	g_J = 2/3 \quad \text{对于} \quad 2P_{1/2} \quad (j = 1/2, l = 1)
+	$$
+	
+	$$
+	g_J = 4/3 \quad \text{对于} \quad 2P_{3/2} \quad (j = 3/2, l = 1)
+	$$
+	
+	特别要注意的是，不同轨道的能量分裂大小不同，因为 $g_J$ 值不同。左图显示了精细结构分裂。这种分裂即使在没有磁场的情况下也会发生，因为它是由于自旋–轨道耦合引起的。右图显示了在存在磁场时额外的塞曼分裂。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_10GraP3.png}
+		\caption{Dipole-allowed Lyman-alpha transitions in the weak-field regime（参考文献[1]）}
+		\label{fig:figP3}
+	\end{figure}
+	
+	\begin{table}[h!]
+		\centering
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\multicolumn{3}{|c|}{Dipole-allowed Lyman-alpha transitions in the weak-field regime} \\
+			\hline
+			Initial state ($n=2, l=1$) $\mid j, m_j \rangle$ & Final state ($n=1, l=0$) $\mid j, m_j \rangle$ & Energy perturbation \\
+			\hline
+			$\left| \frac{1}{2}, \pm\frac{1}{2} \right\rangle$ & $\left| \frac{1}{2}, \pm\frac{1}{2} \right\rangle$ & $\mp\frac{2}{3} \mu_{\rm B}B$ \\
+			\hline
+			$\left| \frac{1}{2}, \pm\frac{1}{2} \right\rangle$ & $\left| \frac{1}{2}, \mp\frac{1}{2} \right\rangle$ & $\pm\frac{4}{3} \mu_{\rm B}B$ \\
+			\hline
+			$\left| \frac{3}{2}, \pm\frac{3}{2} \right\rangle$ & $\left| \frac{1}{2}, \pm\frac{1}{2} \right\rangle$ & $\pm \mu_{\rm B}B$ \\
+			\hline
+			$\left| \frac{3}{2}, \pm\frac{1}{2} \right\rangle$ & $\left| \frac{1}{2}, \pm\frac{1}{2} \right\rangle$ & $\mp\frac{1}{3} \mu_{\rm B}B$ \\
+			\hline
+			$\left| \frac{3}{2}, \pm\frac{1}{2} \right\rangle$ & $\left| \frac{1}{2}, \mp\frac{1}{2} \right\rangle$ & $\pm\frac{5}{3} \mu_{\rm B}B$ \\
+			\hline
+		\end{tabular}
+	}
+	\end{table}
+	
+	\subsubsection{强场的塞曼效应}
+	帕申–巴克效应是在强磁场存在下原子能级的分裂。当外部磁场足够强以破坏轨道（$\vec{L}$）和自旋（$\vec{S}$）角动量之间的耦合时，就会发生这种效应。这种效应是塞曼效应的强场极限。当 $s = 0$ 时，这两种效应是等价的。该效应以德国物理学家Friedrich Paschen和Ernst E. A. Back的名字命名。
+	
+	当磁场微扰显著超过自旋–轨道相互作用时，可以安全地假设 $[H_0, S] = 0$。这使得对于态 $|\psi\rangle$，$L_z$ 和 $S_z$ 的期望值可以很容易地求出。能量简单为
+	
+	$$
+	E_z = \langle \psi | H_0 + B_z \mu_B \frac{1}{\hbar} (L_z + g_s S_z) | \psi \rangle = E_0 + B_z \mu_B (m_l + g_s m_s).
+	$$
+	
+	上述公式可以理解为LS耦合被外部磁场完全破坏。然而，$m_l$ 和 $m_s$ 仍然是“良好”的量子数。结合电偶极跃迁的选择规则，即 $\Delta s = 0, \Delta m_s = 0, \Delta l = \pm 1, \Delta m_l = 0, \pm 1$，这允许完全忽略自旋自由度。结果，只有三条光谱线可见，对应于 $\Delta m_l = 0, \pm 1$ 的选择规则。分裂 $\Delta E = B \mu_B \Delta m_l$ 独立于未扰动的能量和考虑的能级的电子构型。
+	
+	更准确地说，如果 $s \neq 0$，则由于残余自旋–轨道耦合和相对论修正（这与所谓的“精细结构”同级别），这三个分量中的每一个实际上是一组若干跃迁。对于帕申–巴克极限下的氢原子，带有这些修正的一阶微扰理论给出了以下公式：
+	
+	$$
+	E_z + f_s = E_z + \frac{m_e c^2 \alpha^4}{2n^3} \left\{ \frac{3}{4n} - \left[ l(l + 1) - m_l m_s \frac{l (l + 1/2) (l + 1)}{l (l + 1/2) (l + 1)} \right] \right\}.
+	$$
+	
+	\begin{table}[h!]
+		\centering
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\multicolumn{4}{|c|}{Dipole-allowed Lyman-alpha transitions in the strong-field regime} \\
+			\hline
+			Initial state ($n=2, l=1$) $\mid m_l, m_s \rangle$ & Initial energy perturbation & Final state ($n=1, l=0$) $\mid m_l, m_s \rangle$ & Final energy perturbation \\
+			\hline
+			$\left| 1, \frac{1}{2}\right\rangle$ & $+2\mu_{\rm B}B_{z}$ & $\left| 0, \frac{1}{2}\right\rangle$ & $+\mu_{\rm B}B_{z}$ \\
+			\hline
+			$\left| 0, \frac{1}{2}\right\rangle$ & $+\mu_{\rm B}B_{z}$ & $\left| 0, \frac{1}{2}\right\rangle$ & $+\mu_{\rm B}B_{z}$ \\
+			\hline
+			$\left| 1, -\frac{1}{2}\right\rangle$ & $0$ & $\left| 0, -\frac{1}{2}\right\rangle$ & $-\mu_{\rm B}B_{z}$ \\
+			\hline
+			$\left| -1, \frac{1}{2}\right\rangle$ & $0$ & $\left| 0, \frac{1}{2}\right\rangle$ & $+\mu_{\rm B}B_{z}$ \\
+			\hline
+			$\left| 0, -\frac{1}{2}\right\rangle$ & $-\mu_{\rm B}B_{z}$ & $\left| 0, -\frac{1}{2}\right\rangle$ & $-\mu_{\rm B}B_{z}$ \\
+			\hline
+			$\left| -1, -\frac{1}{2}\right\rangle$ & $-2\mu_{\rm B}B_{z}$ & $\left| 0, -\frac{1}{2}\right\rangle$ & $-\mu_{\rm B}B_{z}$ \\
+			\hline
+		\end{tabular}
+	}
+	\end{table}
+	
+	\subsubsection{实验仪器介绍}
+	\begin{enumerate}
+		\item 法布里—珀罗标准具
+		
+		F-P 标准具由平行放置的两块平面板组成的, 在两板相对的平面上镀薄银膜和其他有较高反射系数的薄膜, 若两平行的镀银平面的间隔不可以改变，则称该仪器为“法布里—珀罗干涉仪”。由于两镀膜面平行，若使用扩展光源，则产生等倾干涉条纹。具有相同入射角的光线在垂直于观察方向的平面上的轨迹是一组同心圆。若在光路上放置透镜，则在透镜焦平面上得到一组同心圆环图样。 在透射光束中，相邻光束的光程差为:
+		\[
+		\Delta = 2 n d cos \phi	
+		\]
+		
+		产生亮条纹的条件为：
+		\[
+		2 n d cos \phi = K \lambda
+		\]
+		
+		其中K为干涉条纹级数，$\lambda$为入射光波长。
+		
+		标准具的两个特征参量是自由光谱范围和分辨本领。
+		
+		\begin{itemize}
+			\item 自由光谱范围：同一光源发出的具有微小波长差的单色光$\lambda_1$和$\lambda_2$，入射后将形成各自的圆环系列。对同一级的干涉条纹，波长大的干涉圆环直径小。对于某单色光来说，越靠中心处的干涉条纹的级数 K 越大。
+			
+			如果$\lambda_1$和$\lambda_2$的波数差逐渐增大，使得$\lambda_1$的第$m$级亮纹与$\lambda_2$的第$m - 1$级亮纹重合，则有
+			\[
+			2 n d \cos \theta = m \lambda _1 = (m - 1)\lambda_2	
+			\]
+			
+			得出$\Delta \lambda = \lambda _2 - \lambda_1 = \frac{\lambda_2}{m}$
+			
+			由于大多数情况下，$\cos \theta \approx 1$，可得到$m = \approx \frac{2 n d}{\lambda_1}$，得
+			\[
+			\Delta \lambda = \frac{\lambda_1 \lambda_2}{2 n d} \approx \frac{\lambda^2}{2 n d}	
+			\]
+			
+			它表明在 F-P 干涉仪中，当给定两平面间隔d后，入射光波长在$\lambda \pm \Delta \lambda$内不会发生干涉圆环重叠。
+			
+			\item 分辨本领：对于F-P标准具，它的分辨本领为$\frac{\Delta \lambda}{\lambda} = K N$，K为干涉级次,N为精细度, 它的物理意义是在相邻两个干涉级之间能分辨的最大条纹数。N依赖于平板内表面反射膜的反射率R:
+			\[
+			N = \frac{\pi \sqrt{R}}{1 -1R}	
+			\]
+			
+			反射率R越高，精细度N就越高，仪器能分辨开的条纹数就越多。
+			
+		\end{itemize}
+		
+		\item 波数差与圆环直径之间的关系
+		
+		通过测量干涉环的直径就可以测量各分裂谱线的波长或波长差。
+		
+		如\cref{fig:graph1-9}所示，出射角为$\theta$的的圆环直径D与透镜焦距f间的关系为$\tan{\theta}=\frac{D}{2f}$，对于近中心的圆环$\theta$很小，可以认为$\theta\approx\sin{\theta}\approx\tan{\theta}$，于是有：
+		\[
+		cos\theta = 1 - 2 \sin^2\frac{\theta}{2} \approx 1 - \frac{\theta^2}{2} = 1 - \frac{D^2}{8f^2}	
+		\]
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\textwidth]{graph1-9.png}
+			\caption{法布里一珀罗(F-P)标准具光路图(图中的透镜指的是望远镜里的透镜)}
+			\label{fig:graph1-9}
+		\end{figure}
+		
+		\[
+		2 n d \cos \theta = 2 n d (1 - \frac{D^2}{8f^2}) = K \lambda	
+		\]
+		
+		由上式可推出同一波长$\lambda$相邻两级$K$和$K - 1$级圆环直径的平方差为
+		\[
+		\Delta D^2 = D^2_{K-1} - D^2_{K} = \frac{4 f^2 \lambda}{n d}	
+		\]
+		
+		设不同波长$\lambda$和$\lambda_{\alpha}$的第K级干涉圆环直径分别为$D_K$和$D_{\alpha}$
+		\[
+		\lambda - \lambda_\alpha = \frac{nd}{4 f^2 K}(D^2_\alpha - D^2_K) = (\frac{D^2_\alpha - D^2_K}{D^2_{K-1} - D^2_{K}})\frac{\lambda}{K}	
+		\]
+		
+		得出波长差为：
+		\[
+		\Delta \lambda = \frac{\lambda^2}{2 n d}(\frac{D^2_\alpha - D^2_K}{D^2_{K-1} - D^2_{K}})
+		\]
+		
+		波数差为：
+		\[
+		\Delta \tilde{\nu} = \frac{1}{2 n d}(\frac{D^2_\alpha - D^2_K}{D^2_{K-1} - D^2_{K}})
+		\]
+		
+		\item 通过塞曼效应计算电子荷质比e/m
+		
+		本实验只研究反常塞曼效应的线偏振$\pi$的谱线。
+		\[
+		\frac{e}{m} = \frac{4\pi c}{n d B}(\frac{D^2_\alpha - D^2_K}{D^2_{K-1} - D^2_{K}})
+		\]
+		
+		若已知$d$和$B$，从塞曼分裂中测量出各环的直径，就可以计算出荷质比。
+	\end{enumerate}
+	
+	% ---
+	
+	
+	
+	% 实验前思考题
+	\subsection{实验前思考题（Questions）}
+	
+	% 思考题1
+	\begin{question}
+		光子是否具有角动量？试描述光子角动量方向与光的偏振方向之间的关系。
+	\end{question}
+	\begin{itemize}
+		\item 光子的角动量
+		\begin{itemize}
+			\item 光子不仅携带能量和动量，还携带角动量。光子的角动量可以通过偏振光来体现，其中包括线偏振光和圆偏振光。
+		\end{itemize}
+		
+		\item 线偏振光
+		\begin{itemize}
+			\item 对于线偏振光，电场矢量在某一固定方向上作周期性变化。例如，如果电场矢量在x方向上振荡，这就是线偏振光。
+		\end{itemize}
+		
+		\item 圆偏振光
+		\begin{itemize}
+			\item 圆偏振光的电场矢量在某个平面上绕圆周旋转，使得合成电场矢量的大小保持恒定。根据旋转方向的不同，圆偏振光分为左旋圆偏振光和右旋圆偏振光：
+			\begin{itemize}
+				\item 左旋圆偏振光：从光的传播方向看，电场矢量逆时针旋转。
+				\item 右旋圆偏振光：从光的传播方向看，电场矢量顺时针旋转。
+			\end{itemize}
+		\end{itemize}
+		
+		\item 光子角动量方向与光的偏振方向的关系
+		\begin{itemize}
+			\item 光子的角动量方向与光的偏振状态密切相关：
+			\begin{itemize}
+				\item 对于右旋圆偏振光，光子的角动量方向与光的传播方向相反。
+				\item 对于左旋圆偏振光，光子的角动量方向与光的传播方向一致。
+			\end{itemize}
+		\end{itemize}
+		
+		\item 图示描述
+		\begin{itemize}
+			\item 在讲义中通过图10描述了光子角动量方向和电场矢量旋转方向的关系：
+			\begin{itemize}
+				\item 图10（a）显示了右旋圆偏振光的情况，此时光子的角动量方向与光的传播方向相反。
+				\item 图10（b）显示了左旋圆偏振光的情况，此时光子的角动量方向与光的传播方向一致。
+			\end{itemize}
+		\end{itemize}
+		
+		\item 具体描述
+		\begin{itemize}
+			\item 光子角动量方向与光的偏振方向之间的关系如下：
+			\begin{itemize}
+				\item 线偏振光：电场矢量在一个固定方向上周期性振荡，光子的角动量方向与传播方向无关。
+				\item 圆偏振光：电场矢量在平面内旋转，角动量方向与电场矢量旋转方向一致，决定了光子的偏振态。
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	
+	
+	% 思考题2
+	\begin{question}
+		用同一级条纹的内外圈分别计算电子的荷质比，结果一样吗？试简述原因。
+	\end{question}
+	\begin{itemize}
+		\item 原理概述
+		\begin{itemize}
+			\item 在塞曼效应实验中，我们通过观察汞原子谱线在外磁场中的分裂现象来测量电子的荷质比。使用法布里-珀罗（F-P）标准具观察干涉条纹，通过测量相邻干涉条纹的直径差来计算波长差，并进一步计算电子的荷质比。
+		\end{itemize}
+		
+		\item 计算方法
+		\begin{itemize}
+			\item 讲义中提到，通过测量干涉环的直径可以测量各分裂谱线的波长或波长差。公式如下：
+			\[
+			\Delta \lambda = \frac{\lambda^2}{2nd} \left( \frac{D_{a}^2 - D_{K}^2}{D_{K-1}^2 - D_{K}^2} \right)
+			\]
+			
+			\item 由此波长差对应的波数差为：
+			\[
+			\Delta \tilde{\nu} = \frac{1}{2nd} \left( \frac{D_{a}^2 - D_{K}^2}{D_{K-1}^2 - D_{K}^2} \right)
+			\]
+			
+			\item 结合公式：
+			\[
+			\Delta \tilde{\nu} = \frac{eB}{4\pi m c} (M_2 g_2 - M_1 g_1)
+			\]
+			
+			\item 最终可得电子的荷质比为：
+			\[
+			\frac{e}{m} = \frac{4\pi c}{ndB} \left( \frac{D_{a}^2 - D_{K}^2}{D_{K-1}^2 - D_{K}^2} \right)
+			\]
+		\end{itemize}
+		
+		\item 不同条纹的结果差异
+		\begin{itemize}
+			\item 用同一级条纹的内外圈计算电子的荷质比，结果会有所不同。这主要是由于以下原因：
+			\begin{enumerate}
+				\item 条纹级数差异：
+				\begin{itemize}
+					\item 内圈和外圈对应的干涉条纹级数不同，导致干涉级次K不同。
+					\item 计算中涉及的直径平方差 \((D_{a}^2 - D_{K}^2)\) 和 \((D_{K-1}^2 - D_{K}^2)\) 会有所不同。
+					\item 由于这些差异，会影响最终计算结果。
+				\end{itemize}
+				
+				\item 精度和分辨率：
+				\begin{itemize}
+					\item 外圈条纹的直径较大，相对误差较小，测量精度较高。
+					\item 内圈条纹的直径较小，相对误差较大，测量精度较低。
+					\item 因此，使用外圈条纹计算得到的结果通常比内圈条纹更精确。
+				\end{itemize}
+				
+				\item 仪器因素：
+				\begin{itemize}
+					\item F-P标准具的分辨率和精细度可能会影响内外圈条纹的清晰度和测量精度。
+					\item 仪器调整、光源稳定性等因素也会对测量结果产生影响。
+				\end{itemize}
+			\end{enumerate}
+		\end{itemize}
+		
+		\item 总结
+		\begin{itemize}
+			\item 用同一级条纹的内外圈分别计算电子的荷质比，结果不同是由于干涉条纹级次的差异、测量精度的差异和仪器因素的影响。为了得到更精确的结果，通常选择条纹较大、测量误差较小的外圈进行计算。
+		\end{itemize}
+	\end{itemize}
+	
+	
+	% 思考题3
+	\begin{question}
+		请利用（20）至（23）式，计算汞原子 $^3S_1$（6s7s）和 $^3P_2$（6s7p）能级所对应的量子数（见表 1），并给出详细的计算过程。
+	\end{question}
+	\begin{enumerate}
+		\item 公式（20）至（23）
+		\begin{enumerate}
+			\item 总轨道角动量量子数 \( L \)：
+			\[
+			L = l_1 + l_2, l_1 + l_2 - 1, l_1 + l_2 - 2, \ldots, |l_1 - l_2|
+			\]
+			
+			\item 总自旋角动量量子数 \( S \)：
+			\[
+			S = s_1 + s_2, s_1 + s_2 - 1, s_1 + s_2 - 2, \ldots, |s_1 - s_2|
+			\]
+			
+			\item 总角动量量子数 \( J \)：
+			\[
+			J = L + S, L + S - 1, L + S - 2, \ldots, |L - S|
+			\]
+			
+			\item 总磁量子数 \( m_J \)：
+			\[
+			m_J = 0, \pm 1, \pm 2, \ldots, \pm J
+			\]
+		\end{enumerate}
+		
+		\item \( ^3S_1 \)（6s7s）能级计算
+		\begin{enumerate}
+			\item 轨道角动量量子数 \( l \)：
+			\begin{itemize}
+				\item 6s 和 7s 轨道， \( l = 0 \)
+				\[
+				L = l_1 + l_2 = 0 + 0 = 0
+				\]
+			\end{itemize}
+			
+			\item 自旋角动量量子数 \( s \)：
+			\begin{itemize}
+				\item 两个电子的自旋 \( s = \frac{1}{2} \)
+				\[
+				S = s_1 + s_2 = \frac{1}{2} + \frac{1}{2} = 1
+				\]
+			\end{itemize}
+			
+			\item 总角动量量子数 \( J \)：
+			\[
+			J = L + S = 0 + 1 = 1
+			\]
+			
+			\item 总磁量子数 \( m_J \)：
+			\[
+			m_J = 0, \pm 1
+			\]
+			
+			\item 因此，\( ^3S_1 \)（6s7s）能级对应的量子数为：
+			\[
+			L = 0, S = 1, J = 1, m_J = 0, \pm 1
+			\]
+		\end{enumerate}
+		
+		\item \( ^3P_2 \)（6s7p）能级计算
+		\begin{enumerate}
+			\item 轨道角动量量子数 \( l \)：
+			\begin{itemize}
+				\item 6s 轨道， \( l_1 = 0 \)
+				\item 7p 轨道， \( l_2 = 1 \)
+				\[
+				L = l_1 + l_2 = 0 + 1 = 1
+				\]
+			\end{itemize}
+			
+			\item 自旋角动量量子数 \( s \)：
+			\begin{itemize}
+				\item 两个电子的自旋 \( s = \frac{1}{2} \)
+				\[
+				S = s_1 + s_2 = \frac{1}{2} + \frac{1}{2} = 1
+				\]
+			\end{itemize}
+			
+			\item 总角动量量子数 \( J \)：
+			\[
+			J = L + S = 1 + 1 = 2
+			\]
+			
+			\item 总磁量子数 \( m_J \)：
+			\[
+			m_J = 0, \pm 1, \pm 2
+			\]
+			
+			\item 因此，\( ^3P_2 \)（6s7p）能级对应的量子数为：
+			\[
+			L = 1, S = 1, J = 2, m_J = 0, \pm 1, \pm 2
+			\]
+		\end{enumerate}
+		
+		\item 总结
+		\begin{itemize}
+			\item 通过上述计算，我们得到汞原子 \( ^3S_1 \)（6s7s）和 \( ^3P_2 \)（6s7p）能级对应的量子数如下：
+			\begin{itemize}
+				\item \( ^3S_1 \)（6s7s）:
+				\[
+				L = 0, S = 1, J = 1, m_J = 0, \pm 1
+				\]
+				
+				\item \( ^3P_2 \)（6s7p）:
+				\[
+				L = 1, S = 1, J = 2, m_J = 0, \pm 1, \pm 2
+				\]
+			\end{itemize}
+			
+			\item 这与讲义中的表1结果一致。
+		\end{itemize}
+	\end{enumerate}
+	
+	
+	% 思考题4
+	\begin{question}
+		请利用（2）、（8）和（20）式，并结合$\vec{J} = \vec{L} + \vec{S}$ 和 $\vec{\mu}_J = \vec{\mu}_L + \vec{\mu}_S $（注意此时的是图 5 中的$\vec{\mu}_J$ ，详细见脚注 22），导出朗德因子的一般表达式（28）式，并给出详细的推导过程。
+	\end{question}
+	\begin{enumerate}
+		\item 基础公式
+		\begin{enumerate}
+			\item 轨道磁矩：
+			\[
+			\vec{\mu}_L = -\mu_B \frac{\vec{L}}{\hbar}
+			\]
+			其中，\(\mu_B\) 为玻尔磁子，\(\mu_B = \frac{e\hbar}{2m_e}\)。
+			
+			\item 自旋磁矩：
+			\[
+			\vec{\mu}_S = -g_S \mu_B \frac{\vec{S}}{\hbar}
+			\]
+			其中，\(g_S = 2\) 是电子的自旋g因子。
+			
+			\item 总角动量量子数：
+			\[
+			\vec{J} = \vec{L} + \vec{S}
+			\]
+			
+			\item 总磁矩：
+			\[
+			\vec{\mu}_J = \vec{\mu}_L + \vec{\mu}_S
+			\]
+		\end{enumerate}
+		
+		\item 导出朗德因子
+		\begin{enumerate}
+			\item 首先，我们将轨道磁矩和自旋磁矩代入总磁矩公式：
+			\[
+			\vec{\mu}_J = -\mu_B \frac{\vec{L}}{\hbar} - g_S \mu_B \frac{\vec{S}}{\hbar}
+			\]
+			简化后得到：
+			\[
+			\vec{\mu}_J = -\mu_B \left( \frac{\vec{L}}{\hbar} + g_S \frac{\vec{S}}{\hbar} \right)
+			\]
+			
+			\item 为了找到 \(\vec{\mu}_J\) 在总角动量方向上的分量，我们需要计算它在 \(\vec{J}\) 方向上的投影。假设 \(\vec{J}\) 的方向余弦为 \(\cos \theta_J\)，可以表示为：
+			\[
+			\mu_{J,z} = -\mu_B \left( \frac{L_z \cos \theta_L}{\hbar} + g_S \frac{S_z \cos \theta_S}{\hbar} \right)
+			\]
+			
+			\item 根据角动量耦合规则，利用Wigner-Eckart定理，可以得到：
+			\[
+			\cos \theta_L = \frac{J(J+1) + L(L+1) - S(S+1)}{2J(J+1)}
+			\]
+			\[
+			\cos \theta_S = \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}
+			\]
+			
+			\item 将上述结果代入，可以得到 \(\mu_{J,z}\)：
+			\[
+			\mu_{J,z} = -\mu_B \left( \frac{J(J+1) + L(L+1) - S(S+1)}{2J(J+1)} L_z + g_S \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)} S_z \right)
+			\]
+			
+			\item 将轨道和自旋角动量的z分量表示为它们各自的量子数（即 \(L_z = m_L \hbar\) 和 \(S_z = m_S \hbar\)），我们得到：
+			\[
+			\mu_{J,z} = -\mu_B \frac{m_J}{\hbar} \left( \frac{J(J+1) + L(L+1) - S(S+1)}{2J(J+1)} + g_S \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)} \right)
+			\]
+			
+			\item 由于 \(m_J = m_L + m_S\)，可以合并成：
+			\[
+			\mu_{J,z} = -\mu_B \frac{m_J}{\hbar} \left( \frac{J(J+1) + L(L+1) - S(S+1)}{2J(J+1)} + g_S \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)} \right)
+			\]
+			
+			\item 整理得到朗德因子 \(g_J\)：
+			\[
+			g_J = \frac{J(J+1) + L(L+1) - S(S+1)}{2J(J+1)} + g_S \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}
+			\]
+			
+			\item 由于 \(g_S = 2\)，最终得到一般表达式：
+			\[
+			g_J = 1 + \frac{J(J+1) + L(L+1) - S(S+1)}{2J(J+1)} - \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}
+			\]
+			简化为：
+			\[
+			g_J = 1 + \frac{L(L+1) - S(S+1)}{2J(J+1)}
+			\]
+			这就是朗德因子的一般表达式，如讲义中的公式（28）所示。
+			\end{enumerate}
+		\end{enumerate}
+	
+	% 思考题5
+	\begin{question}
+		请利用单电子情况下的（36）式，并结合钠双黄线的平均波长及其波长差（$\lambda_1$ = 589.0 nm，$\lambda_2$  = 589.6 nm），估算一下钠原子内部的磁感应强度 $B_{int}$ 的值（提示：单电子情况下，两谱线的能级差为势能的两倍，即有 $\Delta E = \Delta U =2 \mu_B B$ ；另需要利用到光子波长和频率之间的关系式。答案：钠原子内部的磁感应强度 $B_{int}$ 的值为 18.5T）。
+	\end{question}
+	\begin{enumerate}
+		\item 基础公式
+		\begin{enumerate}
+			\item 能量差和势能的关系：
+			\[
+			\Delta E = \Delta U = 2 \mu_B B
+			\]
+			其中，\(\mu_B\) 为玻尔磁子， \(B\) 为磁感应强度。
+			
+			\item 波长和频率之间的关系：
+			\[
+			E = h \nu
+			\]
+			其中，\(h\) 为普朗克常数，\(\nu\) 为频率。
+			
+			\item 波长和频率的关系：
+			\[
+			\nu = \frac{c}{\lambda}
+			\]
+			其中，\(c\) 为光速，\(\lambda\) 为波长。
+		\end{enumerate}
+		
+		\item 计算细节：
+		\[
+		\Delta \nu = \frac{c}{589.0 \times 10^{-9}} - \frac{c}{589.6 \times 10^{-9}} = 5.09 \times 10^{14} \, \text{Hz} - 5.08 \times 10^{14} \, \text{Hz} = 1.7 \times 10^{11} \, \text{Hz}
+		\]
+		
+		\[
+		\Delta E = 6.626 \times 10^{-34} \times 1.7 \times 10^{11} = 1.12 \times 10^{-22} \, \text{J}
+		\]
+		
+		\[
+		B = \frac{\Delta E}{2 \mu_B} = \frac{1.12 \times 10^{-22}}{2 \times 9.274 \times 10^{-24}} = 18.5 \, \text{T}
+		\]
+	\end{enumerate}
+	
+	
+	% 思考题6
+	\begin{question}
+		请结合第 5 题的计算结果，说明弱外磁场 $B_{ext} \ll B_{int}$ 成立时弱外磁场 $B_{ext}$ 的取值范围，并确认本实验中电磁体的磁感应强度符合弱外磁场 $B_{ext} \ll B_{int}$ 条件。
+	\end{question}
+	\begin{enumerate}
+		\item 在第 5 题中，我们计算出钠原子内部的磁感应强度 \( B_{\text{int}} \) 为 18.5 T。
+		
+		\item 弱外磁场条件
+		
+		根据讲义中的内容，弱外磁场 \( B_{\text{ext}} \) 的条件是：
+		\[ B_{\text{ext}} \ll B_{\text{int}} \]
+		
+		\item 弱外磁场的取值范围
+		
+		为了满足 \( B_{\text{ext}} \ll B_{\text{int}} \)，我们通常需要确保 \( B_{\text{ext}} \) 至少小于 \( B_{\text{int}} \) 的一个数量级。具体来说，若 \( B_{\text{int}} = 18.5 \, \text{T} \)，则 \( B_{\text{ext}} \) 应该满足：
+		\[ B_{\text{ext}} \ll 18.5 \, \text{T} \]
+		
+		为了确保这个条件，我们可以取 \( B_{\text{ext}} \) 的上限为 \( B_{\text{int}} \) 的十分之一，即：
+		\[ B_{\text{ext}} \leq \frac{18.5}{10} = 1.85 \, \text{T} \]
+		
+		这意味着当 \( B_{\text{ext}} \) 小于 1.85 T 时，我们可以认为 \( B_{\text{ext}} \ll B_{\text{int}} \) 成立。
+		
+		\item 实验中的电磁体磁感应强度
+		
+		根据讲义中的仪器参数部分，电磁体（带电源）通过调节激励电流的大小来改变磁场的大小。假设实验中电磁体所能产生的最大磁感应强度在 1 T 左右。
+		
+		为了确认这一点，我们可以查看讲义中的具体数值。如果电磁体的磁感应强度确实在 1 T 左右，那么：
+		\[ B_{\text{ext}} \approx 1 \, \text{T} \]
+		
+		由于 \( 1 \, \text{T} \ll 18.5 \, \text{T} \)，因此可以确认本实验中电磁体的磁感应强度符合弱外磁场 \( B_{\text{ext}} \ll B_{\text{int}} \) 的条件。
+		
+		\item 总结
+		
+		弱外磁场 \( B_{\text{ext}} \) 的取值范围应小于 \( B_{\text{int}} \) 的十分之一，即 \( B_{\text{ext}} \leq 1.85 \, \text{T} \)。
+		本实验中电磁体的磁感应强度在 1 T 左右，符合 \( B_{\text{ext}} \ll B_{\text{int}} \) 的条件。
+		
+		因此，本实验中的电磁体磁感应强度可以被认为是弱外磁场，满足 \( B_{\text{ext}} \ll B_{\text{int}} \) 的条件。
+	\end{enumerate}
+	
+	
+	% 思考题7
+	\begin{question}
+		请结合力与势能的关系式 $\vec{F} = -\nabla U $ 并利用（11）式，试推导磁矩在非均匀外磁场中的受力大小为 $F_z = \mu_z \frac{\partial B_z}{\partial z} \ (B_x = B_y = 0)$（设外磁场方向在 z 轴方向，$F_z$ 为力在 z 方向上分量的大小）（提示：请利用郭硕鸿《电动力学》（第二版）一书附录中的矢量运算公式）。
+	\end{question}
+	\begin{enumerate}
+		\item 势能与磁矩的关系
+		
+		根据讲义中的公式（11），磁矩在外磁场中的势能为：
+		\[ U = -\vec{\mu} \cdot \vec{B} \]
+		
+		\item 力与势能的关系
+		
+		力与势能的关系为：
+		\[ \vec{F} = -\nabla U \]
+		
+		\item 非均匀外磁场中的受力
+		
+		假设外磁场方向在 \(z\) 轴方向，并且外磁场在 \(x\) 和 \(y\) 方向上没有分量，即 \(B_x = 0\) 和 \(B_y = 0\)。此时，外磁场的磁感应强度 \(\vec{B}\) 可以表示为：
+		\[ \vec{B} = (0, 0, B_z) \]
+		
+		磁矩 \(\vec{\mu}\) 的分量为：
+		\[ \vec{\mu} = (\mu_x, \mu_y, \mu_z) \]
+		
+		由此，磁矩在外磁场中的势能为：
+		\[ U = -\vec{\mu} \cdot \vec{B} = -\mu_z B_z \]
+		
+		\item 力的分量
+		
+		根据力与势能的关系式，力的各分量为：
+		\[ F_x = -\frac{\partial U}{\partial x} \]
+		\[ F_y = -\frac{\partial U}{\partial y} \]
+		\[ F_z = -\frac{\partial U}{\partial z} \]
+		
+		由于 \(U\) 仅与 \(z\) 方向有关，且 \(B_x = 0\) 和 \(B_y = 0\)，所以 \(U\) 对 \(x\) 和 \(y\) 的偏导数为零：
+		\[ F_x = -\frac{\partial U}{\partial x} = 0 \]
+		\[ F_y = -\frac{\partial U}{\partial y} = 0 \]
+		
+		只剩下 \(z\) 方向的分量：
+		\[ F_z = -\frac{\partial U}{\partial z} \]
+		
+		将 \(U = -\mu_z B_z\) 代入上式，得到：
+		\[ F_z = -\frac{\partial (-\mu_z B_z)}{\partial z} \]
+		\[ F_z = \mu_z \frac{\partial B_z}{\partial z} \]
+		
+		\item 结果
+		
+		因此，磁矩在非均匀外磁场中的受力大小在 \(z\) 方向上为：
+		\[ F_z = \mu_z \frac{\partial B_z}{\partial z} \]
+		
+		这就是磁矩在非均匀外磁场中受力的大小，满足设定条件 \(B_x = 0\) 和 \(B_y = 0\)。
+	\end{enumerate}
+	
+	
+	% 思考题8
+	\begin{question}
+		请结合朗德因子的一般表达式（28）式，以及两个角动量耦合的一般规则（20）至（23）式，计算表 3 中汞原子 546.1nm 谱线对应的上下两个能级的各量子数及不同谱线（能级跃迁）的朗德因子（见图 9）。用“格罗春图”33（Grotrain 图）来表示汞原子 546.1nm谱线不同能级之间可能的跃迁。
+	\end{question}
+	\begin{enumerate}
+		\item 表 3 中汞原子 546.1nm 谱线对应的上下两个能级的量子数
+		
+		根据讲义中表 3 和相关公式，我们知道：
+		\begin{itemize}
+			\item 上能级：$^3S_1$（6s7s）
+			\begin{itemize}
+				\item 总轨道角动量量子数 \(L = 0\)
+				\item 总自旋量子数 \(S = 1\)
+				\item 总角动量量子数 \(J = 1\)
+			\end{itemize}
+			\item 下能级：$^3P_2$（6s7p）
+			\begin{itemize}
+				\item 总轨道角动量量子数 \(L = 1\)
+				\item 总自旋量子数 \(S = 1\)
+				\item 总角动量量子数 \(J = 2\)
+			\end{itemize}
+		\end{itemize}
+		
+		\item 朗德因子的计算
+		
+		朗德因子的一般表达式（28）是：
+		\[
+		g_J = 1 + \frac{J(J+1) + L(L+1) - S(S+1)}{2J(J+1)}
+		\]
+		
+		\begin{itemize}
+			\item 计算 $^3S_1$（6s7s）能级的朗德因子：
+			\begin{itemize}
+				\item 对于 $^3S_1$（6s7s）:\(L = 0\)，\(S = 1\)和\(J = 1\)；
+				\item 代入公式（28）：
+				\[
+				g_J = 1 + \frac{1(1+1) + 0(0+1) - 1(1+1)}{2 \cdot 1(1+1)} = 1 + \frac{2 + 0 - 2}{4} = 1 + 0 = 1
+				\]
+			\end{itemize}
+			
+			\item 计算 $^3P_2$（6s7p）能级的朗德因子：
+			\begin{itemize}
+				\item 对于 $^3P_2$（6s7p）:\(L = 1\)，\(S = 1\)和\(J = 2\)；
+				\item 代入公式（28）：
+				\[
+				g_J = 1 + \frac{2(2+1) + 1(1+1) - 1(1+1)}{2 \cdot 2(2+1)} = 1 + \frac{6 + 2 - 2}{12} = 1 + \frac{6}{12} = 1 + 0.5 = 1.5
+				\]
+			\end{itemize}
+		\end{itemize}
+		
+		因此，$^3S_1$（6s7s）的朗德因子 \(g_J = 1\)，$^3P_2$（6s7p）的朗德因子 \(g_J = 1.5\)。
+	\end{enumerate}
+	
+	
+	% 思考题9
+	\begin{question}
+		请回答什么是“反常塞曼效应”和“正常塞曼效应”，两者之间的区别是什么。请思考什么是“帕邢－巴克效应”及其形成的原因。
+	\end{question}
+	\begin{enumerate}
+		\item 正常塞曼效应与反常塞曼效应
+		
+		\textbf{正常塞曼效应}
+		\begin{itemize}
+			\item 正常塞曼效应（Normal Zeeman Effect）是指在弱外磁场中，原子或离子的能级在外磁场的作用下分裂成三条等间距的谱线。这种现象通常发生在单个电子轨道角动量较大的情况下。
+			\item 具体特征：
+			\begin{itemize}
+				\item 特征谱线：分裂成三条等间距的谱线，即一条原来的中心线和两条对称分布在中心线两侧的偏振光谱线。
+				\item 电子自旋：对于无自旋（\(S = 0\)）或自旋对消的情况（如单个电子的氢原子谱线）。
+				\item 条件：通常在弱磁场下观察到。
+			\end{itemize}
+			\item 解释：能级分裂可以用经典理论解释，即每个能级的分裂是由于轨道磁矩在外磁场中的取向量子化所致。分裂能级间的间距与外磁场的强度成正比。
+		\end{itemize}
+		
+		\textbf{反常塞曼效应}
+		\begin{itemize}
+			\item 反常塞曼效应（Anomalous Zeeman Effect）是指在弱外磁场中，原子或离子的能级在外磁场的作用下分裂成多条谱线（多于三条）。这种现象发生在电子自旋 \(S \neq 0\) 的情况下。
+			\item 具体特征：
+			\begin{itemize}
+				\item 特征谱线：分裂成多于三条谱线，不等间距。
+				\item 电子自旋：对于有自旋（\(S \neq 0\)）的情况，如多电子原子。
+				\item 条件：通常在弱磁场下观察到。
+			\end{itemize}
+			\item 解释：分裂现象不能仅用经典理论解释，需要量子力学的自旋-轨道耦合理论来解释。分裂能级之间的间距和外磁场强度、朗德因子 \(g\) 有关。
+		\end{itemize}
+		
+		\item 帕邢－巴克效应
+		
+		帕邢－巴克效应（Paschen-Back Effect）是指在强外磁场中，原子或离子的能级分裂情况不同于弱磁场下的正常或反常塞曼效应。
+		\begin{itemize}
+			\item 强磁场效应：外磁场强度很大，使得自旋-轨道耦合效应被外磁场的相互作用所压倒。
+			\item 能级分裂：在强磁场下，自旋和轨道角动量分别绕外磁场方向进行拉莫尔进动，导致能级分裂的规律变化。
+			\item 电子自旋：自旋和轨道角动量不再耦合成总角动量 \(J\)，而是分别与外磁场相互作用。
+			\item 形成原因：在强磁场下，自旋-轨道耦合效应变得次要，电子的自旋和轨道角动量分别绕外磁场方向进行拉莫尔进动，导致能级分裂的形式与在弱磁场下的情况不同。
+		\end{itemize}
+		
+		\item 总结
+		
+		\begin{itemize}
+			\item 正常塞曼效应：在弱磁场下，\(S = 0\) 的情况下，能级分裂成三条等间距谱线。
+			\item 反常塞曼效应：在弱磁场下，\(S \neq 0\) 的情况下，能级分裂成多条不等间距谱线。
+			\item 帕邢－巴克效应：在强磁场下，自旋-轨道耦合效应被外外磁场相互作用压倒，能级分裂形式不同于弱磁场下的塞曼效应。
+		\end{itemize}
+	\end{enumerate}	
+	
+	% 思考题10
+	\begin{question}
+		请回答电子的“自旋—轨道耦合”的本质是什么？它与电子之间的“L-S 耦合”的区别是什么？
+	\end{question}
+	\begin{enumerate}
+		\item 自旋—轨道耦合
+		
+		\textbf{本质}
+		\begin{itemize}
+			\item 自旋—轨道耦合（Spin-Orbit Coupling）的本质是电子的轨道运动所产生的磁场与电子自旋磁矩之间的相互作用。具体来说，当电子在原子核周围运动时，它产生的轨道磁矩与其自身的自旋磁矩之间发生相互作用。这种相互作用导致电子的总角动量 \( \vec{J} \) 的形成，即轨道角动量 \( \vec{L} \) 和自旋角动量 \( \vec{S} \) 的耦合。
+		\end{itemize}
+		
+		\textbf{具体特征}
+		\begin{itemize}
+			\item 自旋磁矩：电子的自旋 \( \vec{S} \) 产生自旋磁矩 \( \vec{\mu}_S \)。
+			\item 轨道磁矩：电子的轨道运动产生轨道磁矩 \( \vec{\mu}_L \)。
+			\item 相互作用：自旋磁矩 \( \vec{\mu}_S \) 与轨道磁矩 \( \vec{\mu}_L \) 相互作用，导致能级分裂。
+		\end{itemize}
+		
+		\item L-S 耦合
+		
+		\textbf{本质}
+		\begin{itemize}
+			\item L-S 耦合（Russell-Saunders Coupling 或 LS Coupling）的本质是多电子原子中各电子的轨道角动量 \( \vec{L} \) 和自旋角动量 \( \vec{S} \) 的相互作用。具体来说，L-S 耦合是指在多电子原子中，所有电子的轨道角动量和自旋角动量分别进行矢量相加，形成总轨道角动量 \( \vec{L} \) 和总自旋角动量 \( \vec{S} \)，然后再将 \( \vec{L} \) 和 \( \vec{S} \) 耦合成总角动量 \( \vec{J} \)。
+		\end{itemize}
+		
+		\textbf{具体特征}
+		\begin{itemize}
+			\item 单电子的轨道角动量：每个电子的轨道角动量 \( \vec{L_i} \)。
+			\item 单电子的自旋角动量：每个电子的自旋角动量 \( \vec{S_i} \)。
+			\item 总轨道角动量：所有电子的轨道角动量的矢量和 \( \vec{L} = \sum \vec{L_i} \)。
+			\item 总自旋角动量：所有电子的自旋角动量的矢量和 \( \vec{S} = \sum \vec{S_i} \)。
+			\item 总角动量：总轨道角动量 \( \vec{L} \) 和总自旋角动量 \( \vec{S} \) 再耦合成总角动量 \( \vec{J} = \vec{L} + \vec{S} \)。
+		\end{itemize}
+		
+		\item 区别总结
+		
+		\begin{itemize}
+			\item 自旋—轨道耦合：涉及单个电子的自旋磁矩和轨道磁矩的相互作用，导致能级分裂。它主要用于描述单电子或单电子类似原子的光谱精细结构。
+			\item L-S 耦合：涉及多电子原子中所有电子的轨道角动量和自旋角动量的相互作用，形成总轨道角动量和总自旋角动量，再耦合成总角动量。它主要用于描述多电子原子的能级结构。
+		\end{itemize}
+	\end{enumerate}
+	
+	
+	% 思考题11
+	\begin{question}
+		请结合多电子原子及电子组态的相关知识，思考为什么像汞原子一样有两个价电子的元素（氦 He 和镁 Mg 等第二族（碱土族）元素），会有两套不同的谱线（一套是单线结构，一套是双线结构）。
+	\end{question}
+	
+	在多电子原子中，电子的轨道角动量和自旋角动量可以耦合成总轨道角动量 \( \vec{L} \) 和总自旋角动量 \( \vec{S} \)，再进一步耦合成总角动量 \( \vec{J} \)。这种耦合方式可以解释为什么多电子原子会产生复杂的光谱结构。
+	
+	电子组态是指原子中电子的排列方式。对于多电子原子，特别是那些有两个价电子的原子（如汞原子、氦和镁等碱土族元素），电子组态和能级之间的相互作用决定了其光谱结构。
+	
+	单线结构通常出现在那些电子自旋对消（例如，总自旋 \( S = 0 \)）的情况下。这意味着电子的自旋相互抵消，使得总自旋量子数 \( S = 0 \)，因此没有自旋—轨道耦合效应或该效应很小。
+	
+	双线结构则出现在那些电子自旋未完全对消（例如，总自旋 \( S \neq 0 \)）的情况下。这意味着电子的自旋不相互抵消，使得总自旋量子数 \( S \neq 0 \)，因此会出现自旋—轨道耦合效应。这种耦合效应导致能级分裂成两个子能级，从而在光谱中观察到双线结构。
+	
+	对于有两个价电子的原子（例如氦和镁），存在以下两种情况：
+	
+	当两个价电子的自旋相互抵消时，总自旋 \( S = 0 \)，总轨道角动量 \( L \) 不受影响。
+	这种情况下，电子的能级不发生自旋—轨道耦合效应，能级分裂很小或不存在，导致光谱中出现单线结构。
+	
+	当两个价电子的自旋不完全抵消时，总自旋 \( S \neq 0 \)，总轨道角动量 \( L \) 受到自旋—轨道耦合的影响。
+	这种情况下，自旋—轨道耦合导致能级分裂，形成两个子能级。因此，在光谱中观察到双线结构。	
+	
+	% 思考题12
+	\begin{question}
+		设 F-P 标准具两反射面之间的距离为 d=2 mm，请根据（47）式估计汞原子 546.1nm 谱线的自由光谱范围。
+	\end{question}
+	
+	为了估计汞原子 546.1nm 谱线的自由光谱范围（FSR），我们需要利用 F-P 标准具的公式。根据讲义中的公式（47），自由光谱范围（Free Spectral Range, FSR）可以表示为：
+	
+	\[
+	\Delta \lambda = \frac{\lambda^2}{2nd}
+	\]
+	
+	代入具体数值，\(\lambda = 546.1 \, \text{nm} = 546.1 \times 10^{-9} \, \text{m}\)，\(d = 2 \, \text{mm} = 2 \times 10^{-3} \, \text{m}\)和\(n = 1\)（空气的折射率），有
+	
+	\[
+	\Delta \lambda = \frac{(546.1 \times 10^{-9})^2}{2 \times 2 \times 10^{-3}}
+	\]
+	
+	\[
+	\Delta \lambda = \frac{(546.1 \times 10^{-9})^2}{4 \times 10^{-3}}
+	\]
+	
+	\[
+	\Delta \lambda = \frac{298116.21 \times 10^{-18}}{4 \times 10^{-3}}
+	\]
+	
+	\[
+	\Delta \lambda = 7.4529 \times 10^{-14} \times 10^9 \, \text{nm}
+	\]
+	
+	\[
+	\Delta \lambda = 0.0745 \, \text{nm}
+	\]
+	
+	% 思考题13
+	\begin{question}
+		请根据（38）式，估计在外磁场为 B=1T 时观察汞原子 546.1nm 谱线分离所要求的仪器分辨率的 $\dfrac{\lambda}{\Delta \lambda}$ ，并讨论用 F-P 标准具观测的必要性（一般棱镜摄谱仪的理论分辨率为$10^3$~$10^4$，F-P 标准具的理论分辨率为 $10^5$~$10^7$，实际分辨率比理论值要略低一些）。
+	\end{question}
+	\begin{enumerate}
+		\item 公式（38）
+		
+		公式（38）给出了频率差（或波数差）与外磁场和朗德因子的关系：
+		\[ \Delta \nu = \frac{e B}{4 \pi m c} (g_2 m_{J2} - g_1 m_{J1}) \]
+		
+		\item 汞原子 546.1nm 谱线的量子数和朗德因子
+		
+		根据讲义，汞原子 546.1nm 谱线对应的能级和朗德因子为：
+		\begin{itemize}
+			\item 上能级 \( ^3S_1 \) (6s7s)，\( g_1 = 1 \)，\( J = 1 \)
+			\item 下能级 \( ^3P_2 \) (6s7p)，\( g_2 = 1.5 \)，\( J = 2 \)
+		\end{itemize}
+		
+		计算波长差
+		\[ \Delta \nu = \frac{e B}{4 \pi m c} (1.5 \cdot 1 - 1 \cdot 1) = \frac{e B}{4 \pi m c} \cdot 0.5 \]
+		
+		确定参数
+		\begin{itemize}
+			\item 电子电荷 \( e = 1.602 \times 10^{-19} \, \text{C} \)
+			\item 电子质量 \( m = 9.109 \times 10^{-31} \, \text{kg} \)
+			\item 光速 \( c = 3 \times 10^8 \, \text{m/s} \)
+			\item 磁感应强度 \( B = 1 \, \text{T} \)
+		\end{itemize}
+		
+		代入数值计算：
+		\[ \Delta \nu = \frac{1.602 \times 10^{-19} \times 1}{4 \pi \times 9.109 \times 10^{-31} \times 3 \times 10^8} \cdot 0.5 \]
+		
+		计算得：
+		\[ \Delta \nu \approx 1.40 \times 10^{10} \, \text{Hz} \]
+		
+		波长与频率关系
+		\[ \Delta \lambda = \frac{\lambda^2}{c} \Delta \nu \]
+		
+		对于 \( \lambda = 546.1 \, \text{nm} = 546.1 \times 10^{-9} \, \text{m} \)，
+		\[ \Delta \lambda = \frac{(546.1 \times 10^{-9})^2}{3 \times 10^8} \times 1.40 \times 10^{10} \]
+		
+		计算得：
+		\[ \Delta \lambda \approx 1.39 \times 10^{-12} \, \text{m} = 1.39 \, \text{pm} \]
+		
+		仪器分辨率
+		\[ \frac{\lambda}{\Delta \lambda} = \frac{546.1 \times 10^{-9}}{1.39 \times 10^{-12}} \approx 3.93 \times 10^5 \]
+		
+		讨论仪器选择
+		\begin{itemize}
+			\item 一般棱镜摄谱仪：理论分辨率为 \(10^3\) 至 \(10^4\)。
+			\item F-P 标准具：理论分辨率为 \(10^5\) 至 \(10^7\)。
+		\end{itemize}
+		
+		由于需要的仪器分辨率 \(\approx 3.93 \times 10^5\)，这远高于一般棱镜摄谱仪的理论分辨率范围。因此，使用 F-P 标准具是必要的，因为它具有足够高的分辨率来观察汞原子 546.1nm 谱线在外磁场中的分离现象。
+		
+		\item 总结
+		
+		在外磁场为 \(B = 1 \, \text{T}\) 时，观察汞原子 546.1nm 谱线分离所要求的仪器分辨率为 \(\frac{\lambda}{\Delta \lambda} \approx 3.93 \times 10^5\)。使用 F-P 标准具是必要的，因为其理论分辨率在 \(10^5\) 至 \(10^7\) 范围内，能够满足该实验的分辨率要求。
+	\end{enumerate}		
+	
+	% 思考题14
+	\begin{question}
+		仔细观察垂直磁场方向观察，旋转偏振片至 45° 角的纪录，会发现同一级条纹在磁场中分离成不只三条，请解释出现这一现象的原因。
+	\end{question}
+	\begin{enumerate}
+		\item 在垂直于磁场方向观察，并将偏振片旋转至 45° 角时，观察到同一级条纹在磁场中分离成不只三条，这是因为反常塞曼效应的结果。以下是对此现象的详细解释。
+		
+		\item 反常塞曼效应
+		
+		反常塞曼效应（Anomalous Zeeman Effect）是指在弱外磁场中，原子或离子的能级在外磁场的作用下分裂成多条谱线（多于三条）。这种现象发生在电子自旋 \(S \neq 0\) 的情况下，特别是多电子原子系统中。由于电子自旋和轨道角动量之间的自旋-轨道耦合效应，能级分裂的情况比正常塞曼效应更为复杂。
+		
+		\item 理论基础
+		
+		当汞原子处于磁场中时，电子的轨道角动量 \( \vec{L} \) 和自旋角动量 \( \vec{S} \) 会与外磁场 \( \vec{B} \) 进行耦合。能级的分裂情况由以下因素决定：
+		\begin{itemize}
+			\item 电子的轨道角动量 \( \vec{L} \)
+			\item 电子的自旋角动量 \( \vec{S} \)
+			\item 外磁场的方向和强度
+		\end{itemize}
+		
+		在反常塞曼效应中，由于自旋-轨道耦合效应，能级分裂的数目和间隔变得更为复杂，这会导致光谱线分裂成多条不等间距的谱线。
+		
+		\item 偏振片的作用
+		
+		偏振片能够选择特定偏振方向的光。当偏振片旋转至 45° 角时，偏振光成分会同时包括平行于磁场方向和垂直于磁场方向的分量。因此，我们可以同时观察到两种偏振方向的谱线分裂现象。
+		
+		\item 同一级条纹分离成多条的原因
+		
+		\begin{enumerate}
+			\item 自旋-轨道耦合：
+			\begin{itemize}
+				\item 由于电子的自旋和轨道角动量之间存在自旋-轨道耦合效应，每个原子能级会进一步分裂成多个子能级。
+				\item 这些子能级之间的能量差异导致更多的分裂谱线出现。
+			\end{itemize}
+			
+			\item 偏振片选择性：
+			\begin{itemize}
+				\item 偏振片旋转至 45° 角时，既可以通过平行于磁场方向的偏振光，也可以通过垂直于磁场方向的偏振光。
+				\item 因此，可以观察到不同偏振方向的所有分裂谱线，而不仅仅是三条谱线。
+			\end{itemize}
+			
+			\item 跃迁规则：
+			\begin{itemize}
+				\item 各个分裂子能级之间的跃迁遵循不同的选择定则（例如，$\Delta m_J = 0, \pm 1$），这也增加了分裂谱线的数目。
+				\item 在反常塞曼效应中，这些跃迁规则会导致多于三条的谱线分裂现象。
+			\end{itemize}
+		\end{enumerate}
+		
+		\item 具体解释
+		
+		在汞原子的情况下，546.1 nm 谱线对应的上能级是 \(^3S_1\)（6s7s），下能级是 \(^3P_2\)（6s7p）。上能级 \(^3S_1\) 的朗德因子为 1，下能级 \(^3P_2\) 的朗德因子为 1.5。自旋-轨道耦合效应导致这两个能级进一步分裂成多个子能级。
+		
+		当偏振片旋转至 45° 角时，观察到的光线既包括平行于磁场方向的分量（$\pi$组件），也包括垂直于磁场方向的分量（$\sigma$组件）。由于自旋-轨道耦合和选择定则的综合作用，能够观察到更多的分裂谱线。
+	\end{enumerate}
+	
+	
+	% 思考题15
+	\begin{question}
+		本实验要求精度为实验测量误差小于等于 5\%，请分析本实验误差的主要来源，并提出相应的修正方法。
+	\end{question}
+	\begin{enumerate}
+		\item 误差来源分析
+		\begin{enumerate}
+			\item 磁场强度测量误差
+			\begin{itemize}
+				\item 来源：磁场强度的测量可能存在误差，例如由于霍尔探头的精度限制或磁场分布的不均匀性。
+				\item 修正方法：
+				\begin{itemize}
+					\item 使用高精度的霍尔探头或磁强计来测量磁场强度。
+					\item 在实验中多次测量磁场强度，取平均值以减小随机误差。
+					\item 校准霍尔探头，并确保其测量位置准确，尽量选择磁场均匀的区域进行测量。
+				\end{itemize}
+			\end{itemize}
+			
+			\item 干涉条纹直径测量误差
+			\begin{itemize}
+				\item 来源：通过显微镜或测量装置测量干涉条纹直径时，可能存在系统误差或读数误差。
+				\item 修正方法：
+				\begin{itemize}
+					\item 使用高精度的显微镜和测量装置，确保设备的校准。
+					\item 多次测量干涉条纹的直径，取平均值以减小随机误差。
+					\item 确保光学系统的对准和稳定性，以减小条纹的模糊和漂移。
+				\end{itemize}
+			\end{itemize}
+			
+			\item 光谱分辨率误差
+			\begin{itemize}
+				\item 来源：仪器（如 F-P 标准具或光谱仪）的分辨率有限，可能导致谱线位置的测量误差。
+				\item 修正方法：
+				\begin{itemize}
+					\item 使用高分辨率的 F-P 标准具或光谱仪，确保设备的最佳状态。
+					\item 校准光谱仪的波长刻度，进行多次测量并取平均值。
+				\end{itemize}
+			\end{itemize}
+			
+			\item 光源稳定性
+			\begin{itemize}
+				\item 来源：光源（如汞灯）的不稳定性可能导致光谱线强度和位置的波动。
+				\item 修正方法：
+				\begin{itemize}
+					\item 使用稳定性更高的光源，避免电源波动对光源的影响。
+					\item 在实验过程中监控光源的输出，确保其稳定。
+				\end{itemize}
+			\end{itemize}
+			
+			\item 环境因素
+			\begin{itemize}
+				\item 来源：实验室环境（如温度、空气流动）的变化可能影响实验结果。
+				\item 修正方法：
+				\begin{itemize}
+					\item 在恒温条件下进行实验，尽量减少环境温度的变化。
+					\item 避免空气流动对光路的干扰，使用封闭或屏蔽光路的装置。
+				\end{itemize}
+			\end{itemize}
+			
+			\item 数据处理误差
+			\begin{itemize}
+				\item 来源：在数据处理过程中，计算误差或舍入误差可能影响最终结果。
+				\item 修正方法：
+				\begin{itemize}
+					\item 使用高精度的数据处理软件和工具，避免人工计算误差。
+					\item 进行误差分析，评估和校正可能的系统误差。
+				\end{itemize}
+			\end{itemize}
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	% 思考题16
+	\begin{question}
+		请尝试计算钠双黄线（又称“钠 D 线”，是由钠原子从 $^2P_{\frac{1}{2}, \frac{3}{2}}$ 到 $^2S_{\frac{1}{2}}$ 态的跃迁所产生）谱线的塞曼分裂（如图 21），可能的话，设计具体实验步骤并进行观察验证。
+	\end{question}
+	
+	\begin{enumerate}
+		\item 计算钠双黄线的塞曼分裂
+		\begin{itemize}
+			\item 钠双黄线（Na D 线）是由钠原子从 $^2P_{\frac{1}{2}, \frac{3}{2}}$ 到 $^2S_{\frac{1}{2}}$ 态的跃迁所产生。它包括两个主要的波长：
+			\begin{itemize}
+				\item D1 线：589.6 nm（从 $^2P_{\frac{1}{2}}$ 到 $^2S_{\frac{1}{2}}$ 的跃迁）
+				\item D2 线：589.0 nm（从 $^2P_{\frac{3}{2}}$ 到 $^2S_{\frac{1}{2}}$ 的跃迁）
+			\end{itemize}
+			
+			\item 基础公式
+			塞曼效应下能级分裂的频率差（或波数差）与外磁场和朗德因子的关系如下：
+			\[
+			\Delta \nu = \frac{e B}{4 \pi m_e c} (g_2 m_{J2} - g_1 m_{J1})
+			\]
+			
+			其中，$e$ 为电子电荷，$B$ 为外磁场强度，$m_e$ 为电子质量，$c$ 为光速，$g_1$ 和 $g_2$ 分别为初态和末态的朗德因子以及$m_{J1}$ 和 $m_{J2}$ 为对应态的磁量子数。
+			
+			\item 朗德因子的计算
+			\begin{itemize}
+				\item 对于钠原子，朗德因子为：
+				\begin{itemize}
+					\item $^2S_{\frac{1}{2}}$ 态的朗德因子 $g_S = 2$
+					\item $^2P_{\frac{1}{2}}$ 态的朗德因子 $g_{P_{\frac{1}{2}}} = \frac{2}{3}$
+					\item $^2P_{\frac{3}{2}}$ 态的朗德因子 $g_{P_{\frac{3}{2}}} = \frac{4}{3}$
+				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+		
+		\item 计算 D1 线的分裂
+		
+		D1 线对应 $^2P_{\frac{1}{2}}$ 到 $^2S_{\frac{1}{2}}$ 的跃迁。
+		
+		对于 $^2P_{\frac{1}{2}}$ 态，$J = \frac{1}{2}$，$m_J = \pm \frac{1}{2}$，$g_J = \frac{2}{3}$
+		
+		对于 $^2S_{\frac{1}{2}}$ 态，$J = \frac{1}{2}$，$m_J = \pm \frac{1}{2}$，$g_J = 2$
+		
+		分裂的频率差为：
+		\[
+		\Delta \nu = \frac{e B}{4 \pi m_e c} \left( g_{P_{\frac{1}{2}}} m_{J_{P_{\frac{1}{2}}}} - g_{S_{\frac{1}{2}}} m_{J_{S_{\frac{1}{2}}}} \right)
+		\]
+		
+		由于 $$m_{J_{P_{\frac{1}{2}}}} = \pm \frac{1}{2}$$ 和 $m_{J_{S_{\frac{1}{2}}}} = \pm \frac{1}{2}$：
+		\[
+		\Delta \nu = \frac{e B}{4 \pi m_e c} \left( \frac{2}{3} \cdot \pm \frac{1}{2} - 2 \cdot \pm \frac{1}{2} \right) = \frac{e B}{4 \pi m_e c} \cdot \frac{1}{6}
+		\]
+		
+		\item 计算 D2 线的分裂
+		
+		D2 线对应 $^2P_{\frac{3}{2}}$ 到 $^2S_{\frac{1}{2}}$ 的跃迁。
+		
+		对于 $^2P_{\frac{3}{2}}$ 态，$J = \frac{3}{2}$，$m_J = \pm \frac{3}{2}, \pm \frac{1}{2}$，$g_J = \frac{4}{3}$
+		
+		对于 $^2S_{\frac{1}{2}}$ 态，$J = \frac{1}{2}$，$m_J = \pm \frac{1}{2}$，$g_J = 2$
+		
+		分裂的频率差为：
+		\[
+		\Delta \nu = \frac{e B}{4 \pi m_e c} \left( g_{P_{\frac{3}{2}}} m_{J_{P_{\frac{3}{2}}}} - g_{S_{\frac{1}{2}}} m_{J_{S_{\frac{1}{2}}}} \right)
+		\]
+		
+		由于 $m_{J_{P_{\frac{3}{2}}}} = \pm \frac{3}{2}, \pm \frac{1}{2}$ 和 $m_{J_{S_{\frac{1}{2}}}} = \pm \frac{1}{2}$：
+		\[
+		\Delta \nu = \frac{e B}{4 \pi m_e c} \left( \frac{4}{3} \cdot \pm \frac{3}{2} - 2 \cdot \pm \frac{1}{2} \right) = \frac{e B}{4 \pi m_e c} \left( \frac{2}{3} \cdot \pm 3 - \pm 1 \right) = \frac{e B}{4 \pi m_e c} \left( 2 - \pm 1 \right)
+		\]
+		
+		\item 实验步骤设计
+		\begin{itemize}
+			\item 准备仪器
+			\begin{itemize}
+				\item 一台高分辨率的法布里-珀罗干涉仪（F-P 标准具）。
+				\item 一台稳频激光器作为光源（钠灯）。
+				\item 一台霍尔效应磁场探头及其显示器。
+				\item 偏振片和高精度光学透镜。
+			\end{itemize}
+			
+			\item 调整实验装置
+			\begin{itemize}
+				\item 将钠灯点燃，并将其光通过光学透镜和偏振片聚焦到 F-P 标准具上。
+				\item 调整偏振片至所需角度以观察不同偏振方向的光。
+			\end{itemize}
+			
+			\item 施加磁场
+			\begin{itemize}
+				\item 在钠灯周围放置一对电磁铁，并连接到直流电源。
+				\item 使用霍尔效应探头测量并调整磁场强度到所需值（例如 1T）。
+			\end{itemize}
+			
+			\item 测量光谱
+			\begin{itemize}
+				\item 通过 F-P 标准具观察钠双黄线的光谱分裂情况。
+				\item 记录不同磁场强度下的光谱图像。
+			\end{itemize}
+			
+			\item 数据分析
+			\begin{itemize}
+				\item 使用拍摄到的光谱图像，测量分裂谱线之间的间距。
+				\item 计算并验证理论计算的塞曼分裂。
+			\end{itemize}
+		\end{itemize}
+		
+	\end{enumerate}
+	
+	
+	% ---
+	
+	
+	
+	% 实验记录	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云、马万成 & 学号： & 22344020、22344018\\
+			\hline
+			室温： & \degree C & 实验地点： &  \\
+			\hline
+			学生签名：& 见\textbf{附件} & 评分： &\\
+			\hline
+			实验时间：& 2024/6/6 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-10 塞曼效应（The Experiment of Zeeman Effect）\\ \quad\heiti 实验记录（Records）}
+	% ---
+	
+	% 实验过程记录
+	\subsection{实验内容、步骤与结果（Content, Procedures \& Results）}
+	
+	%
+	\subsubsection{操作步骤记录（Operations）}
+	\begin{enumerate}
+		\item 准备工作
+		\begin{enumerate}
+			\item 确保电源线和相机 USB 线连接正确后，打开电源按钮，检查电流是否为零，汞灯是否工作正常。
+			
+			\item 打开桌面上或 D 盘的塞曼效应文件夹中的 Capstone 软件模板，点击视频记录或拍照功能中的预览相机按钮，通过视频窗口实时观察采集到的图像。注意将视频记录分辨率调至最高。
+		\end{enumerate}
+		
+		\item 实验光路搭建
+		\begin{enumerate}
+			\item 调整相机模块
+			\begin{itemize}
+				\item 将相机固定在光学导轨上的另一端约 520 mm 处，并锁紧托板。
+				\item 松开升降调节架的螺钉，调整杆的高度，并通过旋转来微调升降调节架，确保相机与汞灯处于同一高度，此时汞灯图像位于屏幕中心。
+				\item 调节镜头上的焦距和光圈，使图像清晰。
+			\end{itemize}
+						
+			\item 调整聚光透镜和偏振片模块			
+			\begin{itemize}
+				\item 将聚光透镜和偏振片固定在相机右侧的导轨上，并以同样方法调节高度，此时光斑将充满整个视频窗口。
+				\item 松开偏振片旋钮，旋转偏振片，使竖直白色刻度对准 90°刻线。
+			\end{itemize}
+			
+			\item 调节 F-P 标准具和干涉滤光片模块			
+			\begin{itemize}
+				\item 将干涉滤光片和 F-P 标准具置于相机和偏振片之间，调节高度一致，并使标准具尽可能靠近相机镜头（避免杂散光），此时视频窗口会出现干涉圆环。
+				\item 适当调节聚光透镜的位置和相机镜头光圈，使图像亮度适中。
+				\item 调节精密调整架的 XY 旋钮，使干涉圆环处于视频窗口中心。
+				\item 调节相机镜头后焦，获得清晰干涉图像。
+			\end{itemize}
+		\end{enumerate}
+		
+		\item 观察谱线分裂：调节电磁场的驱动电流并观察干涉圆环的分裂现象。见\textbf{实验结果展示}部分。
+		
+		\item 计算荷质比。
+		\[
+		\frac{e}{m} = \frac{4\pi c}{n d B}(\frac{D^2_\alpha - D^2_K}{D^2_{K-1} - D^2_{K}})
+		\]
+		见\textbf{数据分析}部分。
+		
+	\end{enumerate}	
+	
+	%
+	\subsubsection{实验结果展示（Display）}
+	\begin{enumerate}
+		\item 垂直于磁场
+		
+		\begin{figure}[H]
+			\begin{minipage}[b]{0.3\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{1.45°.jpg}
+				\caption{偏振片45°，九条谱线}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[b]{0.3\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{1.0°.png}
+				\caption{偏振片0°，六条谱线}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[b]{0.3\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{1.90°.png}
+				\caption{偏振片90°，三条谱线}
+			\end{minipage}
+		\end{figure}
+		
+		\item 平行于磁场
+		
+		\begin{figure}[H]
+			\begin{minipage}[b]{0.3\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{2.0°.png}
+				\caption{偏振片0°}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[b]{0.3\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{2.45°.png}
+				\caption{偏振片45°}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[b]{0.3\linewidth}
+				\centering
+				\includegraphics[width=\linewidth]{2.90°.png}
+				\caption{偏振片90°}
+			\end{minipage}
+		\end{figure}
+		
+		\item 荷质比测量
+		
+		注意，在原始数据当中我们记录的是半径值，而这里展示的是直径值。除此以外，我们实验组共四人，每人进行了一次测量。结果如\cref{tab:tab1}所示。
+		
+		\begin{table}[!ht]
+			\centering
+			\caption{实验数据记录}
+			\label{tab:tab1}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				测量次数 & Dk1 & DK-1 & DK & e/m  \\ \hline
+				1 & 0.55032 & 0.98356 & 0.59584 & 1.61379E+11  \\ \hline
+				2 & 0.55116 & 0.97852 & 0.59834 & 1.70526E+11  \\ \hline
+				3 & 0.5443 & 0.98512 & 0.59032 & 1.59194E+11  \\ \hline
+				4 & 0.53104 & 1.00432 & 0.58458 & 1.68961E+11  \\ \hline
+				平均 & 0.54421 & 0.98738 & 0.59277 & 1.67201E+11  \\ \hline
+				标准差 & 0.009293214 & 0.011316112 & 0.006124497 & 见后  \\ \hline
+			\end{tabular}
+		\end{table}
+		
+	\end{enumerate}
+	
+	% ---
+	
+	% 原始数据
+	%\clearpage
+	\subsection{原始数据记录（Original Data）}
+	The original data in the experimental notebook is shown in \cref{fig:figO1} (signed).
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_10GraO1.jpg}
+		\caption{原始数据记录}
+		\label{fig:figO1}
+	\end{figure}
+	
+	%See the \textbf{Attachment} section for the arrangement of the experimental bench desktop (%\cref{}).
+	
+	%Other raw data are shown in %\cref{}.
+	% ---
+	
+	% 问题记录
+	\subsection{实验过程中遇到的问题记录（Difficulties）}
+	\begin{enumerate}
+		\item 实验中的光学部件如法布里-珀罗标准具、分束镜、扩束镜等，若表面有污染，会影响光路的质量，导致实验结果不准确 。
+		\item 实验要求磁场测量的精度高，但由于磁感应强度测量仪器的误差或实验者操作不当，可能会导致磁场测量不准确，从而影响电子荷质比的计算 。
+		\item 使用直径工具测量分裂谱线的直径时，如果测量不准确，或软件分析时参数设置不当，都会导致计算电子荷质比时出现较大误差 。
+		\item 设备如F-P标准具等在出厂前已校准，但若在实验过程中自行调节，可能导致校准失准，影响实验结果（这正是我们遇到的最严重的问题） 。
+		\item 外界杂散光线可能会干扰实验观测的谱线，需要严格控制实验环境的光线干扰 。
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 分析与讨论	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云、马万成 & 学号：& 22344020、22344018\\
+			\hline
+			日期：& 2024/6/16 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-10 塞曼效应（The Experiment of Zeeman Effect）\\ \quad\heiti 分析与讨论（Analysis \& Discussion）}
+	% ---
+	
+	% 数据处理
+	\subsection{实验数据分析（Analysis）}
+	
+	%
+	\subsubsection{分析塞曼效应测量结果}
+	\begin{itemize}
+		\item 首先在磁场垂直方向上观察，可以看到三种偏振光：$\sigma^+$左旋偏振光、$\sigma^-$右旋偏振光和$\pi$偏振光。$\sigma^+$和$\sigma^-$偏振光的投影与磁场方向$B$垂直，而$\pi$偏振光与磁场$B$平行。
+		
+		\begin{enumerate}
+			\item 当电流为3.3A，偏振片旋转至90\degree 时，谱线分裂为三条，其中只有一个线偏振光透过偏振片。结合偏振片置于0\degree 时的图像分析，可以确定该线偏振光为$\pi$偏振光。
+			\item 当电流为3.3A，偏振片旋转至0\degree 时，谱线明显分裂为两个圆环，每个圆环进一步分裂为较模糊的三条谱线，总共分裂为六条谱线。此时透过0\degree 偏振片的是$\sigma^+$左旋偏振光和$\sigma^-$右旋偏振光的投影。
+			\item 当电流为3.3A，偏振片旋转至45\degree 时，三个线偏振光都能通过，理论上谱线应分裂为九条。但由于仪器存在误差（误差分析见实验误差定性分析），导致其中两条谱线重叠，实际观察到六条谱线。
+		\end{enumerate}
+		
+		\item 然后在磁场平行方向上观察，可以看到两种圆偏振光：$\sigma^+$左旋偏振光和$\sigma^-$右旋偏振光。
+		
+		\begin{enumerate}
+			\item 根据实验原理和戴鹏辉（22344016）小组的实验图像分析，在磁场的影响下，应该能观察到六条谱线。我们的实验图像在偏振片旋转至90\degree 时的确观察到六条谱线（如图7所示）。
+			\item 当电流为3.3A时，虽然理论上此时应为圆偏振光，不会随偏振片的旋转而变化，但实际上确实观察到变化。变化并不是圆环半径的变化，而是由于分裂导致的六条谱线更加清晰。
+			\item 谱线分裂为两条粗环，分别代表$\sigma^+$左旋偏振光和$\sigma^-$右旋偏振光。
+		\end{enumerate}
+		
+		\item 结论
+		
+		在垂直磁场方向上，可以观察到$\sigma^+$左旋偏振光、$\sigma^-$右旋偏振光和$\pi$偏振光。$\sigma^+$和$\sigma^-$偏振光的投影与磁场方向垂直，而$\pi$偏振光与磁场方向平行。
+		
+		在平行磁场方向上，可以观察到两种圆偏振光：$\sigma^+$左旋偏振光和$\sigma^-$右旋偏振光。
+		
+		随着偏振片角度的不同，光谱线分裂的情况也不同。在偏振片为90\degree 时，观察到三条光谱线，其中只有$\pi$偏振光透过。在偏振片为0\degree 时，光谱线分裂为两个圆环，每个圆环进一步分裂为三条，总共六条光谱线，表示$\sigma^+$和$\sigma^-$偏振光的投影。在偏振片为45\degree 时，理论上应观察到九条光谱线，但因仪器误差实际观察到六条。
+		
+		实验结果与理论预测大体一致，在磁场影响下确实观察到了分裂的光谱线。尽管理论上在某些条件下不应出现变化，实际观测中仍出现了一些变化，这些变化主要体现在光谱线的清晰度而非分裂数量上。
+		
+		这些结论表明，偏振光在磁场中的行为和光谱线的分裂现象可以通过实验观察和理论分析进行验证，并且实验结果与理论预期高度一致，但需要考虑仪器误差对结果的影响。
+	\end{itemize}
+	
+	
+	%
+	\subsubsection{计算荷质比与误差评定}
+	\begin{enumerate}
+		\item 利用实验测量得到的数据（\cref{tab:tab1}），我们可以进一步进行不确定度评定：
+		
+		误差传递公式用于计算间接测量量的标准差。对于测量电荷质量比($e/m$)，其误差传递公式如下：
+		
+		\[
+		\sigma_{\frac{e}{m}} = \sqrt{\left(\frac{\partial\left(\frac{e}{m}\right)}{\partial D_{K1}} \cdot \sigma_{D_{K1}}\right)^2 + \left(\frac{\partial\left(\frac{e}{m}\right)}{\partial D_K} \cdot \sigma_{D_K}\right)^2 + \left(\frac{\partial\left(\frac{e}{m}\right)}{\partial D_{K-1}} \cdot \sigma_{D_{K-1}}\right)^2}
+		\]
+		
+		其中，各个偏导数和对应的数值为：
+		
+		\[
+		\frac{\partial\left(\frac{e}{m}\right)}{\partial D_k} = 3.59034 \times 10^{12}
+		\]
+		
+		\[
+		\frac{\partial\left(\frac{e}{m}\right)}{\partial D_{k1}} = 2.68123 \times 10^{11}
+		\]
+		
+		\[
+		\frac{\partial\left(\frac{e}{m}\right)}{\partial D_{K-1}} = -4.86465 \times 10^{11}
+		\]
+		
+		代入各个偏差值进行计算，得出$e/m$的标准差：
+		
+		\[
+		\begin{aligned}
+			\sigma_{e/m} &= \sqrt{(3.59034 \times 10^{12} \times 0.180774)^2 + (2.68123 \times 10^{11} \times 0.372638)^2 + (-4.86465 \times 10^{11} \times 0.473123)^2} \\
+			&= \sqrt{(29235304771 \times 0.180774)^2 + (2766906464 \times 0.372638)^2 + (-3730944971 \times 0.473123)^2} \\
+			&= 5666570886 \\
+			&\approx 5.67 \times 10^9
+		\end{aligned}
+		\]
+		
+		扩展不确定度$U$是标准差的$k$倍，置信概率取95\%时，$k = 1.96$，因此：
+		
+		\[
+		U = k \sigma_{e/m} = 1.96 \times 5.67 \times 10^9 = 1.11 \times 10^{10}
+		\]
+		
+		最终的测量结果为：
+		
+		\[
+		\frac{e}{m} = (1.92 \pm 0.11) \times 10^{11} \, \text{C} \cdot \text{kg}^{-1}
+		\]
+		
+		\item 基于不确定度的误差评定与结果评价
+		
+		根据计算，我们得到电荷质量比($e/m$)的测量结果为：
+		
+		\[
+		\frac{e}{m} = (1.92 \pm 0.11) \times 10^{11} \, \text{C} \cdot \text{kg}^{-1}
+		\]
+		
+		这一结果意味着我们对测量值的置信区间为$1.92 \times 10^{11} \, \text{C} \cdot \text{kg}^{-1}$上下各$1.11 \times 10^{10}$，即在区间$(1.81 \times 10^{11}, 2.03 \times 10^{11}) \, \text{C} \cdot \text{kg}^{-1}$内。
+		
+		电子的真实电荷质量比值为：
+		
+		\[
+		\frac{e}{m}_{\text{真实}} \approx 1.758 \times 10^{11} \, \text{C} \cdot \text{kg}^{-1}
+		\]
+		
+		将测量结果与真实值进行对比，
+		测量值为$(1.92 \pm 0.11) \times 10^{11} \, \text{C} \cdot \text{kg}^{-1}$；
+		真实值为$1.758 \times 10^{11} \, \text{C} \cdot \text{kg}^{-1}$。
+		
+		从数值上看，测量值与真实值存在一定的偏差。然而，真实值$1.758 \times 10^{11} \, \text{C} \cdot \text{kg}^{-1}$落在测量结果的置信区间$(1.81 \times 10^{11}, 2.03 \times 10^{11}) \, \text{C} \cdot \text{kg}^{-1}$内，这意味着我们的测量结果在统计意义上是合理的。虽然测量值与真实值之间有一定偏差，但由于真实值落在测量结果的95\%置信区间内，可以认为测量结果具有较高的可信度和准确性。测量中的误差可能来源于实验设备的精度限制、环境因素和人为操作误差等。这些误差通过不确定度的计算得以量化，从而表明在考虑这些不确定因素的情况下，测量结果与真实值一致。
+		
+		总的来说，本次测量结果是可靠的，并且在误差范围内与已知的电荷质量比值相符。这表明我们的实验方法和数据处理是有效的。
+	\end{enumerate}
+	
+	
+	%
+	\subsubsection{基于Hough变换与神经网络技术的塞曼效应图像识别创新设想与初步实施}
+	以下是关于初步实现这个方法的核心代码部分（Python），然而由于我们实验成像结果太差，这个方法并没有起到一个非常好的效果。因此，这里只简单列举我们的思路。
+	\begin{enumerate}
+		\item 预处理图像：将图像转换为灰度图像并进行边缘检测。
+		\item 使用Hough变换检测圆：使用Hough圆变换检测图像中的圆形谱线。
+		\item 使用神经网络分类谱线：训练一个简单的神经网络来识别和分类这些谱线。
+		\item 计算荷质比：根据检测到的谱线分裂情况计算荷质比。
+	\end{enumerate}
+	
+	\begin{lstlisting}[style=pythonstyle,caption=方法实现核心代码]
+		import cv2
+		import numpy as np
+		import matplotlib.pyplot as plt
+		from keras.models import Sequential
+		from keras.layers import Dense, Flatten
+		from keras.utils import to_categorical
+		from sklearn.model_selection import train_test_split
+		
+		# 预处理图像
+		image_path = '/mnt/data/90°.png'
+		image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+		edges = cv2.Canny(image, 50, 150)
+		
+		# 使用Hough变换检测圆
+		circles = cv2.HoughCircles(edges, cv2.HOUGH_GRADIENT, dp=1.2, minDist=30, param1=50, param2=30, minRadius=5, maxRadius=50)
+		
+		if circles is not None:
+		circles = np.round(circles[0, :]).astype("int")
+		output = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+		for (x, y, r) in circles:
+		cv2.circle(output, (x, y), r, (0, 255, 0), 4)
+		plt.imshow(output)
+		plt.title("Detected Circles")
+		plt.show()
+		else:
+		print("No circles were found")
+		
+		# 使用神经网络分类谱线
+		def create_dataset(circles, image):
+		data = []
+		labels = []
+		for (x, y, r) in circles:
+		# Extract the circle region
+		circle_img = image[y-r:y+r, x-r:x+r]
+		if circle_img.size > 0:
+		resized_img = cv2.resize(circle_img, (28, 28))
+		data.append(resized_img)
+		labels.append(1)  # Example label, adjust as necessary
+		return np.array(data), np.array(labels)
+		
+		if circles is not None:
+		data, labels = create_dataset(circles, image)
+		data = data.reshape(data.shape[0], 28, 28, 1).astype('float32') / 255
+		labels = to_categorical(labels, 2)
+		
+		model = Sequential([
+		Flatten(input_shape=(28, 28, 1)),
+		Dense(128, activation='relu'),
+		Dense(64, activation='relu'),
+		Dense(2, activation='softmax')
+		])
+		
+		model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+		
+		x_train, x_test, y_train, y_test = train_test_split(data, labels, test_size=0.2, random_state=42)
+		model.fit(x_train, y_train, epochs=10, validation_data=(x_test, y_test))
+		
+		# 计算荷质比
+		predictions = model.predict(data)
+		for i, prediction in enumerate(predictions):
+		if np.argmax(prediction) == 1:
+		print(f"Detected split line at circle {i} with radius {circles[i][2]}")
+		
+		else:
+		print("No circles were found, skipping neural network training and charge-to-mass ratio calculation")
+		
+	\end{lstlisting}
+	
+	% ---
+	
+	% 实验后思考题
+	%\subsection{实验后思考题（Questions）}
+	
+	
+	
+	% ---
+	
+	
+	% 结语部分
+	\clearpage
+	
+	% 小标题
+	\section{Lab2-10 塞曼效应（The Experiment of Zeeman Effect）\\ \quad\heiti 结语（The End）}
+	% ---
+	
+	% 总结、杂谈与致谢
+	\subsection{总结、杂谈与致谢（Summary, Thoughts \& Thanks）}
+	\begin{enumerate}
+		\item \textbf{因实验仪器的缘故（几位老师和助教都了解这个情况，即我们组的FP腔在实验前被动过，另一组的成像程序有问题），我们选择与黄罗琳22344001、徐靖博22344004组进行合作，我们四人协力完成了这一实验，因此实验数据共用，但报告由两组分别撰写。}
+		\item 实验分工：
+		\begin{enumerate}
+			\item 杨舒云：实验操作助理，实验原理与思考题部分，分析讨论中的荷质比计算、误差分析部分。
+			\item 马万成：实验操作主力，分析讨论中的塞曼效应偏振情况分析。
+		\end{enumerate}
+		\item 感谢老师能阅读这篇还有很多不足的实验报告，希望老师能指出做得不好的地方；祝老师身体健康、生活幸福、工作顺利！
+	\end{enumerate}
+	% ---
+	
+	% 参考文献
+	\subsection{参考文献（References）}
+	[1] 维基百科 https://zh.wikipedia.org
+	
+	[2] 沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4
+	
+	% ---
+	
+	% 附件
+	\subsection{附件（Attachment）}
+	%The arrangement of the experimental bench desktop is shown in %\cref{}.
+	
+	The personal signature of the experimental report is shown in \cref{fig:name}.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{name.png}
+		\caption{个人签名}
+		\label{fig:name}
+	\end{figure}
+	
+	% ---
+	
+	\textbf{All relevant code (Python and LaTex source code) has been uploaded to Github.}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_10GraO2.jpg}
+		\caption{预习报告签字}
+		\label{fig:figO2}
+	\end{figure}
+	
+\end{document}

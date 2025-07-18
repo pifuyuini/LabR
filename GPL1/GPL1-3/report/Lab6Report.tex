@@ -1,0 +1,561 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+
+\begin{document}
+	
+	
+	
+	%实验报告封面	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			& & & & & & & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 &年级： & 2022级\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2023/9/21 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\begin{center}
+		\LARGE Lab6 \quad 单缝衍射的相对光强分布
+	\end{center}
+	
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：（提前一周）认真研读\underline{\textbf{实验讲义}}，弄清实验原理；实验所需的仪器设备、用具及其使用（强烈建议到实验室预习），完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（第一循环实验已由教师提供模板，可以打印）。预习成绩低于10分（共20分）者不能做实验。
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。
+			\item 分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+		\item 除实验记录外，实验报告其他部分建议双面打印。
+	\end{enumerate}
+	
+	\textbf{【实验安全注意事项】}	
+	\begin{enumerate}
+		\item 警告：本实验中光源采用 He-Ne 激光器，实验过程中严禁激光束直射眼睛，有导致失明的可能。
+		\item 实验过程中观察屏始终摆放在光路的末端，将激光束限制在自己的实验桌范围内，以免误伤其他学生的眼睛。
+		\item He-Ne 激光器工作过程中导线之间的电压超过 1000V，通电后严禁接触激光器电源的输出端。
+		\item 可调狭缝极易损坏，必须在观察屏上观察到光斑或者条纹后才能调节狭缝的宽度，否则极易导致狭缝的刀口相碰而损坏。并禁止用手直接接触狭缝的刀口。
+		\item 开，关白光电源之前，先把亮度旋钮调小。
+	\end{enumerate}
+	
+	\textbf{【特别鸣谢】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。
+	
+	
+	
+	\clearpage
+	\tableofcontents
+	\clearpage
+	
+	
+	
+	%预习报告	
+	\setcounter{section}{0}
+	\section{Lab6 单缝衍射的相对光强分布 \quad\heiti 预习报告}
+	
+	\subsection{实验目的}
+	\begin{enumerate}
+		\item 观测单缝的Fraunhofer衍射现象，了解其特点。
+		\item 掌握用光功率计定量测量光强分布的方法。。
+		\item 测量单缝衍射相对光强分布。
+		\item 根据光强分布曲线计算狭缝宽度。
+	\end{enumerate}
+	
+	\subsection{仪器用具}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1& 光源（He-Ne 激光器） &1 & GY-10 \\
+			
+			2& 可调狭缝 &1 & SZ-27 \\
+			
+			3& 光导轨 & 1 & 含GCM-720112M \\
+			
+			4& 白屏 & 1 & SZ-13 \\
+			
+			5& 光功率计及探头 & 3 & SGN-2、SGS-301  \\
+			
+			6& 白光光源 &1 & GY-6 型，亮度可调，即溴钨灯 \\
+			
+			7& 透镜L & 3 & f=150mm,f=190mm,f=300mm  \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=\textwidth]{Lab6Graph1.png}
+		\caption{单缝衍射实验装置示意图}
+	\end{figure}
+	
+	\subsection{原理概述}
+	光在传播过程中遇到尺寸接近于光波长的障碍物时（如狭缝，小孔，细丝等），发生偏离直线路径的现象，称为光的衍射。根据光源及观察衍射图像的屏幕（衍射屏）到产生衍射的障碍物的距离的不同，光的衍射现象通常分为两类，一类是Fresnel衍射，一类是Fraunhofer衍射。Fresnel衍射是光源和衍射屏到衍射物的距离为有限远时的衍射，即所谓近场衍射；Fraunhofer衍射是光源和衍射屏到衍射物的距离为无限远时的衍射，即所谓远场衍射，也即入射光和衍射光都是平行光束，也称为平行光束的衍射。
+	\begin{enumerate}
+		\item Fraunhofer衍射
+		
+		Fraunhofer衍射是一种特定条件下的衍射现象，通常发生在光源、衍射物和观察屏之间的距离足够大的情况下。
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.4\textwidth]{Lab6GraphAD1.png}
+			\caption{Fraunhofer衍射示意图（参考文献[2]）}
+		\end{figure}
+		
+		本实验旨在观察和分析单缝Fraunhofer衍射，其主要原理如下：
+		
+		我们使用一束平行光入射到一个非常窄的单缝上，该缝隙的宽度表示为"a"。
+		
+		根据惠更斯-Fresnel原理，缝隙上的每个点可以视为一个次波源，向各个方向发出球面波，由此导出屏幕上任一点的光强。
+		
+		这些次波将在后方的观察屏上叠加，形成明暗相间的衍射图案。
+		\item 相对光强分布
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.6\textwidth]{Lab6Graph2.png}
+			\caption{相对光强分布计算示意图}
+			\label{fig:cite2}
+		\end{figure}
+		
+		如\cref{fig:cite2}所示，我们可以通过定义衍射角（$\theta$）来描述衍射现象的相对光强分布，它是从缝隙到观察屏上某点的光线与垂直方向的夹角。衍射图案的相对光强分布可以由以下公式描述：
+		\[I(\theta) = I_{0}\frac{\sin^{2}(\frac{\pi a \sin\theta}{\lambda})}{(\frac{\pi a \sin\theta}{\lambda})^{2}}\]
+		
+		其中，$\lambda$代表光波长，$I_{0}$是中心$P_{0}$处光强，a是缝隙的宽度。只考虑一维方向的分布。
+		
+		当$\theta$等于零时，光强取得最大值$I_{0}$，这是与光轴平行的光线会聚的点，称为主极大。
+		
+		当满足$a\sin(\theta)=a \theta = k\lambda$时，光强为零，这对应于暗条纹。暗条纹的位置由整数k决定，通常以$k=\pm1, \pm2, \pm3, \ldots$表示。
+		
+		在主极大的两侧，存在亮条纹，它们对应于光强的局部最大值。这些亮条纹的位置和强度在一定条件下是固定的。相邻亮条纹之间的角距离是$2\lambda/a$，而其他相邻暗条纹之间的角距离是$ \lambda/a $。
+		
+		相对光强曲线如\cref{fig:cite3}所示（参考文献[2]）。
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.75\textwidth]{Lab6Graph3.png}
+			\caption{单缝衍射相对光强分布（参考文献[2]）}
+			\label{fig:cite3}
+		\end{figure}
+		\item 满足Fraunhofer衍射条件
+		
+		在实验中，我们需要确保观察屏幕与窄缝之间的距离足够大，以满足Fraunhofer衍射的条件。这个条件要求从窄缝的不同部位发出的次波到达观察点时，光程差要小于光波长的一部分。这通常可以通过将观察屏幕放置足够远来实现，以便近似满足这一条件。
+		
+		具体操作时，我们以He-Ne激光作为光源，可在不采用透镜的情况下仍满足条件：激光束的发射角很小（$10^{-3} rad$），单缝的宽度也很小，所以用激光束直接照射狭缝，可以认为是平行光入射。只要接收白屏与狭缝的距离满足$a^{2}/8Z\lambda<<1$，即直接在屏上观察到Fraunhofer衍射条纹。本实验中$\lambda$=632.8nm 或 635nm，缝宽a约0.05mm，Z约1m正符合这一条件。
+	\end{enumerate}
+	
+	\subsection{实验前思考题}
+	\begin{question}
+		什么是衍射现象，日常中是否留意过光或者其它物质波的衍射现象？
+	\end{question}
+	光在传播过程中遇到尺寸接近于光波长的障碍物时（如狭缝、小孔、细丝等），会发生偏离直线传播的现象而进人按直线传播划定的阴影区内，这种现象称为光的衍射。
+	
+	常见的衍射现象：	
+	\begin{enumerate}
+		\item 电视或计算机屏幕上的图像出现彩虹色边缘：
+		这是由于光通过屏幕上的微小缝隙或像素时发生衍射，导致不同颜色的光波以不同的方式弯曲。		
+		\item 当一束光经过很小的孔、很窄的缝或细线时就会显现出光的衍射现象。拿一刀片，离开眼睛约半米距离，经过刀口对着日光灯看去，可以在刀口旁看到与边缘平行的条纹，这就是光的衍射现象。隔着纱、布、鸟的羽毛或把眼睛眯成一条缝看灯泡，都可看到光源向四面八方射出的彩色条纹。这是光的衍射现象。		
+		\item CD或DVD的表面，当受到光源照射时，可能会出现彩虹色的衍射斑点。这是由于光通过光碟表面微小的凹槽时发生衍射。		
+		\item 显微镜下观察细胞或纱窗时，可能会看到明暗相间的条纹，这是由于光在样本的边缘或细小结构上发生衍射。通常使用显微镜是在可见光照射下进行观察的，而可见光的波长范围是400～770nm，若物体的尺寸在400nm以下，光可以绕过它产生衍射现象，使物体的像变得模糊，所以能看清的物体不能小于400nm，也就是光学显微镜放大倍数的极限是两三千倍。如果改用紫外线作为显微镜的照明光源，由于紫外线的波长比可见光的波长短，就可使显微镜的分辨本领提高一倍以上。电子显微镜是利用波长只有几十埃或几个埃的“电子波”，分辨本领比光学显微镜提高上千倍。不过电子显微镜的电子波要在真空中进行，不适宜观察有生命的微小物体。
+		\item 在大气中传播的日光或月光遇到小云滴(小雨滴或小冰晶)等障碍物时，会绕过这些障碍物而产生衍射。当天空中存在由均匀小云滴组成的透光高层云或透光高积云时，月光在透过云层时遇云滴而产生衍射，由于云滴大小均匀，形成的衍射环能叠加，从而出现以月亮为中心的一圈圈明暗相间的彩色光环，这就是华。雾天看远处的灯也会出现这种现象。
+		\item 佛光是一种衍射现象。在泰山、峨眉山等处均可看到这种现象。人若站在云雾萦绕的高山之巅，恰值山巅之上是晴空，山巅之下是云雾，背对晴天的太阳，向下看弥漫的云海迷雾，便可能看到云雾幕上出现人影，围绕在人影的四周是一圈圈彩色光环，有红色的也可有蓝色或别的颜色的光环。这是由于阳光照射观测者所形成的人影一直投射到云雾上，观测者便可看到自己的影子。阳光又照射到影子附近的云雾滴上，云雾滴对阳光进行散射，被散射射向人眼的光经过云雾滴时发生衍射现象，便形成以太阳与观测者的连线的延长线为中心的一圈圈彩色光环。游人站在较高的山头上顺光而视，就可能看到缥缈的雾幕上，呈现出一个内蓝外红的彩色光环，将整个人影或头影映在里面，恰似佛像头上方五彩斑斓的光环，故得名“佛光”或“宝光”。据记载，泰山佛光大多出现在6～8月中半晴半雾的天气，而且是太阳斜照之时。在峨眉山上看到这种现象的机会甚多，每年有七八十次。
+	\end{enumerate}
+	
+	\begin{question}
+		什么是单缝Fraunhofer衍射？做出简单的光路图。
+	\end{question}
+	光的衍射现象通常分为两类，一类是Fresnel衍射，一类是Fraunhofer衍射。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab6GraphAD2.png}
+		\caption{Fraunhofer衍射原理示意图（参考文献[2]）}
+		\label{fig:citeAD2}
+	\end{figure}
+	
+	Fraunhofer衍射的原理如\cref{fig:citeAD2}所示，指光源和观察屏两者与障碍物的距离均为无限远的情况，即入射光和衍射光都是平行光束，也称为平行光束的衍
+	射。由于衍射后的平行光难以直接观测，可以近似地或利用光学成像系统(透镜)将平行光聚焦后进行观测，
+	所以Fraunhofer衍射的实际光路可以有多种变形。
+	
+	本实验中采用的是（激光）单缝Fraunhofer衍射，具体原理见\textbf{原理概述}部分，光路图如\cref{fig:cite4}、 \cref{fig:cite5}所示。
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab6Graph4.png}
+		\caption{单缝（激光）Fraunhofer衍射光路图}
+		\label{fig:cite4}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab6Graph5.png}
+		\caption{单缝（激光）Fraunhofer衍射示意图}
+		\label{fig:cite5}
+	\end{figure}
+	
+	\begin{question}
+		Fraunhofer衍射条纹的特点？暗条纹的衍射角与缝宽有什么关系？当缝宽增加一倍或减半，衍射光强和条纹宽度将如何变化？
+	\end{question}	
+	在单缝Fraunhofer衍射中，具有以下特点：
+	\begin{enumerate}
+		\item 在单缝Fraunhofer衍射中，具有以下特点：
+		
+		主极大 (Central Maximum)：当光线垂直照射到单缝时，形成中央亮条纹，被称为主极大。
+		主极大是衍射图案中的最亮部分，其光强最大。
+		
+		暗条纹 (Dark Fringes)：当满足特定条件时，Fraunhofer衍射会产生一系列暗条纹，其光强为零。这些暗条纹通常位于主极大两侧，其位置由干涉条件决定。
+		
+		亮条纹 (Bright Fringes)：在主极大的两侧，存在一系列亮条纹，其光强较主极大稍弱。
+		这些亮条纹的位置和强度也由干涉条件决定。
+		
+		次极大 (Secondary Maxima)：在亮条纹之间，还存在一些次极大，其位置和相对强度取决于干涉条件。
+		次极大通常是亮条纹之间的局部最大值。		
+		\item 暗条纹的衍射角与缝宽的关系：
+		
+		暗条纹的位置可以由下面的条件决定：
+		
+		\[a\sin(\theta) = k\lambda\]
+		
+		其中，a是单缝的宽度，$\theta$是衍射角，k是整数，$\lambda$是光波的波长。
+		
+		从这个公式可以看出，暗条纹的衍射角与单缝的宽度a和光波的波长$\lambda$有关。当a增加时，暗条纹的角度将减小，而当$\lambda$减小时，暗条纹的角度也会减小。		
+		\item 当缝宽增加一倍或减半，衍射光强和条纹宽度将如何变化？
+		
+		缝宽增加一倍：如果单缝的宽度a增加一倍，那么根据上述公式，暗条纹的衍射角将减小。这意味着衍射角较小的暗条纹将更加集中，而衍射角较大的暗条纹之间的距离将增加。这将导致衍射图案中的亮条纹和次极大变得更加集中，光强分布将更加集中在中央区域。因此，光强会增加，而条纹宽度会变窄。
+		
+		缝宽减半：如果单缝的宽度a减半，那么根据公式，暗条纹的衍射角将增大。这将导致衍射图案中的亮条纹和次极大分散开来，光强分布会更广泛地分布在观察屏幕上。因此，光强会减小，而条纹宽度会变宽。		 
+	\end{enumerate}
+	
+	
+		
+	%实验记录	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 28摄氏度 & 实验地点： & 实验室506 \\
+			\hline
+			学生签名：& 杨舒云 & 评分： &\\
+			\hline
+			实验时间：& 2023/9/21 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{Lab6 单缝衍射的相对光强分布 \quad\heiti 实验记录}
+	\subsection{实验内容、步骤与结果}
+	\subsubsection{测量单缝衍射的相对光强分布}
+	\begin{enumerate}
+		\item 观测单缝衍射条纹分布与狭缝宽度的关系，简单描述当狭缝改变宽度时，观测到的衍射条纹有什么变化 ？简单描述如何判断衍射条纹的主极大。
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab6GraphAD3.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.3\textwidth]{Lab6GraphAD4.jpg}
+			}
+			\caption{实验中的衍射图像}
+			\label{fig:citeAD3}			
+		\end{figure}
+		
+		实验所得到的衍射图像如\cref{fig:citeAD3}所示，可以观察到，随着缝宽的变大，衍射图象逐渐向中间靠拢，衍射现象越来越不明显，最后当缝宽与波长相比很大时，看到的是一条很明亮的细线，衍射现象消失。缝宽越小，衍射现象越显著。
+		
+		\clearpage
+		\item 在X的一个方向每隔（0.1-0.3 mm）上测光强，从主极大一直测到第三条暗纹，记录衍射条纹的光强。当 出光口位置/cm：17；狭缝位置/cm：19；光探头位置/cm：117；缝宽/mm：0.15；光探头缝宽/mm：8.3 实验数据如\cref{fig:cite6}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab6Graph6.png}
+			\caption{0.15mm相对光强分布数据表}
+			\label{fig:cite6}
+		\end{figure}
+		
+		\clearpage
+		\item 改变狭缝宽度，按照上述步骤，再测一组数据。当 出光口位置/cm：17；狭缝位置/cm：19；光探头位置/cm：117；缝宽/mm：0.28；光探头缝宽/mm：8.3 实验数据如\cref{fig:cite7}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab6Graph7.png}
+			\caption{0.28mm、8.3mm相对光强分布数据表}
+			\label{fig:cite7}
+		\end{figure}
+		
+		\clearpage
+		\item 事实上，为了观察光探头缝隙的影响，我还测了一组数据。当 出光口位置/cm：17；狭缝位置/cm：19；光探头位置/cm：117；缝宽/mm：0.28；光探头缝宽/mm：6.0 实验数据如\cref{fig:cite8}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab6Graph8.png}
+			\caption{0.28mm、6.0mm相对光强分布数据表}
+			\label{fig:cite8}
+		\end{figure}
+		
+	\end{enumerate}
+	
+	\clearpage
+	\subsubsection{测量点光源光功率与距离的关系}
+	实验数据如\cref{fig:cite9}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab6Graph9.png}
+		\caption{测量点光源光功率与距离的关系数据表}
+		\label{fig:cite9}
+	\end{figure}
+	
+	\clearpage
+	\subsection{原始数据记录}
+	实验记录本上的原始数据、预习报告签字、实验台桌面整理详见\textbf{附件}部分(\cref{fig:citeA1}、 \cref{fig:citeA2}、 \cref{fig:citeA3}、 \cref{fig:citeA4}、 \cref{fig:citeA5})。
+	
+	\subsection{实验过程中遇到的问题记录}
+	\begin{enumerate}
+		\item 由于操作上出现了失误，实验数据上出现了极大的误差，这种误差的主要来源为我在做实验时将光探头狭缝宽度调得过大，这给了我极为深刻的教训。在此错误的基础上，我努力做了相应的修正，并尝试分析出一些有效的信息，详见\textbf{数据分析部分}。
+		\item 事实上，上述异常实验结果在我测第一组数据时就已经意识到了，当时与助教老师进行过讨论，但认为是仪器固有的误差，便没有细究。其次，由于第一组数据测量时步长选择太小，导致数据量巨大且耗时长，这使得我必须快马加鞭测量后续实验数据才能保证吃得上午饭睡得成午觉从而能在下午的数学物理方法课上精神状态正常。此次失败告诉我了做实验不能心急，得有一个清醒的头脑、冷静的心情，遇见问题要多思考，否则会犯更大的错误。
+	\end{enumerate}
+	
+	
+	
+	%分析与讨论	
+	\clearpage
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2023/9/21 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\section{Lab6 单缝衍射的相对光强分布 \quad\heiti 分析与讨论}
+	\subsection{实验数据分析}
+	\begin{enumerate}
+		\item 对实验结果作修正：这里以第二组实验数据为例进行分析，实验数据作图如\cref{fig:cite10}所示。可以观察到，主极大过宽、观察不到暗条纹以及次极大极不明显。再通过局部图（\cref{fig:cite11}）可以看出，它与正常的图极不相符，同时当我尝试用Origin软件进行拟合时，它直接报错了，这让我意识到，光探头缝宽过大导致曲线整体形状发生了变化。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.4\textwidth]{Lab6Graph10.png}
+			\caption{第二组实验数据分布图}
+			\label{fig:cite10}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.4\textwidth]{Lab6Graph11.png}
+			\caption{第二组实验数据局部图}
+			\label{fig:cite11}
+		\end{figure}
+		
+		因此我考虑实际上光探头应该时收集的缝隙范围内全部的光强的均值，而由于缝隙过宽，因此不能视为常数，故考虑积分，由此得到管探头所测得的实际示数分布为：
+		\[P(X)=\int_{X-d/2}^{X+d/2}I(t)Hdt\]
+		其中，$I(t)$满足光强分布公式，d为缝宽的一半。
+		
+		考虑实际参数后，采用Mathematica软件进行了拟合。
+%			data = {{54.1, 125.1}, {54.3, 74.93}, {54.5, 53.22}, {54.7, 39.25}, {54.9, 30.44}, {55.1, 25.97}, {55.3, 24.5}, {55.5, 24.86}, {55.7, 25.81}, {55.9, 26.25}, {56.1, 25.89}, {56.3, 24.29}, {56.5, 21.52}, {56.7, 18.85}, {56.9, 15.86}, {57.1, 13.25}, {57.3, 11.3}, {57.5, 9.701}, {57.7, 9.081}, {57.9, 9.023}, {58.1, 9.337}, {58.3, 9.872}, {58.5, 10.33}, {58.7, 10.48}, {58.9, 10.28}, {59.1, 9.769}, {59.3, 8.905}, {59.5, 7.81}, {59.7, 6.883}, {59.9, 6.104}, {60.1, 5.497}, {60.3, 5.23}, {60.5, 5.246}, {60.7, 5.451}, {60.9, 5.73}, {61.1, 5.965}, {61.3, 6.1}, {61.5, 6.042}, {61.7, 5.808}, {61.9, 5.407}, {62.1, 4.918}, {62.3, 4.406}, {62.5, 3.925}, {62.7, 3.6}, {62.9, 3.473}, {63.1, 3.47}, {63.3, 3.57}, {63.5, 3.966}, {63.7, 4.092}, {63.9, 3.887}, {64.1, 3.776}, {64.3, 3.499}, {64.5, 3.237}};
+%			nlm = NonlinearModelFit[data, Integrate[(P0*Sin[(Pi*0.28*(x - 49.3))/(0.6328)]^2)/(((Pi*0.28*(x - 49.3))/(0.6328))^2), {x, t - 4, t + 4}], P0, t]
+		拟合结果如\cref{fig:cite12}所示。可认为大体上是符合的。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.7\textwidth]{Lab6Graph12.png}
+			\caption{局部拟合结果图}
+			\label{fig:cite12}
+		\end{figure}
+		
+		而拟合参数$P0=293.374\mu W/mm$实际上为$I_{0}H$。
+		注意到这里主极大位置取的是$x0=49.3mm$是有一定的误差的，主要是防止积分发散，实际上$x0=50.5\pm0.5mm$。
+		
+		接下来，我将在上述拟合结果的修正下进行接下来的分析与讨论。
+		\item 讨论实验是否满足Fraunhofer衍射条件。
+		
+		\textbf{原理概述}部分给出了Fraunhofer衍射条件，代入本次实验相关参数计算：
+		\[a^{2}/\lambda =0.124m<<8m=8Z\]
+		因此认为是符合条件的，正如前文所述，本实验的数据异常的主要原因是光探头缝隙过宽。
+		\clearpage
+		\item 根据测得的数据，利用计算机软件做出激光单缝衍射相对光强分布曲线。
+		
+		实验数据作图如\cref{fig:cite13}所示，理想曲线如\cref{fig:cite14}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.64\textwidth]{Lab6Graph13.png}
+			\caption{实测相对光强分布曲线}
+			\label{fig:cite13}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.64\textwidth]{Lab6Graph14.png}
+			\caption{理想相对光强分布曲线}
+			\label{fig:cite14}
+		\end{figure}
+		
+		\clearpage
+		\item 计算实测得到的光强分布曲线中各次极大光强与主极大光强的比值，与理论值比较。讨论有差异的原因。
+		
+		由于前述原因，我们采取如下方式比较次极大位置：按理论值计算出次极大位置，代入上述积分公式中得到积分结果，与原数据比对（对应位置的对应值的相对误差为多少）。
+		
+		一级次极大：理论计算位置为54.41mm处，积分得到光强69.07$\mu W$，对比原数据处(54.3, 74.93)，(54.5, 53.22)，取其均值64.08，相对误差为$-7.22\%$，符合程度较好。
+		
+		同理得到：二级次极大(58.08, 10.71; 58.3, 9.87; $-7.82\%$)、三级次极大(61.69, 3.949; 61.70, 4.092; $-3.62\%$)。
+		
+		差异主要来源得到积分公式和比对数据这一方法的极为不准，而这是由光探头缝隙过宽造成；综合来看，狭缝宽度的实际值也可能不是0.28mm，详见下列计算。
+		
+		\item 根据得到的光强分布曲线，计算各衍射暗条纹对应的衍射角，计算出狭缝宽度。
+		
+		类比上述方法，先用理论值得到积分光强再与实际值比对，用对应位置再计算狭缝宽度。计算结果如下：
+		
+		一级暗条纹：理论位置在52.87mm处，积分得到光强442.4$\mu W$，对比原数据处(53.1,454.0)，计算得到缝宽为$a=0.263mm$。
+		
+		二级暗条纹：理论位置在56.44mm处，积分得到光强19.56$\mu W$，
+		对比原数据处(56.5, 21.52),(56.7, 18.85)，计算得到缝宽为$a=0.274mm$。
+		
+		三级暗条纹：由于数据重复，无法确定暗条纹位置。
+		
+		综合来看，狭缝宽度确实比实验时测得得读数0.28mm更小一些。
+		
+		\clearpage
+		\item 利用计算机软件作光功率与距离平方倒数的关系曲线，验证点光源是否满足光功率与距离平方的反比关系。
+		
+		光功率与距离平方倒数的关系曲线如\cref{fig:cite15}所示，可以看到线性拟合的相关系数为0.99985，这说明线性程度很好，即光源满足光功率与距离平方的反比关系。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.75\textwidth]{Lab6Graph15.png}
+			\caption{光功率与距离平方倒数的关系曲线}
+			\label{fig:cite15}
+		\end{figure}
+		
+		事实上，通过直接对距离和光功率数据点进行拟合得到如\cref{fig:cite16}所示，其中指数为-1.97972，离平方反比的偏差非常小。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.75\textwidth]{Lab6Graph16.png}
+			\caption{光功率与距离的关系曲线}
+			\label{fig:cite16}
+		\end{figure}
+		
+		通过对数线性拟合图（\cref{fig:cite17}）斜率为-2.00588也进一步说明了平方反比的关系吻合得较好。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.75\textwidth]{Lab6Graph17.png}
+			\caption{光功率与距离的对数关系曲线}
+			\label{fig:cite17}
+		\end{figure}
+		
+		理论上，由Gauss定理（球面通量恒定）可以确定平方反比关系。
+	\end{enumerate}
+	
+	\clearpage
+	\subsection{实验后思考题}
+	\begin{question}
+		使用光功率计应注意哪些问题？光功率计进光狭缝的宽度对实验结果有何影响？
+	\end{question}
+	本次实验结果异常这一惨痛得教训已经很好地说明了这个问题：使用光功率计最重要的就是要保证光探头狭缝的宽度不太过大，
+	最好能控制在0.5mm左右；当然这个缝隙也不应太小，太小会造成二次衍射现象。除此之外，使用时还需要注意以下几点：
+	
+	安全操作：当测量高功率光源时，确保遵循相关的安全操作规程。强光可以对眼睛造成伤害，因此必须佩戴适当的个人防护设备，如激光安全眼镜。
+	
+	范围选择：根据被测光源的功率范围选择合适的测量范围。如果测量超出光功率计的测量范围，可能会导致测量结果不准确甚至损坏仪器。
+	
+	校准和周期检查：定期进行光功率计的校准和检查，以确保其准确性和可靠性。如果发现不正常的测量结果或仪器故障，应及时联系供应商进行维修。
+	
+	清洁和保养：保持光功率计和连接接口的清洁，以避免灰尘、污垢或油脂对测量的影响。定期检查和更换附件，如探头和光纤，确保其完好无损。
+	
+	环境条件：在使用光功率计时，要注意环境条件对测量结果的影响。避免强烈的振动、温度和湿度变化等因素，以确保测量的准确性。
+	
+	关于光功率计进光狭缝的宽度对实验结果的影响，狭缝越宽进入的能量越大，狭缝宽度也影响分光光度计的分辨率，狭缝越宽，其分辨率越低。狭缝宽度也不能太小，因为探测器灵敏度有下限，进入能量太低，探测器没有相应，同时由于噪声的影响，能量太低，信噪比会很差。本人的实验的结果很好地说明了这一点，当光探头缝隙过大时，应当考虑积分光功率公式，详见\textbf{数据分析}部分。
+	
+	\begin{question}
+		测量点光源光功率与距离的关系，能否用激光光源？
+	\end{question}
+	激光的定向性和光强分布会导致它在距离变化时不满足光强与距离平方反比的关系。激光光源通常产生高度定向的光束，其光强主要集中在一个狭窄的方向上，而不会像点光源一样均匀辐射到所有方向。
+	因此，对于距离变化的实验，激光光源可能不是理想的选择，因为光强不会按照平方反比关系衰减。具体来看，短距离下激光发散较小，所测得的光强几乎不变。
+	
+		
+	\clearpage
+	\section{Lab6 单缝衍射的相对光强分布 \quad\heiti 参考文献与附件}
+	\subsection{参考文献}
+	[1]沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4 P292~296
+	
+	[2]Eugene Hecht - Optics, Global Edition-Pearson Higher Education (2017) 5th Chapter 10 P457
+	
+	\clearpage
+	\subsection{附件}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Lab6GraphA1.jpg}
+		\caption{实验台桌面整理}
+		\label{fig:citeA1}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Lab6GraphA2.jpg}
+		\caption{原始数据1}
+		\label{fig:citeA2}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Lab6GraphA3.jpg}
+		\caption{原始数据2}
+		\label{fig:citeA3}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Lab6GraphA4.jpg}
+		\caption{原始数据3}
+		\label{fig:citeA4}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Lab6GraphA5.jpg}
+		\caption{预习报告签字}
+		\label{fig:citeA5}
+	\end{figure}
+	
+	
+
+\end{document}

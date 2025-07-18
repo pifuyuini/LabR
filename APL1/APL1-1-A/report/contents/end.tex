@@ -1,0 +1,98 @@
+% !TEX root = ../main.tex
+
+% 结语部分
+\section{APL1-1-A 电阻热噪声及玻尔兹曼常量测量 \\ The End}
+
+
+%---------------------------------------------------------------------
+% 总结、杂谈与致谢
+\subsection{Summary, Thoughts \& Acknowledgments}
+\begin{enumerate}
+	\item \textbf{Acknowledgments}
+	
+	Thank you, teacher, for taking the time to read this experimental report, which still has many shortcomings. I hope you can point out the areas that need improvement. I wish you good health, happiness in life, and success in your work!
+	
+	\item \textbf{Statement}
+	\begin{itemize}
+		\item 尽管前面提到这篇实验方案中不考虑远程测量（所谓“遥测”），但是再进一步的资料查找阅读中，从\cite{c}和\cite{g}中了解到环境噪声的影响是比较大的：
+		
+		“近代物理教学实验室的空调和风机每天24小时不间断运行，但学生没有测量环境噪声频谱，因而尚不能排除实验时他们取选的参考频率与环境噪声频率相近的可能性”；
+		
+		“在教学实验对电磁干扰屏蔽能力有限的条件下，为减少环境噪声的影响，可将实验安排在下班后，采取远程测量方式进行，要求实验现场无人，且除电脑和锁相放大器外的其他电器设备关闭.在本教学实验室的实验表明，环境噪声的影响能下降到热噪声或更低的水平”。
+		
+		因此，我们的计划是这样的：先按实验方案完成现场的测量，在此基础上我们在现场进一步考虑遥测的方案，并考虑与当天晚上进行测量（但是我们对实验进度的推荐持悲观的态度，很担心我们或者其它同学晚上仍在进行实验，这样是不会减少环境噪声的），预计第二天早上对数据进行验收。
+		
+		\item \textbf{\textcolor{fred}{对老师已经提出的提出的修改意见做回应：}}
+		\begin{enumerate}
+			\item 用$\Delta\nu$标记频率的记法是按\cite{a}给出的，本实验方案中已修改。
+			
+			\item 关于电阻随温度会变化的问题，目前已将方案改为：
+			
+			基于$k_B = \dfrac{v_{Nx}^2}{4\times\text{ENBW}\times TR}$，我们可以考虑一种变温测量下的\textbf{线性拟合方案}，即用变化的温度与阻值（阻值也会随温度变化）乘积作为梯度测量下的功率谱变化的斜率以表征玻尔兹曼常数：
+			$$
+			\dfrac{v_{Nx}^2}{\text{ENBW}}=4k_B\times TR
+			$$
+			
+			\item 关于频率点的分配，实际上我们对此没有什么头绪。我们的想法是：按\cref{fig:effect-of-bandwidth-on-selecting-noise}，噪声在频域上是均匀分布的，因此每组同学只要多选几个频率点进行测量，也许不太需要考虑频率覆盖的问题（真不太确定）？
+			
+			\item 关于使用AI工具的问题：在我们看来，\textbf{AI工具和搜索引擎差不多}，或者说它就是一种用于更迅速的查找资料的搜索引擎。如果老师用AI工具较多的话，应该会注意到AI的回答有着如图所示明显的“分点作答”的风格（如\cref{fig:apl11aai}所示）。
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.5\linewidth]{images/APL1_1_A_AI}
+				\caption{AI回答与个人回答是不同的}
+				\label{fig:apl11aai}
+			\end{figure}
+			
+			而我们的回答正是相当于“利用搜索引擎查找资料后整理得到的”（这一点从这篇方案中涉及到的参考文献的数目也可以看出，我们的确是去查找了不少资料的）。
+			
+			其中，关于频率分配的问题的回答我们最根本的想法如上所示，关于这一点我们讨论后决定在现场听老师是否有更完善更合理的解释和安排，因此回答内容主要是由AI给出的一个“也许会有启发性的方案”。
+			
+			关于校正的问题，首先老师应当注意到了我们基于这个回答在步骤中考虑并引入了校正的过程（主要是零点校正和本底输入带宽校正），其中由于本底输入带宽校正在原理概述中详细讨论了，所以回答中比较简略。
+			
+			关于环境噪声的问题，最初在完成这个问题时，我们确实对此没什么概念，对环境噪声的较深刻的印象来自于我们阅读\cite{c}和\cite{g}后。我们的基本的考虑是环境噪声会明显导致噪声的频域分布不再均匀（如1/f噪声、市电50Hz），正如我们在回答中所写。此外，正如我们在上面谈到的那样，减小环境噪声较为有效的方案还是遥测。
+			
+			\item “10ms行不行？”关于这个问题，我们在写这篇方案的时候实际上有简单的思考：首先时间常数决定了滤波器的带宽，时间常数太小时（如10ms时），带宽太大，可能会引入1/f这样的环境噪声，这在实验步骤的描述中提到了：“由于测量装置不可能完全屏蔽环境干扰，选择太大的带宽容易引入近频的环境噪声”。此外，参考\cite{c}和\cite{g}，它们举例时考虑的时间常数都比较大。而我们在前一次实验中也有经验，时间常数大一些时信号会更稳定。因此，我们保守的认为10ms不太行，要选大一点的时间常数。
+		\end{enumerate}
+	\end{itemize}
+	
+	\item \textbf{Summary}
+	
+	实验“电阻热噪声及玻尔兹曼常量测量”旨在通过测量电阻在不同温度下的热噪声来计算玻尔兹曼常量 \( k_B \)。本实验首先通过锁相放大器精确测量电阻的噪声电压信号，并利用 Johnson-Nyquist 公式将噪声与温度、阻值和带宽联系起来，以便从中提取出 \( k_B \) 的值。
+	
+	实验中对不同参数（如带宽、频率、时间常数等）进行了优化和修正，力求排除环境噪声及设备本底噪声的影响。例如，采用低温测量方式以抑制环境噪声和非期望的热效应干扰。通过在不同环境下（如液氮冷却或室温）进行测量，验证了噪声电平随温度变化的规律，说明了热噪声与温度呈正相关。
+	
+	数据处理阶段，采用对比本底噪声和热噪声的差异，计算出最终的噪声强度。此外，实验对多个测量数据进行了平均，减小了统计误差，并通过误差传播公式计算了 \( k_B \) 的不确定度。结果表明，实验误差的主要来源是本底噪声的系统误差和设备带宽的限制。最终，通过对测得数据的分析和修正，实验得到了接近理论值的玻尔兹曼常量，并验证了 Johnson-Nyquist 热噪声模型的准确性。
+\end{enumerate}
+
+
+%---------------------------------------------------------------------
+% 附件
+\subsection{Attachment}
+%The arrangement of the experimental bench desktop is shown in %\cref{}.
+
+The personal signature of the experimental report is shown in \cref{fig:name}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{name.png}
+	\caption{signature}
+	\label{fig:name}
+\end{figure}
+
+\textbf{All relevant code (Python and LaTex source code) has been uploaded to Github.}
+
+
+%---------------------------------------------------------------------
+% 参考文献
+\renewcommand{\refname}{Reference}
+\begin{thebibliography}{99}	
+	\bibitem{a} 维基百科. \emph{维基百科}[M]. https://zh.wikipedia.org
+	\bibitem{b} 沈韩. \emph{基础物理实验}[M]. 北京: 科学出版社, 2015.	
+	\bibitem{c} 李佳明, 申玉宽, 张浩毅, 王媛, 何振辉. 电阻热噪声测量玻尔兹曼常量的教学探索. \emph{物理实验}, 2023, 43(8): 29-36.
+	\bibitem{d}《近代物理实验——D1 锁相放大器与弱信号测量》, 科学出版社项目, 1018版.
+	\bibitem{e} \emph{https://www.ssi-instrument.com/OE1022D.html}.
+	\bibitem{f} Zhou Z, Hu P, Zhou X, et al. Electromagnetic Shielding Performance Measurement for Braided-Shield Power Cables at Low Frequency Regimes[J]. \emph{Measurement Science Review}, 2020, 20(5): 224-229.
+	\bibitem{g} 何振辉. 锁相放大器噪声测量原理与教学实验设计[J]. \emph{大学物理}, 2022, 41(11): 22-27.
+	
+\end{thebibliography}

@@ -1,0 +1,1261 @@
+%杨舒云的实验报告编辑界面，使用了Huanyu Shi，2019级的模板，杨舒云在此拜谢ORZ!
+
+%!TEX program = xelatex
+\documentclass[dvipsnames, svgnames,a4paper,11pt]{article}
+\input{YsySettings} 
+\usepackage{lipsum}
+\usepackage{adjustbox}
+%\usepackage{mathrsfs} % 字体
+\captionsetup[figure]{name=Figure} % 图片形式
+\captionsetup[table]{name=Table} % 表格形式
+
+\usepackage{enumitem}
+\usepackage{tabularray}  %绘制表格时可以更加方便添加框线
+\usepackage{xcolor} %添加更多文本颜色
+
+
+%---------------------------------------------------------------------
+%	正文
+%---------------------------------------------------------------------
+
+
+
+\begin{document}
+	
+	
+	
+	% 实验报告封面	
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{
+				|X|X|X|X
+				|X|X|X|X|}
+			\hline
+			\multicolumn{2}{|c|}{预习报告}&\multicolumn{2}{|c|}{实验记录}&\multicolumn{2}{|c|}{分析讨论}&\multicolumn{2}{|c|}{总成绩}\\
+			\hline
+			\LARGE25 & & \LARGE30 & & \LARGE25 & & \LARGE80 & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 信息栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			年级、专业： & 2022级 物理学 &组号： & 实验班2\\
+			\hline
+			姓名： & 杨舒云  & 学号： & 22344020\\
+			\hline
+			实验时间： & 2024/4/16 & 教师签名： & \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 大标题
+	\begin{center}
+		\LARGE Lab2-6 \quad 偏振光实验（The Experiment of Polarized Light）
+	\end{center}
+	% ---
+	
+	% 注意事项
+	
+	% 基本
+	\textbf{【实验报告注意事项】}
+	\begin{enumerate}
+		\item 实验报告由三部分组成：
+		\begin{enumerate}
+			\item 预习报告：课前认真研读实验讲义，弄清实验原理；实验所需的仪器设备、用具及其使用、完成课前预习思考题；了解实验需要测量的物理量，并根据要求提前准备实验记录表格（可以参考实验报告模板，可以打印）。\textcolor{red}{\textbf{（25分）}}
+			\item 实验记录：认真、客观记录实验条件、实验过程中的现象以及数据。实验记录请用珠笔或者钢笔书写并签名（\textcolor{red}{\textbf{用铅笔记录的被认为无效}}）。\textcolor{red}{\textbf{保持原始记录，包括写错删除部分，如因误记需要修改记录，必须按规范修改。}}（不得输入电脑打印，但可扫描手记后打印扫描件）；离开前请实验教师检查记录并签名。\textcolor{red}{\textbf{（30分）}}
+			\item 数据处理及分析讨论：处理实验原始数据（学习仪器使用类型的实验除外），对数据的可靠性和合理性进行分析；按规范呈现数据和结果（图、表），包括数据、图表按顺序编号及其引用；分析物理现象（含回答实验思考题，写出问题思考过程，必要时按规范引用数据）；最后得出结论。\textcolor{red}{\textbf{（25分）}}
+		\end{enumerate}
+		\textbf{实验报告就是将预习报告、实验记录、和数据处理与分析合起来，加上本页封面。\textcolor{red}{（80分）}}
+		\item 每次完成实验后的一周内交\textbf{实验报告}（特殊情况不能超过两周）。
+	\end{enumerate}
+	
+	% 安全
+	\textbf{【实验安全注意事项】}	
+	\begin{enumerate}
+		\item 实验中不要用手触摸镜片，以免弄脏镜片；
+		\item 避免直视光源，注意光源表面高温；
+		\item 注意用电安全。		
+	\end{enumerate}
+	
+	% ---
+	
+	% 特别鸣谢
+	\textbf{【特别鸣谢及模板说明】}	
+	
+	感谢2019级学长石寰宇为本实验报告提供\LaTeX 模板。\textcolor{red}{\textbf{由于原实验报告模板缺少实验编号，为方便在电脑上整理，故添加自命名编号Lab2-6}}
+	% ---
+	
+	
+	
+	% 目录
+	\clearpage
+	\tableofcontents
+	\clearpage
+	% ---
+	
+	
+	
+	% 预习报告	
+	
+	% 小标题
+	\setcounter{section}{0}
+	\section{Lab2-6 偏振光实验（The Experiment of Polarized Light） \quad\heiti 预习报告}
+	% ---
+	
+	% 实验目的
+	\subsection{实验目的}
+	\begin{enumerate}
+		\item 理解偏振光的基本概念，了解线偏振光、椭圆偏振光和圆偏振光。
+		\item 分析偏振光产生的三种方法：吸收、反射和散射。
+		\item 了解在各向异性材料介质中光波的传播，学习偏振光通过各向异性介质后，产生的“相位延迟”（$\lambda/ 2$波片和$\lambda/ 4$波片） 。
+		
+	\end{enumerate}
+	% ---
+	
+	% 仪器用具
+	\subsection{仪器用具}
+	\begin{table}[htbp]
+		\centering
+		\renewcommand\arraystretch{1.6}
+		% \setlength{\tabcolsep}{10mm}
+		\begin{tabular}{p{0.05\textwidth}|p{0.20\textwidth}|p{0.05\textwidth}|p{0.5\textwidth}}
+			\hline
+			编号& 仪器用具名称 & 数量 &  主要参数（型号，测量范围，测量精度等） \\
+			\hline
+			1&光功率计 	&1 	& \\
+			
+			2&白光光源 	& 	&  \\
+			
+			3&光学导轨 	&  & \\
+			
+			4&光学测角台& & \\
+			
+			6&偏振片	&3 & \\
+			
+			7&半波片	&1 & \\
+			
+			8&1/4波片	&2 & \\
+			\hline
+		\end{tabular}
+	\end{table}
+	% ---
+	
+	% 原理概述
+	\subsection{原理概述}
+	
+	%
+	\subsubsection{光的偏振}
+	光的偏振是指光波振动方向的一种特定的取向。我们知道，光是一种电磁波，它由互相垂直的电场和磁场振动构成，且这些振动是垂直于光的传播方向。当光波中的电场振动在某一特定平面内时，我们称这种光为偏振光。
+	\begin{enumerate}
+		\item 偏振的数学描述
+		
+		通常，我们可以用电场矢量 $\vec{E}$ 来描述光波，假设光波沿着z方向传播，电场可以表示为：
+		
+		\[
+		\vec{E}(z, t) = \hat{i}E_{0x} \cos(kz - \omega t) + \hat{j}E_{0y} \cos(kz - \omega t + \epsilon) 
+		\]
+		
+		其中，$\epsilon$ 是相位差，定义了光的偏振状态。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Lab2_6Gra1A.jpg}
+			\caption{各偏振状态随相位差的变化示意图}
+			\label{fig:fig1A}
+		\end{figure}
+		
+		\item 线性偏振
+		
+		最常见的偏振类型是线性偏振，其中电场矢量沿一个固定方向振动。此时$\epsilon=0$或$\epsilon=\pi$。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Lab2_6Gra1.png}
+			\caption{线偏振示意图（参考文献[1]）}
+			\label{fig:fig1}
+		\end{figure}
+		
+		\item 圆偏振和椭圆偏振
+		
+		除了线性偏振，光还可以是圆偏振或椭圆偏振。这种情况下，电场矢量的振动描述为两个垂直分量的相位差为 $\pi/2$ （圆偏振）或其他值（椭圆偏振）。数学上，这可以表示为：
+		
+		\[
+		\vec{E}(z, t) = E_{x0} \cos(kz - \omega t) \hat{i} + E_{y0} \sin(kz - \omega t + \delta) \hat{j}
+		\]
+		
+		其中，$\delta$ 是两个分量之间的相位差，$\delta = \pi/2$ 时为圆偏振，而其他值时为椭圆偏振。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Lab2_6Gra2.png}
+			\caption{圆偏振示意图（参考文献[1]）}
+			\label{fig:fig2}
+		\end{figure}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Lab2_6Gra3.png}
+			\caption{椭圆偏振示意图（参考文献[1]）}
+			\label{fig:fig3}
+		\end{figure}
+		
+	\end{enumerate}
+	
+	%
+	\subsubsection{偏振光的产生}
+	\begin{enumerate}
+		\item 偏振片起偏
+		\begin{enumerate}
+			\item 偏振片简介
+			
+			偏振片，也称为偏光片，是一种可以只允许特定偏振方向的光通过的光学元件。当非偏振光通过偏振片时，会变成偏振光，这主要是因为偏振片只允许与其光轴平行的电场分量通过。
+			
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.5\textwidth]{Lab2_6Gra4.jpg}
+				\caption{自然光入射到线起偏器（参考文献[4]）}
+				\label{fig:fig4}
+			\end{figure}
+			
+			\item 二向色性
+			
+			二向色性（Dichroism）是某些材料对不同偏振方向的光具有不同吸收系数的特性。这意味着，偏振片可以吸收垂直于其传输轴的光波的电场分量，而让平行于传输轴的分量通过。这种性质是偏振片起偏作用的基础。
+			
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.2\textwidth]{Lab2_6Gra5.jpg}
+				\caption{Dichroism晶体（参考文献[4]）}
+				\label{fig:fig5}
+			\end{figure}
+			
+			\item 偏振片的微观结构
+			
+			偏振片通常由长的分子链组成，这些分子链在制造过程中通过拉伸得到方向性排列。这些分子链具有高度的取向性，使得电场分量在垂直于链方向的方向上被吸收，而平行方向上的分量则被允许通过。这些分子链充当电场的过滤器。
+			
+			\item Malus定律
+			
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.6\textwidth]{Lab2_6Gra6.jpg}
+				\caption{Malus定律（参考文献[4]）}
+				\label{fig:fig6}
+			\end{figure}
+			
+			Malus定律描述了偏振光通过偏振片后光强的变化，可以数学地表达为：
+			
+			\[
+			I = I_0 \cos^2(\theta)
+			\]
+			
+			其中，\(I\) 是通过偏振片后的光强，\(I_0\) 是入射偏振光的初始光强，而 \(\theta\) 是入射光的偏振方向与偏振片传输轴之间的夹角。当 \(\theta\) 为0度（偏振方向与传输轴平行）时，光强不减；当 \(\theta\) 为90度时，光强减至零。
+		\end{enumerate}
+		
+		偏振片的工作原理基于其二向色性和微观结构，它选择性地吸收和透过特定方向的电场分量。当非偏振光（电场分量均匀分布于所有方向）通过偏振片时，只有与偏振片的传输轴平行的电场分量被允许通过，其他方向的分量则被吸收。这样，原本的非偏振光被转换为偏振光，其偏振方向与偏振片的传输轴一致。
+		
+		\item 反射起偏
+		
+		\begin{enumerate}
+			\item Brewster角
+			
+			Brewster角是指当光从一种介质入射到另一种介质的表面时，反射光完全偏振于入射光的某个特定角度。
+			
+			当光从一种介质（比如空气）入射到另一种介质（比如玻璃）时，Brewster角可以通过以下公式计算：
+			
+			\[
+			\theta_B = \arctan \left(\frac{n_2}{n_1}\right)
+			\]
+			
+			其中，\(\theta_B\) 是Brewster角，\(n_1\) 是第一种介质的折射率（通常为空气，折射率约为1），而\(n_2\) 是第二种介质的折射率（如玻璃）。
+			
+			在Brewster角下，入射光与反射光之间的夹角为90度。这意味着反射光和折射光之间的角度相加为90度，从而根据Snell定律：
+			
+			\[
+			n_1 \sin(\theta_B) = n_2 \sin(\theta_t)
+			\]
+			
+			由于反射光和折射光之间的角度和为90度，我们有 \(\theta_t = 90^\circ - \theta_B\)，因此：
+			
+			\[
+			n_1 \sin(\theta_B) = n_2 \sin(90^\circ - \theta_B) = n_2 \cos(\theta_B)
+			\]
+			
+			\begin{figure}[htbp]
+				\centering
+				\subfloat[]{
+					\includegraphics[width=0.35\textwidth]{Lab2_6Gra7.png}
+				}
+				\subfloat[]{
+					\includegraphics[width=0.5\textwidth]{OptHw1Gra3.png}
+				}
+				\caption{Brewster角与透射率、反射率曲线}
+				\label{fig:fig7}			
+			\end{figure}
+			
+			\item 反射起偏原理
+			
+			当光线以Brewster角入射到介质界面时，反射光将完全偏振，并且偏振方向垂直于入射平面（入射平面由入射光和法线定义）。这是因为在此角度下，电场的垂直分量（对应于p偏振光）不会被反射，只有平行分量（对应于s偏振光）被反射。由于反射光只包含这一个方向的电场分量，因此它是完全偏振的。			
+		\end{enumerate}
+		
+		\item 散射起偏
+		
+		散射起偏是一个重要的光学现象，指的是光在介质中与粒子（如分子、气溶胶或尘埃）发生相互作用时发生偏振。
+		
+		\begin{enumerate}
+			\item 散射的基本理论
+			
+			散射过程中，光波的偏振状态会发生变化，这是因为散射通常与光的电场分量的方向有关。当光波与一个粒子相互作用时，光波会在粒子的周围诱导出振荡的电偶极子，这个电偶极子随后重新辐射出散射光。
+			
+			对于简单的Rayleigh散射（适用于粒径远小于光波长的情况），偏振程度可以通过以下关系来描述：
+			
+			\[
+			I(\theta) = I_0 \left( \frac{1 + \cos^2(\theta)}{2} \right)
+			\]
+			
+			其中 \(I(\theta)\) 是在散射角 \(\theta\) 下观察到的光强，\(\theta\) 是散射光与入射光之间的角度，\(I_0\) 是原始光强。
+			
+			\item 散射起偏的原理
+			
+			\begin{figure}[htbp]
+				\centering
+				\subfloat[]{
+					\includegraphics[width=0.3\textwidth]{Lab2_6Gra8.jpg}
+				}
+				\subfloat[]{
+					\includegraphics[width=0.3\textwidth]{Lab2_6Gra9.jpg}
+				}
+				\subfloat[]{
+					\includegraphics[width=0.3\textwidth]{Lab2_6Gra10.jpg}
+				}
+				\caption{散射起偏原理示意图（参考文献[4]）}
+				\label{fig:fig8}			
+			\end{figure}
+			
+			\begin{enumerate}
+				\item 入射光的电场分量：入射光的电场分量垂直和平行于入射方向。当这些电场分量与介质中的粒子相互作用时，由于粒子的不同几何形状和方向，不同方向的电场分量可能会以不同的效率被散射。
+				
+				\item 电偶极子的振荡：由光波诱导的电偶极子在粒子中振荡，其振荡方向与光波的电场分量方向一致。振荡的电偶极子沿特定方向重新辐射光波，导致光波被散射。
+				
+				\item 散射光的偏振状态：在特定的散射角度，散射光的某些电场分量可能会被优先散射。特别是，当观察角度与入射光的电场方向正交时（例如，在90度角观察），观察到的散射光将主要包含与入射光电场方向正交的分量，因此显示出偏振。
+				
+				\item 偏振方向：通常，在散射角为90度时，散射光的偏振程度最高，此时散射光完全偏振，并且偏振方向垂直于入射光和散射光的平面。
+			\end{enumerate}
+			
+		\end{enumerate}
+		
+		\item 双折射起偏（以Wollaston棱镜为例）
+		
+		沃拉斯顿棱镜通常由两个具有相同折射率但主光轴方向相互垂直的三角形双折射晶体（通常为方解石）粘合而成。晶体的这种排列方式允许它将入射的非偏振光分离成两束偏振光——o光（普通光）和e光（非常光）。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.35\textwidth]{Lab2_6Gra11.jpg}
+			\caption{Wollaston棱镜（参考文献[4]）}
+			\label{fig:fig11}
+		\end{figure}
+		
+		\begin{enumerate}
+			\item 普通光和非常光：普通光（o光）遵循斯涅尔定律，其折射率与光的偏振方向无关。非常光（e光）的折射率则依赖于光的偏振方向及其相对于晶体主光轴的取向。
+			
+			\item 光的分离：当非偏振光进入沃拉斯顿棱镜的第一个方解石晶体时，它被分解为两束偏振光：一束是其电场矢量平行于第一个晶体的主光轴的o光，另一束是电场矢量垂直于主光轴的e光。由于o光和e光具有不同的折射率，它们在通过第一个晶体时路径发生偏离。
+			
+			\item 偏振方向的调整：当这两束偏振光进入第二个晶体时，由于第二个晶体的主光轴与第一个垂直，o光和e光的角色互换。原先的o光变为e光，原先的e光变为o光，这进一步增加了两束光之间的角分离。
+			
+			\item 输出：经过这样的过程，最终从棱镜出射的两束偏振光在空间上分离得更远，使得它们可以被分别检测或利用。			
+		\end{enumerate}
+		
+	\end{enumerate}
+	
+	%
+	\subsubsection{相位延迟器}
+	
+	相位延迟器是一种光学元件，用于改变穿过它的光波的相位，而不显著改变光波的其他属性，如振幅或频率。这种设备在光学实验、通信以及各种光学仪器中扮演着重要角色，尤其在涉及到控制和操作光的偏振状态的应用中。
+	
+	相位延迟器通过增加光波不同分量间的相位差来工作。具体来说，它可以改变穿过它的偏振光的相位关系。例如，在一个偏振光波中，可能需要调整垂直分量和平行分量之间的相位差，以实现特定的偏振状态（如将线性偏振光转变为圆偏振光或椭圆偏振光）。
+	
+	波片是最常见的相位延迟器，它利用双折射材料（如石英或莫尔盐）的性质。这些材料对于垂直方向的光和平行方向的光有不同的折射率，因此不同方向的光波会以不同的速度传播，从而产生相位延迟。波片通常被设计成产生半波长（半波片）或四分之一波长（四分之一波片）的相位差，分别用于实现不同的偏振转换。
+	
+	\begin{enumerate}
+		\item 双折射效应
+		
+		双折射效应是一种特定类型的光学现象，发生在某些各向异性的材料（如晶体）中。在这些材料中，由于其晶体结构的特性，光在穿过时会根据其偏振方向被分裂为两束具有不同折射率的光。这两束光通常被称为普通光（ordinary ray, o-ray）和非常光（extraordinary ray, e-ray）。
+		
+		\begin{enumerate}
+			\item 普通光（o-ray）：在双折射材料中，普通光的偏振方向垂直于主光轴（晶体的一个特殊方向），它遵循普通的斯涅尔定律，并且具有恒定的折射率，不受光的传播方向影响。
+			
+			\item 非常光（e-ray）：与普通光不同，非常光的偏振方向平行或部分平行于主光轴。其折射率取决于光的传播方向和主光轴的相对角度，因此不遵循普通的斯涅尔定律。
+		\end{enumerate}
+		
+		双折射效应可以用以下公式进行描述，其中涉及到普通光和非常光的折射率：
+		
+		\[
+		n_o = \text{常数}
+		\]
+		
+		\[
+		n_e(\theta) = \frac{n_o n_e}{\sqrt{n_o^2 \sin^2(\theta) + n_e^2 \cos^2(\theta)}}
+		\]
+		
+		其中，\(n_o\) 是普通光的折射率，\(n_e\) 是非常光在主光轴方向的折射率，\(\theta\) 是光的传播方向与主光轴之间的夹角。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.35\textwidth]{Lab2_6Gra12.jpg}
+			\caption{双折射效应（参考文献[4]）}
+			\label{fig:fig12}
+		\end{figure}
+		
+		当非偏振光进入双折射材料时，光波会根据电场矢量与材料主光轴的相对方向被分解成两个正交偏振分量。这两个分量分别沿着不同的路径传播，因为它们具有不同的折射率，导致相位差的产生，这个相位差可能导致光波在出射时呈现出复杂的偏振状态。		
+		
+		\item 二分之一波片
+		
+		二分之一波片（或称半波片）是一种特殊的光学元件，它利用双折射材料的性质来改变通过它的偏振光的偏振状态。通过精确控制光在这种材料中的传播，半波片能够引入一个相对于两个正交偏振分量的相位差，这个相位差正好是半个波长（180度）。这种相位差的引入可以用来旋转偏振光的偏振方向。
+		
+		假设有一束线性偏振光通过一个半波片，光的电场可以分解为两个分量，这两个分量分别平行和垂直于半波片的光轴。当这两个分量通过半波片时，由于双折射的效果，它们将经历不同的折射率，从而导致一个相位差。
+		
+		具体来说，半波片引起的相位差 \(\Delta \phi\) 可以表示为：
+		
+		\[
+		\Delta \phi = \frac{2\pi d}{\lambda} (n_e - n_o)
+		\]
+		
+		其中：\(d\) 是半波片的厚度，\(\lambda\) 是光的波长，\(n_e\) 和 \(n_o\) 分别是材料中非常光和普通光的折射率。
+		
+		为了使得半波片达到其功能，我们需要调整其厚度 \(d\)，使得 \(\Delta \phi = \pi\)（相当于180度），这对应于光波的半个波长。当相位差为180度时，通过半波片的线性偏振光的偏振方向将会旋转90度。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.4\textwidth]{Lab2_6Gra13.jpg}
+			\caption{二分之一波片（参考文献[4]）}
+			\label{fig:fig13}
+		\end{figure}
+		
+		设原始偏振光的电场向量为 \(\vec{E}_0\)，假设它与半波片的一个光轴（例如，快轴）成角 \(\theta\)。通过半波片后，偏振方向将旋转至原始方向的正交方向。数学上，可以这样描述这一过程：
+		
+		假设初始电场向量为：
+		\[
+		\vec{E}_0 = E_0 \cos(\theta) \hat{i} + E_0 \sin(\theta) \hat{j}
+		\]
+		
+		经过半波片后，\(\hat{i}\) 方向的分量经历相位延迟，变为：
+		\[
+		E_0 \cos(\theta) \hat{i} e^{i\pi}
+		\]
+		
+		由于 \(e^{i\pi} = -1\)，输出的电场向量将是：
+		\[
+		\vec{E} = -E_0 \cos(\theta) \hat{i} + E_0 \sin(\theta) \hat{j}
+		\]
+		
+		这意味着原来沿 \(\hat{i}\) 方向的分量反向，而 \(\hat{j}\) 方向的分量保持不变，从而导致偏振方向旋转了90度。
+		
+		
+		\item 四分之一波片
+		
+		四分之一波片（或称四分之一波长片，简称$\lambda/4$片）是一种特殊的光学元件，用于将线性偏振光转换成圆偏振光，或反之。与半波片类似，四分之一波片利用双折射材料的性质来引入一个相对于两个正交偏振分量的相位差，不过在这种情况下，相位差正好是四分之一波长（90度）。
+		
+		四分之一波片的工作原理基于其能够为垂直和平行于其光轴的偏振光分量间引入90度的相位差。这种相位差使得线性偏振光转化为圆偏振光，或将圆偏振光转化为线性偏振光，具体取决于光的初始状态和波片的方向。
+		
+		相位差 \(\Delta \phi\) 引入公式为：
+		\[
+		\Delta \phi = \frac{2\pi d}{\lambda} (n_e - n_o)
+		\]
+		其中：\(d\) 是波片的厚度，\(\lambda\) 是光的波长，\(n_e\) 和 \(n_o\) 分别是材料中非常光和普通光的折射率。
+		
+		为了使得四分之一波片起作用，需要调整其厚度 \(d\) 以确保 \(\Delta \phi = \frac{\pi}{2}\) （相当于90度）。这会引起两个正交偏振分量间四分之一波长的相位延迟。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.4\textwidth]{Lab2_6Gra14.jpg}
+			\caption{四分之一波片（参考文献[4]）}
+			\label{fig:fig14}
+		\end{figure}
+		
+		假设初始的线性偏振光沿特定方向进入四分之一波片，可以假设电场矢量 \(\vec{E}_0\) 成角 \(\theta\) 与快轴。通过波片后，其中一个分量（假设是快轴对应的分量）会比另一个分量（慢轴对应的分量）先行一个四分之一波长的相位。
+		
+		电场分量可以表示为：
+		
+		\begin{align*}
+			E_x &= E_0 \cos(\theta) e^{i\omega t} \\
+			E_y &= E_0 \sin(\theta) e^{i(\omega t + \pi/2)}
+		\end{align*}
+		
+		其中 \(E_x\) 和 \(E_y\) 分别是沿快轴和慢轴的电场分量。
+		
+		由于引入了\(\pi/2\)的相位差，这将导致电场矢量旋转，形成圆偏振光。如果初始偏振与快轴和慢轴对齐，则可以得到右旋或左旋圆偏振光，具体取决于相位的领先或落后关系。
+		
+	\end{enumerate}
+	% ---
+	
+	
+	
+	% 实验前思考题
+	\subsection{实验前思考题}
+	
+	% 思考题1
+	\begin{question}
+		什么是Rayleigh散射？
+	\end{question}
+	
+	Rayleigh散射是一种光散射的物理现象，这种散射发生在光波通过含有比光波长小得多的粒子的介质（如气体或透明液体）时。Rayleigh散射对光的颜色（频率或波长）非常敏感，导致较短波长的光（如蓝色）比较长波长的光（如红色）散射得更强烈。这是为什么晴朗天空呈现蓝色以及日落时天空呈现红色的主要原因。
+	
+	\begin{enumerate}
+		\item 基本原理
+		
+		Rayleigh散射可以理解为光波与分子或小粒子相互作用时的弹性散射。这种相互作用不会改变光波的能量（频率保持不变），但会改变光波的传播方向。散射的光强度取决于光的波长以及散射粒子的大小和密度。
+		
+		\item 数学描述
+		
+		Rayleigh散射的光强度 \( I \) 与光的波长 \( \lambda \) 的四次方成反比，这可以用以下公式表示：
+		
+		\[
+		I \propto \frac{1}{\lambda^4}
+		\]
+		
+		这意味着波长较短的光（例如蓝光或紫外光）比波长较长的光（例如红光或红外光）散射得更强。这种依赖关系被称为Rayleigh散射定律。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.4\textwidth]{Lab2_6Gra15.jpg}
+			\caption{Rayleigh散射与波长关系（参考文献[1]）}
+			\label{fig:fig15}
+		\end{figure}
+		
+		详细地，Rayleigh散射的散射强度 \( I \) 可以表示为：
+		
+		\[
+		I = I_0 \frac{8 \pi^3 (n^2 - 1)^2}{3 N \lambda^4} \left( \frac{1 + \cos^2(\theta)}{2} \right)
+		\]
+		
+		其中：\( I_0 \) 是入射光的强度，\( n \) 是介质的折射率，\( N \) 是单位体积中的粒子数，\( \theta \) 是散射角，即观察方向与入射光线方向之间的夹角。
+		
+		\item 散射角的依赖性
+		
+		散射光的强度还依赖于散射角 \( \theta \)，其中 \( \frac{1 + \cos^2(\theta)}{2} \) 这一项表明散射光在向前和向后散射时最强，而在侧向（\( \theta = 90^\circ \)）散射时较弱。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.3\textwidth]{Lab2_6Gra16.jpg}
+			\caption{地球大气的散射（参考文献[4]）}
+			\label{fig:fig16}
+		\end{figure}
+		
+		\item Rayleigh散射不仅解释了天空的颜色变化，还涉及到其他许多现象和应用，比如解释为何远处的山脉呈现蓝色，以及在光学通信中如何影响信号的传输效率。总结来说，Rayleigh散射是一种由光波与小于波长的粒子相互作用引起的散射现象，强度与光的波长成反四次方的关系，这是影响地球大气散射现象的主要物理过程之一。
+	\end{enumerate}
+	
+	% 思考题2
+	\begin{question}
+		举例说明什么是Rayleigh散射。
+	\end{question}
+	Rayleigh散射是一种光散射现象，它发生在光波传播时遇到比其波长小的粒子。这种散射现象对光的波长极为敏感，导致短波长的光（如蓝光）比长波长的光（如红光）更容易被散射。Rayleigh散射可以解释许多自然现象，如天空的颜色和日出日落时的天空颜色变化。
+	
+	\begin{enumerate}
+		\item 天空的蓝色
+		
+		最典型的Rayleigh散射示例是解释为什么晴朗的天空是蓝色的。当阳光进入地球大气层时，它包含了从紫外线到红外线的所有颜色（可见光谱）。大气中的气体分子（如氮和氧）大小远小于可见光的波长，特别适合通过Rayleigh散射影响这些光波。
+		
+		由于Rayleigh散射的强度与光波的波长的四次方成反比（\(I \propto \frac{1}{\lambda^4}\)），因此蓝光（波长较短）比红光（波长较长）散射得更强。这就是为什么在看向天空时，我们主要看到散射的蓝光，而其他长波长的光（如红光、黄光）则继续直线前进，对我们的视线影响较小。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Lab2_6Gra17.jpg}
+			\caption{天空的蓝色与日出和日落的红色（参考文献[1]）}
+			\label{fig:fig17}
+		\end{figure}
+		
+		\item 日出和日落的红色
+		
+		另一个经典的Rayleigh散射现象是日出和日落时天空呈现红色或橙色。在日出和日落时，太阳光必须穿过大气层的更长路径才能到达观察者。这长路径意味着光波通过大气时与更多的空气分子相互作用，从而导致更多的光散射。
+		
+		虽然短波长的蓝光在进入大气层时首先被散射，但随着太阳光穿过更厚的大气层，绝大多数蓝光和绿光都已被散射掉，只留下了长波长的红光和橙光。因此，在日出和日落时，我们看到的是主要由这些长波长光组成的颜色，给天空带来了壮丽的红色和橙色。
+		
+	\end{enumerate}
+	
+	% ---
+	
+	
+	
+	% 实验记录	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\centering
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业： & 物理学 & 年级： & 2022级 \\
+			\hline
+			姓名： & 杨舒云 & 学号： & 22344020\\
+			\hline
+			室温： & 26\degree & 实验地点： & A510 \\
+			\hline
+			学生签名：& 见\textbf{附件} & 评分： &\\
+			\hline
+			实验时间：& 2024/4/18 & 教师签名：&\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-6 偏振光实验（The Experiment of Polarized Light）  \quad\heiti 实验记录}
+	% ---
+	
+	% 实验过程记录
+	\subsection{实验内容、步骤与结果}
+	
+	%
+	\subsubsection{研究交叉线性偏振片}
+	\begin{enumerate}
+		\item 内容与步骤
+		
+		\begin{enumerate}
+			\item 用自准直等快速方法产生准直光束。（实验中使用$f=150mm$的凸透镜获得平行光）
+			\item 放置第一个偏振片（称为$P_1$）并改变透振方向。观察屏幕上的光线强度。 总结白光发出的自然光的性质。
+			
+			\item 放置第二个偏振片（称为$P_2$），旋转$P_2$， 改变透振方向，观察屏幕上光强的变化，发现光两次出现消失的现象，确定消光的位置。 这时两个偏振片透振方向相垂直。同样的，旋转偏振片$P_1$，能得到同样的结果。
+			\item 在消光的位置，将$P_1$轴旋转20°，证明$P_2$轴旋转同样的角度时，消光现象再次出现。
+			\item 在偏振片$P_1$和$P_2$之间放置第3个偏振片$P_3$。先确定$P_3$的透振方向，再转45°的角度，观察并说明现象。
+			\item 拿走偏振片$P_3$，在$P_1$和$P_2$之间插入塑料板或三角尺等透明物体， 观察现象；转动其中任何一个元件，观察现象；给塑料板加力，观察并说明这三个现象的变化。
+			
+		\end{enumerate}
+		
+		\item 数据与结果
+		
+		\begin{enumerate}
+			\item 只放置偏振片$P_1$在光路上时，旋转$P_1$时，观察屏幕上光强\textbf{发现无明显变化}，说明白光光源是\textbf{随机偏振}的（非偏振光）。
+			
+			\item 偏振片$P_1$、$P_2$均放置在光路上时，首先将$\theta_{P1}=0 degree$，旋转$P_2$，观察屏幕上光强的变化，发现光强由亮到暗呈现周期性变化，在$\theta_{P2}=116degree$处出现第一次消光现象，$\theta_{P2}=296degree$时出现第二次消光现象，两个位置之间相差$180degree$。					
+			
+			\item 如\cref{fig:figP1}所示，设置$\theta_{P1}=0 degree$，$\theta_{P2}=296degree$；
+			
+			\begin{figure}[htbp]
+				\centering
+				\subfloat[]{
+					\includegraphics[width=0.2\textwidth]{Lab2_6GraP1.jpg}
+				}
+				\subfloat[]{
+					\includegraphics[width=0.2\textwidth]{Lab2_6GraP2.jpg}
+				}
+				\subfloat[]{
+					\includegraphics[width=0.2\textwidth]{Lab2_6GraP3.jpg}
+				}
+				\caption{实验现象：$\theta_{P1}=0 degree \rightarrow \theta_{P1}=20 degree$，$\theta_{P2}=296 degree \rightarrow \theta_{P2}=316 degree$}
+				\label{fig:figP1}			
+			\end{figure}
+			
+			将P1由$\theta_{P1}=0 degree \rightarrow \theta_{P1}=20 degree$，屏幕上出现光斑；
+			
+			将P2由$\theta_{P2}=296 degree \rightarrow \theta_{P2}=316 degree$，\textbf{再次消光}。
+			
+			\item 首先只放置P1，设置为$\theta_{P1}=0 degree$，测得P3消光位置为$\theta_{P3}=12 degree$，则可知它得透振位置为$\theta_{P3}=102 degree$；
+			
+			\begin{figure}[htbp]
+				\centering
+				\subfloat[]{
+					\includegraphics[width=0.3\textwidth]{Lab2_6GraP4.jpg}
+				}
+				\subfloat[]{
+					\includegraphics[width=0.3\textwidth]{Lab2_6GraP5.jpg}
+				}
+				\caption{实验现象：P3光的消失与重现}
+				\label{fig:figP4}			
+			\end{figure}
+			
+			如\cref{fig:figP4}所示，放置P3于P1和P2之间，设置$\theta_{P1}=0 degree$，$\theta_{P2}=296degree$；放置P3前为消光，放置P3后也消光；
+			
+			将P3旋转45度，$\theta_{P3}=102 degree \rightarrow \theta_{P3}=147 degree$，\textbf{屏幕上重新出现光斑}。
+		\end{enumerate}
+		
+		\item 如\cref{fig:figP6}所示，放置透明三角尺于P1和P2之间，设置$\theta_{P1}=0 degree$，$\theta_{P2}=296degree$；放置前为消光，\textbf{放置后屏幕上重新出现光斑}。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.3\textwidth]{Lab2_6GraP6.jpg}
+			\caption{实验现象：透明板光的消失与重现}
+			\label{fig:figP6}
+		\end{figure}
+		
+	\end{enumerate}	
+	
+	%
+	\subsubsection{验证Malus定律}
+	\begin{enumerate}
+		\item 内容与步骤
+		
+		\begin{enumerate}
+			\item 在准直平行光路上摆放偏振片$P_1$和$P_2$。其中$\theta$为两个透振方向的夹角， $I$为光功率计测量的光强值。其中$I_0$为两个偏振器片透振方向平行时测得的光强度，即$I_0=I(\theta=0)$
+			\item 改变不同的角度（测量大约10个值），并记录对应的光强值。通过绘制合理的曲线图， 验证马吕斯定律。
+			\item 重新开始上述实验。放置红色的滤光片在可变光阑前， 如果需要的话， 可用一个小焦距的聚集透镜，将光束聚焦在光功率计上（如果信号过弱）。
+			\item 放置绿色的滤光片在可变光阑前，重复上述实验内容， 比较并解释结果。
+		\end{enumerate}
+		
+		\item 数据与结果
+		
+		由前一个实验推知，设置$\theta_{P1}=0 degree$，$\theta_{P2}=26degree$时，两个线偏振器透振方向平行。此时测得$I_0=0.832mW$（事实上，这个测量值应当包含了环境光源）。
+		
+		接下来，分别测得白光、绿光以及红光的光强随两个偏振片透振方向夹角变化（设置$\theta_{P1}=0 degree$，$\theta_{P2}$即该夹角）情况如\cref{tab:tab1}、\cref{tab:tab2}和\cref{tab:tab3}所示。
+		
+		\begin{table}[h]
+			\centering
+			\caption{实验数据：验证Malus定律（白光）}
+			\label{tab:tab1}
+			\resizebox{\textwidth}{!}{%
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+				\hline
+				$\theta_{P2}$/degree & 26 & 36 & 46 & 56 & 66 & 76 & 86 & 96 & 106 & 116 & 126 & 136 & 146 & 156 \\
+				\hline
+				$I$/mW & 0.820 & 0.817 & 0.802 & 0.779 & 0.749 & 0.714 & 0.684 & 0.654 & 0.634 & 0.626 & 0.629 & 0.644 & 0.665 & 0.696 \\
+				\hline
+			\end{tabular}
+		}
+		\end{table}
+		
+		\begin{table}[h]
+			\centering
+			\caption{实验数据：验证Malus定律（绿光）}
+			\label{tab:tab2}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+				\hline
+				$\theta_{P2}$/degree & 16 & 26 & 36 & 46 & 56 & 66 & 76 & 86 & 96 & 106 & 116 & 126 & 136 & 146 \\
+				\hline
+				$I/\mu W$ & 2.08 & 2.13 & 2.08 & 2.04 & 1.91 & 1.70 & 1.57 & 1.31 & 1.21 & 1.11 & 1.05 & 1.08 & 1.16 & 1.20 \\
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\begin{table}[h]
+			\centering
+			\caption{实验数据：验证Malus定律（红光）}
+			\label{tab:tab3}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+				\hline
+				$\theta_{P2}$/degree & 16 & 26 & 36 & 46 & 56 & 66 & 76 & 86 & 96 & 106 & 116 & 126 & 136 & 146 \\
+				\hline
+				$I/\mu W$ & 5.84 & 6.04 & 5.91 & 5.55 & 4.99 & 4.23 & 3.47 & 2.73 & 2.03 & 1.58 & 1.37 & 1.46 & 1.84 & 2.44 \\
+				\hline
+			\end{tabular}
+		\end{table}
+		
+	\end{enumerate}	
+	
+	%
+	\subsubsection{玻璃反射起偏和Brewster角的测量}
+	\begin{enumerate}
+		\item 内容与步骤
+		
+		\begin{enumerate}
+			\item 通过旋转偏振片，观察教室的天花板的日光灯管光强的变化，说明日光灯是没有偏振的。
+			\item 通过旋转偏振片，观察日光灯管在桌子上玻璃的反射像， 或者在地面瓷砖上的反射像，说明随着偏振片的旋转， 反射光的强度变化。
+			\item 改变观察者的位置，也就是改变天花板上日光灯管的入射角度，使光通过偏振片的某方向光强为零时，计算出日光灯管的入射角。 验证玻璃的折射率n= 1.5时， Brewster角值大约为56°。
+			证实光的反射规律为：
+			\begin{enumerate}
+				\item 产生部分偏振光。
+				\item 必然产生线性偏振光，因为通过偏振片能消光。
+				\item 线偏振光垂直于入射面(xOz)。
+			\end{enumerate}
+		\end{enumerate}
+		
+		\item 数据与结果
+		
+		\begin{enumerate}
+			\item 通过旋转偏振片，观察教室的天花板的日光灯管光强发现\textbf{亮度无明显变化}，说明日光灯是\textbf{没有偏振}的（随机偏振）。
+			\item 用偏振片观察在地面瓷砖上的反射像，旋转偏振片会发现\textbf{亮度会由亮到暗变化}，说明经过反射后，反射光的平行偏振和垂直偏振的强度不相等（变成了有偏振的光）。
+			\item 通过改变观察位置和偏振片角度，可找到一个\textbf{完全消光}的位置，这个位置对应的入射角即Brewster角。利用红外线测距仪可测量\textbf{观察点到地面像的距离$L=2.665m$}和\textbf{观察点距离地面的高度$H=1.540m$}，可计算出Brewster角。
+			\item 计算得到，$\theta_b=54.70degree$，详见\textbf{数据分析}部分。
+		\end{enumerate}
+		
+	\end{enumerate}	
+	
+	%
+	\subsubsection{光的散射}
+	\begin{enumerate}
+		\item 内容与步骤
+		
+		\begin{enumerate}
+			\item 在准直光束产生的平行光中放置水槽，水槽的面相平行。
+			\item 倒入少许奶粉（不溢出） 。
+			\item 用偏振片观察在(Ox)横向方向的散射光。通过水中倒入的少许粉末的作用，可观察到，在光传播垂直方向上，光（部分地） 在垂直方向(Oy)是线性偏振光。
+		\end{enumerate}
+		
+		
+		\item 数据与结果
+		
+		\begin{enumerate}
+			\item 从侧面用偏振片观察水箱，发现亮度降低，旋转偏光片后，发现亮度会由亮到暗的变化。说明经过水箱中的奶粉散射到\textbf{侧面}后，\textbf{原来的随机偏振光（无偏振）变成了线偏振光}。
+			\item 从正面用偏振片观察水箱，旋转偏光片发现亮度无明显变化，说明正面的出射光仍然是\textbf{随机偏振光}（无偏振光）。
+		\end{enumerate}
+		
+	\end{enumerate}	
+	
+	%
+	\subsubsection{分析二分之一波片特性}
+	\begin{enumerate}
+		\item 内容与步骤
+		
+		\begin{enumerate}
+			\item 将偏振片$P_1$和$P_2$放置约20厘米的距离，旋转偏振片找到消光位置。然后将$\lambda/2$波片放在两个偏振片之间：观看屏幕，旋转半波片，直到消光重新出现。证明这时有两个相互垂直方向出现消光现象。 这时，$\lambda/2$波片的o轴或e轴方向与偏振片$P_1$的偏振方向平行， 确定对应的位置。
+			\item 旋转偏振片$P_1$ 20度。通过旋转偏振片$P_2$，重新出现消光现象。记录偏振片$P_2$的位置。证实通过$\lambda/2$半波片的作用，线性偏振光可产生对称o轴或e轴方向的线偏振光。
+		\end{enumerate}
+		
+		\item 数据与结果
+		
+		\begin{enumerate}
+			\item 如\cref{fig:figP7}所示，不放置$\lambda/2$波片，只放置两个线偏振片时，可以在$\theta_{P1}=0 degree,\theta_{P2}=117 degree$（P2做逆时针旋转）观察到消光现象。
+			
+			\begin{figure}[htbp]
+				\centering
+				\subfloat[]{
+					\includegraphics[width=0.2\textwidth]{Lab2_6GraP7.jpg}
+				}
+				\subfloat[]{
+					\includegraphics[width=0.2\textwidth]{Lab2_6GraP8.jpg}
+				}
+				\subfloat[]{
+					\includegraphics[width=0.2\textwidth]{Lab2_6GraP9.jpg}
+				}
+				\caption{实验现象：$\lambda/2$波片光的消失与重现}
+				\label{fig:figP7}			
+			\end{figure}
+			
+			\item 在P1与P2之间插入$\lambda/2$波片，发现\textbf{屏幕上有光斑出现}，保持两个偏振片角度不变，旋转$\lambda/2$波片，可以在$\theta^{(WP)}_{\lambda/2}=0 degree$逆时针旋转至$\theta^{(WP)}_{\lambda/2}=345 degree$时再次观察到消光现象。
+			
+			\item 在$\theta^{(WP)}_{\lambda/2}=345 degree$时消光的基础上，将波片再逆时针旋转90度，旋转过程中屏幕上有光斑出现，发现在$\theta^{(WP)}_{\lambda/2}=255 degree$时又出现了消光现象，这验证了有两个垂直方向的消光现象。
+			
+			\item P1逆时针旋转20度后，发现\textbf{屏幕上有光斑出现}，保持$\lambda/2$波片角度不变，旋转P2，在P2由$\theta_{P2}=117 degree$逆时针旋转140度后$\theta_{P2}=257 degree$\textbf{再次出现消光}，说明线偏振光经过$\lambda/2$波片后，\textbf{相对o轴或e轴对称了}（详见\textbf{数据分析}部分）。
+		\end{enumerate}
+		
+	\end{enumerate}	
+	
+	%
+	\subsubsection{分析四分之一波片特性}
+	\begin{enumerate}
+		\item 内容与步骤
+		
+		\begin{enumerate}
+			\item 确定两个偏振片的消光位置。
+			\item 将$\lambda/4$波片放置在两个偏振片之间，观察屏幕。旋转$\lambda/4$波片，直到消光重新出现， 确定$\lambda/4$波片对应的位置。说明这时有两个相互垂直方向出现消光现象。证明此时$\lambda/4$波片的o轴或e轴方向与偏振片P1的偏振方向平行。
+		\end{enumerate}
+		
+		\item 数据与结果
+		
+		\begin{enumerate}
+			\item 如\cref{fig:figP10}所示，不放置$\lambda/2$波片，只放置两个线偏振片时，可以在$\theta_{P1}=0 degree,\theta_{P2}=118 degree$（P2做逆时针旋转）观察到消光现象。
+			
+			\begin{figure}[htbp]
+				\centering
+				\subfloat[]{
+					\includegraphics[width=0.3\textwidth]{Lab2_6GraP10.jpg}
+				}
+				\subfloat[]{
+					\includegraphics[width=0.3\textwidth]{Lab2_6GraP11.jpg}
+				}
+				\caption{实验现象：$\lambda/4$波片光的消失与重现}
+				\label{fig:figP10}			
+			\end{figure}
+			
+			\item 在P1与P2之间插入$\lambda/4$波片，发现\textbf{屏幕上有光斑出现}，保持两个偏振片角度不变，旋转$\lambda/2$波片，可以在$\theta^{(WP)}_{\lambda/4}=0 degree$\textbf{顺时针}旋转至$\theta^{(WP)}_{\lambda/4}=7 degree$时再次观察到消光现象。
+			
+			\item 在$\theta^{(WP)}_{\lambda/4}=7 degree$时消光的基础上，将波片再顺时针旋转90度，旋转过程中屏幕上有光斑出现，发现在$\theta^{(WP)}_{\lambda/4}=97 degree$时又出现了消光现象，这验证了有两个垂直方向的消光现象，证明此时$\lambda/4$波片的o轴或e轴方向与偏振片P1的偏振方向平行。
+		\end{enumerate}
+		
+	\end{enumerate}	
+	
+	%
+	\subsubsection{分析两个四分之一波片特性}
+	\begin{enumerate}
+		\item 内容与步骤
+		
+		\begin{enumerate}
+			\item 确定两个偏振片的消光位置
+			\item 放置第一个$\lambda/4$波片，重现消光现象。 记录消光位置。
+			\item 再放入第二个$\lambda/4$波片， 出现消光时，记录消光的位置。说明这时两个$\lambda/4$波片的o轴或e轴相平行。
+			\item 旋转$P_1$偏振片20°，标识旋转的方向。 然后旋转偏振片$P_2$重新达到消光，记录偏振片$P_2$的位置。说明此时两个$\lambda/4$波片的关系（即是两个波片的快慢轴一致？还是一个波片的快轴与另一个波片的慢轴重合？）。
+			\item 旋转其中一个$\lambda/4$波片90度，再旋转偏振$P_2$重新达到消光，记录偏振片$P_2$的位置。说明此时两个$\lambda/4$波片的关系。
+		\end{enumerate}		
+		
+		\item 数据与结果
+		
+		\begin{enumerate}
+			\item  不放置$\lambda/4$波片，只放置两个线偏振片时，可以在$\theta_{P1}=0 degree$，$\theta_{P2}=118 degree$（P2做逆时针旋转）观察到消光现象。
+			
+			\item 在P1与P2放置第一个四分之一波片，它在由0度顺时针旋转97度处出现了消光现象。
+			
+			\item 然后在P1与P2之间又放置第二个波片，它在由0度顺时针旋转53度处出现了消光现象。
+			
+			\item 然后我将P1逆时针旋转了20度，在P2也逆时针旋转了20度后（此时$\theta_{P2}=136 degree$）后又出现了消光现象，但是，我将P2逆时针旋转160度后并不会再出现消光现象，这说明\textbf{一个波片的快轴与另一个波片的慢轴重合}。
+			
+			\item 将第二个波片顺时针旋转90度，由53度变为143度，此时，将P2旋转至258度处时发生了消光现象，这\textbf{与放置$\lambda/2$波片时的情形相同}，这说明\textbf{两个波片的快慢轴一致}（说明详见数据分析部分）。
+		\end{enumerate}
+		
+	\end{enumerate}	
+	
+	%
+	\subsubsection{研究椭圆偏振光和圆偏振光}
+	\begin{enumerate}
+		\item 内容与步骤
+		
+		\begin{enumerate}
+			\item 确定两个偏振片的消光位置
+			\item 放置1个$\lambda/4$波片，重现消光现象。旋转$P_1$偏振器片45度，标识旋转方向。旋转偏光片$P_2$，观察屏幕上的光强变化,加以说明。
+			\item 再旋转$P_1$偏振片的角度10度， 旋转$P_2$偏光片，观察屏幕上光强的变化。加以说明。
+			
+		\end{enumerate}
+		
+		\item 数据与结果
+		
+		\begin{enumerate}
+			\item 不放置$\lambda/4$波片，只放置两个线偏振片时，可以在$\theta_{P1}=0 degree$，$\theta_{P2}=118 degree$（P2做逆时针旋转）观察到消光现象。
+			
+			\item 在P1与P2放置第一个四分之一波片，它在由0度顺时针旋转97度处出现了消光现象。
+			
+			\item 在将P1旋转45度，此时旋转P2，肉眼可以观察到屏幕上光强没有明显变化。
+			
+			\item 将P1逆时针旋转10度到55度，采用光度计来判断屏幕上的光强变化，如\cref{tab:tab4}所示。
+			
+			\begin{table}[h]
+				\centering
+				\caption{实验数据：椭圆偏振}
+				\label{tab:tab4}
+				\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+					\hline
+					$\theta_{P2}$/degree & 0 & 20 & 40 & 60 & 80 & 100 & 120 & 140 & 160 & 180 & 200 \\
+					\hline
+					$I/\mu W$ & 0.406 & 0.361 & 0.403 & 0.531 & 0.664 & 0.76 & 0.752 & 0.659 & 0.538 & 0.432 & 0.382 \\
+					\hline
+				\end{tabular}
+			\end{table}
+			
+			可发现发现光强由亮到暗呈现周期性变化，但不会出现消光现象。
+			
+		\end{enumerate}
+		
+	\end{enumerate}	
+	
+	% ---
+	
+	% 原始数据
+	\clearpage
+	\subsection{原始数据记录}
+	实验记录本上的原始数据见\cref{fig:figA1}、\cref{fig:figA2}、\cref{fig:figA3}和\cref{fig:figA4}（签字）。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Lab2_6GraA1.jpg}
+		\caption{原始数据1}
+		\label{fig:figA1}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Lab2_6GraA2.jpg}
+		\caption{原始数据2}
+		\label{fig:figA2}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_6GraA3.jpg}
+		\caption{原始数据3}
+		\label{fig:figA3}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_6GraA4.jpg}
+		\caption{原始数据4}
+		\label{fig:figA4}
+	\end{figure}
+	
+	实验台桌面整理见\textbf{附件}部分(\cref{fig:figA5})。
+	
+	预习报告签字见\textbf{附件}部分(\cref{fig:figA6})
+	
+	%其它原始数据见%\cref{}。
+	% ---
+	
+	% 问题记录
+	%\subsection{实验过程中遇到的问题记录}
+	
+	% ---
+	
+	
+	
+	% 分析与讨论	
+	\clearpage
+	
+	% 顶栏
+	\begin{table}
+		\renewcommand\arraystretch{1.7}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|}
+			\hline
+			专业：& 物理学 &年级：& 2022级\\
+			\hline
+			姓名： & 杨舒云 & 学号：& 22344020\\
+			\hline
+			日期：& 2024/4/24 & 评分： &\\
+			\hline
+		\end{tabularx}
+	\end{table}
+	% ---
+	
+	% 小标题
+	\section{Lab2-6 偏振光实验（The Experiment of Polarized Light） \quad\heiti 分析与讨论}
+	% ---
+	
+	% 数据处理
+	\subsection{实验数据分析}
+	
+	%
+	\subsubsection{线性偏振片理论预期与实验结果}
+	\begin{enumerate}
+		\item 理论预期如\cref{fig:figAA1}所示。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Lab2_6GraAA1.png}
+			\caption{线性偏振片理论预期}
+			\label{fig:figAA1}
+		\end{figure}
+		
+		\item 对比实验结果可知，理论预期与实验结果符合程度较好。
+	\end{enumerate}
+	
+	%
+	\subsubsection{验证Malus定律}
+	由马吕斯定律出发，使用公式$I(\theta)=I_0\cos^2(\theta+\phi_0)+C$，对实验所测数据进行拟合。由拟合结果可知，光强确实满足马吕斯定律$I(\theta)=I_0\cos^2(\theta+\phi_0)+C$。且红光光强大于绿光光强。
+	\begin{enumerate}
+		\item 白光
+		
+		拟合参数：i0 = 0.1986477201812851, bias = 0.6256282632547588
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.45\textwidth]{Lab2_6GraAA2.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.45\textwidth]{Lab2_6GraAA5.png}
+			}
+			\caption{数据分析：验证Malus定律（白光）}
+			\label{fig:figAA2}			
+		\end{figure}	
+		
+		\item 绿光
+		
+		拟合参数：i0 = 1.0890424521347843, bias = 1.0473521205548948
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.45\textwidth]{Lab2_6GraAA3.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.45\textwidth]{Lab2_6GraAA6.png}
+			}
+			\caption{数据分析：验证Malus定律（绿光）}
+			\label{fig:figAA3}			
+		\end{figure}
+		
+		\item 红光
+		
+		拟合参数：i0 = 4.641715307097744, bias = 1.3928407167018442
+		
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[]{
+				\includegraphics[width=0.45\textwidth]{Lab2_6GraAA4.jpg}
+			}
+			\subfloat[]{
+				\includegraphics[width=0.45\textwidth]{Lab2_6GraAA7.png}
+			}
+			\caption{数据分析：验证Malus定律（红光）}
+			\label{fig:figAA4}			
+		\end{figure}
+		
+	\end{enumerate}
+	
+	%
+	\subsubsection{计算Brewster角}
+	如\cref{fig:figAA8}所示，计算得到：
+	
+	\[
+	\theta_b=\arccos(\frac{H}{L})=\frac{1.540}{2.665}=54.70 degree
+	\]
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Lab2_6GraAA8.png}
+		\caption{数据分析：计算Brewster角}
+		\label{fig:figAA8}
+	\end{figure}
+	
+	若取地面瓷砖的折射率为$n=1.5$，则理论值大约为$56 degree$，相对误差为$\eta==-2.32\%$。
+	
+	%
+	\subsubsection{波片理论预期与实验结果}
+	\begin{enumerate}
+		\item 如\cref{fig:figAA9}所示，可知实验结果与理论预期相符合，线偏振光经过$\lambda/2$波片后，\textbf{相对0轴或e轴对称了}。
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Lab2_6GraAA9.png}
+			\caption{半波片对称理论预期}
+			\label{fig:figAA9}
+		\end{figure}
+		
+		\item 关于两个四分之一波片
+		
+		波片的位置关系为“\textbf{一个快轴和另一个慢轴重合}”，\textbf{两个$\lambda/4$波片的相移抵消了}。
+		
+		两个$\lambda/4$波片的位置关系为“\textbf{两个快轴重合}”，两个$\lambda/4$波片的相移叠加后，等效为一个\textbf{$\lambda/2$波片}。
+		
+	\end{enumerate}
+	
+	%
+	\subsubsection{椭圆偏振光和圆偏振光光强性质}
+	
+	\begin{enumerate}
+		\item 线偏振光以$45 degree$通过$\lambda/4$波片会变成\textbf{圆偏振光}，而圆偏振光对于线偏振片是各向同性的，所以经过P2偏振片后的光强与P2的角度无关，保持不变。
+		
+		\item 因为此时经过P1的线偏振光与$\lambda/4$波片的光轴不是$45 degree$而是$55 degree$，经过$\lambda/4$波片的光为\textbf{椭圆偏振光}，再次经过线偏振片后的光强与角度有关。
+	\end{enumerate}
+	
+	% ---
+	
+	% 实验后思考题
+	\subsection{实验后思考题}
+	
+	%思考题1
+	\begin{question}
+		通过实验现象，证实光的反射规律为：产生部分偏振光；必然产生线性偏振光。
+	\end{question}
+	\begin{itemize}
+		\item \textbf{部分偏振光的产生：} 通过第二项观察，在地面瓷砖上的反射像会发现亮度由亮到暗变化，这表明经过反射后，反射光的平行分量和垂直分量的强度不相等，即部分偏振光的产生。
+		
+		\item \textbf{线性偏振光的必然产生：} 通过第三项实验，找到一个完全消光的位置，这个位置对应的入射角即Brewster角。由于只有与入射面垂直的分量能够通过，因此只有在特定角度下（Brewster角），反射光的垂直分量与偏振片的振动方向垂直，才能使光通过偏振片完全消光。这证实了必然产生线性偏振光的规律。
+		
+		\item \textbf{线偏振光垂直于入射面：} 通过实验观察，在布儒斯特角下，线偏振光的确垂直于入射面，这与偏振片的工作原理相符。
+	\end{itemize}
+	
+	
+	% 思考题2
+	\begin{question}
+		说明用偏振片观察通过水中倒入的少许粉末后的现象产生的原因。
+	\end{question}
+	使用偏振片观察通过水中倒入的少许粉末产生的现象，通常会看到一些光学效应，如光的散射和偏振。其中一个可能的解释是Rayleigh散射。以下是详细说明这个过程的原因：
+	
+	\begin{enumerate}
+		\item \textbf{Rayleigh散射基本原理：}
+		
+		事实上，Rayleigh散射的详细原理已经在\textbf{原理概述}部分做了详细介绍，以下给出简单总结。
+		
+		如\cref{fig:fig8}所示，Rayleigh散射是一种光散射现象，主要发生在光波遇到比其波长小的粒子时。当白光（如阳光）通过大气或其他透明介质（如水）时，光中的短波长成分（如蓝光）会被这些小粒子更强烈地散射。这种散射是非常方向性的，意味着散射光主要向前和向后散射。
+		
+		\item \textbf{粉末在水中的作用：}
+		当你向水中加入少许粉末时，这些微小的粉末粒子会成为散射中心。粉末的粒径如果小于或接近光的波长，就会引起Rayleigh散射。这些粒子会使得进入水中的光发生散射，散射的光波主要是较短的波长，如蓝色和紫色光，如\cref{fig:fig15}所示。
+		
+		\item \textbf{偏振片的作用：}
+		偏振片能够过滤掉特定方向振动的光波，只允许某一特定方向的光波通过。当通过偏振片观察这些散射光时，你会注意到光的强度和颜色可能会因为偏振片的旋转而变化。这是因为散射光的偏振方向和偏振片的方向有关。当偏振片的方向与散射光的偏振方向一致时，光线可以通过；当偏振片的方向垂直于散射光的偏振方向时，光线被阻挡。
+		
+		\item \textbf{观察现象：}
+		在实验中，随着偏振片的旋转，观察者可能会看到从几乎完全透明到明亮的颜色变化，这取决于偏振片的角度和光的散射方向。特别是，水中的粉末会增加光的散射效果，使得这种现象更加明显。
+	\end{enumerate}
+	
+	
+	% 思考题3
+	\begin{question}
+		请说明3D眼镜和3D电影的原理。
+	\end{question}
+	3D眼镜和3D电影的技术是通过模拟人类的立体视觉来创造出深度感的影像体验。这种技术基于人类的视觉系统能够通过解析来自两只眼睛看到的略有差异的图像来感知深度的原理。以下是3D眼镜和3D电影工作原理的详细说明：
+	
+	\begin{enumerate}
+		\item \textbf{人类的立体视觉：}
+		人类的每只眼睛从略微不同的角度看世界，因此每只眼睛接收到的图像都有细微的差别。大脑处理这两幅图像的差异，从而感知深度和立体空间。这种现象被称为双眼视差。
+		
+		\item \textbf{3D电影的制作：}
+		在制作3D电影时，通常使用两个相机从略微不同的角度同时拍摄同一场景，模拟人的双眼。这两个角度分别对应观众的左眼和右眼看到的视角，从而在观众看电影时能重现场景的深度感。
+		
+		\item \textbf{3D眼镜的功能：}
+		3D眼镜的主要作用是确保左眼和右眼分别只能看到为它们各自拍摄的图像。常见的3D眼镜技术有两种类型：
+		\begin{itemize}
+			\item \textbf{偏振3D眼镜：} 这种眼镜使用偏振光技术。电影放映时，左右眼的图像通过不同的偏振方式投射（通常一个是水平偏振，另一个是垂直偏振）。偏振3D眼镜中的左右镜片也分别具有水平和垂直的偏振特性，确保每只眼睛只看到相对应的图像。
+			
+			\item \textbf{快门3D眼镜：} 这种技术较为现代，使用电子方式来同步眼镜和电影放映。左右眼的图像交替快速显示在屏幕上，而快门眼镜则通过同步开闭，使得每只眼睛在对应的图像显示时才透明，从而分别接收到为其设计的图像。
+		\end{itemize}
+		
+		\item \textbf{3D电影的观看体验：}
+		当观众戴上3D眼镜观看电影时，由于每只眼睛只看到为其拍摄的特定图像，大脑就能将这两幅图像合成为一幅具有深度感的立体图像。这样，观众就能感受到物体之间的距离和立体空间，使得电影体验更加生动和真实。
+	\end{enumerate}	
+	
+	% ---
+	
+	
+	% 结语部分
+	\clearpage
+	
+	% 小标题
+	\section{Lab2-6 偏振光实验（The Experiment of Polarized Light） \quad\heiti 结语}
+	% ---
+	
+	% 总结、杂谈与致谢
+	\subsection{总结、杂谈与致谢}
+	\begin{enumerate}
+		\item 感谢老师能阅读这篇还有很多不足的实验报告，希望老师能指出做得不好的地方；祝老师身体健康、生活幸福、工作顺利！
+	\end{enumerate}
+	% ---
+	
+	% 参考文献
+	\subsection{参考文献}
+	[1] 维基百科 https://zh.wikipedia.org
+	
+	[2] 沈韩.基础物理实验.——北京：科学出版社，2015.2 ISBN：978-7-03-043311-4
+	
+	[3] 《中法核物理实验 II 讲义（Malek KIOUS 林少鹏 马德才 穆翠玲主编）》中“偏振光实验”
+	
+	% ---
+	
+	% 附件
+	\subsection{附件}
+	实验台桌面整理如\cref{fig:figA5}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Lab2_6GraA5.jpg}
+		\caption{实验台桌面整理}
+		\label{fig:figA5}
+	\end{figure}
+	
+	预习报告签字如\cref{fig:figA6}所示。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Lab2_6GraA6.png}
+		\caption{预习报告签字}
+		\label{fig:figA6}
+	\end{figure}
+	
+	实验报告个人签名如\cref{fig:name}。
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.7\textwidth]{name.png}
+		\caption{个人签名}
+		\label{fig:name}
+	\end{figure}
+	
+	% ---
+	
+	相关代码已上传至Github。
+	
+	
+	
+\end{document}
